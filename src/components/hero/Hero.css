@@ -1,0 +1,9 @@
+.hero-container {
+  background: url('../../../public/images/img-home.jpg');
+  height: calc(100vh - 7rem);
+  width: 100%;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+  background-position: 0%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
