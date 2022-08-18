@@ -26,8 +26,8 @@
   display: grid;
   grid-area: middle-nav;
   justify-content: end;
-  grid-template-areas: 'link link link';
-  grid-template-columns: 8rem 8rem 8rem;
+  grid-template-areas: 'link link link link';
+  grid-template-columns: 8rem 8rem 8rem 8rem;
   padding-bottom: 0.4rem;
 }
 
@@ -70,6 +70,7 @@
 
 .drop-down {
   position: relative;
+  z-index: 10;
 }
 
 .navbar-menu-wrapper {
