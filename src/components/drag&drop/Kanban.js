@@ -1,34 +1,35 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Kanban.css';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import { v4 as uuidv4 } from 'uuid';
+const axios = require('axios');
 
-const itemsFromBackend = [
-  { id: uuidv4(), content: 'First task' },
-  { id: uuidv4(), content: 'Second task' },
-  { id: uuidv4(), content: 'Third task' },
-  { id: uuidv4(), content: 'Fourth task' },
-  { id: uuidv4(), content: 'Fifth task' },
-];
+// const itemsFromBackend = [
+//   { id: uuidv4(), content: 'First task' },
+//   { id: uuidv4(), content: 'Second task' },
+//   { id: uuidv4(), content: 'Third task' },
+//   { id: uuidv4(), content: 'Fourth task' },
+//   { id: uuidv4(), content: 'Fifth task' },
+// ];
 
-const columnsFromBackend = {
-  [uuidv4()]: {
-    name: 'Requested',
-    items: [],
-  },
-  [uuidv4()]: {
-    name: 'To do',
-    items: [],
-  },
-  [uuidv4()]: {
-    name: 'In Progress',
-    items: itemsFromBackend,
-  },
-  [uuidv4()]: {
-    name: 'Done',
-    items: [],
-  },
-};
+// const columnsFromBackend = {
+//   [uuidv4()]: {
+//     name: 'Requested',
+//     items: [],
+//   },
+//   [uuidv4()]: {
+//     name: 'To do',
+//     items: [],
+//   },
+//   [uuidv4()]: {
+//     name: 'In Progress',
+//     items: itemsFromBackend,
+//   },
+//   [uuidv4()]: {
+//     name: 'Done',
+//     items: [],
+//   },
+// };
 
 const onDragEnd = (result, columns, setColumns) => {
   const { source, destination } = result;
@@ -75,7 +76,29 @@ const onDragEnd = (result, columns, setColumns) => {
 };
 
 const Kanban = () => {
-  const [columns, setColumns] = useState(columnsFromBackend);
+  const [columns, setColumns] = useState({});
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8000/position`)
+      .then(function (response) {
+        setColumns(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, []);
+
+  useEffect(() => {
+    axios
+      .post(`http://localhost:8000/position`, columns)
+      .then(function (response) {
+        return;
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, [columns]);
 
   return (
     <div className='kanban-wrapper'>

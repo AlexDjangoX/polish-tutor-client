@@ -25,6 +25,11 @@ const NavbarLargeScreen = ({ screenWidth }) => {
           </Link>
         </li>
         <li className='navbar-list-item'>
+          <Link to='/profile' className='navbar-link'>
+            Profile
+          </Link>
+        </li>
+        <li className='navbar-list-item'>
           <Link to='/contact' className='navbar-link'>
             Contact
           </Link>

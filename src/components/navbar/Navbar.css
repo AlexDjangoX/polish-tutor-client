@@ -27,7 +27,7 @@
   grid-area: middle-nav;
   justify-content: end;
   grid-template-areas: 'link link link link';
-  grid-template-columns: 8rem 8rem 8rem 8rem;
+  grid-template-columns: repeat(5, 8rem);
   padding-bottom: 0.4rem;
 }
 

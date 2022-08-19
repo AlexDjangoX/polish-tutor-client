@@ -38,6 +38,15 @@ const NavbarMobileScreen = ({ screenWidth, closeMobileMenu }) => {
               </li>
               <li className='navbar-menu-item'>
                 <Link
+                  to='/profile'
+                  className='navbar-menu-link'
+                  onClick={closeMobileMenu}
+                >
+                  Profile
+                </Link>
+              </li>
+              <li className='navbar-menu-item'>
+                <Link
                   to='/contact'
                   className='navbar-menu-link'
                   onClick={closeMobileMenu}
