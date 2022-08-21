@@ -1,42 +1,42 @@
 {
   "position": {
-    "e666b42c-ed65-47f9-9bad-e9fc3a178b09": {
+    "columnOne": {
       "name": "Requested",
       "items": [
         {
-          "id": "ed541a41-ae7e-4430-bdd6-5d09600e1007",
-          "content": "Third task"
-        }
-      ]
-    },
-    "fc41ddfa-f243-476a-b455-f62a5e2b93dc": {
-      "name": "To do",
-      "items": [
-        {
-          "id": "e157e0d7-0670-4b8e-b4c4-8521329cfe7d",
-          "content": "Second task"
+          "id": "73f98c0a-162b-4213-b04a-d5f921c98626",
+          "content": "Fourth task"
         },
         {
-          "id": "c2d1fdba-4ba3-4cec-88e1-b01a3e25eac8",
+          "id": "6a427bdf-0ca7-4a65-9f71-8f9330ced962",
           "content": "Fifth task"
         }
       ]
     },
-    "96d12d74-7fe3-40fe-9ff4-c0748f33199d": {
-      "name": "In Progress",
+    "columnTwo": {
+      "name": "To do",
       "items": [
         {
-          "id": "f7fda911-da08-45ad-9296-2d50279aaf61",
-          "content": "First task"
+          "id": "106c3905-9f15-4ea7-ae1e-de9ee0076fc6",
+          "content": "Third task"
         }
       ]
     },
-    "0c521802-88e1-4efd-9219-9290b77ceccf": {
+    "columnThree": {
+      "name": "In Progress",
+      "items": [
+        {
+          "id": "2eb1c23e-40ca-4a3d-9673-a8adf65aa0e9",
+          "content": "Second task"
+        }
+      ]
+    },
+    "columnFour": {
       "name": "Done",
       "items": [
         {
-          "id": "bab5c853-62f7-45e5-adee-d021e5171310",
-          "content": "Fourth task"
+          "id": "847e5470-4949-4f10-8c8f-c9be28e6d2a4",
+          "content": "First task"
         }
       ]
     }
