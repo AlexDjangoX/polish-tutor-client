@@ -4,8 +4,23 @@ td {
   border: 1px solid;
   text-align: center;
   padding: 2px;
+  border-collapse: collapse;
 }
 
 th {
   color: rgb(34, 34, 34);
+}
+
+td {
+  padding: 6px;
+}
+
+tbody tr:nth-of-type(even) {
+  background-color: #606060;
+}
+
+.card-image {
+  height: 10.9rem;
+  width: auto;
+  padding: 0.8rem;
 }

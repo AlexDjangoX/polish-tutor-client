@@ -56,89 +56,6 @@ const Kanban = () => {
 
   const [flipCard, setFlipCard] = useState(false);
 
-  // let data = {
-  //   category: {
-  //     color: '#ff2233',
-  //     tag: 'Biernik',
-  //   },
-  //   word: 'Tworzyć',
-  //   present: {
-  //     ja: 'tworzę',
-  //     ty: 'tworzysz',
-  //     on_ona_ono: 'tworzy',
-  //     my: 'tworzymy',
-  //     wy: 'tworzycie',
-  //     oni_one: 'tworzą',
-  //   },
-  //   past: {
-  //     ja_masc: 'tworzyłem',
-  //     ja_fem: 'tworzyłam',
-  //     ty_masc: 'tworzyłeś',
-  //     ty_fem: 'tworzyłaś',
-  //     on: 'tworzył',
-  //     ona: 'tworzyła',
-  //     ono: 'tworzyło',
-  //     my_masc: 'tworzyliśmy',
-  //     my_fem: 'tworzyłyśmy',
-  //     wy_masc: 'tworzyliście',
-  //     wy_fem: 'tworzyłyście',
-  //     oni: 'tworzyli',
-  //     one: 'tworzyły',
-  //   },
-
-  //   link: {
-  //     url: 'url',
-  //     text: 'Image link',
-  //   },
-  // };
-
-  let data = {
-    position: {
-      columnOne: {
-        name: 'Requested',
-        items: [
-          {
-            id: '73f98c0a-162b-4213-b04a-d5f921c98626',
-            content: {
-              category: {
-                color: '#ff2233',
-                tag: 'Biernik',
-              },
-              word: 'Tworzyć',
-              present: {
-                ja: 'tworzę',
-                ty: 'tworzysz',
-                on_ona_ono: 'tworzy',
-                my: 'tworzymy',
-                wy: 'tworzycie',
-                oni_one: 'tworzą',
-              },
-              past: {
-                ja_masc: 'tworzyłem',
-                ja_fem: 'tworzyłam',
-                ty_masc: 'tworzyłeś',
-                ty_fem: 'tworzyłaś',
-                on: 'tworzył',
-                ona: 'tworzyła',
-                ono: 'tworzyło',
-                my_masc: 'tworzyliśmy',
-                my_fem: 'tworzyłyśmy',
-                wy_masc: 'tworzyliście',
-                wy_fem: 'tworzyłyście',
-                oni: 'tworzyli',
-                one: 'tworzyły',
-              },
-              link: {
-                url: 'url',
-                text: 'Image link',
-              },
-            },
-          },
-        ],
-      },
-    },
-  };
-
   useEffect(() => {
     axios
       .get(`http://localhost:8000/position`)
@@ -210,40 +127,27 @@ const Kanban = () => {
                                         ...provided.draggableProps.style,
                                       }}
                                     >
-                                      <div className='card-item'>
-                                        <div className='card-item-content'>
-                                          <span
-                                            className='card-item-tag'
-                                            style={{
-                                              background:
-                                                item.content.category.color,
-                                            }}
-                                          >
-                                            {item.content.category.tag}
-                                          </span>
-                                          <p>{item.content.word}</p>
-                                          <KanbanTable
-                                            item={item}
-                                            flipCard={flipCard}
-                                          />
+                                      <div className='card-item-content'>
+                                        <span
+                                          className='card-item-tag'
+                                          style={{
+                                            background:
+                                              item.content.category.color,
+                                          }}
+                                        >
+                                          {item.content.category.tag}
+                                        </span>
+                                        <p>{item.content.word}</p>
+                                        <KanbanTable
+                                          item={item}
+                                          flipCard={flipCard}
+                                        />
 
-                                          {item.content.link && (
-                                            <a
-                                              href={item.content.link.url}
-                                              target='_blank'
-                                              rel='noopener noreferrer'
-                                            >
-                                              {item.content.link.text}
-                                            </a>
-                                          )}
-                                          <button
-                                            onClick={() =>
-                                              setFlipCard(!flipCard)
-                                            }
-                                          >
-                                            Flip card
-                                          </button>
-                                        </div>
+                                        <button
+                                          onClick={() => setFlipCard(!flipCard)}
+                                        >
+                                          Flip card
+                                        </button>
                                       </div>
                                     </div>
                                   );
