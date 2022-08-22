@@ -4,40 +4,80 @@
       "name": "Requested",
       "items": [
         {
-          "id": "73f98c0a-162b-4213-b04a-d5f921c98626",
-          "content": "Fourth task"
-        }
-      ]
-    },
-    "columnTwo": {
-      "name": "To do",
-      "items": [
-        {
-          "id": "106c3905-9f15-4ea7-ae1e-de9ee0076fc6",
-          "content": "Third task"
+          "id": "2eb1c23e-40ca-4a3d-9673-a8adf65aa0e9",
+          "content": {
+            "category": {
+              "color": "#ff2233",
+              "tag": "Biernik"
+            },
+            "word": "Tworzyć",
+            "present": {
+              "ja": "tworzę",
+              "ty": "tworzysz",
+              "on_ona_ono": "tworzy",
+              "my": "tworzymy",
+              "wy": "tworzycie",
+              "oni_one": "tworzą"
+            },
+            "past": {
+              "ja_masc": "tworzyłem",
+              "ja_fem": "tworzyłam",
+              "ty_masc": "tworzyłeś",
+              "ty_fem": "tworzyłaś",
+              "on": "tworzył",
+              "ona": "tworzyła",
+              "ono": "tworzyło",
+              "my_masc": "tworzyliśmy",
+              "my_fem": "tworzyłyśmy",
+              "wy_masc": "tworzyliście",
+              "wy_fem": "tworzyłyście",
+              "oni": "tworzyli",
+              "one": "tworzyły"
+            },
+            "link": {
+              "url": "url",
+              "text": "Image link"
+            }
+          }
         },
         {
           "id": "847e5470-4949-4f10-8c8f-c9be28e6d2a4",
-          "content": "First task"
+          "content": {
+            "category": {
+              "color": "#ff2233",
+              "tag": "Biernik"
+            },
+            "word": "Tworzyć",
+            "present": {
+              "ja": "tworzę",
+              "ty": "tworzysz",
+              "on_ona_ono": "tworzy",
+              "my": "tworzymy",
+              "wy": "tworzycie",
+              "oni_one": "tworzą"
+            },
+            "past": {
+              "ja_masc": "tworzyłem",
+              "ja_fem": "tworzyłam",
+              "ty_masc": "tworzyłeś",
+              "ty_fem": "tworzyłaś",
+              "on": "tworzył",
+              "ona": "tworzyła",
+              "ono": "tworzyło",
+              "my_masc": "tworzyliśmy",
+              "my_fem": "tworzyłyśmy",
+              "wy_masc": "tworzyliście",
+              "wy_fem": "tworzyłyście",
+              "oni": "tworzyli",
+              "one": "tworzyły"
+            },
+            "link": {
+              "url": "url",
+              "text": "Image link"
+            }
+          }
         }
       ]
-    },
-    "columnThree": {
-      "name": "In Progress",
-      "items": [
-        {
-          "id": "2eb1c23e-40ca-4a3d-9673-a8adf65aa0e9",
-          "content": "Second task"
-        },
-        {
-          "id": "6a427bdf-0ca7-4a65-9f71-8f9330ced962",
-          "content": "Fifth task"
-        }
-      ]
-    },
-    "columnFour": {
-      "name": "Done",
-      "items": []
     }
   }
 }
