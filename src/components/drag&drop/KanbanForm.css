@@ -1,24 +1,38 @@
 .heading-kanban {
   display: grid;
   place-content: center;
+  color: aliceblue;
+  background-color: black;
+  padding: 1rem;
   font-weight: 300;
 }
 
 .add-verb-form-wrapper {
   display: grid;
-  grid-template-columns: 250px 250px 250px 250px;
-  grid-template-rows: 4rem 1fr 1fr;
+  grid-template-columns: repeat(6);
+  grid-template-rows: auto;
   grid-template-areas:
-    ' polEngInfin polEngInfin gramCase gramCase'
-    'presTen presTen pastMascFem pastMascFem'
-    ' impFut futFem futMasc .';
+    'closeModal polEngInfin gramCase . . submitButton '
+    'presTen pastMascFemLeft pastMascFemRight futFem futMasc impFut ';
 
-  gap: 4rem;
+  gap: 1.2rem;
   padding: 1rem 3rem;
   margin: 2rem;
   border: 1px solid black;
   border-radius: 0.6rem;
   background-color: rgb(190, 190, 190);
+}
+
+.close-modal-button {
+  display: grid;
+  grid-area: closeModal;
+  margin-top: 1.6rem;
+}
+
+.submit-button {
+  display: grid;
+  grid-area: submitButton;
+  margin-top: 1.6rem;
 }
 
 .gram-case {
@@ -36,9 +50,14 @@
   grid-area: presTen;
 }
 
-.past-masc-fem {
+.past-masc-fem-left {
   display: grid;
-  grid-area: pastMascFem;
+  grid-area: pastMascFemLeft;
+}
+
+.past-masc-fem-right {
+  display: grid;
+  grid-area: pastMascFemRight;
 }
 
 .imp-fut {
@@ -57,12 +76,11 @@
 }
 
 input {
-  line-height: 2rem;
+  line-height: 1.4rem;
   border-radius: 0.4rem;
+  font-size: 1.2rem;
+  width: 10rem;
 }
 
 label {
-  padding: 0;
-  margin: 0;
-  height: 1rem;
 }

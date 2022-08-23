@@ -2,14 +2,6 @@
   "position": {
     "columnOne": {
       "name": "Nowe słowa",
-      "items": []
-    },
-    "columnTwo": {
-      "name": "Niedoskonała przyszłość",
-      "items": []
-    },
-    "columnThree": {
-      "name": "Czas przyszły",
       "items": [
         {
           "id": "2eb1c23e-40ca-4a3d-9673-a8adf65aa0e9",
@@ -74,6 +66,14 @@
           }
         }
       ]
+    },
+    "columnTwo": {
+      "name": "Niedoskonała przyszłość",
+      "items": []
+    },
+    "columnThree": {
+      "name": "Czas przyszły",
+      "items": []
     },
     "columnFour": {
       "name": "Stare słowa",

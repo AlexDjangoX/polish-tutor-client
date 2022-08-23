@@ -4,6 +4,8 @@ import './Kanban.css';
 import KanbanTable from './KanbanTable';
 import KanbanForm from './KanbanForm';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import { Modal } from '@mui/material';
+import { Button } from '../button/Button.js';
 import { v4 as uuidv4 } from 'uuid';
 const axios = require('axios');
 
@@ -54,7 +56,8 @@ const onDragEnd = (result, columns, setColumns) => {
 const Kanban = () => {
   const [columns, setColumns] = useState({});
   const { user, isAuthenticated } = useAuth0();
-  const [displayForm, setDisplayForm] = useState(false);
+
+  const [open, setOpen] = useState(false);
 
   const [flipCard, setFlipCard] = useState(false);
 
@@ -84,13 +87,18 @@ const Kanban = () => {
 
   return (
     <>
-      <div>
-        <button onClick={() => setDisplayForm(!displayForm)}>
-          Add a new verb
-        </button>
-        {displayForm && <KanbanForm />}
-      </div>
-      {isAuthenticated && <h3>.......you are logged in as {user.name} </h3>}
+      <Button onClick={() => setOpen(true)}>Add new Verb</Button>
+      <Modal
+        open={open}
+        onClose={() => setOpen(false)}
+        aria-labelledby='parent-modal-title'
+        aria-describedby='parent-modal-description'
+      >
+        <>
+          <KanbanForm setOpen={setOpen} open={open} />
+        </>
+      </Modal>
+
       <div className='kanban-wrapper'>
         <DragDropContext
           onDragEnd={(result) => onDragEnd(result, columns, setColumns)}
