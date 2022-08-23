@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import './Kanban.css';
 import KanbanTable from './KanbanTable';
+import KanbanForm from './KanbanForm';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import { v4 as uuidv4 } from 'uuid';
 const axios = require('axios');
@@ -53,6 +54,7 @@ const onDragEnd = (result, columns, setColumns) => {
 const Kanban = () => {
   const [columns, setColumns] = useState({});
   const { user, isAuthenticated } = useAuth0();
+  const [displayForm, setDisplayForm] = useState(false);
 
   const [flipCard, setFlipCard] = useState(false);
 
@@ -82,6 +84,12 @@ const Kanban = () => {
 
   return (
     <>
+      <div>
+        <button onClick={() => setDisplayForm(!displayForm)}>
+          Add a new verb
+        </button>
+        {displayForm && <KanbanForm />}
+      </div>
       {isAuthenticated && <h3>.......you are logged in as {user.name} </h3>}
       <div className='kanban-wrapper'>
         <DragDropContext

@@ -1,0 +1,68 @@
+.heading-kanban {
+  display: grid;
+  place-content: center;
+  font-weight: 300;
+}
+
+.add-verb-form-wrapper {
+  display: grid;
+  grid-template-columns: 250px 250px 250px 250px;
+  grid-template-rows: 4rem 1fr 1fr;
+  grid-template-areas:
+    ' polEngInfin polEngInfin gramCase gramCase'
+    'presTen presTen pastMascFem pastMascFem'
+    ' impFut futFem futMasc .';
+
+  gap: 4rem;
+  padding: 1rem 3rem;
+  margin: 2rem;
+  border: 1px solid black;
+  border-radius: 0.6rem;
+  background-color: rgb(190, 190, 190);
+}
+
+.gram-case {
+  display: grid;
+  grid-area: gramCase;
+}
+
+.pol-eng-infin {
+  display: grid;
+  grid-area: polEngInfin;
+}
+
+.pres-ten {
+  display: grid;
+  grid-area: presTen;
+}
+
+.past-masc-fem {
+  display: grid;
+  grid-area: pastMascFem;
+}
+
+.imp-fut {
+  display: grid;
+  grid-area: impFut;
+}
+
+.fut-fem {
+  display: grid;
+  grid-area: futFem;
+}
+
+.fut-masc {
+  display: grid;
+  grid-area: futMasc;
+}
+
+input {
+  line-height: 2rem;
+  border-radius: 0.4rem;
+}
+
+label {
+  padding: 0;
+  margin: 0;
+  height: 1rem;
+}
