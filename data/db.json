@@ -2,6 +2,14 @@
   "position": {
     "columnOne": {
       "name": "Nowe słowa",
+      "items": []
+    },
+    "columnTwo": {
+      "name": "Niedoskonała przyszłość",
+      "items": []
+    },
+    "columnThree": {
+      "name": "Czas przyszły",
       "items": [
         {
           "id": "2eb1c23e-40ca-4a3d-9673-a8adf65aa0e9",
@@ -11,6 +19,7 @@
               "tag": "Biernik"
             },
             "word": "Tworzyć",
+            "english": "Create",
             "present": {
               "ja": "tworzę",
               "ty": "tworzysz",
@@ -33,6 +42,30 @@
               "wy_fem": "tworzyłyście",
               "oni": "tworzyli",
               "one": "tworzyły"
+            },
+            "imp_future": {
+              "ja": "będę tworzyć",
+              "ty": "będziesz tworzyć",
+              "on_ona_ono": "będzie tworzyć",
+              "my": "będziemy tworzyć",
+              "wy": "będziecie tworzyć",
+              "oni_one": "będą tworzyć"
+            },
+            "future_fem": {
+              "ja": "będę tworzyła",
+              "ty": "będziesz tworzyła",
+              "ona": "będzie tworzyć",
+              "my": "będziemy tworzyły",
+              "wy": "będziecie tworzyły",
+              "oni": "będą tworzyły"
+            },
+            "future_masc": {
+              "ja": "będę tworzył",
+              "ty": "będziesz tworzył",
+              "on": "będzie tworzył",
+              "my": "będziemy tworzyli",
+              "wy": "będziecie tworzyli",
+              "oni": "będą tworzyli"
             },
             "link": {
               "url": "https://images.unsplash.com/photo-1468421870903-4df1664ac249?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dG8lMjBjcmVhdGV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
@@ -42,54 +75,8 @@
         }
       ]
     },
-    "columnTwo": {
-      "name": "To do",
-      "items": []
-    },
-    "columnThree": {
-      "name": "In Progress",
-      "items": [
-        {
-          "id": "847e5470-4949-4f10-8c8f-c9be28e6d2a4",
-          "content": {
-            "category": {
-              "color": "#ff2233",
-              "tag": "Biernik"
-            },
-            "word": "Tworzyć",
-            "present": {
-              "ja": "tworzę",
-              "ty": "tworzysz",
-              "on_ona_ono": "tworzy",
-              "my": "tworzymy",
-              "wy": "tworzycie",
-              "oni_one": "tworzą"
-            },
-            "past": {
-              "ja_masc": "tworzyłem",
-              "ja_fem": "tworzyłam",
-              "ty_masc": "tworzyłeś",
-              "ty_fem": "tworzyłaś",
-              "on": "tworzył",
-              "ona": "tworzyła",
-              "ono": "tworzyło",
-              "my_masc": "tworzyliśmy",
-              "my_fem": "tworzyłyśmy",
-              "wy_masc": "tworzyliście",
-              "wy_fem": "tworzyłyście",
-              "oni": "tworzyli",
-              "one": "tworzyły"
-            },
-            "link": {
-              "url": "https://images.unsplash.com/photo-1488274319148-051ed60a9404?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dG8lMjBjcmVhdGV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
-              "text": "Image link"
-            }
-          }
-        }
-      ]
-    },
     "columnFour": {
-      "name": "Done",
+      "name": "Stare słowa",
       "items": []
     }
   }

@@ -140,7 +140,7 @@ const Kanban = () => {
                                         <p>{item.content.word}</p>
                                         <KanbanTable
                                           item={item}
-                                          flipCard={flipCard}
+                                          column={column}
                                         />
 
                                         <button
@@ -198,3 +198,5 @@ export default Kanban;
 //     items: [],
 //   },
 // };
+
+//////////////////////

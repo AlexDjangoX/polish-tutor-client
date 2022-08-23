@@ -24,3 +24,21 @@ tbody tr:nth-of-type(even) {
   width: auto;
   padding: 0.8rem;
 }
+
+.masculine {
+  background-color: rgb(131, 131, 249);
+}
+.masculine-alt {
+  background-color: rgb(83, 83, 253);
+}
+
+.feminine {
+  background-color: rgb(255, 85, 113);
+}
+.feminine-alt {
+  background-color: rgb(254, 44, 79);
+}
+
+.neuter {
+  background-color: rgb(255, 191, 0);
+}
