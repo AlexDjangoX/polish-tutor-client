@@ -66,7 +66,6 @@ const Kanban = () => {
       .get(`http://localhost:8000/position`)
       .then(function (response) {
         setColumns(response.data);
-        console.log(columns);
       })
       .catch(function (error) {
         console.log(error);
@@ -95,7 +94,7 @@ const Kanban = () => {
         aria-describedby='parent-modal-description'
       >
         <>
-          <KanbanForm setOpen={setOpen} open={open} />
+          <KanbanForm setOpen={setOpen} open={open} columns={columns} />
         </>
       </Modal>
 
@@ -147,13 +146,12 @@ const Kanban = () => {
                                         <span
                                           className='card-item-tag'
                                           style={{
-                                            background:
-                                              item.content.category.color,
+                                            background: item.color,
                                           }}
                                         >
-                                          {item.content.category.tag}
+                                          {item.gram_case}
                                         </span>
-                                        <p>{item.content.word}</p>
+                                        <p>{item.polish_word}</p>
                                         <KanbanTable
                                           item={item}
                                           column={column}
@@ -162,7 +160,7 @@ const Kanban = () => {
                                         <button
                                           onClick={() => setFlipCard(!flipCard)}
                                         >
-                                          Flip card
+                                          Archive
                                         </button>
                                       </div>
                                     </div>

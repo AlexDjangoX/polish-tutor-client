@@ -2,23 +2,41 @@ import React, { useState } from 'react';
 import { Button } from '../button/Button.js';
 import './KanbanForm.css';
 
-const KanbanForm = ({ setOpen, open }) => {
+const KanbanForm = ({ setOpen, columns }) => {
+  const [verb, setVerb] = useState();
+
+  const handleChange = (event) => {
+    event.preventDefault();
+    const { value, name } = event.target;
+
+    setVerb({
+      ...verb,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(columns.columnOne.items);
+    console.log('Inside handleSubmit');
+  };
+
   return (
     <>
       <h1 className='heading-kanban'>
         This is a labour of love. Repetition is best way to learn !!!
       </h1>
 
-      <form method='POST' action='/submit' encType='multipart/form-data'>
+      <form>
         <div className='add-verb-form-wrapper'>
           <div className='close-modal-button'>
-            <Button onClick={() => setOpen(false)}>Close Modal</Button>
+            <Button onClick={() => setOpen(false)}>Exit</Button>
           </div>
           <div className='gram-case'>
-            <label htmlFor='grammatical-case'>
+            <label htmlFor='gram_case'>
               What grammatical case is the verb?
             </label>
-            <select id='grammatical-case' name='grammatical-case'>
+            <select id='gram_case' name='gram_case' onChange={handleChange}>
               <option value='mianownik'>Mianownik</option>
               <option value='dopełniacz'>Dopełniacz</option>
               <option value='celownik'>Celownik</option>
@@ -30,155 +48,340 @@ const KanbanForm = ({ setOpen, open }) => {
           </div>
 
           <div className='pol-eng-infin'>
-            <label htmlFor='polish-word'>Polish Verb</label>
-            <input id='polish-word' type='text' name='polish-word' required />
+            <label htmlFor='polish_word'>Polish Verb</label>
+            <input
+              id='polish_word'
+              type='text'
+              name='polish_word'
+              required
+              onChange={handleChange}
+            />
 
-            <label htmlFor='english-word'>English Verb</label>
-            <input id='english-word' type='text' name='english-word' required />
+            <label htmlFor='english_word'>English Verb</label>
+            <input
+              id='english_word'
+              type='text'
+              name='english_word'
+              required
+              onChange={handleChange}
+            />
           </div>
 
           <div className='submit-button'>
-            <Button type='submit'>Submit</Button>
+            <Button
+              id='submit-verb-button'
+              type='submit'
+              onClick={handleSubmit}
+            >
+              Submit
+            </Button>
           </div>
 
           <div className='pres-ten'>
-            <label htmlFor='present-ja'>Ja-present</label>
-            <input id='present-ja' type='text' name='present-ja' required />
-
-            <label htmlFor='present-ty'>Ty-present</label>
-            <input id='present-ty' type='text' name='present-ty' required />
-
-            <label htmlFor='present-on_ona_ono'>on/ona/ono-present</label>
+            <label htmlFor='present_ja'>Ja-present</label>
             <input
-              id='present-on_ona_ono'
+              id='present_ja'
               type='text'
-              name='present-on_ona_ono'
+              name='present_ja'
               required
+              onChange={handleChange}
             />
 
-            <label htmlFor='present-my'>My-present</label>
-            <input id='present-my' type='text' name='present-my' required />
-
-            <label htmlFor='present-wy'>Wy-present</label>
-            <input id='present-wy' type='text' name='present-wy' required />
-
-            <label htmlFor='present-oni_one'>Oni</label>
+            <label htmlFor='present_ty'>Ty-present</label>
             <input
-              id='present-oni_one'
+              id='present_ty'
               type='text'
-              name='present-oni_one'
+              name='present_ty'
               required
+              onChange={handleChange}
+            />
+
+            <label htmlFor='present_on_ona_ono'>on/ona/ono-present</label>
+            <input
+              id='present_on_ona_ono'
+              type='text'
+              name='present_on_ona_ono'
+              required
+              onChange={handleChange}
+            />
+
+            <label htmlFor='present_my'>My-present</label>
+            <input
+              id='present_my'
+              type='text'
+              name='present_my'
+              required
+              onChange={handleChange}
+            />
+
+            <label htmlFor='present_wy'>Wy-present</label>
+            <input
+              id='present_wy'
+              type='text'
+              name='present_wy'
+              required
+              onChange={handleChange}
+            />
+
+            <label htmlFor='present_oni_one'>Oni-present</label>
+            <input
+              id='present_oni_one'
+              type='text'
+              name='present_oni_one'
+              required
+              onChange={handleChange}
             />
           </div>
 
           <div className='past-masc-fem-left'>
-            <label htmlFor='past-ja_masc'>Ja-past-masc</label>
-            <input id='past-ja_masc' type='text' name='past-ja_masc' required />
-
-            <label htmlFor='past-ja_fem'>Ja-past-fem</label>
-            <input id='past-ja_fem' type='text' name='past-ja_fem' required />
-
-            <label htmlFor='past-ty_masc'>Tu-past-masc</label>
-            <input id='past-ty_masc' type='text' name='past-ty_masc' required />
-
-            <label htmlFor='past-ty_fem'>Ty-past-fem</label>
-            <input id='past-ty_fem' type='text' name='past-ty_fem' required />
-
-            <label htmlFor='past-on'>On-past</label>
-            <input id='past-on' type='text' name='past-on' required />
-
-            <label htmlFor='past-ona'>Ona-past</label>
-            <input id='past-ona' type='text' name='past-ona' required />
+            <label htmlFor='past_ja_masc'>Ja-past-masc</label>
+            <input
+              id='past_ja_masc'
+              type='text'
+              name='past_ja_masc'
+              onChange={handleChange}
+            />
+            <label htmlFor='past_ty_masc'>Ty-past-masc</label>
+            <input
+              id='past_ty_masc'
+              type='text'
+              name='past_ty_masc'
+              onChange={handleChange}
+            />{' '}
+            <label htmlFor='past_on'>On-past</label>
+            <input
+              id='past_on'
+              type='text'
+              name='past_on'
+              onChange={handleChange}
+            />
+            <label htmlFor='past_ono'>Ono-past</label>
+            <input
+              id='past_ono'
+              type='text'
+              name='past_ono'
+              onChange={handleChange}
+            />
+            <label htmlFor='past_my_masc'>My-past-masc</label>
+            <input
+              id='past_my_masc'
+              type='text'
+              name='past_my_masc'
+              onChange={handleChange}
+            />
+            <label htmlFor='past_wy_masc'>Wy-past-masc</label>
+            <input
+              id='past_wy_masc'
+              type='text'
+              name='past_wy_masc'
+              onChange={handleChange}
+            />
+            <label htmlFor='past_oni'>Oni-past</label>
+            <input
+              id='past_oni'
+              type='text'
+              name='past_oni'
+              onChange={handleChange}
+            />
           </div>
+
           <div className='past-masc-fem-right'>
-            <label htmlFor='past-ono'>Ono-past</label>
-            <input id='past-ono' type='text' name='past-ono' required />
+            <label htmlFor='past_ja_fem'>Ja-past-fem</label>
+            <input
+              id='past_ja_fem'
+              type='text'
+              name='past_ja_fem'
+              onChange={handleChange}
+            />
+            <label htmlFor='past_ty_fem'>Ty-past-fem</label>
+            <input
+              id='past_ty_fem'
+              type='text'
+              name='past_ty_fem'
+              onChange={handleChange}
+            />
 
-            <label htmlFor='past-my_masc'>My-past-masc</label>
-            <input id='past-my_masc' type='text' name='past-my_masc' required />
+            <label htmlFor='past_ona'>Ona-past</label>
+            <input
+              id='past_ona'
+              type='text'
+              name='past_ona'
+              onChange={handleChange}
+            />
 
-            <label htmlFor='past-my_fem'>My-past-fem</label>
-            <input id='past-my_fem' type='text' name='past-my_fem' required />
+            <label htmlFor='past_my_fem'>My-past-fem</label>
+            <input
+              id='past_my_fem'
+              type='text'
+              name='past_my_fem'
+              onChange={handleChange}
+            />
 
-            <label htmlFor='past-wy_masc'>Wy-past-masc</label>
-            <input id='past-wy_masc' type='text' name='past-wy_masc' required />
+            <label htmlFor='past_wy_fem'>Wy-past-fem</label>
+            <input
+              id='past_wy_fem'
+              type='text'
+              name='past_wy_fem'
+              onChange={handleChange}
+            />
 
-            <label htmlFor='past-wy_fem'>Wy-past-fem</label>
-            <input id='past-wy_fem' type='text' name='past-wy_fem' required />
-
-            <label htmlFor='past-oni'>Oni-past</label>
-            <input id='past-oni' type='text' name='past-oni' required />
-
-            <label htmlFor='past-one'>One-past</label>
-            <input id='past-one' type='text' name='past-one' required />
+            <label htmlFor='past_one'>One-past</label>
+            <input
+              id='past_one'
+              type='text'
+              name='past_one'
+              onChange={handleChange}
+            />
           </div>
 
           <div className='imp-fut'>
-            <label htmlFor='imp_future-ja'>Ja-imp-fut</label>
-            <input id='imp_future-ja' type='text' name='imp_future-ja' />
-
-            <label htmlFor='imp_future-ty'>Ty-imp-fut</label>
-            <input id='imp_future-ty' type='text' name='imp_future-ty' />
-
-            <label htmlFor='imp_future-on_ona_ono'>On/ona/ono-imp-fut</label>
+            <label htmlFor='imp_future_ja'>Ja-imp-fut</label>
             <input
-              id='imp_future-on_ona_ono'
+              id='imp_future_ja'
               type='text'
-              name='imp_future-on_ona_ono'
+              name='imp_future_ja'
+              onChange={handleChange}
             />
 
-            <label htmlFor='imp_future-my'>My-imp-fut</label>
-            <input id='imp_future-my' type='text' name='imp_future-my' />
-
-            <label htmlFor='imp_future-wy'>Wy-imp-fut</label>
-            <input id='imp_future-wy' type='text' name='imp_future-wy' />
-
-            <label htmlFor='imp_future-oni_one'>Oni/one-imp-fut</label>
+            <label htmlFor='imp_future_ty'>Ty-imp-fut</label>
             <input
-              id='imp_future-oni_one'
+              id='imp_future_ty'
               type='text'
-              name='imp_future-oni_one'
+              name='imp_future_ty'
+              onChange={handleChange}
+            />
+
+            <label htmlFor='imp_future_on_ona_ono'>On/ona/ono-imp-fut</label>
+            <input
+              id='imp_future_on_ona_ono'
+              type='text'
+              name='imp_future_on_ona_ono'
+              onChange={handleChange}
+            />
+
+            <label htmlFor='imp_future_my'>My-imp-fut</label>
+            <input
+              id='imp_future_my'
+              type='text'
+              name='imp_future_my'
+              onChange={handleChange}
+            />
+
+            <label htmlFor='imp_future_wy'>Wy-imp-fut</label>
+            <input
+              id='imp_future_wy'
+              type='text'
+              name='imp_future_wy'
+              onChange={handleChange}
+            />
+
+            <label htmlFor='imp_future_oni_one'>Oni/one-imp-fut</label>
+            <input
+              id='imp_future_oni_one'
+              type='text'
+              name='imp_future_oni_one'
+              onChange={handleChange}
             />
           </div>
 
           <div className='fut-fem'>
-            <label htmlFor='future_fem-ja'>Ja-fut-fem</label>
-            <input id='future_fem-ja' type='text' name='future_fem-ja' />
+            <label htmlFor='future_fem_ja'>Ja-fut-fem</label>
+            <input
+              id='future_fem_ja'
+              type='text'
+              name='future_fem_ja'
+              onChange={handleChange}
+            />
 
-            <label htmlFor='future_fem-ty'>Ty-fut-fem</label>
-            <input id='future_fem-ty' type='text' name='future_fem-ty' />
+            <label htmlFor='future_fem_ty'>Ty-fut-fem</label>
+            <input
+              id='future_fem_ty'
+              type='text'
+              name='future_fem_ty'
+              onChange={handleChange}
+            />
 
-            <label htmlFor='future_fem-ona'>Ona-fut-fem</label>
-            <input id='future_fem-ona' type='text' name='future_fem-ona' />
+            <label htmlFor='future_fem_ona'>Ona-fut-fem</label>
+            <input
+              id='future_fem_ona'
+              type='text'
+              name='future_fem_ona'
+              onChange={handleChange}
+            />
 
-            <label htmlFor='future_fem-my'>My-fut-fem</label>
-            <input id='future_fem-my' type='text' name='future_fem-my' />
+            <label htmlFor='future_fem_my'>My-fut-fem</label>
+            <input
+              id='future_fem_my'
+              type='text'
+              name='future_fem_my'
+              onChange={handleChange}
+            />
 
-            <label htmlFor='future_fem-wy'>Wy-fut-fem</label>
-            <input id='future_fem-wy' type='text' name='future_fem-wy' />
+            <label htmlFor='future_fem_wy'>Wy-fut-fem</label>
+            <input
+              id='future_fem_wy'
+              type='text'
+              name='future_fem_wy'
+              onChange={handleChange}
+            />
 
-            <label htmlFor='future_fem-oni'>Oni-fut-fem</label>
-            <input id='future_fem-oni' type='text' name='future_fem-oni' />
+            <label htmlFor='future_fem_oni'>Oni-fut-fem</label>
+            <input
+              id='future_fem_oni'
+              type='text'
+              name='future_fem_oni'
+              onChange={handleChange}
+            />
           </div>
 
           <div className='fut-masc'>
-            <label htmlFor='future_masc-ja'>Ja-fut-masc</label>
-            <input id='future_masc-ja' type='text' name='future_masc-ja' />
+            <label htmlFor='future_masc_ja'>Ja-fut-masc</label>
+            <input
+              id='future_masc_ja'
+              type='text'
+              name='future_masc_ja'
+              onChange={handleChange}
+            />
 
-            <label htmlFor='future_masc-ty'>Ty-fut-masc</label>
-            <input id='future_masc-ty' type='text' name='future_masc-ty' />
+            <label htmlFor='future_masc_ty'>Ty-fut-masc</label>
+            <input
+              id='future_masc_ty'
+              type='text'
+              name='future_masc_ty'
+              onChange={handleChange}
+            />
 
-            <label htmlFor='future_masc-on'>On-fut-masc</label>
-            <input id='future_masc-on' type='text' name='future_masc-ona' />
+            <label htmlFor='future_masc_on'>On-fut-masc</label>
+            <input
+              id='future_masc_on'
+              type='text'
+              name='future_masc_ona'
+              onChange={handleChange}
+            />
 
-            <label htmlFor='future_masc-my'>My-fut-masc</label>
-            <input id='future_masc-my' type='text' name='future_masc-my' />
+            <label htmlFor='future_masc_my'>My-fut-masc</label>
+            <input
+              id='future_masc_my'
+              type='text'
+              name='future_masc_my'
+              onChange={handleChange}
+            />
 
-            <label htmlFor='future_masc-wy'>Wy-fut-masc</label>
-            <input id='future_masc-wy' type='text' name='future_masc-wy' />
+            <label htmlFor='future_masc_wy'>Wy-fut-masc</label>
+            <input
+              id='future_masc_wy'
+              type='text'
+              name='future_masc_wy'
+              onChange={handleChange}
+            />
 
-            <label htmlFor='future_masc-oni'>Oni-fut-masc</label>
-            <input id='future_masc-oni' type='text' name='future_masc-oni' />
+            <label htmlFor='future_masc_oni'>Oni-fut-masc</label>
+            <input
+              id='future_masc_oni'
+              type='text'
+              name='future_masc_oni'
+              onChange={handleChange}
+            />
           </div>
         </div>
       </form>

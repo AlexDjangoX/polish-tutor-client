@@ -5,65 +5,49 @@
       "items": [
         {
           "id": "2eb1c23e-40ca-4a3d-9673-a8adf65aa0e9",
-          "content": {
-            "category": {
-              "color": "#ff2233",
-              "tag": "Biernik"
-            },
-            "word": "Tworzyć",
-            "english": "Create",
-            "present": {
-              "ja": "tworzę",
-              "ty": "tworzysz",
-              "on_ona_ono": "tworzy",
-              "my": "tworzymy",
-              "wy": "tworzycie",
-              "oni_one": "tworzą"
-            },
-            "past": {
-              "ja_masc": "tworzyłem",
-              "ja_fem": "tworzyłam",
-              "ty_masc": "tworzyłeś",
-              "ty_fem": "tworzyłaś",
-              "on": "tworzył",
-              "ona": "tworzyła",
-              "ono": "tworzyło",
-              "my_masc": "tworzyliśmy",
-              "my_fem": "tworzyłyśmy",
-              "wy_masc": "tworzyliście",
-              "wy_fem": "tworzyłyście",
-              "oni": "tworzyli",
-              "one": "tworzyły"
-            },
-            "imp_future": {
-              "ja": "będę tworzyć",
-              "ty": "będziesz tworzyć",
-              "on_ona_ono": "będzie tworzyć",
-              "my": "będziemy tworzyć",
-              "wy": "będziecie tworzyć",
-              "oni_one": "będą tworzyć"
-            },
-            "future_fem": {
-              "ja": "będę tworzyła",
-              "ty": "będziesz tworzyła",
-              "ona": "będzie tworzyć",
-              "my": "będziemy tworzyły",
-              "wy": "będziecie tworzyły",
-              "oni": "będą tworzyły"
-            },
-            "future_masc": {
-              "ja": "będę tworzył",
-              "ty": "będziesz tworzył",
-              "on": "będzie tworzył",
-              "my": "będziemy tworzyli",
-              "wy": "będziecie tworzyli",
-              "oni": "będą tworzyli"
-            },
-            "link": {
-              "url": "https://images.unsplash.com/photo-1468421870903-4df1664ac249?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dG8lMjBjcmVhdGV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
-              "text": "url"
-            }
-          }
+          "gram_case": "Biernik",
+          "color": "#ff2233",
+          "polish_word": "Tworzyć",
+          "english_word": "Create",
+          "present_ja": "tworzę",
+          "present_ty": "tworzysz",
+          "present_on_ona_ono": "tworzy",
+          "present_my": "tworzymy",
+          "present_wy": "tworzycie",
+          "present_oni_one": "tworzą",
+          "past_ja_masc": "tworzyłem",
+          "past_ja_fem": "tworzyłam",
+          "past_ty_masc": "tworzyłeś",
+          "past_ty_fem": "tworzyłaś",
+          "past_on": "tworzył",
+          "past_ona": "tworzyła",
+          "past_ono": "tworzyło",
+          "past_my_masc": "tworzyliśmy",
+          "past_my_fem": "tworzyłyśmy",
+          "past_wy_masc": "tworzyliście",
+          "past_wy_fem": "tworzyłyście",
+          "past_oni": "tworzyli",
+          "past_one": "tworzyły",
+          "imp_future_ja": "będę tworzyć",
+          "imp_future_ty": "będziesz tworzyć",
+          "imp_future_on_ona_ono": "będzie tworzyć",
+          "imp_future_my": "będziemy tworzyć",
+          "imp_future_wy": "będziecie tworzyć",
+          "imp_future_oni_one": "będą tworzyć",
+          "future_fem_ja": "będę tworzyła",
+          "future_fem_ty": "będziesz tworzyła",
+          "future_fem_ona": "będzie tworzyć",
+          "future_fem_my": "będziemy tworzyły",
+          "future_fem_wy": "będziecie tworzyły",
+          "future_fem_oni": "będą tworzyły",
+          "future_masc_ja": "będę tworzył",
+          "future_masc_ty": "będziesz tworzył",
+          "future_masc_on": "będzie tworzył",
+          "future_masc_my": "będziemy tworzyli",
+          "future_masc_wy": "będziecie tworzyli",
+          "future_masc_oni": "będą tworzyli",
+          "link_url": "https://images.unsplash.com/photo-1468421870903-4df1664ac249?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dG8lMjBjcmVhdGV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+          "link_text": "url"
         }
       ]
     },
