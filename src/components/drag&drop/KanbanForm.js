@@ -6,9 +6,8 @@ const KanbanForm = ({ setOpen, columns }) => {
   const [verb, setVerb] = useState();
 
   const handleChange = (event) => {
-    event.preventDefault();
     const { value, name } = event.target;
-
+    console.log(value);
     setVerb({
       ...verb,
       [name]: value,
@@ -19,8 +18,9 @@ const KanbanForm = ({ setOpen, columns }) => {
     event.preventDefault();
     console.log(columns.columnOne.items);
     console.log('Inside handleSubmit');
+    setOpen(false);
   };
-
+  console.log('VERB : ', verb);
   return (
     <>
       <h1 className='heading-kanban'>
@@ -32,6 +32,38 @@ const KanbanForm = ({ setOpen, columns }) => {
           <div className='close-modal-button'>
             <Button onClick={() => setOpen(false)}>Exit</Button>
           </div>
+
+          <div className='radio-buttons' onChange={handleChange}>
+            <div className='radio-buttons-dokonany'>
+              <input
+                type='radio'
+                id='dokonany'
+                name='dokonany_niedokonany'
+                value='Dokonany'
+              />
+              <label htmlFor='dokonany'>Dokonany</label>
+            </div>
+            <div className='radio-buttons-niedokonany'>
+              <input
+                type='radio'
+                id='niedokonany'
+                name='dokonany_niedokonany'
+                value='Niedokonany'
+              />
+              <label htmlFor='niedokonany'>Niedokonany</label>
+            </div>
+            <div className='radio-buttons-niewiem'>
+              <input
+                type='radio'
+                id='niewiem'
+                name='dokonany_niedokonany'
+                value='Nie wiem'
+                defaultChecked={true}
+              />
+              <label htmlFor='niewiem'>Nie wiem</label>
+            </div>
+          </div>
+
           <div className='gram-case'>
             <label htmlFor='gram_case'>
               What grammatical case is the verb?
@@ -63,6 +95,16 @@ const KanbanForm = ({ setOpen, columns }) => {
               type='text'
               name='english_word'
               required
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className='link-url'>
+            <label htmlFor='link_url'>Image URL</label>
+            <input
+              id='link_url'
+              type='text'
+              name='link_url'
               onChange={handleChange}
             />
           </div>

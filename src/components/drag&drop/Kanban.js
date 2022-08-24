@@ -144,13 +144,14 @@ const Kanban = () => {
                                     >
                                       <div className='card-item-content'>
                                         <span
-                                          className='card-item-tag'
+                                          className='card-item-case-aspect'
                                           style={{
                                             background: item.color,
                                           }}
                                         >
-                                          {item.gram_case}
+                                          {`${item.gram_case} - ${item.dokonany_niedokonany}`}
                                         </span>
+
                                         <p>{item.polish_word}</p>
                                         <KanbanTable
                                           item={item}

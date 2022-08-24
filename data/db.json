@@ -6,9 +6,10 @@
         {
           "id": "2eb1c23e-40ca-4a3d-9673-a8adf65aa0e9",
           "gram_case": "Biernik",
+          "dokonany_niedokonany": "Dokonany",
           "color": "#ff2233",
           "polish_word": "Tworzyć",
-          "english_word": "Create",
+          "english_word": "To create",
           "present_ja": "tworzę",
           "present_ty": "tworzysz",
           "present_on_ona_ono": "tworzy",
@@ -52,11 +53,11 @@
       ]
     },
     "columnTwo": {
-      "name": "Niedoskonała przyszłość",
+      "name": "Czas przeszły niedokonany",
       "items": []
     },
     "columnThree": {
-      "name": "Czas przyszły",
+      "name": "Czas przyszły niedokonany",
       "items": []
     },
     "columnFour": {

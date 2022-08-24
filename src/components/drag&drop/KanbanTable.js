@@ -29,7 +29,7 @@ const KanbanTable = ({ item, column }) => {
           </div>
         </>
       )}
-      {column.name === 'Niedoskonała przyszłość' && (
+      {column.name === 'Czas przeszły niedokonany' && (
         <div className='table-wrapper'>
           <table>
             <tbody>
@@ -65,7 +65,7 @@ const KanbanTable = ({ item, column }) => {
           </table>
         </div>
       )}
-      {column.name === 'Czas przyszły' && (
+      {column.name === 'Czas przyszły niedokonany' && (
         <div className='table-wrapper'>
           <table>
             <tbody>
