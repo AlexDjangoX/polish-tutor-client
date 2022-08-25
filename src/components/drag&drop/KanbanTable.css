@@ -19,6 +19,11 @@ td {
   padding: 6px;
 }
 
+tr {
+  width: 2rem;
+  background-color: rgb(179, 56, 56);
+}
+
 tbody tr:nth-of-type(even) {
   background-color: #606060;
 }

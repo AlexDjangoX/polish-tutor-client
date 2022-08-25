@@ -12,10 +12,12 @@ const KanbanTable = ({ item, column }) => {
                 <tr>
                   <td>{item.present_ja}</td>
                   <td>{item.present_ty}</td>
-                  <td>{item.present_on_ona_ono}</td>
                 </tr>
                 <tr>
+                  <td>{item.present_on_ona_ono}</td>
                   <td>{item.present_my}</td>
+                </tr>
+                <tr>
                   <td>{item.present_wy}</td>
                   <td>{item.present_oni_one}</td>
                 </tr>
@@ -29,49 +31,48 @@ const KanbanTable = ({ item, column }) => {
           </div>
         </>
       )}
-      {column.name === 'Czas przeszły niedokonany' && (
+      {column.name === 'Przeszły' && (
         <div className='table-wrapper'>
           <table>
             <tbody>
               <tr>
-                <td className='feminine'>{item.past_ja_fem}</td>
                 <td className='masculine'>{item.past_ja_masc}</td>
+                <td className='feminine'>{item.past_ja_fem}</td>
               </tr>
               <tr>
-                <td className='feminine-alt'>{item.past_ty_fem}</td>
                 <td className='masculine-alt'>{item.past_ty_masc}</td>
+                <td className='feminine-alt'>{item.past_ty_fem}</td>
               </tr>
               <tr>
-                <td className='feminine'>{item.past_ona}</td>
-                <td className='masculine'>{item.past_on}</td>
+                <td className='masculine'>{item.past_on_masc}</td>
+                <td className='feminine'>{item.past_ona_fem}</td>
               </tr>
               <tr>
-                <td className='neuter'>{item.past_ono}</td>
                 <td className='masculine-alt'>{item.past_my_masc}</td>
-              </tr>
-              <tr>
                 <td className='feminine'>{item.past_my_fem}</td>
+              </tr>
+              <tr>
                 <td className='masculine'>{item.past_wy_masc}</td>
-              </tr>
-              <tr>
                 <td className='feminine-alt'>{item.past_wy_fem}</td>
-                <td className='masculine-alt'>{item.past_oni}</td>
               </tr>
               <tr>
+                <td className='masculine-alt'>{item.past_oni}</td>
                 <td className='feminine'>{item.past_one}</td>
-                <td>{item.english_word}</td>
+              </tr>
+              <tr>
+                <td colspan='2'>{item.english_word}</td>
               </tr>
             </tbody>
           </table>
         </div>
       )}
-      {column.name === 'Czas przyszły niedokonany' && (
+      {column.name === 'Przyszły' && (
         <div className='table-wrapper'>
           <table>
             <tbody>
               <tr>
-                <td>{item.imp_future_ja || 'Nie ma'}</td>
                 <td>{item.imp_future_ty || 'Nie ma'}</td>
+                <td>{item.imp_future_ja || 'Nie ma'}</td>
               </tr>
               <tr>
                 <td>{item.imp_future_on_ona_ono || 'Nie ma'}</td>
@@ -82,28 +83,28 @@ const KanbanTable = ({ item, column }) => {
                 <td>{item.imp_future_oni_one || 'Nie ma'}</td>
               </tr>
               <tr>
-                <td className='feminine'>{item.future_fem_ja}</td>
                 <td className='masculine'>{item.future_masc_ja}</td>
+                <td className='feminine'>{item.future_fem_ja}</td>
               </tr>
               <tr>
-                <td className='feminine-alt'>{item.future_fem_ty}</td>
                 <td className='masculine-alt'>{item.future_masc_ty}</td>
+                <td className='feminine-alt'>{item.future_fem_ty}</td>
               </tr>
               <tr>
-                <td className='feminine'>{item.future_fem_ona}</td>
                 <td className='masculine'>{item.future_masc_on}</td>
+                <td className='feminine'>{item.future_fem_ona}</td>
               </tr>
               <tr>
-                <td className='feminine-alt'>{item.future_fem_my}</td>
                 <td className='masculine-alt'>{item.future_masc_my}</td>
+                <td className='feminine-alt'>{item.future_fem_my}</td>
               </tr>
               <tr>
-                <td className='feminine'>{item.future_fem_wy}</td>
                 <td className='masculine'>{item.future_masc_wy}</td>
+                <td className='feminine'>{item.future_fem_wy}</td>
               </tr>
               <tr>
-                <td className='feminine-alt'>{item.future_fem_oni}</td>
-                <td className='masculine-alt'>{item.future_masc_on}</td>
+                <td className='masculine-alt'>{item.future_masc_oni}</td>
+                <td className='feminine-alt'>{item.future_fem_one}</td>
               </tr>
             </tbody>
           </table>

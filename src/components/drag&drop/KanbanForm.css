@@ -13,7 +13,7 @@
   grid-template-rows: auto;
   grid-template-areas:
     'radioButtons polEngInfin gramCase imageUrl closeModal submitButton '
-    'presTen pastMascFemLeft pastMascFemRight futFem futMasc impFut ';
+    'presTen pastMasc pastFem futMasc futFem  impFut ';
 
   gap: 1.2rem;
   padding: 1rem 3rem;
@@ -67,14 +67,14 @@
   grid-area: presTen;
 }
 
-.past-masc-fem-left {
+.past-masc {
   display: grid;
-  grid-area: pastMascFemLeft;
+  grid-area: pastMasc;
 }
 
-.past-masc-fem-right {
+.past-fem {
   display: grid;
-  grid-area: pastMascFemRight;
+  grid-area: pastFem;
 }
 
 .imp-fut {

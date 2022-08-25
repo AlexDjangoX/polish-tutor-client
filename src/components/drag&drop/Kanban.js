@@ -215,3 +215,6 @@ export default Kanban;
 // };
 
 //////////////////////
+
+// "link_url": "https://images.unsplash.com/photo-1468421870903-4df1664ac249?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dG8lMjBjcmVhdGV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+// "link_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2Y788iyTaAscQ4ihPPq4o5-m4CXLsKFON6w&usqp=CAU",
