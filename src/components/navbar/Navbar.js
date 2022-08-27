@@ -35,20 +35,12 @@ const Navbar = () => {
       <nav className='navbar'>
         <div className='navbar-container'>
           <Link to='/home' className='navbar-logo'>
-            <FontAwesomeIcon icon={solid('laptop-code')} size='4x' />
+            <div className='navbar-flag-icon'></div>
+            <div className='navbar-alphabet-icon'></div>
           </Link>
+
           {location.pathname === '/kanban' &&
-            (!user ? (
-              <LoginButton
-                buttonStyle='btn--outline '
-                buttonSize='btn--medium'
-              />
-            ) : (
-              <LogOutButton
-                buttonStyle='btn--outline '
-                buttonSize='btn--medium'
-              />
-            ))}
+            (!user ? <LoginButton /> : <LogOutButton />)}
           {}
           <NavbarLargeScreen screenWidth={screenWidth} />
 

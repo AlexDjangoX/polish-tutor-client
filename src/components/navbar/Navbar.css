@@ -12,9 +12,31 @@
 .navbar-logo {
   display: grid;
   grid-area: left-nav;
+  grid-template-areas: 'flag alphabet';
+  grid-template-columns: 2;
   padding: 1rem;
   color: var(--primary);
   align-items: center;
+}
+
+.navbar-flag-icon {
+  background: url('../../../public/images/flag_icon.jpg');
+  height: 5rem;
+  width: 5rem;
+
+  background-position: 0%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.navbar-alphabet-icon {
+  background: url('../../../public/images/alphabet_icon.jpg');
+  height: 5rem;
+  width: 5rem;
+
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .navbar-logo:active {
@@ -55,14 +77,19 @@
 
 .navbar-link {
   text-decoration: none;
-  color: var(--primary);
+  color: rgb(255, 56, 56);
   font-size: 1.4rem;
   font-weight: 300;
+  background-color: white;
+  margin: 4px;
+  padding: 6px;
+  border-radius: 4px;
 }
 
 .navbar-link:hover {
   font-size: 1.5rem;
-  color: rgb(255, 255, 255);
+  color: rgb(255, 0, 0);
+  font-weight: 400;
   transition: all 0.2s ease-out;
 }
 

@@ -16,22 +16,22 @@ const NavbarLargeScreen = ({ screenWidth }) => {
         </li>
         <li className='navbar-list-item'>
           <Link to='/experience' className='navbar-link'>
-            Experience
-          </Link>
-        </li>
-        <li className='navbar-list-item'>
-          <Link to='/kanban' className='navbar-link'>
-            Kanban
-          </Link>
-        </li>
-        <li className='navbar-list-item'>
-          <Link to='/profile' className='navbar-link'>
             Profile
           </Link>
         </li>
         <li className='navbar-list-item'>
+          <Link to='/kanban' className='navbar-link'>
+            Verbs
+          </Link>
+        </li>
+        <li className='navbar-list-item'>
+          <Link to='/profile' className='navbar-link'>
+            Nouns
+          </Link>
+        </li>
+        <li className='navbar-list-item'>
           <Link to='/contact' className='navbar-link'>
-            Contact
+            My notes
           </Link>
         </li>
       </ul>

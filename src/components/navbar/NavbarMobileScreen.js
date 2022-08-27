@@ -24,7 +24,7 @@ const NavbarMobileScreen = ({ screenWidth, closeMobileMenu }) => {
                   className='navbar-menu-link'
                   onClick={closeMobileMenu}
                 >
-                  Experience
+                  Profile
                 </Link>
               </li>
               <li className='navbar-menu-item'>
@@ -33,7 +33,7 @@ const NavbarMobileScreen = ({ screenWidth, closeMobileMenu }) => {
                   className='navbar-menu-link'
                   onClick={closeMobileMenu}
                 >
-                  Kanban
+                  Verbs
                 </Link>
               </li>
               <li className='navbar-menu-item'>
@@ -42,7 +42,7 @@ const NavbarMobileScreen = ({ screenWidth, closeMobileMenu }) => {
                   className='navbar-menu-link'
                   onClick={closeMobileMenu}
                 >
-                  Profile
+                  Nouns
                 </Link>
               </li>
               <li className='navbar-menu-item'>
@@ -51,7 +51,7 @@ const NavbarMobileScreen = ({ screenWidth, closeMobileMenu }) => {
                   className='navbar-menu-link'
                   onClick={closeMobileMenu}
                 >
-                  Contact
+                  My notes
                 </Link>
               </li>
             </ul>

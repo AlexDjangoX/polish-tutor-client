@@ -5,7 +5,15 @@ import { Button } from '../button/Button';
 const LogOutButton = () => {
   const { logout } = useAuth0();
 
-  return <Button onClick={() => logout()}>Log out</Button>;
+  return (
+    <Button
+      buttonStyle='btn-login-logout'
+      buttonSize='btn--medium'
+      onClick={() => logout()}
+    >
+      Log out
+    </Button>
+  );
 };
 
 export default LogOutButton;
