@@ -86,7 +86,14 @@ const Kanban = () => {
 
   return (
     <>
-      <Button onClick={() => setOpen(true)}>Add new Verb</Button>
+      <Button
+        buttonStyle='btn-add-new-verb'
+        buttonSize='btn--medium'
+        onClick={() => setOpen(true)}
+      >
+        New Verb
+      </Button>
+
       <Modal
         open={open}
         onClose={() => setOpen(false)}

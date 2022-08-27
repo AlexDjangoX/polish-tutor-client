@@ -38,13 +38,19 @@ const KanbanForm = ({ setOpen, columns }) => {
   return (
     <>
       <h1 className='heading-kanban'>
-        This is a labour of love. Repetition is best way to learn !!!
+        Pattern recognition, association and iconisation
       </h1>
 
       <form>
         <div className='add-verb-form-wrapper'>
           <div className='close-modal-button'>
-            <Button onClick={() => setOpen(false)}>Exit</Button>
+            <Button
+              buttonStyle='btn-add-new-verb'
+              buttonSize='btn--medium'
+              onClick={() => setOpen(false)}
+            >
+              Exit
+            </Button>
           </div>
 
           <div className='radio-buttons' onChange={handleChange}>
@@ -125,6 +131,8 @@ const KanbanForm = ({ setOpen, columns }) => {
 
           <div className='submit-button'>
             <Button
+              buttonStyle='btn-add-new-verb'
+              buttonSize='btn--medium'
               id='submit-verb-button'
               type='submit'
               onClick={handleSubmit}

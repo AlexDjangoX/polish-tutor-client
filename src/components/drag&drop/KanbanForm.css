@@ -1,6 +1,7 @@
 .heading-kanban {
   display: grid;
   place-content: center;
+  font-size: 2.8rem;
   color: aliceblue;
   background-color: black;
   padding: 1rem;

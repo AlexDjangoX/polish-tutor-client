@@ -50,10 +50,18 @@
   margin-top: -2px;
 }
 
-.btn-login-logout:hover {
+.btn-add-new-verb {
+  font-size: 1.4rem;
+  background-color: red;
+  color: white;
+  font-weight: 500;
+}
+
+.btn-login-logout:hover,
+.btn-add-new-verb:hover {
   font-size: 1.5rem;
   font-weight: 500;
   color: rgb(255, 0, 0);
   background-color: white;
-  transition: all 0.2s ease-out;
+  transition: all 0.4s ease-out;
 }

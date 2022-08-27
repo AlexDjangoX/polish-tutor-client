@@ -2,7 +2,12 @@ import React from 'react';
 import './Button.css';
 import { Link } from 'react-router-dom';
 
-const STYLES = ['btn--primary', 'btn--outline', 'btn-login-logout'];
+const STYLES = [
+  'btn--primary',
+  'btn--outline',
+  'btn-login-logout',
+  'btn-add-new-verb',
+];
 
 const SIZES = ['btn--medium', 'btn--large'];
 
