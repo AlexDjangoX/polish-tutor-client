@@ -7,6 +7,7 @@ const STYLES = [
   'btn--outline',
   'btn-login-logout',
   'btn-add-new-verb',
+  'btn-edit-verb',
 ];
 
 const SIZES = ['btn--medium', 'btn--large'];

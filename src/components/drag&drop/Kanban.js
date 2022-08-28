@@ -56,10 +56,9 @@ const onDragEnd = (result, columns, setColumns) => {
 const Kanban = () => {
   const [columns, setColumns] = useState({});
   const { user, isAuthenticated } = useAuth0();
-
   const [open, setOpen] = useState(false);
-
-  const [flipCard, setFlipCard] = useState(false);
+  const [currentVerb, setCurrentVerb] = useState({});
+  const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
     axios
@@ -84,6 +83,12 @@ const Kanban = () => {
     setTimeout(postToDb, 900);
   }, [columns]);
 
+  const editHandler = (currentVerb) => {
+    setOpen(true);
+    setIsEditing(true);
+    setCurrentVerb(currentVerb);
+  };
+
   return (
     <>
       <Button
@@ -101,7 +106,12 @@ const Kanban = () => {
         aria-describedby='parent-modal-description'
       >
         <>
-          <KanbanForm setOpen={setOpen} open={open} columns={columns} />
+          <KanbanForm
+            setOpen={setOpen}
+            columns={columns}
+            currentVerb={currentVerb}
+            isEditing={isEditing}
+          />
         </>
       </Modal>
 
@@ -163,13 +173,16 @@ const Kanban = () => {
                                         <KanbanTable
                                           item={item}
                                           column={column}
+                                          setOpen={setOpen}
                                         />
-
-                                        <button
-                                          onClick={() => setFlipCard(!flipCard)}
-                                        >
-                                          Archive
-                                        </button>
+                                        {column.name === 'Nowe słowa' && (
+                                          <Button
+                                            onClick={() => editHandler(item)}
+                                            buttonStyle='btn-edit-verb'
+                                          >
+                                            Edit
+                                          </Button>
+                                        )}
                                       </div>
                                     </div>
                                   );

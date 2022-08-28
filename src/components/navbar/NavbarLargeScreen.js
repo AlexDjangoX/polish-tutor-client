@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
+import NavbarListItems from './NavbarListItems';
 
 const NavbarLargeScreen = ({ screenWidth }) => {
   return (
@@ -9,31 +10,7 @@ const NavbarLargeScreen = ({ screenWidth }) => {
           screenWidth <= 960 ? 'nav-menu-active' : 'nav-menu-inactive links'
         }
       >
-        <li className='navbar-list-item'>
-          <Link to='/' className='navbar-link'>
-            Home
-          </Link>
-        </li>
-        <li className='navbar-list-item'>
-          <Link to='/experience' className='navbar-link'>
-            Profile
-          </Link>
-        </li>
-        <li className='navbar-list-item'>
-          <Link to='/kanban' className='navbar-link'>
-            Verbs
-          </Link>
-        </li>
-        <li className='navbar-list-item'>
-          <Link to='/profile' className='navbar-link'>
-            Nouns
-          </Link>
-        </li>
-        <li className='navbar-list-item'>
-          <Link to='/contact' className='navbar-link'>
-            My notes
-          </Link>
-        </li>
+        <NavbarListItems />
       </ul>
     </>
   );

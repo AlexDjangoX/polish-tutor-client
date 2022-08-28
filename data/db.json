@@ -4,56 +4,6 @@
       "name": "Nowe słowa",
       "items": [
         {
-          "id": "dc2df2be-c1f9-44b0-a656-2a5e59c1ca53",
-          "dokonany_niedokonany": "Niedokonany",
-          "polish_word": "iść",
-          "english_word": "To go",
-          "color": "#e8132b",
-          "present_ja": "idę",
-          "present_ty": "idiesz",
-          "present_on_ona_ono": "idzie",
-          "present_my": "idziemy",
-          "present_wy": "idziecie",
-          "present_oni_one": "idą",
-          "past_ja_masc": "szedłem",
-          "past_ty_masc": "szedłeś",
-          "past_on_masc": "szedł",
-          "past_my_masc": "szliśmy",
-          "past_wy_masc": "szliście",
-          "past_oni": "szli",
-          "past_ja_fem": "szłam",
-          "past_ty_fem": "szłaś",
-          "past_ona_fem": "szła",
-          "past_my_fem": "szłyśmy",
-          "past_wy_fem": "szyście",
-          "past_one": "szły",
-          "link_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2Y788iyTaAscQ4ihPPq4o5-m4CXLsKFON6w&usqp=CAU",
-          "gram_case": "Biernik",
-          "future_fem_ja": "będę szła",
-          "future_fem_ty": "będziesz szła",
-          "imp_future_ja": "będą iść",
-          "imp_future_ty": "będziesz iść",
-          "imp_future_on_ona_ono": "będzie iść",
-          "imp_future_my": "będziemy iść",
-          "imp_future_wy": "będziecie iść",
-          "imp_future_oni_one": "będą iść",
-          "future_fem_ona": "będzie szła",
-          "future_fem_my": "będziemy szły",
-          "future_fem_wy": "będziecie szły",
-          "future_fem_one": "będą szły",
-          "future_masc_oni": "będą szłi",
-          "future_masc_wy": "będziecie szłi",
-          "future_masc_my": "będziemy szłi",
-          "future_masc_on": "będzie szedł",
-          "future_masc_ty": "będziesz szedł",
-          "future_masc_ja": "będę szedł"
-        }
-      ]
-    },
-    "columnTwo": {
-      "name": "Przeszły",
-      "items": [
-        {
           "id": "7a476e40-50ae-4039-9afa-3d47817b09d3",
           "color": "#e8132b",
           "link_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLYFwnr39bfN9AIDGiX8L5RYsZLKcGPujL1w&usqp=CAU",
@@ -97,12 +47,52 @@
           "future_fem_my": "będziemy sprawdzały",
           "future_fem_wy": "będziecie sprawdzały",
           "future_fem_one": "będą sprawdzały"
-        }
-      ]
-    },
-    "columnThree": {
-      "name": "Przyszły",
-      "items": [
+        },
+        {
+          "id": "dc2df2be-c1f9-44b0-a656-2a5e59c1ca53",
+          "dokonany_niedokonany": "Niedokonany",
+          "polish_word": "iść",
+          "english_word": "To go",
+          "color": "#e8132b",
+          "present_ja": "idę",
+          "present_ty": "idiesz",
+          "present_on_ona_ono": "idzie",
+          "present_my": "idziemy",
+          "present_wy": "idziecie",
+          "present_oni_one": "idą",
+          "past_ja_masc": "szedłem",
+          "past_ty_masc": "szedłeś",
+          "past_on_masc": "szedł",
+          "past_my_masc": "szliśmy",
+          "past_wy_masc": "szliście",
+          "past_oni": "szli",
+          "past_ja_fem": "szłam",
+          "past_ty_fem": "szłaś",
+          "past_ona_fem": "szła",
+          "past_my_fem": "szłyśmy",
+          "past_wy_fem": "szyście",
+          "past_one": "szły",
+          "link_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2Y788iyTaAscQ4ihPPq4o5-m4CXLsKFON6w&usqp=CAU",
+          "gram_case": "Biernik",
+          "future_fem_ja": "będę szła",
+          "future_fem_ty": "będziesz szła",
+          "imp_future_ja": "będą iść",
+          "imp_future_ty": "będziesz iść",
+          "imp_future_on_ona_ono": "będzie iść",
+          "imp_future_my": "będziemy iść",
+          "imp_future_wy": "będziecie iść",
+          "imp_future_oni_one": "będą iść",
+          "future_fem_ona": "będzie szła",
+          "future_fem_my": "będziemy szły",
+          "future_fem_wy": "będziecie szły",
+          "future_fem_one": "będą szły",
+          "future_masc_oni": "będą szłi",
+          "future_masc_wy": "będziecie szłi",
+          "future_masc_my": "będziemy szłi",
+          "future_masc_on": "będzie szedł",
+          "future_masc_ty": "będziesz szedł",
+          "future_masc_ja": "będę szedł"
+        },
         {
           "id": "97f30bf4-225a-4400-bc51-4f6a01ef949e",
           "color": "#e8132b",
@@ -150,8 +140,17 @@
         }
       ]
     },
-    "columnFour": {
-      "name": "Stare słowa",
+    "columnTwo": {
+      "name": "Przeszły",
+      "items": [
+        {
+          "id": "4060c166-cb52-4f2f-a989-478113f3affa",
+          "color": "#e8132b"
+        }
+      ]
+    },
+    "columnThree": {
+      "name": "Przyszły",
       "items": [
         {
           "id": "fd83d70a-1f1e-4e81-bfb1-73e29d569dd7",
@@ -199,6 +198,10 @@
           "future_fem_one": "będą tworzyły"
         }
       ]
+    },
+    "columnFour": {
+      "name": "Stare słowa",
+      "items": []
     }
   }
 }

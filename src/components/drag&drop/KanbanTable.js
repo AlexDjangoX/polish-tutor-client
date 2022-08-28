@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './KanbanTable.css';
 
 const KanbanTable = ({ item, column }) => {
@@ -60,7 +60,7 @@ const KanbanTable = ({ item, column }) => {
                 <td className='feminine'>{item.past_one}</td>
               </tr>
               <tr>
-                <td colspan='2'>{item.english_word}</td>
+                <td colSpan='2'>{item.english_word}</td>
               </tr>
             </tbody>
           </table>

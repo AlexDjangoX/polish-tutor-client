@@ -3,10 +3,11 @@ import { Button } from '../button/Button.js';
 import { v4 as uuidv4 } from 'uuid';
 import './KanbanForm.css';
 
-const KanbanForm = ({ setOpen, columns }) => {
+const KanbanForm = ({ setOpen, columns, currentVerb, isEditing }) => {
   const [verb, setVerb] = useState({ id: uuidv4(), color: '#e8132b' });
-  const id = uuidv4();
   const axios = require('axios');
+
+  console.log('INSIDE KANBAN FORM : ', currentVerb.polish_word);
 
   const handleChange = (event) => {
     const { value, name } = event.target;
@@ -15,11 +16,13 @@ const KanbanForm = ({ setOpen, columns }) => {
       ...verb,
       [name]: value,
     });
+    console.log('COLUMN ONE : ', columns.columnOne.items.english_word);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     columns.columnOne.items.push(verb);
+
     setOpen(false);
   };
 
@@ -107,6 +110,11 @@ const KanbanForm = ({ setOpen, columns }) => {
               name='polish_word'
               required
               onChange={handleChange}
+              value={
+                !isEditing
+                  ? columns.columnOne.items.polish_word
+                  : currentVerb.polish_word
+              }
             />
 
             <label htmlFor='english_word'>English Verb</label>
@@ -116,6 +124,7 @@ const KanbanForm = ({ setOpen, columns }) => {
               name='english_word'
               required
               onChange={handleChange}
+              value={columns.columnOne.items.english_word}
             />
           </div>
 
@@ -126,6 +135,7 @@ const KanbanForm = ({ setOpen, columns }) => {
               type='text'
               name='link_url'
               onChange={handleChange}
+              value={columns.columnOne.items.link_url}
             />
           </div>
 
@@ -149,6 +159,7 @@ const KanbanForm = ({ setOpen, columns }) => {
               name='present_ja'
               required
               onChange={handleChange}
+              value={columns.columnOne.items.present_ja}
             />
 
             <label htmlFor='present_ty'>Ty-present</label>
@@ -158,6 +169,7 @@ const KanbanForm = ({ setOpen, columns }) => {
               name='present_ty'
               required
               onChange={handleChange}
+              value={columns.columnOne.items.present_ty}
             />
 
             <label htmlFor='present_on_ona_ono'>on/ona/ono-present</label>
@@ -167,6 +179,7 @@ const KanbanForm = ({ setOpen, columns }) => {
               name='present_on_ona_ono'
               required
               onChange={handleChange}
+              value={columns.columnOne.items.present_on_ona_ono}
             />
 
             <label htmlFor='present_my'>My-present</label>
@@ -176,6 +189,7 @@ const KanbanForm = ({ setOpen, columns }) => {
               name='present_my'
               required
               onChange={handleChange}
+              value={columns.columnOne.items.present_my}
             />
 
             <label htmlFor='present_wy'>Wy-present</label>
@@ -185,6 +199,7 @@ const KanbanForm = ({ setOpen, columns }) => {
               name='present_wy'
               required
               onChange={handleChange}
+              value={columns.columnOne.items.present_wy}
             />
 
             <label htmlFor='present_oni_one'>Oni-present</label>
@@ -194,6 +209,7 @@ const KanbanForm = ({ setOpen, columns }) => {
               name='present_oni_one'
               required
               onChange={handleChange}
+              value={columns.columnOne.items.present_oni_one}
             />
           </div>
 
@@ -204,6 +220,7 @@ const KanbanForm = ({ setOpen, columns }) => {
               type='text'
               name='past_ja_masc'
               onChange={handleChange}
+              value={columns.columnOne.items.past_ja_masc}
             />
             <label htmlFor='past_ty_masc'>Ty-past-masc</label>
             <input
@@ -211,6 +228,7 @@ const KanbanForm = ({ setOpen, columns }) => {
               type='text'
               name='past_ty_masc'
               onChange={handleChange}
+              value={columns.columnOne.items.past_ty_masc}
             />{' '}
             <label htmlFor='past_on_masc'>On-past</label>
             <input
@@ -218,6 +236,7 @@ const KanbanForm = ({ setOpen, columns }) => {
               type='text'
               name='past_on_masc'
               onChange={handleChange}
+              value={columns.columnOne.items.past_on_masc}
             />
             {/* <label htmlFor='past_ono'>Ono-past</label>
             <input
@@ -232,6 +251,7 @@ const KanbanForm = ({ setOpen, columns }) => {
               type='text'
               name='past_my_masc'
               onChange={handleChange}
+              value={columns.columnOne.items.past_my_masc}
             />
             <label htmlFor='past_wy_masc'>Wy-past-masc</label>
             <input
@@ -239,6 +259,7 @@ const KanbanForm = ({ setOpen, columns }) => {
               type='text'
               name='past_wy_masc'
               onChange={handleChange}
+              value={columns.columnOne.items.past_wy_masc}
             />
             <label htmlFor='past_oni'>Oni-past</label>
             <input
@@ -246,6 +267,7 @@ const KanbanForm = ({ setOpen, columns }) => {
               type='text'
               name='past_oni'
               onChange={handleChange}
+              value={columns.columnOne.items.past_oni}
             />
           </div>
 
@@ -256,6 +278,7 @@ const KanbanForm = ({ setOpen, columns }) => {
               type='text'
               name='past_ja_fem'
               onChange={handleChange}
+              value={columns.columnOne.items.past_ja_fem}
             />
             <label htmlFor='past_ty_fem'>Ty-past-fem</label>
             <input
@@ -263,6 +286,7 @@ const KanbanForm = ({ setOpen, columns }) => {
               type='text'
               name='past_ty_fem'
               onChange={handleChange}
+              value={columns.columnOne.items.past_ty_fem}
             />
 
             <label htmlFor='past_ona'>Ona-past</label>
@@ -271,6 +295,7 @@ const KanbanForm = ({ setOpen, columns }) => {
               type='text'
               name='past_ona_fem'
               onChange={handleChange}
+              value={columns.columnOne.items.past_ona_fem}
             />
 
             <label htmlFor='past_my_fem'>My-past-fem</label>
@@ -279,6 +304,7 @@ const KanbanForm = ({ setOpen, columns }) => {
               type='text'
               name='past_my_fem'
               onChange={handleChange}
+              value={columns.columnOne.items.past_my_fem}
             />
 
             <label htmlFor='past_wy_fem'>Wy-past-fem</label>
@@ -287,6 +313,7 @@ const KanbanForm = ({ setOpen, columns }) => {
               type='text'
               name='past_wy_fem'
               onChange={handleChange}
+              value={columns.columnOne.items.past_wy_fem}
             />
 
             <label htmlFor='past_one'>One-past</label>
@@ -295,6 +322,7 @@ const KanbanForm = ({ setOpen, columns }) => {
               type='text'
               name='past_one'
               onChange={handleChange}
+              value={columns.columnOne.items.past_one}
             />
           </div>
 
@@ -306,6 +334,7 @@ const KanbanForm = ({ setOpen, columns }) => {
               name='imp_future_ja'
               onChange={handleChange}
               defaultValue='będą '
+              value={columns.columnOne.items.imp_future_ja}
             />
 
             <label htmlFor='imp_future_ty'>Ty-imp-fut</label>
@@ -315,6 +344,7 @@ const KanbanForm = ({ setOpen, columns }) => {
               name='imp_future_ty'
               onChange={handleChange}
               defaultValue='będziesz '
+              value={columns.columnOne.items.imp_future_ty}
             />
 
             <label htmlFor='imp_future_on_ona_ono'>On/ona/ono-imp-fut</label>
@@ -324,6 +354,7 @@ const KanbanForm = ({ setOpen, columns }) => {
               name='imp_future_on_ona_ono'
               onChange={handleChange}
               defaultValue='będzie '
+              value={columns.columnOne.items.imp_future_on_ona_ono}
             />
 
             <label htmlFor='imp_future_my'>My-imp-fut</label>
@@ -333,6 +364,7 @@ const KanbanForm = ({ setOpen, columns }) => {
               name='imp_future_my'
               onChange={handleChange}
               defaultValue='będziemy '
+              value={columns.columnOne.items.imp_future_my}
             />
 
             <label htmlFor='imp_future_wy'>Wy-imp-fut</label>
@@ -342,6 +374,7 @@ const KanbanForm = ({ setOpen, columns }) => {
               name='imp_future_wy'
               onChange={handleChange}
               defaultValue='będziecie '
+              value={columns.columnOne.items.imp_future_wy}
             />
 
             <label htmlFor='imp_future_oni_one'>Oni/one-imp-fut</label>
@@ -351,6 +384,7 @@ const KanbanForm = ({ setOpen, columns }) => {
               name='imp_future_oni_one'
               onChange={handleChange}
               defaultValue='będą '
+              value={columns.columnOne.items.imp_future_oni_one}
             />
           </div>
 
@@ -362,6 +396,7 @@ const KanbanForm = ({ setOpen, columns }) => {
               name='future_fem_ja'
               onChange={handleChange}
               defaultValue='będę '
+              value={columns.columnOne.items.future_fem_ja}
             />
 
             <label htmlFor='future_fem_ty'>Ty-fut-fem</label>
@@ -371,6 +406,7 @@ const KanbanForm = ({ setOpen, columns }) => {
               name='future_fem_ty'
               onChange={handleChange}
               defaultValue='będziesz '
+              value={columns.columnOne.items.future_fem_ty}
             />
 
             <label htmlFor='future_fem_ona'>Ona-fut-fem</label>
@@ -380,6 +416,7 @@ const KanbanForm = ({ setOpen, columns }) => {
               name='future_fem_ona'
               onChange={handleChange}
               defaultValue='będzie '
+              value={columns.columnOne.items.future_fem_ona}
             />
 
             <label htmlFor='future_fem_my'>My-fut-fem</label>
@@ -389,6 +426,7 @@ const KanbanForm = ({ setOpen, columns }) => {
               name='future_fem_my'
               onChange={handleChange}
               defaultValue='będziemy '
+              value={columns.columnOne.items.future_fem_my}
             />
 
             <label htmlFor='future_fem_wy'>Wy-fut-fem</label>
@@ -398,6 +436,7 @@ const KanbanForm = ({ setOpen, columns }) => {
               name='future_fem_wy'
               onChange={handleChange}
               defaultValue='będziecie '
+              value={columns.columnOne.items.future_fem_wy}
             />
 
             <label htmlFor='future_fem_one'>Oni-fut-fem</label>
@@ -407,6 +446,7 @@ const KanbanForm = ({ setOpen, columns }) => {
               name='future_fem_one'
               onChange={handleChange}
               defaultValue='będą '
+              value={columns.columnOne.items.future_fem_one}
             />
           </div>
 
@@ -418,6 +458,7 @@ const KanbanForm = ({ setOpen, columns }) => {
               name='future_masc_ja'
               onChange={handleChange}
               defaultValue='będę '
+              value={columns.columnOne.items.future_masc_ja}
             />
 
             <label htmlFor='future_masc_ty'>Ty-fut-masc</label>
@@ -427,6 +468,7 @@ const KanbanForm = ({ setOpen, columns }) => {
               name='future_masc_ty'
               onChange={handleChange}
               defaultValue='będziesz '
+              value={columns.columnOne.items.future_masc_ty}
             />
 
             <label htmlFor='future_masc_on'>On-fut-masc</label>
@@ -436,6 +478,7 @@ const KanbanForm = ({ setOpen, columns }) => {
               name='future_masc_on'
               onChange={handleChange}
               defaultValue='będzie '
+              value={columns.columnOne.items.future_masc_on}
             />
 
             <label htmlFor='future_masc_my'>My-fut-masc</label>
@@ -445,6 +488,7 @@ const KanbanForm = ({ setOpen, columns }) => {
               name='future_masc_my'
               onChange={handleChange}
               defaultValue='będziemy '
+              value={columns.columnOne.items.future_masc_my}
             />
 
             <label htmlFor='future_masc_wy'>Wy-fut-masc</label>
@@ -454,6 +498,7 @@ const KanbanForm = ({ setOpen, columns }) => {
               name='future_masc_wy'
               onChange={handleChange}
               defaultValue='będziecie '
+              value={columns.columnOne.items.future_masc_wy}
             />
 
             <label htmlFor='future_masc_oni'>Oni-fut-masc</label>
@@ -463,6 +508,7 @@ const KanbanForm = ({ setOpen, columns }) => {
               name='future_masc_oni'
               onChange={handleChange}
               defaultValue='będą '
+              value={columns.columnOne.items.future_masc_oni}
             />
           </div>
         </div>
