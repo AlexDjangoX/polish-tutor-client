@@ -3,25 +3,95 @@ import { Button } from '../button/Button.js';
 import { v4 as uuidv4 } from 'uuid';
 import './KanbanForm.css';
 
-const KanbanForm = ({ setOpen, columns, currentVerb, isEditing }) => {
-  const [verb, setVerb] = useState({ id: uuidv4(), color: '#e8132b' });
-  const axios = require('axios');
+const initialData = {
+  id: uuidv4(),
+  word_image: { polish_word: '', english_word: '', image_url: '' },
+  gram_case: {
+    case: '',
+    color: '#ff2233',
+  },
+  present: {
+    present_ja: '',
+    present_ty: '',
+    present_on_ona_ono: '',
+    present_my: '',
+    present_wy: '',
+    present_oni_one: '',
+  },
+  past: {
+    past_ja_masc: '',
+    past_ja_fem: '',
+    past_ty_masc: '',
+    past_ty_fem: '',
+    past_on_masc: '',
+    past_ona_fem: '',
+    past_my_masc: '',
+    past_my_fem: '',
+    past_wy_masc: '',
+    past_wy_fem: '',
+    past_oni_masc: '',
+    past_one_fem: '',
+  },
+  imp_future: {
+    imp_future_ja: '',
+    imp_future_ty: '',
+    imp_future_on_ona_ono: '',
+    imp_future_my: '',
+    imp_future_wy: '',
+    imp_future_oni_one: '',
+  },
+  future_fem: {
+    future_fem_ja: '',
+    future_fem_ty: '',
+    future_fem_ona: '',
+    future_fem_my: '',
+    future_fem_wy: '',
+    future_fem_one: '',
+  },
+  future_masc: {
+    future_masc_ja: '',
+    future_masc_ty: '',
+    future_masc_on: '',
+    future_masc_my: '',
+    future_masc_wy: '',
+    future_masc_oni: '',
+  },
+};
 
-  console.log('INSIDE KANBAN FORM : ', currentVerb.polish_word);
+const KanbanForm = ({
+  setOpen,
+  columns,
+  currentVerb,
+  isEditing,
+  setIsEditing,
+}) => {
+  const [verb, setVerb] = useState(initialData);
+
+  const axios = require('axios');
 
   const handleChange = (event) => {
     const { value, name } = event.target;
+    const initialDataKeys = Object.keys(initialData).slice(1);
 
-    setVerb({
-      ...verb,
-      [name]: value,
+    initialDataKeys.forEach((el) => {
+      if (Object.keys(initialData[el]).includes(name)) {
+        setVerb((previous) => {
+          const newVerb = { ...previous };
+          newVerb[el][name] = value;
+          return newVerb;
+        });
+      }
     });
-    console.log('COLUMN ONE : ', columns.columnOne.items.english_word);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    columns.columnOne.items.push(verb);
+    if (!isEditing) {
+      columns.columnOne.items.push(verb);
+    }
+    if (isEditing) {
+      console.log(currentVerb.id);
+    }
 
     setOpen(false);
   };
@@ -38,11 +108,17 @@ const KanbanForm = ({ setOpen, columns, currentVerb, isEditing }) => {
     setTimeout(postToDb, 900);
   }, [columns]);
 
+  const exitEditForm = () => {
+    setIsEditing(false);
+    setOpen(false);
+  };
+
   return (
     <>
       <h1 className='heading-kanban'>
         Pattern recognition, association and iconisation
       </h1>
+      {}
 
       <form>
         <div className='add-verb-form-wrapper'>
@@ -50,7 +126,7 @@ const KanbanForm = ({ setOpen, columns, currentVerb, isEditing }) => {
             <Button
               buttonStyle='btn-add-new-verb'
               buttonSize='btn--medium'
-              onClick={() => setOpen(false)}
+              onClick={() => exitEditForm()}
             >
               Exit
             </Button>
@@ -111,9 +187,9 @@ const KanbanForm = ({ setOpen, columns, currentVerb, isEditing }) => {
               required
               onChange={handleChange}
               value={
-                !isEditing
-                  ? columns.columnOne.items.polish_word
-                  : currentVerb.polish_word
+                isEditing
+                  ? currentVerb.word_image.polish_word
+                  : verb.word_image.polish_word
               }
             />
 
@@ -124,16 +200,20 @@ const KanbanForm = ({ setOpen, columns, currentVerb, isEditing }) => {
               name='english_word'
               required
               onChange={handleChange}
-              value={columns.columnOne.items.english_word}
+              value={
+                isEditing
+                  ? currentVerb.word_image.english_word
+                  : verb.word_image.english_word
+              }
             />
           </div>
 
-          <div className='link-url'>
-            <label htmlFor='link_url'>Image URL</label>
+          <div className='image_url'>
+            <label htmlFor='image_url'>Image URL</label>
             <input
-              id='link_url'
+              id='image_url'
               type='text'
-              name='link_url'
+              name='image_url'
               onChange={handleChange}
               value={columns.columnOne.items.link_url}
             />
@@ -147,7 +227,7 @@ const KanbanForm = ({ setOpen, columns, currentVerb, isEditing }) => {
               type='submit'
               onClick={handleSubmit}
             >
-              Submit
+              {!isEditing ? 'Submit' : 'Update'}
             </Button>
           </div>
 
@@ -261,11 +341,11 @@ const KanbanForm = ({ setOpen, columns, currentVerb, isEditing }) => {
               onChange={handleChange}
               value={columns.columnOne.items.past_wy_masc}
             />
-            <label htmlFor='past_oni'>Oni-past</label>
+            <label htmlFor='past_oni_masc'>Oni-past</label>
             <input
-              id='past_oni'
+              id='past_oni_masc'
               type='text'
-              name='past_oni'
+              name='past_oni_masc'
               onChange={handleChange}
               value={columns.columnOne.items.past_oni}
             />
@@ -289,7 +369,7 @@ const KanbanForm = ({ setOpen, columns, currentVerb, isEditing }) => {
               value={columns.columnOne.items.past_ty_fem}
             />
 
-            <label htmlFor='past_ona'>Ona-past</label>
+            <label htmlFor='past_ona_fem'>Ona-past</label>
             <input
               id='past_ona_fem'
               type='text'
@@ -316,11 +396,11 @@ const KanbanForm = ({ setOpen, columns, currentVerb, isEditing }) => {
               value={columns.columnOne.items.past_wy_fem}
             />
 
-            <label htmlFor='past_one'>One-past</label>
+            <label htmlFor='past_one_fem'>One-past</label>
             <input
-              id='past_one'
+              id='past_one_fem'
               type='text'
-              name='past_one'
+              name='past_one_fem'
               onChange={handleChange}
               value={columns.columnOne.items.past_one}
             />

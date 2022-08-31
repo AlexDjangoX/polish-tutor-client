@@ -111,6 +111,7 @@ const Kanban = () => {
             columns={columns}
             currentVerb={currentVerb}
             isEditing={isEditing}
+            setIsEditing={setIsEditing}
           />
         </>
       </Modal>
@@ -163,13 +164,14 @@ const Kanban = () => {
                                         <span
                                           className='card-item-case-aspect'
                                           style={{
-                                            background: item.color,
+                                            background: item.gram_case.color,
                                           }}
                                         >
-                                          {`${item.gram_case} - ${item.dokonany_niedokonany}`}
+                                          {`${item.gram_case.case} - ${item.gram_case.aspect}`}
                                         </span>
 
-                                        <p>{item.polish_word}</p>
+                                        <p>{item.word_image.polish_word}</p>
+
                                         <KanbanTable
                                           item={item}
                                           column={column}

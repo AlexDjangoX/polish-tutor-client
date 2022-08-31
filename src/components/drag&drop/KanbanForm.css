@@ -53,7 +53,7 @@
   grid-area: gramCase;
 }
 
-.link-url {
+.image_url {
   display: grid;
   grid-area: imageUrl;
 }
