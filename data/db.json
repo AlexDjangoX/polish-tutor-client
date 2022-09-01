@@ -2,6 +2,14 @@
   "position": {
     "columnOne": {
       "name": "Nowe słowa",
+      "items": []
+    },
+    "columnTwo": {
+      "name": "Przeszły",
+      "items": []
+    },
+    "columnThree": {
+      "name": "Przyszły",
       "items": [
         {
           "id": "1aca8ff0-46df-48e6-92f5-be2f27009549",
@@ -63,14 +71,6 @@
           }
         }
       ]
-    },
-    "columnTwo": {
-      "name": "Przeszły",
-      "items": []
-    },
-    "columnThree": {
-      "name": "Przyszły",
-      "items": []
     },
     "columnFour": {
       "name": "Stare słowa",

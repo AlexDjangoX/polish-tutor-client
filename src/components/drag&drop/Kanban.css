@@ -13,6 +13,17 @@
   display: grid;
   place-content: center;
   font-weight: 400;
+  margin: 0;
+}
+
+.kanban-search-wrapper {
+  display: grid;
+  place-content: center;
+  font-weight: 400;
+}
+
+.kanban-search {
+  font-size: 1.2rem;
 }
 
 .kanban-droppable {

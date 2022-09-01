@@ -124,7 +124,21 @@ const Kanban = () => {
           {Object.entries(columns).map(([columnId, column], index) => {
             return (
               <div className='kanban-columns' key={columnId}>
-                <h2 className='kanban-header'>{column.name}</h2>
+                {(column.name === 'Nowe słowa' ||
+                  column.name === 'Przeszły' ||
+                  column.name === 'Przyszły') && (
+                  <h2 className='kanban-header'>{column.name}</h2>
+                )}
+
+                {column.name === 'Stare słowa' && (
+                  <div className='kanban-search-wrapper'>
+                    <input
+                      className='kanban-search'
+                      placeholder='Search verb'
+                    ></input>
+                  </div>
+                )}
+
                 <div style={{ margin: 8 }}>
                   <Droppable droppableId={columnId} key={columnId}>
                     {(provided, snapshot) => {

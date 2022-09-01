@@ -101,7 +101,7 @@ const KanbanForm = ({
       columns.columnOne.items.push(verb);
     }
     if (isEditing) {
-      console.log(currentVerb);
+      console.log('');
     }
 
     setOpen(false);
