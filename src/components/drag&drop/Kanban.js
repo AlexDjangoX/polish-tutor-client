@@ -110,6 +110,7 @@ const Kanban = () => {
             setOpen={setOpen}
             columns={columns}
             currentVerb={currentVerb}
+            setCurrentVerb={setCurrentVerb}
             isEditing={isEditing}
             setIsEditing={setIsEditing}
           />
