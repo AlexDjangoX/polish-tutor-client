@@ -2,19 +2,12 @@
   "position": {
     "columnOne": {
       "name": "Nowe słowa",
-      "items": []
-    },
-    "columnTwo": {
-      "name": "Przeszły",
-      "items": []
-    },
-    "columnThree": {
-      "name": "Przyszły",
       "items": [
         {
           "id": "1aca8ff0-46df-48e6-92f5-be2f27009549",
+          "notes": "The user should be able to type and save",
           "word_image": {
-            "polish_word": "iść",
+            "polish_word": "iść - 2",
             "english_word": "To go",
             "image_url": "https://thumbs.dreamstime.com/b/kresk%C3%B3wka-pracownika-budowlanego-marszczy%C4%87-brwi-135307416.jpg"
           },
@@ -71,6 +64,14 @@
           }
         }
       ]
+    },
+    "columnTwo": {
+      "name": "Przeszły",
+      "items": []
+    },
+    "columnThree": {
+      "name": "Przyszły",
+      "items": []
     },
     "columnFour": {
       "name": "Stare słowa",

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import './Kanban.css';
 import KanbanTable from './KanbanTable';
@@ -55,7 +56,7 @@ const onDragEnd = (result, columns, setColumns) => {
 
 const Kanban = () => {
   const [columns, setColumns] = useState({});
-  const { user, isAuthenticated } = useAuth0();
+  const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
   const [open, setOpen] = useState(false);
   const [currentVerb, setCurrentVerb] = useState({});
   const [isEditing, setIsEditing] = useState(false);
@@ -79,8 +80,31 @@ const Kanban = () => {
       });
   };
 
+  const postToExpressApp = async () => {
+    console.log(user.sub);
+    try {
+      const token = await getAccessTokenSilently();
+
+      const response = await fetch(
+        `http://localhost:4000/protected/${user.sub}`,
+        {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(columns),
+        }
+      );
+      console.log(response.status);
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
   useEffect(() => {
     setTimeout(postToDb, 900);
+    if (user) postToExpressApp();
   }, [columns]);
 
   const editHandler = (currentVerb) => {
@@ -186,6 +210,16 @@ const Kanban = () => {
                                         </span>
 
                                         <p>{item.word_image.polish_word}</p>
+                                        <div className='link-notes-wrapper'>
+                                          <Link
+                                            className='link-notes'
+                                            to='/notatki'
+                                            state={{ item }}
+                                            style={{ color: 'white' }}
+                                          >
+                                            Notes
+                                          </Link>
+                                        </div>
 
                                         <KanbanTable
                                           item={item}

@@ -19,7 +19,7 @@ td {
   padding: 6px;
 }
 
-tr {
+.table-wrapper tr {
   width: 2rem;
   background-color: rgb(179, 56, 56);
 }

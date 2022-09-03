@@ -5,6 +5,7 @@ import Hero from './components/hero/Hero';
 import Timeline from './components/timeline/Timeline';
 import Kanban from './components/drag&drop/Kanban';
 import Profile from './components/profile/Profile';
+import Notes from './components/notes/Notes';
 
 import './App.css';
 
@@ -15,7 +16,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Hero />} />
         <Route path='/experience' element={<Timeline />} />
-        <Route path='/contact' element={<Timeline />} />
+        <Route path='/notatki' element={<Notes />} />
         <Route path='/kanban' element={<Kanban />} />
         <Route path='/profile' element={<Profile />} />
         <Route path='*' element={<Timeline replace to='/' />} />

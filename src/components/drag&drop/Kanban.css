@@ -69,6 +69,7 @@
   font-size: 1rem;
   line-height: 1rem;
   padding-top: 0.5rem;
+  margin-bottom: 0;
 }
 
 .card-item-content a {
@@ -83,4 +84,14 @@
   top: 0.2rem;
   right: 0.2rem;
   margin-top: 0.3rem;
+}
+
+.link-notes,
+Link {
+  display: grid;
+  place-content: center;
+  padding: 0.6rem;
+  margin: 0.4rem;
+  color: black;
+  font-family: monospace;
 }

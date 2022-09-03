@@ -25,7 +25,7 @@ const NavbarListItems = () => {
         </Link>
       </li>
       <li className='navbar-list-item'>
-        <Link to='/contact' className='navbar-link'>
+        <Link to='/notatki' className='navbar-link'>
           Notatki
         </Link>
       </li>

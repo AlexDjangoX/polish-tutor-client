@@ -16,6 +16,8 @@ root.render(
       domain={domain}
       clientId={clientId}
       redirectUri={`${window.location.origin}${kanbanRoute}`}
+      audience='https://www.polish-api.com'
+      scope='openid profile email'
     >
       <App />
     </Auth0Provider>

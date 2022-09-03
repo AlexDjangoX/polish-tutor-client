@@ -84,15 +84,17 @@ const KanbanForm = ({
       }
     });
 
-    initialDataKeys.forEach((el) => {
-      if (Object.keys(initialData[el]).includes(name)) {
-        setCurrentVerb((previous) => {
-          const newVerb = { ...previous };
-          newVerb[el][name] = value;
-          return newVerb;
-        });
-      }
-    });
+    if (isEditing) {
+      initialDataKeys.forEach((el) => {
+        if (Object.keys(initialData[el]).includes(name)) {
+          setCurrentVerb((previous) => {
+            const newVerb = { ...previous };
+            newVerb[el][name] = value;
+            return newVerb;
+          });
+        }
+      });
+    }
   };
 
   const handleSubmit = (event) => {
