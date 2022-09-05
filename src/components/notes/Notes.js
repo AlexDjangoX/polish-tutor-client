@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import './Notes.css';
@@ -6,11 +6,15 @@ import './Notes.css';
 const Notes = () => {
   const location = useLocation();
   const { item } = location.state;
+  const [data, setData] = useState(item);
 
-  console.log('My notes : ', item.notes);
+  const handleChangeTextField = (event) => {
+    const { name, value } = event.target;
 
-  const handleChangeTextField = () => {
-    return;
+    setData({
+      ...data,
+      [name]: value,
+    });
   };
 
   return (
@@ -20,21 +24,21 @@ const Notes = () => {
           <table>
             <tbody>
               <tr>
-                <td>{item.word_image.english_word}</td>
-                <td>{item.present.present_ja}</td>
-                <td>{item.present.present_ty}</td>
-                <td>{item.present.present_on_ona_ono}</td>
-                <td>{item.present.present_my}</td>
-                <td>{item.present.present_wy}</td>
-                <td>{item.present.present_oni_one}</td>
+                <td>{data.word_image.english_word}</td>
+                <td>{data.present.present_ja}</td>
+                <td>{data.present.present_ty}</td>
+                <td>{data.present.present_on_ona_ono}</td>
+                <td>{data.present.present_my}</td>
+                <td>{data.present.present_wy}</td>
+                <td>{data.present.present_oni_one}</td>
               </tr>
             </tbody>
           </table>
         </div>
         <div className='card-image'>
-          {item.word_image.image_url && (
+          {data.word_image.image_url && (
             <img
-              src={item.word_image.image_url}
+              src={data.word_image.image_url}
               alt='img'
               height='150'
               width='200'
@@ -45,20 +49,20 @@ const Notes = () => {
           <table>
             <tbody>
               <tr>
-                <td className='masculine'>{item.past.past_ja_masc}</td>
-                <td className='masculine-alt'>{item.past.past_ty_masc}</td>
-                <td className='masculine'>{item.past.past_on_masc}</td>
-                <td className='masculine-alt'>{item.past.past_my_masc}</td>
-                <td className='masculine'>{item.past.past_wy_masc}</td>
-                <td className='masculine-alt'>{item.past.past_oni_masc}</td>
+                <td className='masculine'>{data.past.past_ja_masc}</td>
+                <td className='masculine-alt'>{data.past.past_ty_masc}</td>
+                <td className='masculine'>{data.past.past_on_masc}</td>
+                <td className='masculine-alt'>{data.past.past_my_masc}</td>
+                <td className='masculine'>{data.past.past_wy_masc}</td>
+                <td className='masculine-alt'>{data.past.past_oni_masc}</td>
               </tr>
               <tr>
-                <td className='feminine'>{item.past.past_ja_fem}</td>
-                <td className='feminine-alt'>{item.past.past_ty_fem}</td>
-                <td className='feminine'>{item.past.past_ona_fem}</td>
-                <td className='feminine'>{item.past.past_my_fem}</td>
-                <td className='feminine-alt'>{item.past.past_wy_fem}</td>
-                <td className='feminine'>{item.past.past_one_fem}</td>
+                <td className='feminine'>{data.past.past_ja_fem}</td>
+                <td className='feminine-alt'>{data.past.past_ty_fem}</td>
+                <td className='feminine'>{data.past.past_ona_fem}</td>
+                <td className='feminine'>{data.past.past_my_fem}</td>
+                <td className='feminine-alt'>{data.past.past_wy_fem}</td>
+                <td className='feminine'>{data.past.past_one_fem}</td>
               </tr>
             </tbody>
           </table>
@@ -67,43 +71,43 @@ const Notes = () => {
           <table>
             <tbody>
               <tr>
-                <td>{item.imp_future.imp_future_ja || 'Nie ma'}</td>
-                <td>{item.imp_future.imp_future_ty || 'Nie ma'}</td>
-                <td>{item.imp_future.imp_future_on_ona_ono || 'Nie ma'}</td>
-                <td>{item.imp_future.imp_future_my || 'Nie ma'}</td>
-                <td>{item.imp_future.imp_future_wy || 'Nie ma'}</td>
-                <td>{item.imp_future.imp_future_oni_one || 'Nie ma'}</td>
+                <td>{data.imp_future.imp_future_ja || 'Nie ma'}</td>
+                <td>{data.imp_future.imp_future_ty || 'Nie ma'}</td>
+                <td>{data.imp_future.imp_future_on_ona_ono || 'Nie ma'}</td>
+                <td>{data.imp_future.imp_future_my || 'Nie ma'}</td>
+                <td>{data.imp_future.imp_future_wy || 'Nie ma'}</td>
+                <td>{data.imp_future.imp_future_oni_one || 'Nie ma'}</td>
               </tr>
               <tr>
-                <td className='masculine'>{item.future_masc.future_masc_ja}</td>
+                <td className='masculine'>{data.future_masc.future_masc_ja}</td>
                 <td className='masculine-alt'>
-                  {item.future_masc.future_masc_ty}
+                  {data.future_masc.future_masc_ty}
                 </td>
-                <td className='masculine'>{item.future_masc.future_masc_on}</td>
+                <td className='masculine'>{data.future_masc.future_masc_on}</td>
                 <td className='masculine-alt'>
-                  {item.future_masc.future_masc_my}
+                  {data.future_masc.future_masc_my}
                 </td>
-                <td className='masculine'>{item.future_masc.future_masc_wy}</td>
+                <td className='masculine'>{data.future_masc.future_masc_wy}</td>
                 <td className='masculine-alt'>
-                  {item.future_masc.future_masc_oni}
+                  {data.future_masc.future_masc_oni}
                 </td>
               </tr>
               <tr>
-                <td className='feminine'>{item.future_fem.future_fem_ja}</td>
+                <td className='feminine'>{data.future_fem.future_fem_ja}</td>
 
                 <td className='feminine-alt'>
-                  {item.future_fem.future_fem_ty}
+                  {data.future_fem.future_fem_ty}
                 </td>
-                <td className='feminine'>{item.future_fem.future_fem_ona}</td>
+                <td className='feminine'>{data.future_fem.future_fem_ona}</td>
 
                 <td className='feminine-alt'>
-                  {item.future_fem.future_fem_my}
+                  {data.future_fem.future_fem_my}
                 </td>
 
-                <td className='feminine'>{item.future_fem.future_fem_wy}</td>
+                <td className='feminine'>{data.future_fem.future_fem_wy}</td>
 
                 <td className='feminine-alt'>
-                  {item.future_fem.future_fem_one}
+                  {data.future_fem.future_fem_one}
                 </td>
               </tr>
             </tbody>
@@ -114,18 +118,18 @@ const Notes = () => {
         <form>
           <p>
             <label className='user-notes-input-label' htmlFor='notes'>
-              Notaki
+              Notatki
             </label>
           </p>
           <textarea
             id='notes'
             name='notes'
             rows='4'
-            cols='50'
-            value={item.notes}
+            cols='25'
+            value={data.notes}
             onChange={handleChangeTextField}
           >
-            {item.notes}
+            {data.notes}
           </textarea>
         </form>
       </div>

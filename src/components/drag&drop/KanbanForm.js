@@ -8,6 +8,7 @@ const initialData = {
   word_image: { polish_word: '', english_word: '', image_url: '' },
   gram_case: {
     case: '',
+    aspect: 'Nie wiem',
     color: '#ff2233',
   },
   present: {
@@ -33,7 +34,7 @@ const initialData = {
     past_one_fem: '',
   },
   imp_future: {
-    imp_future_ja: 'będą ',
+    imp_future_ja: 'będę ',
     imp_future_ty: 'będziesz ',
     imp_future_on_ona_ono: 'będzie ',
     imp_future_my: 'będziemy ',
@@ -97,24 +98,22 @@ const KanbanForm = ({
     }
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (!isEditing) {
-      columns.columnOne.items.push(verb);
-    }
-    if (isEditing) {
-      console.log('');
-    }
-
-    setOpen(false);
-  };
-
   const postToDb = () => {
     axios
       .post(`http://localhost:8000/position`, columns)
       .catch(function (error) {
         console.log(error);
       });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (!isEditing) {
+      columns.columnOne.items.push(verb);
+    }
+
+    postToDb();
+    setOpen(false);
   };
 
   useEffect(() => {
@@ -144,13 +143,19 @@ const KanbanForm = ({
             </Button>
           </div>
 
-          <div className='radio-buttons' onChange={handleChange}>
+          <div className='radio-buttons'>
             <div className='radio-buttons-dokonany'>
               <input
                 type='radio'
                 id='dokonany'
-                name='dokonany_niedokonany'
+                name='aspect'
                 value='Dokonany'
+                checked={
+                  isEditing
+                    ? currentVerb.gram_case.aspect === 'Dokonany'
+                    : verb.gram_case.aspect === 'Dokonany'
+                }
+                onChange={handleChange}
               />
               <label htmlFor='dokonany'>Dokonany</label>
             </div>
@@ -158,8 +163,14 @@ const KanbanForm = ({
               <input
                 type='radio'
                 id='niedokonany'
-                name='dokonany_niedokonany'
+                name='aspect'
                 value='Niedokonany'
+                checked={
+                  isEditing
+                    ? currentVerb.gram_case.aspect === 'Niedokonany'
+                    : verb.gram_case.aspect === 'Niedokonany'
+                }
+                onChange={handleChange}
               />
               <label htmlFor='niedokonany'>Niedokonany</label>
             </div>
@@ -167,9 +178,14 @@ const KanbanForm = ({
               <input
                 type='radio'
                 id='niewiem'
-                name='dokonany_niedokonany'
+                name='aspect'
                 value='Nie wiem'
-                defaultChecked={true}
+                checked={
+                  isEditing
+                    ? currentVerb.gram_case.aspect === 'Nie wiem'
+                    : verb.gram_case.aspect === 'Nie wiem'
+                }
+                onChange={handleChange}
               />
               <label htmlFor='niewiem'>Nie wiem</label>
             </div>
@@ -181,7 +197,7 @@ const KanbanForm = ({
             </label>
             <select
               id='gram_case'
-              name='gram_case'
+              name='case'
               onChange={handleChange}
               value={
                 isEditing ? currentVerb.gram_case.case : verb.gram_case.case

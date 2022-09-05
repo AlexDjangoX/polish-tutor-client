@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import './Kanban.css';
@@ -81,7 +81,6 @@ const Kanban = () => {
   };
 
   const postToExpressApp = async () => {
-    console.log(user.sub);
     try {
       const token = await getAccessTokenSilently();
 
