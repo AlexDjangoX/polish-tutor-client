@@ -1,12 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { Button } from '../button/Button';
 
 import './Notes.css';
 
-const Notes = () => {
+const Notes = ({ columns, setColumns }) => {
   const location = useLocation();
   const { item } = location.state;
   const [data, setData] = useState(item);
+  const axios = require('axios');
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8000/position`)
+      .then(function (response) {
+        setColumns(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, []);
 
   const handleChangeTextField = (event) => {
     const { name, value } = event.target;
@@ -15,6 +28,27 @@ const Notes = () => {
       ...data,
       [name]: value,
     });
+  };
+
+  const postToDb = () => {
+    axios
+      .post(`http://localhost:8000/position`, columns)
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (columns.columnFour?.items) {
+      const itemsArray = columns.columnFour.items;
+
+      itemsArray.forEach((el, index) => {
+        if (el.id === item.id) itemsArray[index] = data;
+      });
+
+      postToDb();
+    }
   };
 
   return (
@@ -71,12 +105,12 @@ const Notes = () => {
           <table>
             <tbody>
               <tr>
-                <td>{data.imp_future.imp_future_ja || 'Nie ma'}</td>
-                <td>{data.imp_future.imp_future_ty || 'Nie ma'}</td>
-                <td>{data.imp_future.imp_future_on_ona_ono || 'Nie ma'}</td>
-                <td>{data.imp_future.imp_future_my || 'Nie ma'}</td>
-                <td>{data.imp_future.imp_future_wy || 'Nie ma'}</td>
-                <td>{data.imp_future.imp_future_oni_one || 'Nie ma'}</td>
+                <td>{data.imp_future.imp_future_ja}</td>
+                <td>{data.imp_future.imp_future_ty}</td>
+                <td>{data.imp_future.imp_future_on_ona_ono}</td>
+                <td>{data.imp_future.imp_future_my}</td>
+                <td>{data.imp_future.imp_future_wy}</td>
+                <td>{data.imp_future.imp_future_oni_one}</td>
               </tr>
               <tr>
                 <td className='masculine'>{data.future_masc.future_masc_ja}</td>
@@ -121,6 +155,17 @@ const Notes = () => {
               Notatki
             </label>
           </p>
+          <div className='submit-button-notes'>
+            <Button
+              buttonStyle='btn-add-new-verb'
+              buttonSize='btn--medium'
+              id='submit-verb-button'
+              type='submit'
+              onClick={handleSubmit}
+            >
+              Update notes
+            </Button>
+          </div>
           <textarea
             id='notes'
             name='notes'

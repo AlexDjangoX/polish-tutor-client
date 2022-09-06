@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import './Kanban.css';
@@ -7,7 +7,6 @@ import KanbanForm from './KanbanForm';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import { Modal } from '@mui/material';
 import { Button } from '../button/Button.js';
-import { v4 as uuidv4 } from 'uuid';
 const axios = require('axios');
 
 const onDragEnd = (result, columns, setColumns) => {
@@ -54,8 +53,7 @@ const onDragEnd = (result, columns, setColumns) => {
   }
 };
 
-const Kanban = () => {
-  const [columns, setColumns] = useState({});
+const Kanban = ({ columns, setColumns }) => {
   const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
   const [open, setOpen] = useState(false);
   const [currentVerb, setCurrentVerb] = useState({});
@@ -209,16 +207,18 @@ const Kanban = () => {
                                         </span>
 
                                         <p>{item.word_image.polish_word}</p>
-                                        <div className='link-notes-wrapper'>
-                                          <Link
-                                            className='link-notes'
-                                            to='/notatki'
-                                            state={{ item }}
-                                            style={{ color: 'white' }}
-                                          >
-                                            Notes
-                                          </Link>
-                                        </div>
+                                        {column.name === 'Stare słowa' && (
+                                          <div className='link-notes-wrapper'>
+                                            <Link
+                                              className='link-notes'
+                                              to='/notatki'
+                                              state={{ item }}
+                                              style={{ color: 'white' }}
+                                            >
+                                              Notes
+                                            </Link>
+                                          </div>
+                                        )}
 
                                         <KanbanTable
                                           item={item}

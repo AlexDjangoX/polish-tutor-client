@@ -76,16 +76,16 @@ const KanbanTable = ({ item, column }) => {
           <table>
             <tbody>
               <tr>
-                <td>{item.imp_future.imp_future_ja || 'Nie ma'}</td>
-                <td>{item.imp_future.imp_future_ty || 'Nie ma'}</td>
+                <td>{item.imp_future.imp_future_ja}</td>
+                <td>{item.imp_future.imp_future_ty}</td>
               </tr>
               <tr>
-                <td>{item.imp_future.imp_future_on_ona_ono || 'Nie ma'}</td>
-                <td>{item.imp_future.imp_future_my || 'Nie ma'}</td>
+                <td>{item.imp_future.imp_future_on_ona_ono}</td>
+                <td>{item.imp_future.imp_future_my}</td>
               </tr>
               <tr>
-                <td>{item.imp_future.imp_future_wy || 'Nie ma'}</td>
-                <td>{item.imp_future.imp_future_oni_one || 'Nie ma'}</td>
+                <td>{item.imp_future.imp_future_wy}</td>
+                <td>{item.imp_future.imp_future_oni_one}</td>
               </tr>
               <tr>
                 <td className='masculine'>{item.future_masc.future_masc_ja}</td>

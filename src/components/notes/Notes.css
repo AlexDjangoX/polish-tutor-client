@@ -64,4 +64,9 @@ textarea {
 .user-notes-input-label {
   display: grid;
   place-content: center;
+  font-size: 2rem;
+}
+
+.submit-button-notes {
+  margin-bottom: 2rem;
 }
