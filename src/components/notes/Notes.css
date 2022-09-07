@@ -37,9 +37,9 @@
 
 .translation {
   display: grid;
-  grid-template-columns: repeat(6);
+  grid-template-columns: repeat(7);
   grid-template-rows: auto;
-  grid-template-areas: '. textTranslate textTranslate translateButton translatedText translatedText .';
+  grid-template-areas: '. textTranslate textTranslate translateButton  translatedText translatedText .';
 }
 
 .text-to-translate {
@@ -50,6 +50,19 @@
 .translated-text {
   display: grid;
   grid-area: translatedText;
+}
+
+.translation-radio-buttons {
+  background-color: rgb(240, 240, 240);
+  margin: 0 0.2rem;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+}
+
+.radio-buttons-eng-pl,
+.radio-buttons-pl-eng {
+  background-color: black;
+  width: 1rem;
 }
 
 .text-to-translate textarea,
@@ -92,4 +105,21 @@
 
 .submit-button-notes {
   margin-bottom: 2rem;
+}
+
+.translation-btn-link a {
+  display: grid;
+  place-content: center;
+  color: rgb(48, 48, 48);
+  text-decoration: none;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
+.translation-btn-link,
+a:hover {
+  color: rgb(252, 55, 61);
+
+  font-size: 1rem;
+  transition: all 0.6s;
 }

@@ -10,6 +10,7 @@ const Notes = ({ columns, setColumns }) => {
   const [dataToRender, setDataToRender] = useState(item);
   const [stringToTranslate, setStringToTranslate] = useState({ english: '' });
   const [translatedString, setTranslatedString] = useState({ polish: '' });
+  const [transEngPlPlEnd, setTransEngPlPlEnd] = useState('');
   const axios = require('axios');
 
   useEffect(() => {
@@ -71,7 +72,7 @@ const Notes = ({ columns, setColumns }) => {
           'X-RapidAPI-Host': 'deep-translate1.p.rapidapi.com',
         },
 
-        data: `{"q":"${stringToTranslate.english}","source":"en","target":"pl"}`,
+        data: `{"q":"${stringToTranslate.english}",${transEngPlPlEnd}}`,
       };
 
       axios
@@ -91,6 +92,12 @@ const Notes = ({ columns, setColumns }) => {
   const handleChangeTranslationField = (event) => {
     const { name, value } = event.target;
     setStringToTranslate({ ...stringToTranslate, [name]: value });
+  };
+
+  const handleTranslationLanguage = (event) => {
+    const { name, value } = event.target;
+    console.log(name, value);
+    setTransEngPlPlEnd(value);
   };
 
   return (
@@ -215,13 +222,22 @@ const Notes = ({ columns, setColumns }) => {
       <div className='user-notes-input'>
         <form>
           <div className='translation'>
-            <Button
-              buttonStyle='btn--translation'
-              buttonSize='btn--medium'
-              onClick={handleTranslation}
-            >
-              Translate
-            </Button>
+            <div className='translation-btn-link'>
+              <Button
+                buttonStyle='btn--translation'
+                buttonSize='btn--medium'
+                onClick={handleTranslation}
+              >
+                Translate
+              </Button>
+              <a
+                href='https://cooljugator.com/pl'
+                target='_blank'
+                rel='noreferrer'
+              >
+                Koniugacja
+              </a>
+            </div>
             <div className='text-to-translate'>
               <textarea
                 onChange={handleChangeTranslationField}
@@ -229,6 +245,33 @@ const Notes = ({ columns, setColumns }) => {
                 name='english'
                 value={stringToTranslate.english}
               ></textarea>
+            </div>
+
+            <div className='translation-radio-buttons'>
+              <div>
+                <input
+                  className='radio-buttons-pl-eng'
+                  type='radio'
+                  id='pl-eng'
+                  name='translation'
+                  value={'"source":"pl","target":"en"'}
+                  // checked={}
+                  onChange={handleTranslationLanguage}
+                />
+                <label htmlFor='pl-eng'>pl-eng</label>
+              </div>
+              <div>
+                <input
+                  className='radio-buttons-eng-pl'
+                  type='radio'
+                  id='eng-pl'
+                  name='translation'
+                  value={'"source":"en","target":"pl"'}
+                  // checked={ }
+                  onChange={handleTranslationLanguage}
+                />
+                <label htmlFor='eng-pl'>eng-pl</label>
+              </div>
             </div>
 
             <div className='translated-text'>

@@ -135,7 +135,7 @@ const KanbanForm = ({
         <div className='add-verb-form-wrapper'>
           <div className='close-modal-button'>
             <Button
-              buttonStyle='btn-add-new-verb'
+              buttonStyle='btn--add-new-verb'
               buttonSize='btn--medium'
               onClick={() => exitEditForm()}
             >
@@ -260,7 +260,7 @@ const KanbanForm = ({
 
           <div className='submit-button'>
             <Button
-              buttonStyle='btn-add-new-verb'
+              buttonStyle='btn--add-new-verb'
               buttonSize='btn--medium'
               id='submit-verb-button'
               type='submit'
