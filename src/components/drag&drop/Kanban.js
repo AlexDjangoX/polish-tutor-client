@@ -113,7 +113,7 @@ const Kanban = ({ columns, setColumns }) => {
   return (
     <>
       <Button
-        buttonStyle='btn-add-new-verb'
+        buttonStyle='btn--add-new-verb'
         buttonSize='btn--medium'
         onClick={() => setOpen(true)}
       >

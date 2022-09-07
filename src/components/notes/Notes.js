@@ -7,7 +7,9 @@ import './Notes.css';
 const Notes = ({ columns, setColumns }) => {
   const location = useLocation();
   const { item } = location.state;
-  const [data, setData] = useState(item);
+  const [dataToRender, setDataToRender] = useState(item);
+  const [stringToTranslate, setStringToTranslate] = useState({ english: '' });
+  const [translatedString, setTranslatedString] = useState({ polish: '' });
   const axios = require('axios');
 
   useEffect(() => {
@@ -24,8 +26,8 @@ const Notes = ({ columns, setColumns }) => {
   const handleChangeTextField = (event) => {
     const { name, value } = event.target;
 
-    setData({
-      ...data,
+    setDataToRender({
+      ...dataToRender,
       [name]: value,
     });
   };
@@ -44,11 +46,51 @@ const Notes = ({ columns, setColumns }) => {
       const itemsArray = columns.columnFour.items;
 
       itemsArray.forEach((el, index) => {
-        if (el.id === item.id) itemsArray[index] = data;
+        if (el.id === item.id) itemsArray[index] = dataToRender;
       });
 
       postToDb();
     }
+
+    setStringToTranslate({ english: '' });
+    setTranslatedString({ polish: '' });
+  };
+
+  const handleTranslation = (event) => {
+    event.preventDefault();
+    console.log(process.env.X_RapidAPI_Key);
+
+    if (stringToTranslate.english) {
+      const options = {
+        method: 'POST',
+        url: 'https://deep-translate1.p.rapidapi.com/language/translate/v2',
+        headers: {
+          'content-type': 'application/json',
+          'X-RapidAPI-Key':
+            '6a256b5c1cmsh5fcf6d0110e3df1p151cf6jsn51bd0b373077',
+          'X-RapidAPI-Host': 'deep-translate1.p.rapidapi.com',
+        },
+
+        data: `{"q":"${stringToTranslate.english}","source":"en","target":"pl"}`,
+      };
+
+      axios
+        .request(options)
+        .then(function (response) {
+          console.log(response.data.data.translations.translatedText);
+          setTranslatedString({
+            polish: response.data.data.translations.translatedText,
+          });
+        })
+        .catch(function (error) {
+          console.error(error);
+        });
+    }
+  };
+
+  const handleChangeTranslationField = (event) => {
+    const { name, value } = event.target;
+    setStringToTranslate({ ...stringToTranslate, [name]: value });
   };
 
   return (
@@ -58,21 +100,21 @@ const Notes = ({ columns, setColumns }) => {
           <table>
             <tbody>
               <tr>
-                <td>{data.word_image.english_word}</td>
-                <td>{data.present.present_ja}</td>
-                <td>{data.present.present_ty}</td>
-                <td>{data.present.present_on_ona_ono}</td>
-                <td>{data.present.present_my}</td>
-                <td>{data.present.present_wy}</td>
-                <td>{data.present.present_oni_one}</td>
+                <td>{dataToRender.word_image.english_word}</td>
+                <td>{dataToRender.present.present_ja}</td>
+                <td>{dataToRender.present.present_ty}</td>
+                <td>{dataToRender.present.present_on_ona_ono}</td>
+                <td>{dataToRender.present.present_my}</td>
+                <td>{dataToRender.present.present_wy}</td>
+                <td>{dataToRender.present.present_oni_one}</td>
               </tr>
             </tbody>
           </table>
         </div>
         <div className='card-image'>
-          {data.word_image.image_url && (
+          {dataToRender.word_image.image_url && (
             <img
-              src={data.word_image.image_url}
+              src={dataToRender.word_image.image_url}
               alt='img'
               height='150'
               width='200'
@@ -83,20 +125,30 @@ const Notes = ({ columns, setColumns }) => {
           <table>
             <tbody>
               <tr>
-                <td className='masculine'>{data.past.past_ja_masc}</td>
-                <td className='masculine-alt'>{data.past.past_ty_masc}</td>
-                <td className='masculine'>{data.past.past_on_masc}</td>
-                <td className='masculine-alt'>{data.past.past_my_masc}</td>
-                <td className='masculine'>{data.past.past_wy_masc}</td>
-                <td className='masculine-alt'>{data.past.past_oni_masc}</td>
+                <td className='masculine'>{dataToRender.past.past_ja_masc}</td>
+                <td className='masculine-alt'>
+                  {dataToRender.past.past_ty_masc}
+                </td>
+                <td className='masculine'>{dataToRender.past.past_on_masc}</td>
+                <td className='masculine-alt'>
+                  {dataToRender.past.past_my_masc}
+                </td>
+                <td className='masculine'>{dataToRender.past.past_wy_masc}</td>
+                <td className='masculine-alt'>
+                  {dataToRender.past.past_oni_masc}
+                </td>
               </tr>
               <tr>
-                <td className='feminine'>{data.past.past_ja_fem}</td>
-                <td className='feminine-alt'>{data.past.past_ty_fem}</td>
-                <td className='feminine'>{data.past.past_ona_fem}</td>
-                <td className='feminine'>{data.past.past_my_fem}</td>
-                <td className='feminine-alt'>{data.past.past_wy_fem}</td>
-                <td className='feminine'>{data.past.past_one_fem}</td>
+                <td className='feminine'>{dataToRender.past.past_ja_fem}</td>
+                <td className='feminine-alt'>
+                  {dataToRender.past.past_ty_fem}
+                </td>
+                <td className='feminine'>{dataToRender.past.past_ona_fem}</td>
+                <td className='feminine'>{dataToRender.past.past_my_fem}</td>
+                <td className='feminine-alt'>
+                  {dataToRender.past.past_wy_fem}
+                </td>
+                <td className='feminine'>{dataToRender.past.past_one_fem}</td>
               </tr>
             </tbody>
           </table>
@@ -105,43 +157,55 @@ const Notes = ({ columns, setColumns }) => {
           <table>
             <tbody>
               <tr>
-                <td>{data.imp_future.imp_future_ja}</td>
-                <td>{data.imp_future.imp_future_ty}</td>
-                <td>{data.imp_future.imp_future_on_ona_ono}</td>
-                <td>{data.imp_future.imp_future_my}</td>
-                <td>{data.imp_future.imp_future_wy}</td>
-                <td>{data.imp_future.imp_future_oni_one}</td>
+                <td>{dataToRender.imp_future.imp_future_ja}</td>
+                <td>{dataToRender.imp_future.imp_future_ty}</td>
+                <td>{dataToRender.imp_future.imp_future_on_ona_ono}</td>
+                <td>{dataToRender.imp_future.imp_future_my}</td>
+                <td>{dataToRender.imp_future.imp_future_wy}</td>
+                <td>{dataToRender.imp_future.imp_future_oni_one}</td>
               </tr>
               <tr>
-                <td className='masculine'>{data.future_masc.future_masc_ja}</td>
-                <td className='masculine-alt'>
-                  {data.future_masc.future_masc_ty}
+                <td className='masculine'>
+                  {dataToRender.future_masc.future_masc_ja}
                 </td>
-                <td className='masculine'>{data.future_masc.future_masc_on}</td>
                 <td className='masculine-alt'>
-                  {data.future_masc.future_masc_my}
+                  {dataToRender.future_masc.future_masc_ty}
                 </td>
-                <td className='masculine'>{data.future_masc.future_masc_wy}</td>
+                <td className='masculine'>
+                  {dataToRender.future_masc.future_masc_on}
+                </td>
                 <td className='masculine-alt'>
-                  {data.future_masc.future_masc_oni}
+                  {dataToRender.future_masc.future_masc_my}
+                </td>
+                <td className='masculine'>
+                  {dataToRender.future_masc.future_masc_wy}
+                </td>
+                <td className='masculine-alt'>
+                  {dataToRender.future_masc.future_masc_oni}
                 </td>
               </tr>
               <tr>
-                <td className='feminine'>{data.future_fem.future_fem_ja}</td>
-
-                <td className='feminine-alt'>
-                  {data.future_fem.future_fem_ty}
-                </td>
-                <td className='feminine'>{data.future_fem.future_fem_ona}</td>
-
-                <td className='feminine-alt'>
-                  {data.future_fem.future_fem_my}
+                <td className='feminine'>
+                  {dataToRender.future_fem.future_fem_ja}
                 </td>
 
-                <td className='feminine'>{data.future_fem.future_fem_wy}</td>
+                <td className='feminine-alt'>
+                  {dataToRender.future_fem.future_fem_ty}
+                </td>
+                <td className='feminine'>
+                  {dataToRender.future_fem.future_fem_ona}
+                </td>
 
                 <td className='feminine-alt'>
-                  {data.future_fem.future_fem_one}
+                  {dataToRender.future_fem.future_fem_my}
+                </td>
+
+                <td className='feminine'>
+                  {dataToRender.future_fem.future_fem_wy}
+                </td>
+
+                <td className='feminine-alt'>
+                  {dataToRender.future_fem.future_fem_one}
                 </td>
               </tr>
             </tbody>
@@ -150,14 +214,45 @@ const Notes = ({ columns, setColumns }) => {
       </div>
       <div className='user-notes-input'>
         <form>
-          <p>
-            <label className='user-notes-input-label' htmlFor='notes'>
-              Notatki
-            </label>
-          </p>
+          <div className='translation'>
+            <Button
+              buttonStyle='btn--translation'
+              buttonSize='btn--medium'
+              onClick={handleTranslation}
+            >
+              Translate
+            </Button>
+            <div className='text-to-translate'>
+              <textarea
+                onChange={handleChangeTranslationField}
+                placeholder='Tekst do przetłumaczenia'
+                name='english'
+                value={stringToTranslate.english}
+              ></textarea>
+            </div>
+
+            <div className='translated-text'>
+              <textarea
+                placeholder='Przetłumaczony tekst'
+                defaultValue={translatedString.polish}
+              ></textarea>
+            </div>
+          </div>
+
+          <textarea
+            className='user-notes'
+            id='notes'
+            name='notes'
+            rows='4'
+            cols='25'
+            value={dataToRender.notes}
+            onChange={handleChangeTextField}
+          >
+            {dataToRender.notes}
+          </textarea>
           <div className='submit-button-notes'>
             <Button
-              buttonStyle='btn-add-new-verb'
+              buttonStyle='btn--add-new-verb'
               buttonSize='btn--medium'
               id='submit-verb-button'
               type='submit'
@@ -166,16 +261,6 @@ const Notes = ({ columns, setColumns }) => {
               Update notes
             </Button>
           </div>
-          <textarea
-            id='notes'
-            name='notes'
-            rows='4'
-            cols='25'
-            value={data.notes}
-            onChange={handleChangeTextField}
-          >
-            {data.notes}
-          </textarea>
         </form>
       </div>
     </>

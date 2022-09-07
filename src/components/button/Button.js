@@ -6,8 +6,9 @@ const STYLES = [
   'btn--primary',
   'btn--outline',
   'btn-login-logout',
-  'btn-add-new-verb',
+  'btn--add-new-verb',
   'btn-edit-verb',
+  'btn--translation',
 ];
 
 const SIZES = ['btn--medium', 'btn--large'];

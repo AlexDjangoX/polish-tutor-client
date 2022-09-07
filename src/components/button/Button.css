@@ -50,7 +50,7 @@
   margin-top: -2px;
 }
 
-.btn-add-new-verb {
+.btn--add-new-verb {
   font-size: 1.4rem;
   background-color: red;
   color: white;
@@ -58,7 +58,7 @@
 }
 
 .btn-login-logout:hover,
-.btn-add-new-verb:hover {
+.btn--add-new-verb:hover {
   font-size: 1.5rem;
   font-weight: 500;
   color: rgb(255, 0, 0);
@@ -77,4 +77,20 @@
 .btn-edit-verb:hover {
   background-color: white;
   color: rgb(255, 52, 52);
+}
+
+.btn--translation {
+  font-size: 1.4rem;
+  font-weight: 300;
+
+  background-color: rgb(4, 130, 0);
+  color: rgb(241, 241, 241);
+}
+
+.btn--translation:hover {
+  font-size: 1.4rem;
+  font-weight: 300;
+
+  background-color: rgb(241, 241, 241);
+  color: rgb(4, 130, 0);
 }
