@@ -111,7 +111,8 @@ const KanbanForm = ({
     if (!isEditing) {
       columns.columnOne.items.push(verb);
     }
-
+    setVerb(initialData);
+    setCurrentVerb(initialData);
     postToDb();
     setOpen(false);
   };

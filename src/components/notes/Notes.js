@@ -59,7 +59,6 @@ const Notes = ({ columns, setColumns }) => {
 
   const handleTranslation = (event) => {
     event.preventDefault();
-    console.log(process.env.X_RapidAPI_Key);
 
     if (stringToTranslate.english) {
       const options = {
@@ -67,9 +66,8 @@ const Notes = ({ columns, setColumns }) => {
         url: 'https://deep-translate1.p.rapidapi.com/language/translate/v2',
         headers: {
           'content-type': 'application/json',
-          'X-RapidAPI-Key':
-            '6a256b5c1cmsh5fcf6d0110e3df1p151cf6jsn51bd0b373077',
-          'X-RapidAPI-Host': 'deep-translate1.p.rapidapi.com',
+          'X-RapidAPI-Key': process.env.REACT_APP_X_RapidAPI_Key,
+          'X-RapidAPI-Host': process.env.REACT_APP_X_RapidAPI_Host,
         },
 
         data: `{"q":"${stringToTranslate.english}",${transEngPlPlEnd}}`,
@@ -96,7 +94,7 @@ const Notes = ({ columns, setColumns }) => {
 
   const handleTranslationLanguage = (event) => {
     const { name, value } = event.target;
-    console.log(name, value);
+
     setTransEngPlPlEnd(value);
   };
 
