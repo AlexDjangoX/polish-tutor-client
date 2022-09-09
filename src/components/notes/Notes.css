@@ -103,10 +103,6 @@
   resize: none;
 }
 
-.submit-button-notes {
-  margin-bottom: 2rem;
-}
-
 .translation-btn-link a {
   display: grid;
   place-content: center;
@@ -122,4 +118,10 @@ a:hover {
 
   font-size: 1rem;
   transition: all 0.6s;
+}
+
+.update-notes-play-voice {
+  display: flex;
+  place-content: center;
+  margin: 1rem 0;
 }

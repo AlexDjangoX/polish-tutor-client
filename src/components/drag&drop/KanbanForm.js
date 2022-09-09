@@ -67,7 +67,8 @@ const KanbanForm = ({
   isEditing,
   setIsEditing,
 }) => {
-  const [verb, setVerb] = useState(initialData);
+  const resetState = Object.assign({}, initialData);
+  const [verb, setVerb] = useState({ ...resetState, id: uuidv4() });
 
   const axios = require('axios');
 
@@ -78,7 +79,7 @@ const KanbanForm = ({
     initialDataKeys.forEach((el) => {
       if (Object.keys(initialData[el]).includes(name)) {
         setVerb((previous) => {
-          const newVerb = { ...previous };
+          const newVerb = JSON.parse(JSON.stringify({ ...previous }));
           newVerb[el][name] = value;
           return newVerb;
         });
@@ -111,6 +112,8 @@ const KanbanForm = ({
     if (!isEditing) {
       columns.columnOne.items.push(verb);
     }
+    setVerb({ ...resetState });
+
     setVerb(initialData);
     setCurrentVerb(initialData);
     postToDb();

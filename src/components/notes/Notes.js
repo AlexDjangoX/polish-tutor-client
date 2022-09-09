@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useSpeechSynthesis } from 'react-speech-kit';
 import { Button } from '../button/Button';
 
 import './Notes.css';
@@ -11,6 +12,7 @@ const Notes = ({ columns, setColumns }) => {
   const [stringToTranslate, setStringToTranslate] = useState({ english: '' });
   const [translatedString, setTranslatedString] = useState({ polish: '' });
   const [transEngPlPlEnd, setTransEngPlPlEnd] = useState('');
+  const { speak, voices } = useSpeechSynthesis();
   const axios = require('axios');
 
   useEffect(() => {
@@ -94,8 +96,13 @@ const Notes = ({ columns, setColumns }) => {
 
   const handleTranslationLanguage = (event) => {
     const { name, value } = event.target;
-
     setTransEngPlPlEnd(value);
+  };
+
+  const textToSpeechHandler = (event) => {
+    event.preventDefault();
+    console.log(dataToRender.notes);
+    speak({ text: dataToRender.notes, voice: voices[7] });
   };
 
   return (
@@ -291,7 +298,7 @@ const Notes = ({ columns, setColumns }) => {
           >
             {dataToRender.notes}
           </textarea>
-          <div className='submit-button-notes'>
+          <div className='update-notes-play-voice'>
             <Button
               buttonStyle='btn--add-new-verb'
               buttonSize='btn--medium'
@@ -300,6 +307,15 @@ const Notes = ({ columns, setColumns }) => {
               onClick={handleSubmit}
             >
               Update notes
+            </Button>
+            <Button
+              buttonStyle='btn--add-new-verb'
+              buttonSize='btn--medium'
+              id='play-voice'
+              type='button'
+              onClick={textToSpeechHandler}
+            >
+              Play Voice
             </Button>
           </div>
         </form>
