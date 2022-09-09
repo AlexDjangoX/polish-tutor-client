@@ -5,6 +5,7 @@ import './KanbanForm.css';
 
 const initialData = {
   id: uuidv4(),
+  notes: '',
   word_image: { polish_word: '', english_word: '', image_url: '' },
   gram_case: {
     case: '',
@@ -114,8 +115,6 @@ const KanbanForm = ({
     }
     setVerb({ ...resetState });
 
-    setVerb(initialData);
-    setCurrentVerb(initialData);
     postToDb();
     setOpen(false);
   };

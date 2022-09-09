@@ -1,0 +1,29 @@
+.text-to-speech-wrapper {
+  display: grid;
+  grid-auto-rows: auto;
+  grid-template-columns: repeat(6);
+  grid-template-areas: '. options rate pitch  btn . ';
+  margin-bottom: 2rem;
+}
+.select-options {
+  display: grid;
+  grid-area: options;
+  width: 4rem;
+  margin: 1rem;
+}
+
+.select-rate {
+  display: grid;
+  grid-area: rate;
+}
+
+.select-pitch {
+  display: grid;
+  grid-area: pitch;
+}
+
+.btn-speak {
+  display: grid;
+  grid-area: btn;
+  margin: 2rem;
+}

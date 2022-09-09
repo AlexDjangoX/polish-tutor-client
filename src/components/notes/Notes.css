@@ -125,3 +125,9 @@ a:hover {
   place-content: center;
   margin: 1rem 0;
 }
+
+.text-to-speech {
+  display: grid;
+
+  place-content: center;
+}

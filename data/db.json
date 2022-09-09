@@ -4,9 +4,70 @@
       "name": "Nowe słowa",
       "items": [
         {
-          "id": "8db92ba7-818c-4649-b120-37097116ad1e",
+          "id": "f8b8306f-37bf-4213-91d3-512a451f014f",
+          "notes": "",
           "word_image": {
-            "polish_word": "Sprawdzić",
+            "polish_word": "iść",
+            "english_word": "To go go",
+            "image_url": "https://thumbs.dreamstime.com/b/d-rendering-cartoon-mouse-holding-go-sign-cute-smiling-green-doing-thumbs-up-like-saying-okay-white-background-140297918.jpg"
+          },
+          "gram_case": {
+            "case": "Biernik",
+            "aspect": "Niedokonany",
+            "color": "#ff2233"
+          },
+          "present": {
+            "present_ja": "idęss",
+            "present_ty": "idiesz",
+            "present_on_ona_ono": "idzie",
+            "present_my": "idziemy",
+            "present_wy": "idziecie",
+            "present_oni_one": "idą"
+          },
+          "past": {
+            "past_ja_masc": "",
+            "past_ja_fem": "",
+            "past_ty_masc": "",
+            "past_ty_fem": "",
+            "past_on_masc": "",
+            "past_ona_fem": "",
+            "past_my_masc": "",
+            "past_my_fem": "",
+            "past_wy_masc": "",
+            "past_wy_fem": "",
+            "past_oni_masc": "",
+            "past_one_fem": ""
+          },
+          "imp_future": {
+            "imp_future_ja": "będę ",
+            "imp_future_ty": "będziesz ",
+            "imp_future_on_ona_ono": "będzie ",
+            "imp_future_my": "będziemy ",
+            "imp_future_wy": "będziecie ",
+            "imp_future_oni_one": "będą "
+          },
+          "future_fem": {
+            "future_fem_ja": "będę ",
+            "future_fem_ty": "będziesz ",
+            "future_fem_ona": "będzie ",
+            "future_fem_my": "będziemy ",
+            "future_fem_wy": "będziecie ",
+            "future_fem_one": "będą "
+          },
+          "future_masc": {
+            "future_masc_ja": "będę ",
+            "future_masc_ty": "będziesz ",
+            "future_masc_on": "będzie ",
+            "future_masc_my": "będziemy ",
+            "future_masc_wy": "będziecie ",
+            "future_masc_oni": "będą "
+          }
+        },
+        {
+          "id": "8d469aa3-d671-4b9a-8822-4b8c5b731d1a",
+          "notes": "",
+          "word_image": {
+            "polish_word": "Tworzyć",
             "english_word": "",
             "image_url": ""
           },
@@ -63,9 +124,10 @@
           }
         },
         {
-          "id": "44315f78-d7fe-44db-8005-999d85e60789",
+          "id": "42df7079-c41d-476e-9fb3-924b9054c1dc",
+          "notes": "",
           "word_image": {
-            "polish_word": "iść",
+            "polish_word": "Tworzyćzzz",
             "english_word": "",
             "image_url": ""
           },
@@ -125,71 +187,6 @@
     },
     "columnTwo": {
       "name": "Przeszły",
-      "items": [
-        {
-          "id": "1aca8ff0-46df-48e6-92f5-be2f27009549",
-          "notes": "Moja najlepsza przyjaciółka poszła wczoraj do lekarza.\nW przyszłym tygodniu w środę polecę do Anglii do pracy. Muszę zapłacić za gaz Putina i idiotyzm.\nWczoraj poszedłem do sklepu po obiedzie.",
-          "word_image": {
-            "polish_word": "iść",
-            "english_word": "To go",
-            "image_url": "https://thumbs.dreamstime.com/b/kresk%C3%B3wka-pracownika-budowlanego-marszczy%C4%87-brwi-135307416.jpg"
-          },
-          "gram_case": {
-            "case": "Biernik",
-            "aspect": "Dokonany",
-            "color": "#ff2233"
-          },
-          "present": {
-            "present_ja": "idę",
-            "present_ty": "idziesz",
-            "present_on_ona_ono": "idzie",
-            "present_my": "idziemy",
-            "present_wy": "idziecie",
-            "present_oni_one": "idą"
-          },
-          "past": {
-            "past_ja_masc": "szedłem",
-            "past_ja_fem": "szłam",
-            "past_ty_masc": "szedłeś",
-            "past_ty_fem": "szłaś",
-            "past_on_masc": "szedł",
-            "past_ona_fem": "szła",
-            "past_my_masc": "szliśmy",
-            "past_my_fem": "szłyśmy",
-            "past_wy_masc": "szliście",
-            "past_wy_fem": "szyście",
-            "past_oni_masc": "szli",
-            "past_one_fem": "szły"
-          },
-          "imp_future": {
-            "imp_future_ja": "będą iść",
-            "imp_future_ty": "będziesz iść",
-            "imp_future_on_ona_ono": "będzie iść",
-            "imp_future_my": "będziemy iść",
-            "imp_future_wy": "będziecie iść",
-            "imp_future_oni_one": "będą iść"
-          },
-          "future_fem": {
-            "future_fem_ja": "będę szła",
-            "future_fem_ty": "będziesz szła",
-            "future_fem_ona": "będzie szła",
-            "future_fem_my": "będziemy szły",
-            "future_fem_wy": "będziecie szły",
-            "future_fem_one": "będą szły"
-          },
-          "future_masc": {
-            "future_masc_ja": "będę szedł",
-            "future_masc_ty": "będziesz szedł",
-            "future_masc_on": "będzie szedł",
-            "future_masc_my": "będziemy szłi",
-            "future_masc_wy": "będziecie szłi",
-            "future_masc_oni": "będą szłi"
-          }
-        }
-      ]
-    },
-    "columnThree": {
-      "name": "Przyszły",
       "items": [
         {
           "id": "d509237d-6e00-4da9-ae33-80fcd41c2485",
@@ -253,12 +250,12 @@
         }
       ]
     },
-    "columnFour": {
-      "name": "Stare słowa",
+    "columnThree": {
+      "name": "Przyszły",
       "items": [
         {
           "id": "76ff3352-e572-4468-9f1a-649390b19dcf",
-          "notes": "Nie zgadzam się, moja Niuńcia kładzie się jak kula na podłodze jak się ubieram , mizia się koło nóg chce jeszcze więcej głaskania. A jak tylko wchodze do domu spowrotem to biegnie jak małe dziecko i od razu na rączki i się wtula.",
+          "notes": "Nie zgadzam się, moja Niuńcia kładzie się jak kula na podłodze jak się ubieram , mizia się koło nóg chce jeszcze więcej głaskania. A jak tylko wchodze do domu spowrotem to biegnie jak małe dziecko i od razu na rączki i się wtula.\nMyślę, że muszę dziś jechać własnym samochodem do miasta.",
           "word_image": {
             "polish_word": "Używać",
             "english_word": "To use",
@@ -315,7 +312,12 @@
             "future_masc_wy": "będziecie używali",
             "future_masc_oni": "będą używali"
           }
-        },
+        }
+      ]
+    },
+    "columnFour": {
+      "name": "Stare słowa",
+      "items": [
         {
           "id": "7d7aa7e5-8ac3-477b-867f-9672d0ca5df3",
           "word_image": {
@@ -374,7 +376,67 @@
             "future_masc_wy": "potrwacie",
             "future_masc_oni": "potrwają"
           },
-          "notes": "Jak długo może to potrwać?\nBez obawy, ból potrwa tylko chwilę.\nMoje bankructwo potrwałoby 18 miesięcy. \nMój kurs trwał sześć miesięcy. Cieszę się, że to się skończyło, bo nie sądziłem, że wytrzymam.\n\n"
+          "notes": "Jak długo może to potrwać?\nBez obawy, ból potrwa tylko chwilę.\nMoje bankructwo potrwałoby 18 miesięcy. \nMój kurs trwał sześć miesięcy. Cieszę się, że to się skończyło, bo nie sądziłem, że wytrzymam.\nAngielski tekst do przetłumaczenia\n\n"
+        },
+        {
+          "id": "1aca8ff0-46df-48e6-92f5-be2f27009549",
+          "notes": "Moja najlepsza przyjaciółka poszła wczoraj do lekarza.\nW przyszłym tygodniu w środę polecę do Anglii do pracy. Muszę zapłacić za gaz Putina i idiotyzm.\nWczoraj poszedłem do sklepu po obiedzie.",
+          "word_image": {
+            "polish_word": "iść",
+            "english_word": "To go",
+            "image_url": "https://thumbs.dreamstime.com/b/kresk%C3%B3wka-pracownika-budowlanego-marszczy%C4%87-brwi-135307416.jpg"
+          },
+          "gram_case": {
+            "case": "Biernik",
+            "aspect": "Dokonany",
+            "color": "#ff2233"
+          },
+          "present": {
+            "present_ja": "idę",
+            "present_ty": "idziesz",
+            "present_on_ona_ono": "idzie",
+            "present_my": "idziemy",
+            "present_wy": "idziecie",
+            "present_oni_one": "idą"
+          },
+          "past": {
+            "past_ja_masc": "szedłem",
+            "past_ja_fem": "szłam",
+            "past_ty_masc": "szedłeś",
+            "past_ty_fem": "szłaś",
+            "past_on_masc": "szedł",
+            "past_ona_fem": "szła",
+            "past_my_masc": "szliśmy",
+            "past_my_fem": "szłyśmy",
+            "past_wy_masc": "szliście",
+            "past_wy_fem": "szyście",
+            "past_oni_masc": "szli",
+            "past_one_fem": "szły"
+          },
+          "imp_future": {
+            "imp_future_ja": "będą iść",
+            "imp_future_ty": "będziesz iść",
+            "imp_future_on_ona_ono": "będzie iść",
+            "imp_future_my": "będziemy iść",
+            "imp_future_wy": "będziecie iść",
+            "imp_future_oni_one": "będą iść"
+          },
+          "future_fem": {
+            "future_fem_ja": "będę szła",
+            "future_fem_ty": "będziesz szła",
+            "future_fem_ona": "będzie szła",
+            "future_fem_my": "będziemy szły",
+            "future_fem_wy": "będziecie szły",
+            "future_fem_one": "będą szły"
+          },
+          "future_masc": {
+            "future_masc_ja": "będę szedł",
+            "future_masc_ty": "będziesz szedł",
+            "future_masc_on": "będzie szedł",
+            "future_masc_my": "będziemy szłi",
+            "future_masc_wy": "będziecie szłi",
+            "future_masc_oni": "będą szłi"
+          }
         }
       ]
     }
