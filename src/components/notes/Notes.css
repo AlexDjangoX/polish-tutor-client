@@ -121,13 +121,17 @@ a:hover {
 }
 
 .update-notes-play-voice {
-  display: flex;
-  place-content: center;
-  margin: 1rem 0;
+  display: grid;
+  grid-template-columns: repeat(2);
+  grid-template-areas: 'btn tts';
 }
 
 .text-to-speech {
   display: grid;
+  grid-area: tts;
+}
 
-  place-content: center;
+.btn--update-notes {
+  display: grid;
+  grid-area: btn;
 }

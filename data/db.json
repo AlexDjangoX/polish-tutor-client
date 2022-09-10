@@ -4,190 +4,65 @@
       "name": "Nowe słowa",
       "items": [
         {
-          "id": "f8b8306f-37bf-4213-91d3-512a451f014f",
-          "notes": "",
+          "id": "76ff3352-e572-4468-9f1a-649390b19dcf",
+          "notes": "Nie zgadzam się, moja Niuńcia kładzie się jak kula na podłodze jak się ubieram , mizia się koło nóg chce jeszcze więcej głaskania. A jak tylko wchodze do domu spowrotem to biegnie jak małe dziecko i od razu na rączki i się wtula.\nMyślę, że muszę dziś jechać własnym samochodem do miasta.",
           "word_image": {
-            "polish_word": "iść",
-            "english_word": "To go go",
-            "image_url": "https://thumbs.dreamstime.com/b/d-rendering-cartoon-mouse-holding-go-sign-cute-smiling-green-doing-thumbs-up-like-saying-okay-white-background-140297918.jpg"
+            "polish_word": "Używać",
+            "english_word": "To use",
+            "image_url": "https://media.istockphoto.com/vectors/guy-hipster-sits-on-toilet-bowl-with-phone-in-hands-vector-id612244494?s=170667a"
           },
           "gram_case": {
             "case": "Biernik",
-            "aspect": "Niedokonany",
+            "aspect": "Dokonany",
             "color": "#ff2233"
           },
           "present": {
-            "present_ja": "idęss",
-            "present_ty": "idiesz",
-            "present_on_ona_ono": "idzie",
-            "present_my": "idziemy",
-            "present_wy": "idziecie",
-            "present_oni_one": "idą"
+            "present_ja": "używam  ",
+            "present_ty": "używasz",
+            "present_on_ona_ono": "używa",
+            "present_my": "używamy",
+            "present_wy": "używacie",
+            "present_oni_one": "używają"
           },
           "past": {
-            "past_ja_masc": "",
-            "past_ja_fem": "",
-            "past_ty_masc": "",
-            "past_ty_fem": "",
-            "past_on_masc": "",
-            "past_ona_fem": "",
-            "past_my_masc": "",
-            "past_my_fem": "",
-            "past_wy_masc": "",
-            "past_wy_fem": "",
-            "past_oni_masc": "",
-            "past_one_fem": ""
+            "past_ja_masc": "używałem",
+            "past_ja_fem": "używałam",
+            "past_ty_masc": "używałeś",
+            "past_ty_fem": "używałaś",
+            "past_on_masc": "używał",
+            "past_ona_fem": "używała",
+            "past_my_masc": "używaliśmy",
+            "past_my_fem": "używałyśmy",
+            "past_wy_masc": "używaliście",
+            "past_wy_fem": "używałyście",
+            "past_oni_masc": "używali",
+            "past_one_fem": "używały"
           },
           "imp_future": {
-            "imp_future_ja": "będę ",
-            "imp_future_ty": "będziesz ",
-            "imp_future_on_ona_ono": "będzie ",
-            "imp_future_my": "będziemy ",
-            "imp_future_wy": "będziecie ",
-            "imp_future_oni_one": "będą "
+            "imp_future_ja": "będę używać",
+            "imp_future_ty": "będziesz używać",
+            "imp_future_on_ona_ono": "będzie używać",
+            "imp_future_my": "będziemy używać",
+            "imp_future_wy": "będziecie używać",
+            "imp_future_oni_one": "będą używać"
           },
           "future_fem": {
-            "future_fem_ja": "będę ",
-            "future_fem_ty": "będziesz ",
-            "future_fem_ona": "będzie ",
-            "future_fem_my": "będziemy ",
-            "future_fem_wy": "będziecie ",
-            "future_fem_one": "będą "
+            "future_fem_ja": "będę używała",
+            "future_fem_ty": "będziesz używała",
+            "future_fem_ona": "będzie używała",
+            "future_fem_my": "będziemy używały",
+            "future_fem_wy": "będziecie używały",
+            "future_fem_one": "będą używały"
           },
           "future_masc": {
-            "future_masc_ja": "będę ",
-            "future_masc_ty": "będziesz ",
-            "future_masc_on": "będzie ",
-            "future_masc_my": "będziemy ",
-            "future_masc_wy": "będziecie ",
-            "future_masc_oni": "będą "
+            "future_masc_ja": "będę używał",
+            "future_masc_ty": "będziesz używał",
+            "future_masc_on": "będzie używał",
+            "future_masc_my": "będziemy używali",
+            "future_masc_wy": "będziecie używali",
+            "future_masc_oni": "będą używali"
           }
         },
-        {
-          "id": "8d469aa3-d671-4b9a-8822-4b8c5b731d1a",
-          "notes": "",
-          "word_image": {
-            "polish_word": "Tworzyć",
-            "english_word": "",
-            "image_url": ""
-          },
-          "gram_case": {
-            "case": "",
-            "aspect": "Nie wiem",
-            "color": "#ff2233"
-          },
-          "present": {
-            "present_ja": "",
-            "present_ty": "",
-            "present_on_ona_ono": "",
-            "present_my": "",
-            "present_wy": "",
-            "present_oni_one": ""
-          },
-          "past": {
-            "past_ja_masc": "",
-            "past_ja_fem": "",
-            "past_ty_masc": "",
-            "past_ty_fem": "",
-            "past_on_masc": "",
-            "past_ona_fem": "",
-            "past_my_masc": "",
-            "past_my_fem": "",
-            "past_wy_masc": "",
-            "past_wy_fem": "",
-            "past_oni_masc": "",
-            "past_one_fem": ""
-          },
-          "imp_future": {
-            "imp_future_ja": "będę ",
-            "imp_future_ty": "będziesz ",
-            "imp_future_on_ona_ono": "będzie ",
-            "imp_future_my": "będziemy ",
-            "imp_future_wy": "będziecie ",
-            "imp_future_oni_one": "będą "
-          },
-          "future_fem": {
-            "future_fem_ja": "będę ",
-            "future_fem_ty": "będziesz ",
-            "future_fem_ona": "będzie ",
-            "future_fem_my": "będziemy ",
-            "future_fem_wy": "będziecie ",
-            "future_fem_one": "będą "
-          },
-          "future_masc": {
-            "future_masc_ja": "będę ",
-            "future_masc_ty": "będziesz ",
-            "future_masc_on": "będzie ",
-            "future_masc_my": "będziemy ",
-            "future_masc_wy": "będziecie ",
-            "future_masc_oni": "będą "
-          }
-        },
-        {
-          "id": "42df7079-c41d-476e-9fb3-924b9054c1dc",
-          "notes": "",
-          "word_image": {
-            "polish_word": "Tworzyćzzz",
-            "english_word": "",
-            "image_url": ""
-          },
-          "gram_case": {
-            "case": "",
-            "aspect": "Nie wiem",
-            "color": "#ff2233"
-          },
-          "present": {
-            "present_ja": "",
-            "present_ty": "",
-            "present_on_ona_ono": "",
-            "present_my": "",
-            "present_wy": "",
-            "present_oni_one": ""
-          },
-          "past": {
-            "past_ja_masc": "",
-            "past_ja_fem": "",
-            "past_ty_masc": "",
-            "past_ty_fem": "",
-            "past_on_masc": "",
-            "past_ona_fem": "",
-            "past_my_masc": "",
-            "past_my_fem": "",
-            "past_wy_masc": "",
-            "past_wy_fem": "",
-            "past_oni_masc": "",
-            "past_one_fem": ""
-          },
-          "imp_future": {
-            "imp_future_ja": "będę ",
-            "imp_future_ty": "będziesz ",
-            "imp_future_on_ona_ono": "będzie ",
-            "imp_future_my": "będziemy ",
-            "imp_future_wy": "będziecie ",
-            "imp_future_oni_one": "będą "
-          },
-          "future_fem": {
-            "future_fem_ja": "będę ",
-            "future_fem_ty": "będziesz ",
-            "future_fem_ona": "będzie ",
-            "future_fem_my": "będziemy ",
-            "future_fem_wy": "będziecie ",
-            "future_fem_one": "będą "
-          },
-          "future_masc": {
-            "future_masc_ja": "będę ",
-            "future_masc_ty": "będziesz ",
-            "future_masc_on": "będzie ",
-            "future_masc_my": "będziemy ",
-            "future_masc_wy": "będziecie ",
-            "future_masc_oni": "będą "
-          }
-        }
-      ]
-    },
-    "columnTwo": {
-      "name": "Przeszły",
-      "items": [
         {
           "id": "d509237d-6e00-4da9-ae33-80fcd41c2485",
           "notes": "Uwielbiam tworzyć nowe i ekscytujące narzędzia, które pomogą mi w nauce języka polskiego.",
@@ -250,70 +125,13 @@
         }
       ]
     },
+    "columnTwo": {
+      "name": "Przeszły",
+      "items": []
+    },
     "columnThree": {
       "name": "Przyszły",
-      "items": [
-        {
-          "id": "76ff3352-e572-4468-9f1a-649390b19dcf",
-          "notes": "Nie zgadzam się, moja Niuńcia kładzie się jak kula na podłodze jak się ubieram , mizia się koło nóg chce jeszcze więcej głaskania. A jak tylko wchodze do domu spowrotem to biegnie jak małe dziecko i od razu na rączki i się wtula.\nMyślę, że muszę dziś jechać własnym samochodem do miasta.",
-          "word_image": {
-            "polish_word": "Używać",
-            "english_word": "To use",
-            "image_url": "https://media.istockphoto.com/vectors/guy-hipster-sits-on-toilet-bowl-with-phone-in-hands-vector-id612244494?s=170667a"
-          },
-          "gram_case": {
-            "case": "Biernik",
-            "aspect": "Dokonany",
-            "color": "#ff2233"
-          },
-          "present": {
-            "present_ja": "używam  ",
-            "present_ty": "używasz",
-            "present_on_ona_ono": "używa",
-            "present_my": "używamy",
-            "present_wy": "używacie",
-            "present_oni_one": "używają"
-          },
-          "past": {
-            "past_ja_masc": "używałem",
-            "past_ja_fem": "używałam",
-            "past_ty_masc": "używałeś",
-            "past_ty_fem": "używałaś",
-            "past_on_masc": "używał",
-            "past_ona_fem": "używała",
-            "past_my_masc": "używaliśmy",
-            "past_my_fem": "używałyśmy",
-            "past_wy_masc": "używaliście",
-            "past_wy_fem": "używałyście",
-            "past_oni_masc": "używali",
-            "past_one_fem": "używały"
-          },
-          "imp_future": {
-            "imp_future_ja": "będę używać",
-            "imp_future_ty": "będziesz używać",
-            "imp_future_on_ona_ono": "będzie używać",
-            "imp_future_my": "będziemy używać",
-            "imp_future_wy": "będziecie używać",
-            "imp_future_oni_one": "będą używać"
-          },
-          "future_fem": {
-            "future_fem_ja": "będę używała",
-            "future_fem_ty": "będziesz używała",
-            "future_fem_ona": "będzie używała",
-            "future_fem_my": "będziemy używały",
-            "future_fem_wy": "będziecie używały",
-            "future_fem_one": "będą używały"
-          },
-          "future_masc": {
-            "future_masc_ja": "będę używał",
-            "future_masc_ty": "będziesz używał",
-            "future_masc_on": "będzie używał",
-            "future_masc_my": "będziemy używali",
-            "future_masc_wy": "będziecie używali",
-            "future_masc_oni": "będą używali"
-          }
-        }
-      ]
+      "items": []
     },
     "columnFour": {
       "name": "Stare słowa",

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Button } from '../button/Button';
+import { useSpeechSynthesis } from 'react-speech-kit';
 import TextToSpeech from '../textToSpeech/TextToSpeech';
 
 import './Notes.css';
@@ -12,6 +13,7 @@ const Notes = ({ columns, setColumns }) => {
   const [stringToTranslate, setStringToTranslate] = useState({ english: '' });
   const [translatedString, setTranslatedString] = useState({ polish: '' });
   const [transEngPlPlEnd, setTransEngPlPlEnd] = useState('');
+  const { voices } = useSpeechSynthesis();
 
   const axios = require('axios');
 
@@ -294,6 +296,7 @@ const Notes = ({ columns, setColumns }) => {
           </textarea>
           <div className='update-notes-play-voice'>
             <Button
+              className='btn--update-notes'
               buttonStyle='btn--add-new-verb'
               buttonSize='btn--medium'
               id='submit-verb-button'
@@ -302,11 +305,11 @@ const Notes = ({ columns, setColumns }) => {
             >
               Update notes
             </Button>
+            <div className='text-to-speech'>
+              <TextToSpeech data={dataToRender.notes} voices={voices} />
+            </div>
           </div>
         </form>
-        <div className='text-to-speech'>
-          <TextToSpeech data={dataToRender.notes} />
-        </div>
       </div>
     </>
   );

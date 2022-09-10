@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import './TextToSpeech.css';
 import { useSpeechSynthesis } from 'react-speech-kit';
 
-const TextToSpeech = ({ data }) => {
+const TextToSpeech = ({ data, voices }) => {
   const [text, setText] = useState(data);
   const [pitch, setPitch] = useState(1);
   const [rate, setRate] = useState(1);
   const [voiceIndex, setVoiceIndex] = useState(21);
-  const { speak, cancel, speaking, supported, voices } = useSpeechSynthesis();
+  const { speak, cancel, speaking, supported } = useSpeechSynthesis();
 
   const voice = voices[voiceIndex] || '';
 

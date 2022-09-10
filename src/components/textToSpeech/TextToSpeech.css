@@ -4,6 +4,7 @@
   grid-template-columns: repeat(6);
   grid-template-areas: '. options rate pitch  btn . ';
   margin-bottom: 2rem;
+  place-items: center;
 }
 .select-options {
   display: grid;
