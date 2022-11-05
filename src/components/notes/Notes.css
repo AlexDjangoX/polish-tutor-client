@@ -4,10 +4,12 @@
   grid-template-rows: auto;
   grid-template-areas:
     '. present present present present .'
+    '. futureImp futureImp futureImp futureImp .'
     '. . image . . .'
     '. past  image .  future .'
     '. notes notes notes notes .';
   margin: 1rem;
+  background-image: url('../../background.png');
 }
 
 .table-wrapper-present {
@@ -28,6 +30,18 @@
 .table-wrapper-future {
   display: grid;
   grid-area: future;
+}
+
+.future-imperfect {
+  display: grid;
+  grid-area: futureImp;
+  background-color: rgb(0, 255, 72);
+  margin-top: 10px;
+}
+
+.future-imperfect td {
+  border-radius: 12px;
+  border: 2px solid rgb(40, 18, 18);
 }
 
 .user-notes-input {
@@ -134,4 +148,13 @@ a:hover {
 .btn--update-notes {
   display: grid;
   grid-area: btn;
+}
+
+td {
+  border-radius: 12px;
+}
+
+th,
+td {
+  padding: 10px;
 }

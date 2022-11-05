@@ -119,6 +119,20 @@ const Notes = ({ columns, setColumns }) => {
             </tbody>
           </table>
         </div>
+        <div className='future-imperfect'>
+          <table>
+            <tbody>
+              <tr>
+                <td>{dataToRender.imp_future.imp_future_ja}</td>
+                <td>{dataToRender.imp_future.imp_future_ty}</td>
+                <td>{dataToRender.imp_future.imp_future_on_ona_ono}</td>
+                <td>{dataToRender.imp_future.imp_future_my}</td>
+                <td>{dataToRender.imp_future.imp_future_wy}</td>
+                <td>{dataToRender.imp_future.imp_future_oni_one}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         <div className='card-image'>
           {dataToRender.word_image.image_url && (
             <img
@@ -164,14 +178,14 @@ const Notes = ({ columns, setColumns }) => {
         <div className='table-wrapper-future'>
           <table>
             <tbody>
-              <tr>
+              {/* <tr>
                 <td>{dataToRender.imp_future.imp_future_ja}</td>
                 <td>{dataToRender.imp_future.imp_future_ty}</td>
                 <td>{dataToRender.imp_future.imp_future_on_ona_ono}</td>
                 <td>{dataToRender.imp_future.imp_future_my}</td>
                 <td>{dataToRender.imp_future.imp_future_wy}</td>
                 <td>{dataToRender.imp_future.imp_future_oni_one}</td>
-              </tr>
+              </tr> */}
               <tr>
                 <td className='masculine'>
                   {dataToRender.future_masc.future_masc_ja}

@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@chakra-ui/icons": "^2.0.10",
+    "@chakra-ui/react": "^2.3.4",
+    "framer-motion": "^7.3.6",
     "@auth0/auth0-react": "^1.10.2",
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",

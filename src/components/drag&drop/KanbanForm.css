@@ -8,26 +8,24 @@
   font-weight: 300;
 }
 
-.add-verb-form-wrapper {
+.present-tense,
+.past-masculine,
+.past-feminine,
+.future-imperfect,
+.future-feminine,
+.future-masculine {
   display: grid;
-  grid-template-columns: repeat(6);
-  grid-template-rows: auto;
-  grid-template-areas:
-    'radioButtons polEngInfin gramCase imageUrl closeModal submitButton '
-    'presTen pastMasc pastFem futMasc futFem  impFut ';
+  grid-auto-flow: column;
+  background-color: rgb(43, 119, 226);
+}
 
-  gap: 1.2rem;
-  padding: 1rem 3rem;
-  margin: 2rem;
-  border: 1px solid black;
-  border-radius: 0.6rem;
-  background-color: rgb(190, 190, 190);
+.table-entry {
+  display: grid;
 }
 
 .radio-buttons {
   display: grid;
-  grid-area: radioButtons;
-  padding-top: 1.4rem;
+  padding-top: 1rem;
 }
 
 .radio-buttons-dokonany input,
@@ -36,69 +34,21 @@
   width: 1rem;
 }
 
-.close-modal-button {
-  display: grid;
-  grid-area: closeModal;
-  margin-top: 1.6rem;
-}
-
+.close-modal-button,
 .submit-button {
   display: grid;
-  grid-area: submitButton;
   margin-top: 1.6rem;
-}
-
-.gram-case {
-  display: grid;
-  grid-area: gramCase;
-}
-
-.image_url {
-  display: grid;
-  grid-area: imageUrl;
-}
-
-.pol-eng-infin {
-  display: grid;
-  grid-area: polEngInfin;
-}
-
-.pres-ten {
-  display: grid;
-  grid-area: presTen;
-}
-
-.past-masc {
-  display: grid;
-  grid-area: pastMasc;
-}
-
-.past-fem {
-  display: grid;
-  grid-area: pastFem;
-}
-
-.imp-fut {
-  display: grid;
-  grid-area: impFut;
-}
-
-.fut-fem {
-  display: grid;
-  grid-area: futFem;
-}
-
-.fut-masc {
-  display: grid;
-  grid-area: futMasc;
-}
-
-input {
-  line-height: 1.4rem;
-  border-radius: 0.4rem;
-  font-size: 1.2rem;
-  width: 10rem;
 }
 
 label {
+  display: grid;
+  justify-content: center;
+}
+
+input {
+  display: grid;
+  justify-content: center;
+  line-height: 1.4rem;
+  border-radius: 0.4rem;
+  font-size: 1rem;
 }

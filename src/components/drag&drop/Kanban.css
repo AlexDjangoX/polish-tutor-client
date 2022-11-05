@@ -3,6 +3,7 @@
   grid-auto-flow: column;
   place-content: center;
   height: 100%;
+  background-image: url('../../background.png');
 }
 
 .kanban-columns {

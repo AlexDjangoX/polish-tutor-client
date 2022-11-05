@@ -9,21 +9,21 @@ const NavbarListItems = () => {
           Dom
         </Link>
       </li>
-      <li className='navbar-list-item'>
+      {/* <li className='navbar-list-item'>
         <Link to='/experience' className='navbar-link'>
           Mapa
         </Link>
-      </li>
+      </li> */}
       <li className='navbar-list-item'>
         <Link to='/kanban' className='navbar-link'>
           Koniugacja
         </Link>
       </li>
-      <li className='navbar-list-item'>
+      {/* <li className='navbar-list-item'>
         <Link to='/profile' className='navbar-link'>
           Rzeczowniki
         </Link>
-      </li>
+      </li> */}
       <li className='navbar-list-item'>
         <Link to='/notatki' className='navbar-link'>
           Notatki
