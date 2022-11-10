@@ -102,7 +102,7 @@ const KanbanForm = ({
       initialDataKeys.forEach((el) => {
         if (Object.keys(initialData[el]).includes(name)) {
           setCurrentVerb((previous) => {
-            const newVerb = JSON.parse(JSON.stringify({ ...previous }));
+            const newVerb = { ...previous };
             newVerb[el][name] = value;
             return newVerb;
           });

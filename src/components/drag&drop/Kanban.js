@@ -83,7 +83,7 @@ const Kanban = ({ columns, setColumns }) => {
       const token = await getAccessTokenSilently();
 
       const response = await fetch(
-        `http://localhost:4000/protected/${user.sub}`,
+        `http://localhost:4000/protected/kanban/${user.sub}`,
         {
           method: 'POST',
           headers: {

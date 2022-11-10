@@ -62,186 +62,6 @@
             "future_masc_wy": "będziecie tworzyli",
             "future_masc_oni": "będą tworzyli"
           }
-        },
-        {
-          "id": "e655659e-89d9-4ff9-a210-f1628c57e5a0",
-          "notes": "",
-          "word_image": {
-            "polish_word": "iść",
-            "english_word": "To go",
-            "image_url": "https://thumbs.dreamstime.com/b/d-rendering-cartoon-mouse-holding-go-sign-cute-smiling-green-doing-thumbs-up-like-saying-okay-white-background-140297918.jpg"
-          },
-          "gram_case": {
-            "case": "Dopełniacz",
-            "aspect": "Nie wiem",
-            "color": "#ff2233"
-          },
-          "present": {
-            "present_ja": "sss",
-            "present_ty": "s",
-            "present_on_ona_ono": "ss",
-            "present_my": "ss",
-            "present_wy": "s",
-            "present_oni_one": "s"
-          },
-          "past": {
-            "past_ja_masc": "",
-            "past_ja_fem": "",
-            "past_ty_masc": "",
-            "past_ty_fem": "",
-            "past_on_masc": "",
-            "past_ona_fem": "",
-            "past_my_masc": "",
-            "past_my_fem": "",
-            "past_wy_masc": "",
-            "past_wy_fem": "",
-            "past_oni_masc": "",
-            "past_one_fem": ""
-          },
-          "imp_future": {
-            "imp_future_ja": "będę ",
-            "imp_future_ty": "będziesz ",
-            "imp_future_on_ona_ono": "będzie ",
-            "imp_future_my": "będziemy ",
-            "imp_future_wy": "będziecie ",
-            "imp_future_oni_one": "będą "
-          },
-          "future_fem": {
-            "future_fem_ja": "będę ",
-            "future_fem_ty": "będziesz ",
-            "future_fem_ona": "będzie ",
-            "future_fem_my": "będziemy ",
-            "future_fem_wy": "będziecie ",
-            "future_fem_one": "będą "
-          },
-          "future_masc": {
-            "future_masc_ja": "będę ",
-            "future_masc_ty": "będziesz ",
-            "future_masc_on": "będzie ",
-            "future_masc_my": "będziemy ",
-            "future_masc_wy": "będziecie ",
-            "future_masc_oni": "będą "
-          }
-        },
-        {
-          "id": "65dab9b9-4a99-4932-81d1-aed4d8476abf",
-          "notes": "",
-          "word_image": {
-            "polish_word": "",
-            "english_word": "",
-            "image_url": ""
-          },
-          "gram_case": {
-            "case": "Celownik",
-            "aspect": "Nie wiem",
-            "color": "#ff2233"
-          },
-          "present": {
-            "present_ja": "",
-            "present_ty": "",
-            "present_on_ona_ono": "",
-            "present_my": "",
-            "present_wy": "",
-            "present_oni_one": ""
-          },
-          "past": {
-            "past_ja_masc": "",
-            "past_ja_fem": "",
-            "past_ty_masc": "",
-            "past_ty_fem": "",
-            "past_on_masc": "",
-            "past_ona_fem": "",
-            "past_my_masc": "",
-            "past_my_fem": "",
-            "past_wy_masc": "",
-            "past_wy_fem": "",
-            "past_oni_masc": "",
-            "past_one_fem": ""
-          },
-          "imp_future": {
-            "imp_future_ja": "będę ",
-            "imp_future_ty": "będziesz ",
-            "imp_future_on_ona_ono": "będzie ",
-            "imp_future_my": "będziemy ",
-            "imp_future_wy": "będziecie ",
-            "imp_future_oni_one": "będą "
-          },
-          "future_fem": {
-            "future_fem_ja": "będę ",
-            "future_fem_ty": "będziesz ",
-            "future_fem_ona": "będzie ",
-            "future_fem_my": "będziemy ",
-            "future_fem_wy": "będziecie ",
-            "future_fem_one": "będą "
-          },
-          "future_masc": {
-            "future_masc_ja": "będę ",
-            "future_masc_ty": "będziesz ",
-            "future_masc_on": "będzie ",
-            "future_masc_my": "będziemy ",
-            "future_masc_wy": "będziecie ",
-            "future_masc_oni": "będą "
-          }
-        },
-        {
-          "id": "0a98ac05-18a1-495a-ba3f-2ba10bf8d511",
-          "notes": "",
-          "word_image": {
-            "polish_word": "iść",
-            "english_word": "To check",
-            "image_url": "https://www.cqu.edu.au/__data/assets/image/0022/146407/create-concept.jpg"
-          },
-          "gram_case": {
-            "case": "Celownik",
-            "aspect": "Dokonany",
-            "color": "#ff2233"
-          },
-          "present": {
-            "present_ja": "www",
-            "present_ty": "",
-            "present_on_ona_ono": "",
-            "present_my": "",
-            "present_wy": "",
-            "present_oni_one": ""
-          },
-          "past": {
-            "past_ja_masc": "",
-            "past_ja_fem": "",
-            "past_ty_masc": "",
-            "past_ty_fem": "",
-            "past_on_masc": "",
-            "past_ona_fem": "",
-            "past_my_masc": "",
-            "past_my_fem": "",
-            "past_wy_masc": "",
-            "past_wy_fem": "",
-            "past_oni_masc": "",
-            "past_one_fem": ""
-          },
-          "imp_future": {
-            "imp_future_ja": "będę ",
-            "imp_future_ty": "będziesz ",
-            "imp_future_on_ona_ono": "będzie ",
-            "imp_future_my": "będziemy ",
-            "imp_future_wy": "będziecie ",
-            "imp_future_oni_one": "będą "
-          },
-          "future_fem": {
-            "future_fem_ja": "będę ",
-            "future_fem_ty": "będziesz ",
-            "future_fem_ona": "będzie ",
-            "future_fem_my": "będziemy ",
-            "future_fem_wy": "będziecie ",
-            "future_fem_one": "będą "
-          },
-          "future_masc": {
-            "future_masc_ja": "będę ",
-            "future_masc_ty": "będziesz ",
-            "future_masc_on": "będzie ",
-            "future_masc_my": "będziemy ",
-            "future_masc_wy": "będziecie ",
-            "future_masc_oni": "będą "
-          }
         }
       ]
     },
@@ -314,71 +134,6 @@
       "name": "Przyszły",
       "items": [
         {
-          "id": "7d7aa7e5-8ac3-477b-867f-9672d0ca5df3",
-          "word_image": {
-            "polish_word": "Potrwać",
-            "english_word": "To last",
-            "image_url": "https://thumbs.dreamstime.com/b/time-control-retro-cartoon-design-running-man-clock-background-schedule-grey-gears-vector-illustration-86568744.jpg"
-          },
-          "gram_case": {
-            "case": "Biernik",
-            "aspect": "Dokonany",
-            "color": "#ff2233"
-          },
-          "present": {
-            "present_ja": "potrwam",
-            "present_ty": "potrwasz",
-            "present_on_ona_ono": "potrwa",
-            "present_my": "potrwamy",
-            "present_wy": "potrwacie",
-            "present_oni_one": "potrwają"
-          },
-          "past": {
-            "past_ja_masc": "potrwałem",
-            "past_ja_fem": "potrwałam",
-            "past_ty_masc": "potrwałeś",
-            "past_ty_fem": "potrwałaś",
-            "past_on_masc": "potrwał",
-            "past_ona_fem": "potrwała",
-            "past_my_masc": "potrawaliśmy",
-            "past_my_fem": "potrwałałyśmy",
-            "past_wy_masc": "potrwaliście",
-            "past_wy_fem": "potrwałałyście",
-            "past_oni_masc": "potrwali",
-            "past_one_fem": "potrwałały"
-          },
-          "imp_future": {
-            "imp_future_ja": "",
-            "imp_future_ty": "",
-            "imp_future_on_ona_ono": "",
-            "imp_future_my": "",
-            "imp_future_wy": "",
-            "imp_future_oni_one": " "
-          },
-          "future_fem": {
-            "future_fem_ja": "potrwam",
-            "future_fem_ty": "potrwasz",
-            "future_fem_ona": "potrwa",
-            "future_fem_my": "potrwamy",
-            "future_fem_wy": "potrwacie",
-            "future_fem_one": "potrwają"
-          },
-          "future_masc": {
-            "future_masc_ja": "potrwam",
-            "future_masc_ty": "potrwasz",
-            "future_masc_on": "potrwa",
-            "future_masc_my": "potrwamy",
-            "future_masc_wy": "potrwacie",
-            "future_masc_oni": "potrwają"
-          },
-          "notes": "Jak długo może to potrwać?\nBez obawy, ból potrwa tylko chwilę.\nMoje bankructwo potrwałoby 18 miesięcy. \nMój kurs trwał sześć miesięcy. Cieszę się, że to się skończyło, bo nie sądziłem, że wytrzymam.\nAngielski tekst do przetłumaczenia\n\n"
-        }
-      ]
-    },
-    "columnFour": {
-      "name": "Stare słowa",
-      "items": [
-        {
           "id": "1aca8ff0-46df-48e6-92f5-be2f27009549",
           "notes": "Moja najlepsza przyjaciółka poszła wczoraj do lekarza.\nW przyszłym tygodniu w środę polecę do Anglii do pracy. Muszę zapłacić za gaz Putina i idiotyzm.\nWczoraj poszedłem do sklepu po obiedzie.\nProszę przetłumacz z angielskiego na polski.",
           "word_image": {
@@ -437,6 +192,71 @@
             "future_masc_wy": "będziecie szłi",
             "future_masc_oni": "będą szłi"
           }
+        }
+      ]
+    },
+    "columnFour": {
+      "name": "Stare słowa",
+      "items": [
+        {
+          "id": "7d7aa7e5-8ac3-477b-867f-9672d0ca5df3",
+          "word_image": {
+            "polish_word": "Potrwać",
+            "english_word": "To last",
+            "image_url": "https://thumbs.dreamstime.com/b/time-control-retro-cartoon-design-running-man-clock-background-schedule-grey-gears-vector-illustration-86568744.jpg"
+          },
+          "gram_case": {
+            "case": "Biernik",
+            "aspect": "Dokonany",
+            "color": "#ff2233"
+          },
+          "present": {
+            "present_ja": "potrwam",
+            "present_ty": "potrwasz",
+            "present_on_ona_ono": "potrwa",
+            "present_my": "potrwamy",
+            "present_wy": "potrwacie",
+            "present_oni_one": "potrwają"
+          },
+          "past": {
+            "past_ja_masc": "potrwałem",
+            "past_ja_fem": "potrwałam",
+            "past_ty_masc": "potrwałeś",
+            "past_ty_fem": "potrwałaś",
+            "past_on_masc": "potrwał",
+            "past_ona_fem": "potrwała",
+            "past_my_masc": "potrawaliśmy",
+            "past_my_fem": "potrwałałyśmy",
+            "past_wy_masc": "potrwaliście",
+            "past_wy_fem": "potrwałałyście",
+            "past_oni_masc": "potrwali",
+            "past_one_fem": "potrwałały"
+          },
+          "imp_future": {
+            "imp_future_ja": "",
+            "imp_future_ty": "",
+            "imp_future_on_ona_ono": "",
+            "imp_future_my": "",
+            "imp_future_wy": "",
+            "imp_future_oni_one": " "
+          },
+          "future_fem": {
+            "future_fem_ja": "potrwam",
+            "future_fem_ty": "potrwasz",
+            "future_fem_ona": "potrwa",
+            "future_fem_my": "potrwamy",
+            "future_fem_wy": "potrwacie",
+            "future_fem_one": "potrwają"
+          },
+          "future_masc": {
+            "future_masc_ja": "potrwam",
+            "future_masc_ty": "potrwasz",
+            "future_masc_on": "potrwa",
+            "future_masc_my": "potrwamy",
+            "future_masc_wy": "potrwacie",
+            "future_masc_oni": "potrwają"
+          },
+          "notes": "Jak długo może to potrwać?\nBez obawy, ból potrwa tylko chwilę.\nMoje bankructwo potrwałoby 18 miesięcy. \nMój kurs trwał sześć miesięcy. Cieszę się, że to się skończyło, bo nie sądziłem, że wytrzymam.\nAngielski tekst do przetłumaczenia\n\n"
         },
         {
           "id": "4909d92e-ff69-4c80-bb13-23d2f9788c71",
@@ -452,23 +272,23 @@
             "color": "#ff2233"
           },
           "present": {
-            "present_ja": "",
-            "present_ty": "",
-            "present_on_ona_ono": "",
-            "present_my": "",
-            "present_wy": "",
-            "present_oni_one": ""
+            "present_ja": "sprawdzę",
+            "present_ty": "sprawdzisz",
+            "present_on_ona_ono": "sprawdzi",
+            "present_my": "sprawdzimy",
+            "present_wy": "sprawdzicie",
+            "present_oni_one": "sprawdzą"
           },
           "past": {
-            "past_ja_masc": "",
+            "past_ja_masc": "sprawdziłem",
             "past_ja_fem": "",
-            "past_ty_masc": "",
+            "past_ty_masc": "sprawdziłeś",
             "past_ty_fem": "",
-            "past_on_masc": "",
+            "past_on_masc": "sprawdził",
             "past_ona_fem": "",
-            "past_my_masc": "",
+            "past_my_masc": "sprawdzaliśmy",
             "past_my_fem": "",
-            "past_wy_masc": "",
+            "past_wy_masc": "sprawdziliście",
             "past_wy_fem": "",
             "past_oni_masc": "",
             "past_one_fem": ""
