@@ -150,11 +150,6 @@ a:hover {
   grid-area: btn;
 }
 
-td {
-  border-radius: 12px;
-}
-
-th,
-td {
+th {
   padding: 10px;
 }

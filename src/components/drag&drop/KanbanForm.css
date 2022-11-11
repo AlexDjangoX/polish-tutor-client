@@ -3,7 +3,7 @@
   place-content: center;
   font-size: 2.8rem;
   color: aliceblue;
-  background-color: black;
+  background: linear-gradient(90deg, rgb(40, 103, 249) 0%, rgb(25, 33, 57) 60%);
   padding: 1rem;
   font-weight: 300;
 }

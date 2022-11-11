@@ -7,7 +7,6 @@ th,
 td {
   border: 1px solid;
   text-align: center;
-  padding: 2px;
   border-collapse: collapse;
 }
 
@@ -29,7 +28,7 @@ tbody tr:nth-of-type(even) {
 }
 
 .card-image {
-  height: 10.9rem;
+  height: auto;
   width: auto;
   padding: 0.8rem;
 }

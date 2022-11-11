@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Button } from '../button/Button.js';
+// import { Button } from '../button/Button.js';
 import { v4 as uuidv4 } from 'uuid';
 import './KanbanForm.css';
+import { ChakraProvider } from '@chakra-ui/react';
 import {
   Box,
   Container,
@@ -12,6 +13,7 @@ import {
   Tabs,
   Grid,
   GridItem,
+  Button,
 } from '@chakra-ui/react';
 
 const initialData = {
@@ -147,756 +149,772 @@ const KanbanForm = ({
 
       <form>
         <div>
-          <Grid templateColumns='repeat(6, 1fr) ' gap={65} bg='blue' pl={25}>
-            <GridItem>
-              <div className='radio-buttons'>
-                <div className='radio-buttons-dokonany'>
-                  <input
-                    type='radio'
-                    id='dokonany'
-                    name='aspect'
-                    value='Dokonany'
-                    checked={
-                      isEditing
-                        ? currentVerb.gram_case.aspect === 'Dokonany'
-                        : verb.gram_case.aspect === 'Dokonany'
-                    }
-                    onChange={handleChange}
-                  />
-                  <label htmlFor='dokonany'>Dokonany</label>
-                </div>
-                <div className='radio-buttons-niedokonany'>
-                  <input
-                    type='radio'
-                    id='niedokonany'
-                    name='aspect'
-                    value='Niedokonany'
-                    checked={
-                      isEditing
-                        ? currentVerb.gram_case.aspect === 'Niedokonany'
-                        : verb.gram_case.aspect === 'Niedokonany'
-                    }
-                    onChange={handleChange}
-                  />
-                  <label htmlFor='niedokonany'>Niedokonany</label>
-                </div>
-                <div className='radio-buttons-niewiem'>
-                  <input
-                    type='radio'
-                    id='niewiem'
-                    name='aspect'
-                    value='Nie wiem'
-                    checked={
-                      isEditing
-                        ? currentVerb.gram_case.aspect === 'Nie wiem'
-                        : verb.gram_case.aspect === 'Nie wiem'
-                    }
-                    onChange={handleChange}
-                  />
-                  <label htmlFor='niewiem'>Nie wiem</label>
-                </div>
-              </div>
-            </GridItem>
-            <GridItem>
-              <div className='gram-case'>
-                <label htmlFor='gram_case'>
-                  What grammatical case is the verb?
-                </label>
-                <select
-                  id='gram_case'
-                  name='case'
-                  onChange={handleChange}
-                  value={
-                    isEditing ? currentVerb.gram_case.case : verb.gram_case.case
-                  }
-                >
-                  <option value='Mianownik'>Mianownik</option>
-                  <option value='Dopełniacz'>Dopełniacz</option>
-                  <option value='Celownik'>Celownik</option>
-                  <option value='Biernik'>Biernik</option>
-                  <option value='Narzędnik'>Narzędnik</option>
-                  <option value='Miejscownik'>Miejscownik</option>
-                  <option value='Wołacz'>Wołacz</option>
-                </select>
-              </div>
-            </GridItem>
-            <GridItem>
-              <div className='pol-eng-infin'>
-                <label htmlFor='polish_word'>Polish Verb</label>
-                <input
-                  id='polish_word'
-                  type='text'
-                  name='polish_word'
-                  required
-                  onChange={handleChange}
-                  value={
-                    isEditing
-                      ? currentVerb.word_image.polish_word
-                      : verb.word_image.polish_word
-                  }
-                />
-
-                <label htmlFor='english_word'>English Verb</label>
-                <input
-                  id='english_word'
-                  type='text'
-                  name='english_word'
-                  required
-                  onChange={handleChange}
-                  value={
-                    isEditing
-                      ? currentVerb.word_image.english_word
-                      : verb.word_image.english_word
-                  }
-                />
-              </div>
-            </GridItem>
-            <GridItem>
-              <div className='image_url'>
-                <label htmlFor='image_url'>Image URL</label>
-                <input
-                  id='image_url'
-                  type='text'
-                  name='image_url'
-                  onChange={handleChange}
-                  value={
-                    isEditing
-                      ? currentVerb.word_image.image_url
-                      : verb.word_image.image_url
-                  }
-                />
-              </div>
-            </GridItem>
-            <GridItem>
-              <div className='submit-button'>
-                <Button
-                  buttonStyle='btn--add-new-verb'
-                  buttonSize='btn--medium'
-                  id='submit-verb-button'
-                  type='submit'
-                  onClick={handleSubmit}
-                >
-                  {!isEditing ? 'Submit' : 'Update'}
-                </Button>
-              </div>
-            </GridItem>
-            <GridItem>
-              <div className='close-modal-button'>
-                <Button
-                  buttonStyle='btn--add-new-verb'
-                  buttonSize='btn--medium'
-                  onClick={() => exitEditForm()}
-                >
-                  Exit
-                </Button>
-              </div>
-            </GridItem>
-          </Grid>
-          <Box
-            bg='lightBlue'
-            ml={8}
-            w='100%'
-            p={4}
-            borderRadius='lg'
-            borderWidth='1px'
-          >
-            <Tabs isFitted variant='soft-rounded'>
-              <TabList mb='1em'>
-                <Tab>Present Tense</Tab>
-                <Tab>Past Masculine</Tab>
-                <Tab>Past Feminine</Tab>
-                <Tab>Future Imperfect</Tab>
-                <Tab>Future Feminine</Tab>
-                <Tab>Future Masculine</Tab>
-              </TabList>
-              <TabPanels>
-                <TabPanel>
-                  <div className='present-tense'>
-                    <div className='table-entry'>
-                      <label htmlFor='present_ja'>Ja ~ present</label>
+          <ChakraProvider>
+            <Box borderRadius='lg' border='1px' borderColor='gray.200'>
+              <Grid
+                templateColumns='repeat(6, 1fr) '
+                gap={65}
+                bg='blue.200'
+                pl={25}
+              >
+                <GridItem>
+                  <div className='radio-buttons'>
+                    <div className='radio-buttons-dokonany'>
                       <input
-                        id='present_ja'
-                        type='text'
-                        name='present_ja'
-                        required
-                        onChange={handleChange}
-                        value={
+                        type='radio'
+                        id='dokonany'
+                        name='aspect'
+                        value='Dokonany'
+                        checked={
                           isEditing
-                            ? currentVerb.present.present_ja
-                            : verb.present.present_ja
+                            ? currentVerb.gram_case.aspect === 'Dokonany'
+                            : verb.gram_case.aspect === 'Dokonany'
                         }
+                        onChange={handleChange}
                       />
+                      <label htmlFor='dokonany'>Dokonany</label>
                     </div>
-                    <div className='table-entry'>
-                      <label htmlFor='present_ty'>Ty ~ present</label>
+                    <div className='radio-buttons-niedokonany'>
                       <input
-                        id='present_ty'
-                        type='text'
-                        name='present_ty'
-                        required
-                        onChange={handleChange}
-                        value={
+                        type='radio'
+                        id='niedokonany'
+                        name='aspect'
+                        value='Niedokonany'
+                        checked={
                           isEditing
-                            ? currentVerb.present.present_ty
-                            : verb.present.present_ty
+                            ? currentVerb.gram_case.aspect === 'Niedokonany'
+                            : verb.gram_case.aspect === 'Niedokonany'
                         }
+                        onChange={handleChange}
                       />
+                      <label htmlFor='niedokonany'>Niedokonany</label>
                     </div>
-                    <div className='table-entry'>
-                      <label htmlFor='present_on_ona_ono'>
-                        on/ona/ono ~ present
-                      </label>
+                    <div className='radio-buttons-niewiem'>
                       <input
-                        id='present_on_ona_ono'
-                        type='text'
-                        name='present_on_ona_ono'
-                        required
-                        onChange={handleChange}
-                        value={
+                        type='radio'
+                        id='niewiem'
+                        name='aspect'
+                        value='Nie wiem'
+                        checked={
                           isEditing
-                            ? currentVerb.present.present_on_ona_ono
-                            : verb.present.present_on_ona_ono
+                            ? currentVerb.gram_case.aspect === 'Nie wiem'
+                            : verb.gram_case.aspect === 'Nie wiem'
                         }
-                      />
-                    </div>
-
-                    <div className='table-entry'>
-                      <label htmlFor='present_my'>My ~ present</label>
-                      <input
-                        id='present_my'
-                        type='text'
-                        name='present_my'
-                        required
                         onChange={handleChange}
-                        value={
-                          isEditing
-                            ? currentVerb.present.present_my
-                            : verb.present.present_my
-                        }
                       />
-                    </div>
-
-                    <div className='table-entry'>
-                      <label htmlFor='present_wy'>Wy ~ present</label>
-                      <input
-                        id='present_wy'
-                        type='text'
-                        name='present_wy'
-                        required
-                        onChange={handleChange}
-                        value={
-                          isEditing
-                            ? currentVerb.present.present_wy
-                            : verb.present.present_wy
-                        }
-                      />
-                    </div>
-
-                    <div className='table-entry'>
-                      <label htmlFor='present_oni_one'>Oni ~ present</label>
-                      <input
-                        id='present_oni_one'
-                        type='text'
-                        name='present_oni_one'
-                        required
-                        onChange={handleChange}
-                        value={
-                          isEditing
-                            ? currentVerb.present.present_oni_one
-                            : verb.present.present_oni_one
-                        }
-                      />
+                      <label htmlFor='niewiem'>Nie wiem</label>
                     </div>
                   </div>
-                </TabPanel>
-
-                <TabPanel>
-                  <div className='past-masculine'>
-                    <div className='table-entry'>
-                      {' '}
-                      <label htmlFor='past_ja_masc'>Ja-past-masculine</label>
-                      <input
-                        id='past_ja_masc'
-                        type='text'
-                        name='past_ja_masc'
-                        onChange={handleChange}
-                        value={
-                          isEditing
-                            ? currentVerb.past.past_ja_masc
-                            : verb.past.past_ja_masc
-                        }
-                      />
-                    </div>
-
-                    <div className='table-entry'>
-                      {' '}
-                      <label htmlFor='past_ty_masc'>Ty-past-masculine</label>
-                      <input
-                        id='past_ty_masc'
-                        type='text'
-                        name='past_ty_masc'
-                        onChange={handleChange}
-                        value={
-                          isEditing
-                            ? currentVerb.past.past_ty_masc
-                            : verb.past.past_ty_masc
-                        }
-                      />
-                    </div>
-
-                    <div className='table-entry'>
-                      <label htmlFor='past_on_masc'>On-past</label>
-                      <input
-                        id='past_on_masc'
-                        type='text'
-                        name='past_on_masc'
-                        onChange={handleChange}
-                        value={
-                          isEditing
-                            ? currentVerb.past.past_on_masc
-                            : verb.past.past_on_masc
-                        }
-                      />
-                    </div>
-
-                    <div className='table-entry'>
-                      <label htmlFor='past_my_masc'>My-past-masculine</label>
-                      <input
-                        id='past_my_masc'
-                        type='text'
-                        name='past_my_masc'
-                        onChange={handleChange}
-                        value={
-                          isEditing
-                            ? currentVerb.past.past_my_masc
-                            : verb.past.past_my_masc
-                        }
-                      />
-                    </div>
-
-                    <div className='table-entry'>
-                      {' '}
-                      <label htmlFor='past_wy_masc'>Wy-past-masculine</label>
-                      <input
-                        id='past_wy_masc'
-                        type='text'
-                        name='past_wy_masc'
-                        onChange={handleChange}
-                        value={
-                          isEditing
-                            ? currentVerb.past.past_wy_masc
-                            : verb.past.past_wy_masc
-                        }
-                      />
-                    </div>
-
-                    <div className='table-entry'>
-                      {' '}
-                      <label htmlFor='past_oni_masc'>Oni-past</label>
-                      <input
-                        id='past_oni_masc'
-                        type='text'
-                        name='past_oni_masc'
-                        onChange={handleChange}
-                        value={
-                          isEditing
-                            ? currentVerb.past.past_oni_masc
-                            : verb.past.past_oni_masc
-                        }
-                      />
-                    </div>
+                </GridItem>
+                <GridItem>
+                  <div className='gram-case'>
+                    <label htmlFor='gram_case'>
+                      What grammatical case is the verb?
+                    </label>
+                    <select
+                      id='gram_case'
+                      name='case'
+                      onChange={handleChange}
+                      value={
+                        isEditing
+                          ? currentVerb.gram_case.case
+                          : verb.gram_case.case
+                      }
+                    >
+                      <option value='Mianownik'>Mianownik</option>
+                      <option value='Dopełniacz'>Dopełniacz</option>
+                      <option value='Celownik'>Celownik</option>
+                      <option value='Biernik'>Biernik</option>
+                      <option value='Narzędnik'>Narzędnik</option>
+                      <option value='Miejscownik'>Miejscownik</option>
+                      <option value='Wołacz'>Wołacz</option>
+                    </select>
                   </div>
-                </TabPanel>
-                <TabPanel>
-                  <div className='past-feminine'>
-                    <div className='table-entry'>
-                      {' '}
-                      <label htmlFor='past_ja_fem'>Ja-past-fem</label>
-                      <input
-                        id='past_ja_fem'
-                        type='text'
-                        name='past_ja_fem'
-                        onChange={handleChange}
-                        value={
-                          isEditing
-                            ? currentVerb.past.past_ja_fem
-                            : verb.past.past_ja_fem
-                        }
-                      />
-                    </div>
+                </GridItem>
+                <GridItem>
+                  <div className='pol-eng-infin'>
+                    <label htmlFor='polish_word'>Polish Verb</label>
+                    <input
+                      id='polish_word'
+                      type='text'
+                      name='polish_word'
+                      required
+                      onChange={handleChange}
+                      value={
+                        isEditing
+                          ? currentVerb.word_image.polish_word
+                          : verb.word_image.polish_word
+                      }
+                    />
 
-                    <div className='table-entry'>
-                      <label htmlFor='past_ty_fem'>Ty-past-fem</label>
-                      <input
-                        id='past_ty_fem'
-                        type='text'
-                        name='past_ty_fem'
-                        onChange={handleChange}
-                        value={
-                          isEditing
-                            ? currentVerb.past.past_ty_fem
-                            : verb.past.past_ty_fem
-                        }
-                      />
-                    </div>
-
-                    <div className='table-entry'>
-                      {' '}
-                      <label htmlFor='past_ona_fem'>Ona-past</label>
-                      <input
-                        id='past_ona_fem'
-                        type='text'
-                        name='past_ona_fem'
-                        onChange={handleChange}
-                        value={
-                          isEditing
-                            ? currentVerb.past.past_ona_fem
-                            : verb.past.past_ona_fem
-                        }
-                      />
-                    </div>
-
-                    <div className='table-entry'>
-                      <label htmlFor='past_my_fem'>My-past-fem</label>
-                      <input
-                        id='past_my_fem'
-                        type='text'
-                        name='past_my_fem'
-                        onChange={handleChange}
-                        value={
-                          isEditing
-                            ? currentVerb.past.past_my_fem
-                            : verb.past.past_my_fem
-                        }
-                      />
-                    </div>
-
-                    <div className='table-entry'>
-                      <label htmlFor='past_wy_fem'>Wy-past-fem</label>
-                      <input
-                        id='past_wy_fem'
-                        type='text'
-                        name='past_wy_fem'
-                        onChange={handleChange}
-                        value={
-                          isEditing
-                            ? currentVerb.past.past_wy_fem
-                            : verb.past.past_wy_fem
-                        }
-                      />
-                    </div>
-
-                    <div className='table-entry'>
-                      {' '}
-                      <label htmlFor='past_one_fem'>One-past</label>
-                      <input
-                        id='past_one_fem'
-                        type='text'
-                        name='past_one_fem'
-                        onChange={handleChange}
-                        value={
-                          isEditing
-                            ? currentVerb.past.past_one_fem
-                            : verb.past.past_one_fem
-                        }
-                      />
-                    </div>
+                    <label htmlFor='english_word'>English Verb</label>
+                    <input
+                      id='english_word'
+                      type='text'
+                      name='english_word'
+                      required
+                      onChange={handleChange}
+                      value={
+                        isEditing
+                          ? currentVerb.word_image.english_word
+                          : verb.word_image.english_word
+                      }
+                    />
                   </div>
-                </TabPanel>
-                <TabPanel>
-                  <div className='future-imperfect'>
-                    <div className='table-entry'>
-                      {' '}
-                      <label htmlFor='imp_future_ja'>Ja-imp-fut</label>
-                      <input
-                        id='imp_future_ja'
-                        type='text'
-                        name='imp_future_ja'
-                        onChange={handleChange}
-                        value={
-                          isEditing
-                            ? currentVerb.imp_future.imp_future_ja
-                            : verb.imp_future.imp_future_ja
-                        }
-                      />
-                    </div>
-
-                    <div className='table-entry'>
-                      {' '}
-                      <label htmlFor='imp_future_ty'>Ty-imp-fut</label>
-                      <input
-                        id='imp_future_ty'
-                        type='text'
-                        name='imp_future_ty'
-                        onChange={handleChange}
-                        value={
-                          isEditing
-                            ? currentVerb.imp_future.imp_future_ty
-                            : verb.imp_future.imp_future_ty
-                        }
-                      />
-                    </div>
-
-                    <div className='table-entry'>
-                      <label htmlFor='imp_future_on_ona_ono'>
-                        On/ona/ono-imp-fut
-                      </label>
-                      <input
-                        id='imp_future_on_ona_ono'
-                        type='text'
-                        name='imp_future_on_ona_ono'
-                        onChange={handleChange}
-                        value={
-                          isEditing
-                            ? currentVerb.imp_future.imp_future_on_ona_ono
-                            : verb.imp_future.imp_future_on_ona_ono
-                        }
-                      />
-                    </div>
-
-                    <div className='table-entry'>
-                      <label htmlFor='imp_future_my'>My-imp-fut</label>
-                      <input
-                        id='imp_future_my'
-                        type='text'
-                        name='imp_future_my'
-                        onChange={handleChange}
-                        value={
-                          isEditing
-                            ? currentVerb.imp_future.imp_future_my
-                            : verb.imp_future.imp_future_my
-                        }
-                      />
-                    </div>
-
-                    <div className='table-entry'>
-                      <label htmlFor='imp_future_wy'>Wy-imp-fut</label>
-                      <input
-                        id='imp_future_wy'
-                        type='text'
-                        name='imp_future_wy'
-                        onChange={handleChange}
-                        value={
-                          isEditing
-                            ? currentVerb.imp_future.imp_future_wy
-                            : verb.imp_future.imp_future_wy
-                        }
-                      />
-                    </div>
-
-                    <div className='table-entry'>
-                      <label htmlFor='imp_future_oni_one'>
-                        Oni/one-imp-fut
-                      </label>
-                      <input
-                        id='imp_future_oni_one'
-                        type='text'
-                        name='imp_future_oni_one'
-                        onChange={handleChange}
-                        value={
-                          isEditing
-                            ? currentVerb.imp_future.imp_future_oni_one
-                            : verb.imp_future.imp_future_oni_one
-                        }
-                      />
-                    </div>
+                </GridItem>
+                <GridItem>
+                  <div className='image_url'>
+                    <label htmlFor='image_url'>Image URL</label>
+                    <input
+                      id='image_url'
+                      type='text'
+                      name='image_url'
+                      onChange={handleChange}
+                      value={
+                        isEditing
+                          ? currentVerb.word_image.image_url
+                          : verb.word_image.image_url
+                      }
+                    />
                   </div>
-                </TabPanel>
-                <TabPanel>
-                  <div className='future-feminine'>
-                    <div className='table-entry'>
-                      {' '}
-                      <label htmlFor='future_fem_ja'>Ja-fut-fem</label>
-                      <input
-                        id='future_fem_ja'
-                        type='text'
-                        name='future_fem_ja'
-                        onChange={handleChange}
-                        value={
-                          isEditing
-                            ? currentVerb.future_fem.future_fem_ja
-                            : verb.future_fem.future_fem_ja
-                        }
-                      />
-                    </div>
-
-                    <div className='table-entry'>
-                      {' '}
-                      <label htmlFor='future_fem_ty'>Ty-fut-fem</label>
-                      <input
-                        id='future_fem_ty'
-                        type='text'
-                        name='future_fem_ty'
-                        onChange={handleChange}
-                        value={
-                          isEditing
-                            ? currentVerb.future_fem.future_fem_ty
-                            : verb.future_fem.future_fem_ty
-                        }
-                      />
-                    </div>
-
-                    <div className='table-entry'>
-                      <label htmlFor='future_fem_ona'>Ona-fut-fem</label>
-                      <input
-                        id='future_fem_ona'
-                        type='text'
-                        name='future_fem_ona'
-                        onChange={handleChange}
-                        value={
-                          isEditing
-                            ? currentVerb.future_fem.future_fem_ona
-                            : verb.future_fem.future_fem_ona
-                        }
-                      />
-                    </div>
-
-                    <div className='table-entry'>
-                      {' '}
-                      <label htmlFor='future_fem_my'>My-fut-fem</label>
-                      <input
-                        id='future_fem_my'
-                        type='text'
-                        name='future_fem_my'
-                        onChange={handleChange}
-                        value={
-                          isEditing
-                            ? currentVerb.future_fem.future_fem_my
-                            : verb.future_fem.future_fem_my
-                        }
-                      />
-                    </div>
-
-                    <div className='table-entry'>
-                      <label htmlFor='future_fem_wy'>Wy-fut-fem</label>
-                      <input
-                        id='future_fem_wy'
-                        type='text'
-                        name='future_fem_wy'
-                        onChange={handleChange}
-                        value={
-                          isEditing
-                            ? currentVerb.future_fem.future_fem_wy
-                            : verb.future_fem.future_fem_wy
-                        }
-                      />
-                    </div>
-
-                    <div className='table-entry'>
-                      <label htmlFor='future_fem_one'>Oni-fut-fem</label>
-                      <input
-                        id='future_fem_one'
-                        type='text'
-                        name='future_fem_one'
-                        onChange={handleChange}
-                        value={
-                          isEditing
-                            ? currentVerb.future_fem.future_fem_one
-                            : verb.future_fem.future_fem_one
-                        }
-                      />
-                    </div>
+                </GridItem>
+                <GridItem>
+                  <div className='submit-button'>
+                    <Button
+                      buttonStyle='btn--add-new-verb'
+                      buttonSize='btn--medium'
+                      id='submit-verb-button'
+                      type='submit'
+                      onClick={handleSubmit}
+                    >
+                      {!isEditing ? 'Submit' : 'Update'}
+                    </Button>
                   </div>
-                </TabPanel>
-                <TabPanel>
-                  <div className='future-masculine'>
-                    <div className='table-entry'>
-                      <label htmlFor='future_masc_ja'>Ja-fut-masc</label>
-                      <input
-                        id='future_masc_ja'
-                        type='text'
-                        name='future_masc_ja'
-                        onChange={handleChange}
-                        value={
-                          isEditing
-                            ? currentVerb.future_masc.future_masc_ja
-                            : verb.future_masc.future_masc_ja
-                        }
-                      />
-                    </div>
-
-                    <div className='table-entry'>
-                      {' '}
-                      <label htmlFor='future_masc_ty'>Ty-fut-masc</label>
-                      <input
-                        id='future_masc_ty'
-                        type='text'
-                        name='future_masc_ty'
-                        onChange={handleChange}
-                        value={
-                          isEditing
-                            ? currentVerb.future_masc.future_masc_ty
-                            : verb.future_masc.future_masc_ty
-                        }
-                      />
-                    </div>
-
-                    <div className='table-entry'>
-                      {' '}
-                      <label htmlFor='future_masc_on'>On-fut-masc</label>
-                      <input
-                        id='future_masc_on'
-                        type='text'
-                        name='future_masc_on'
-                        onChange={handleChange}
-                        value={
-                          isEditing
-                            ? currentVerb.future_masc.future_masc_on
-                            : verb.future_masc.future_masc_on
-                        }
-                      />
-                    </div>
-
-                    <div className='table-entry'>
-                      <label htmlFor='future_masc_my'>My-fut-masc</label>
-                      <input
-                        id='future_masc_my'
-                        type='text'
-                        name='future_masc_my'
-                        onChange={handleChange}
-                        value={
-                          isEditing
-                            ? currentVerb.future_masc.future_masc_my
-                            : verb.future_masc.future_masc_my
-                        }
-                      />
-                    </div>
-
-                    <div className='table-entry'>
-                      <label htmlFor='future_masc_wy'>Wy-fut-masc</label>
-                      <input
-                        id='future_masc_wy'
-                        type='text'
-                        name='future_masc_wy'
-                        onChange={handleChange}
-                        value={
-                          isEditing
-                            ? currentVerb.future_masc.future_masc_wy
-                            : verb.future_masc.future_masc_wy
-                        }
-                      />
-                    </div>
-
-                    <div className='table-entry'>
-                      {' '}
-                      <label htmlFor='future_masc_oni'>Oni-fut-masc</label>
-                      <input
-                        id='future_masc_oni'
-                        type='text'
-                        name='future_masc_oni'
-                        onChange={handleChange}
-                        value={
-                          isEditing
-                            ? currentVerb.future_masc.future_masc_oni
-                            : verb.future_masc.future_masc_oni
-                        }
-                      />
-                    </div>
+                </GridItem>
+                <GridItem>
+                  <div className='close-modal-button'>
+                    <Button
+                      buttonStyle='btn--add-new-verb'
+                      buttonSize='btn--medium'
+                      onClick={() => exitEditForm()}
+                    >
+                      Exit
+                    </Button>
                   </div>
-                </TabPanel>
-              </TabPanels>
-            </Tabs>
-          </Box>
+                </GridItem>
+              </Grid>
+              <Box bg='blue.200' w='100%' p={4}>
+                <Tabs isFitted variant='soft-rounded' colorScheme='blue'>
+                  <TabList mb='1em'>
+                    <Tab>Present Tense</Tab>
+                    <Tab>Past Masculine</Tab>
+                    <Tab>Past Feminine</Tab>
+                    <Tab>Future Imperfect</Tab>
+                    <Tab>Future Feminine</Tab>
+                    <Tab>Future Masculine</Tab>
+                    <Tab>Conditional Feminine</Tab>
+                    <Tab>Conditional Perfect Feminine</Tab>
+                    <Tab>Conditional Masculine</Tab>
+                    <Tab>Conditional Perfect Masculine</Tab>
+                  </TabList>
+                  <TabPanels>
+                    <TabPanel>
+                      <div className='present-tense'>
+                        <div className='table-entry'>
+                          <label htmlFor='present_ja'>Ja ~ present</label>
+                          <input
+                            id='present_ja'
+                            type='text'
+                            name='present_ja'
+                            required
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.present.present_ja
+                                : verb.present.present_ja
+                            }
+                          />
+                        </div>
+                        <div className='table-entry'>
+                          <label htmlFor='present_ty'>Ty ~ present</label>
+                          <input
+                            id='present_ty'
+                            type='text'
+                            name='present_ty'
+                            required
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.present.present_ty
+                                : verb.present.present_ty
+                            }
+                          />
+                        </div>
+                        <div className='table-entry'>
+                          <label htmlFor='present_on_ona_ono'>
+                            on/ona/ono ~ present
+                          </label>
+                          <input
+                            id='present_on_ona_ono'
+                            type='text'
+                            name='present_on_ona_ono'
+                            required
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.present.present_on_ona_ono
+                                : verb.present.present_on_ona_ono
+                            }
+                          />
+                        </div>
+
+                        <div className='table-entry'>
+                          <label htmlFor='present_my'>My ~ present</label>
+                          <input
+                            id='present_my'
+                            type='text'
+                            name='present_my'
+                            required
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.present.present_my
+                                : verb.present.present_my
+                            }
+                          />
+                        </div>
+
+                        <div className='table-entry'>
+                          <label htmlFor='present_wy'>Wy ~ present</label>
+                          <input
+                            id='present_wy'
+                            type='text'
+                            name='present_wy'
+                            required
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.present.present_wy
+                                : verb.present.present_wy
+                            }
+                          />
+                        </div>
+
+                        <div className='table-entry'>
+                          <label htmlFor='present_oni_one'>Oni ~ present</label>
+                          <input
+                            id='present_oni_one'
+                            type='text'
+                            name='present_oni_one'
+                            required
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.present.present_oni_one
+                                : verb.present.present_oni_one
+                            }
+                          />
+                        </div>
+                      </div>
+                    </TabPanel>
+
+                    <TabPanel>
+                      <div className='past-masculine'>
+                        <div className='table-entry'>
+                          {' '}
+                          <label htmlFor='past_ja_masc'>
+                            Ja-past-masculine
+                          </label>
+                          <input
+                            id='past_ja_masc'
+                            type='text'
+                            name='past_ja_masc'
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.past.past_ja_masc
+                                : verb.past.past_ja_masc
+                            }
+                          />
+                        </div>
+
+                        <div className='table-entry'>
+                          {' '}
+                          <label htmlFor='past_ty_masc'>
+                            Ty-past-masculine
+                          </label>
+                          <input
+                            id='past_ty_masc'
+                            type='text'
+                            name='past_ty_masc'
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.past.past_ty_masc
+                                : verb.past.past_ty_masc
+                            }
+                          />
+                        </div>
+
+                        <div className='table-entry'>
+                          <label htmlFor='past_on_masc'>On-past</label>
+                          <input
+                            id='past_on_masc'
+                            type='text'
+                            name='past_on_masc'
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.past.past_on_masc
+                                : verb.past.past_on_masc
+                            }
+                          />
+                        </div>
+
+                        <div className='table-entry'>
+                          <label htmlFor='past_my_masc'>
+                            My-past-masculine
+                          </label>
+                          <input
+                            id='past_my_masc'
+                            type='text'
+                            name='past_my_masc'
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.past.past_my_masc
+                                : verb.past.past_my_masc
+                            }
+                          />
+                        </div>
+
+                        <div className='table-entry'>
+                          {' '}
+                          <label htmlFor='past_wy_masc'>
+                            Wy-past-masculine
+                          </label>
+                          <input
+                            id='past_wy_masc'
+                            type='text'
+                            name='past_wy_masc'
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.past.past_wy_masc
+                                : verb.past.past_wy_masc
+                            }
+                          />
+                        </div>
+
+                        <div className='table-entry'>
+                          {' '}
+                          <label htmlFor='past_oni_masc'>Oni-past</label>
+                          <input
+                            id='past_oni_masc'
+                            type='text'
+                            name='past_oni_masc'
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.past.past_oni_masc
+                                : verb.past.past_oni_masc
+                            }
+                          />
+                        </div>
+                      </div>
+                    </TabPanel>
+                    <TabPanel>
+                      <div className='past-feminine'>
+                        <div className='table-entry'>
+                          {' '}
+                          <label htmlFor='past_ja_fem'>Ja-past-fem</label>
+                          <input
+                            id='past_ja_fem'
+                            type='text'
+                            name='past_ja_fem'
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.past.past_ja_fem
+                                : verb.past.past_ja_fem
+                            }
+                          />
+                        </div>
+
+                        <div className='table-entry'>
+                          <label htmlFor='past_ty_fem'>Ty-past-fem</label>
+                          <input
+                            id='past_ty_fem'
+                            type='text'
+                            name='past_ty_fem'
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.past.past_ty_fem
+                                : verb.past.past_ty_fem
+                            }
+                          />
+                        </div>
+
+                        <div className='table-entry'>
+                          {' '}
+                          <label htmlFor='past_ona_fem'>Ona-past</label>
+                          <input
+                            id='past_ona_fem'
+                            type='text'
+                            name='past_ona_fem'
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.past.past_ona_fem
+                                : verb.past.past_ona_fem
+                            }
+                          />
+                        </div>
+
+                        <div className='table-entry'>
+                          <label htmlFor='past_my_fem'>My-past-fem</label>
+                          <input
+                            id='past_my_fem'
+                            type='text'
+                            name='past_my_fem'
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.past.past_my_fem
+                                : verb.past.past_my_fem
+                            }
+                          />
+                        </div>
+
+                        <div className='table-entry'>
+                          <label htmlFor='past_wy_fem'>Wy-past-fem</label>
+                          <input
+                            id='past_wy_fem'
+                            type='text'
+                            name='past_wy_fem'
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.past.past_wy_fem
+                                : verb.past.past_wy_fem
+                            }
+                          />
+                        </div>
+
+                        <div className='table-entry'>
+                          {' '}
+                          <label htmlFor='past_one_fem'>One-past</label>
+                          <input
+                            id='past_one_fem'
+                            type='text'
+                            name='past_one_fem'
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.past.past_one_fem
+                                : verb.past.past_one_fem
+                            }
+                          />
+                        </div>
+                      </div>
+                    </TabPanel>
+                    <TabPanel>
+                      <div className='future-imperfect'>
+                        <div className='table-entry'>
+                          {' '}
+                          <label htmlFor='imp_future_ja'>Ja-imp-fut</label>
+                          <input
+                            id='imp_future_ja'
+                            type='text'
+                            name='imp_future_ja'
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.imp_future.imp_future_ja
+                                : verb.imp_future.imp_future_ja
+                            }
+                          />
+                        </div>
+
+                        <div className='table-entry'>
+                          {' '}
+                          <label htmlFor='imp_future_ty'>Ty-imp-fut</label>
+                          <input
+                            id='imp_future_ty'
+                            type='text'
+                            name='imp_future_ty'
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.imp_future.imp_future_ty
+                                : verb.imp_future.imp_future_ty
+                            }
+                          />
+                        </div>
+
+                        <div className='table-entry'>
+                          <label htmlFor='imp_future_on_ona_ono'>
+                            On/ona/ono-imp-fut
+                          </label>
+                          <input
+                            id='imp_future_on_ona_ono'
+                            type='text'
+                            name='imp_future_on_ona_ono'
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.imp_future.imp_future_on_ona_ono
+                                : verb.imp_future.imp_future_on_ona_ono
+                            }
+                          />
+                        </div>
+
+                        <div className='table-entry'>
+                          <label htmlFor='imp_future_my'>My-imp-fut</label>
+                          <input
+                            id='imp_future_my'
+                            type='text'
+                            name='imp_future_my'
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.imp_future.imp_future_my
+                                : verb.imp_future.imp_future_my
+                            }
+                          />
+                        </div>
+
+                        <div className='table-entry'>
+                          <label htmlFor='imp_future_wy'>Wy-imp-fut</label>
+                          <input
+                            id='imp_future_wy'
+                            type='text'
+                            name='imp_future_wy'
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.imp_future.imp_future_wy
+                                : verb.imp_future.imp_future_wy
+                            }
+                          />
+                        </div>
+
+                        <div className='table-entry'>
+                          <label htmlFor='imp_future_oni_one'>
+                            Oni/one-imp-fut
+                          </label>
+                          <input
+                            id='imp_future_oni_one'
+                            type='text'
+                            name='imp_future_oni_one'
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.imp_future.imp_future_oni_one
+                                : verb.imp_future.imp_future_oni_one
+                            }
+                          />
+                        </div>
+                      </div>
+                    </TabPanel>
+                    <TabPanel>
+                      <div className='future-feminine'>
+                        <div className='table-entry'>
+                          {' '}
+                          <label htmlFor='future_fem_ja'>Ja-fut-fem</label>
+                          <input
+                            id='future_fem_ja'
+                            type='text'
+                            name='future_fem_ja'
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.future_fem.future_fem_ja
+                                : verb.future_fem.future_fem_ja
+                            }
+                          />
+                        </div>
+
+                        <div className='table-entry'>
+                          {' '}
+                          <label htmlFor='future_fem_ty'>Ty-fut-fem</label>
+                          <input
+                            id='future_fem_ty'
+                            type='text'
+                            name='future_fem_ty'
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.future_fem.future_fem_ty
+                                : verb.future_fem.future_fem_ty
+                            }
+                          />
+                        </div>
+
+                        <div className='table-entry'>
+                          <label htmlFor='future_fem_ona'>Ona-fut-fem</label>
+                          <input
+                            id='future_fem_ona'
+                            type='text'
+                            name='future_fem_ona'
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.future_fem.future_fem_ona
+                                : verb.future_fem.future_fem_ona
+                            }
+                          />
+                        </div>
+
+                        <div className='table-entry'>
+                          {' '}
+                          <label htmlFor='future_fem_my'>My-fut-fem</label>
+                          <input
+                            id='future_fem_my'
+                            type='text'
+                            name='future_fem_my'
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.future_fem.future_fem_my
+                                : verb.future_fem.future_fem_my
+                            }
+                          />
+                        </div>
+
+                        <div className='table-entry'>
+                          <label htmlFor='future_fem_wy'>Wy-fut-fem</label>
+                          <input
+                            id='future_fem_wy'
+                            type='text'
+                            name='future_fem_wy'
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.future_fem.future_fem_wy
+                                : verb.future_fem.future_fem_wy
+                            }
+                          />
+                        </div>
+
+                        <div className='table-entry'>
+                          <label htmlFor='future_fem_one'>Oni-fut-fem</label>
+                          <input
+                            id='future_fem_one'
+                            type='text'
+                            name='future_fem_one'
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.future_fem.future_fem_one
+                                : verb.future_fem.future_fem_one
+                            }
+                          />
+                        </div>
+                      </div>
+                    </TabPanel>
+                    <TabPanel>
+                      <div className='future-masculine'>
+                        <div className='table-entry'>
+                          <label htmlFor='future_masc_ja'>Ja-fut-masc</label>
+                          <input
+                            id='future_masc_ja'
+                            type='text'
+                            name='future_masc_ja'
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.future_masc.future_masc_ja
+                                : verb.future_masc.future_masc_ja
+                            }
+                          />
+                        </div>
+
+                        <div className='table-entry'>
+                          {' '}
+                          <label htmlFor='future_masc_ty'>Ty-fut-masc</label>
+                          <input
+                            id='future_masc_ty'
+                            type='text'
+                            name='future_masc_ty'
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.future_masc.future_masc_ty
+                                : verb.future_masc.future_masc_ty
+                            }
+                          />
+                        </div>
+
+                        <div className='table-entry'>
+                          {' '}
+                          <label htmlFor='future_masc_on'>On-fut-masc</label>
+                          <input
+                            id='future_masc_on'
+                            type='text'
+                            name='future_masc_on'
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.future_masc.future_masc_on
+                                : verb.future_masc.future_masc_on
+                            }
+                          />
+                        </div>
+
+                        <div className='table-entry'>
+                          <label htmlFor='future_masc_my'>My-fut-masc</label>
+                          <input
+                            id='future_masc_my'
+                            type='text'
+                            name='future_masc_my'
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.future_masc.future_masc_my
+                                : verb.future_masc.future_masc_my
+                            }
+                          />
+                        </div>
+
+                        <div className='table-entry'>
+                          <label htmlFor='future_masc_wy'>Wy-fut-masc</label>
+                          <input
+                            id='future_masc_wy'
+                            type='text'
+                            name='future_masc_wy'
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.future_masc.future_masc_wy
+                                : verb.future_masc.future_masc_wy
+                            }
+                          />
+                        </div>
+
+                        <div className='table-entry'>
+                          {' '}
+                          <label htmlFor='future_masc_oni'>Oni-fut-masc</label>
+                          <input
+                            id='future_masc_oni'
+                            type='text'
+                            name='future_masc_oni'
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.future_masc.future_masc_oni
+                                : verb.future_masc.future_masc_oni
+                            }
+                          />
+                        </div>
+                      </div>
+                    </TabPanel>
+                  </TabPanels>
+                </Tabs>
+              </Box>
+            </Box>
+          </ChakraProvider>
         </div>
       </form>
     </>
