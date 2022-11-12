@@ -85,7 +85,7 @@ const Kanban = ({ columns, setColumns }) => {
       const response = await fetch(
         `http://localhost:4000/protected/kanban/${user.sub}`,
         {
-          method: 'POST',
+          method: 'PUT',
           headers: {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json',
@@ -93,7 +93,11 @@ const Kanban = ({ columns, setColumns }) => {
           body: JSON.stringify(columns),
         }
       );
-      console.log(response.status);
+
+      console.log('INSIDE postToDb : ', response.status);
+
+      const dataToRender = await response.json();
+      console.log('DATA TO RENDER : ', dataToRender.data.kanbanObject);
     } catch (error) {
       console.error(error.message);
     }

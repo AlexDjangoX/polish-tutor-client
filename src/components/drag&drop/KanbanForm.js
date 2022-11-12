@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// import { Button } from '../button/Button.js';
+import { Button } from '../button/Button.js';
 import { v4 as uuidv4 } from 'uuid';
 import './KanbanForm.css';
 import { ChakraProvider } from '@chakra-ui/react';
@@ -13,7 +13,6 @@ import {
   Tabs,
   Grid,
   GridItem,
-  Button,
 } from '@chakra-ui/react';
 
 const initialData = {
