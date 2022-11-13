@@ -59,24 +59,24 @@ const Kanban = ({ columns, setColumns }) => {
   const [currentVerb, setCurrentVerb] = useState({});
   const [isEditing, setIsEditing] = useState(false);
 
-  useEffect(() => {
-    axios
-      .get(`http://localhost:8000/position`)
-      .then(function (response) {
-        setColumns(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get(`http://localhost:8000/position`)
+  //     .then(function (response) {
+  //       setColumns(response.data);
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     });
+  // }, []);
 
-  const postToDb = () => {
-    axios
-      .post(`http://localhost:8000/position`, columns)
-      .catch(function (error) {
-        console.log(error);
-      });
-  };
+  // const postToDb = () => {
+  //   axios
+  //     .post(`http://localhost:8000/position`, columns)
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     });
+  // };
 
   const postToExpressApp = async () => {
     try {
@@ -96,15 +96,46 @@ const Kanban = ({ columns, setColumns }) => {
 
       console.log('INSIDE postToDb : ', response.status);
 
-      const dataToRender = await response.json();
-      console.log('DATA TO RENDER : ', dataToRender.data.kanbanObject);
+      // const dataToRender = await response.json();
+      // console.log('DATA TO RENDER : ', dataToRender.data.kanbanObject);
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
+  const getFromExpressApp = async () => {
+    console.log('INSIDE getFromExpressApp : ');
+    try {
+      const token = await getAccessTokenSilently();
+
+      const response = await fetch(
+        `http://localhost:4000/protected/kanban/${user.sub}`,
+        {
+          method: 'GET',
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+
+      console.log('getFromExpressApp : ');
+
+      const returnFromGetRequest = await response.json();
+      const dataToRender = returnFromGetRequest.data.kanbanObject;
+      console.log('FROM GET REQUEST : ', dataToRender);
+      await setColumns(dataToRender);
     } catch (error) {
       console.error(error.message);
     }
   };
 
   useEffect(() => {
-    setTimeout(postToDb, 900);
+    getFromExpressApp();
+  }, []);
+
+  useEffect(() => {
+    setTimeout(postToExpressApp, 900);
     if (user) postToExpressApp();
   }, [columns]);
 
