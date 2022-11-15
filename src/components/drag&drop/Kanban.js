@@ -78,6 +78,11 @@ const Kanban = ({ columns, setColumns }) => {
   //     });
   // };
 
+  // useEffect(() => {
+  //   setTimeout(postToDb, 900);
+  //   if (user) postToDb();
+  // }, [columns]);
+
   const postToExpressApp = async () => {
     try {
       const token = await getAccessTokenSilently();
@@ -94,17 +99,14 @@ const Kanban = ({ columns, setColumns }) => {
         }
       );
 
-      console.log('INSIDE postToDb : ', response.status);
-
-      // const dataToRender = await response.json();
-      // console.log('DATA TO RENDER : ', dataToRender.data.kanbanObject);
+      // console.log('INSIDE postToDb : ', response.status);
     } catch (error) {
       console.error(error.message);
     }
   };
 
   const getFromExpressApp = async () => {
-    console.log('INSIDE getFromExpressApp : ');
+    // console.log('INSIDE getFromExpressApp : ');
     try {
       const token = await getAccessTokenSilently();
 
@@ -119,7 +121,7 @@ const Kanban = ({ columns, setColumns }) => {
         }
       );
 
-      console.log('getFromExpressApp : ');
+      // console.log('getFromExpressApp : ');
 
       const returnFromGetRequest = await response.json();
       const dataToRender = returnFromGetRequest.data.kanbanObject;
@@ -143,6 +145,28 @@ const Kanban = ({ columns, setColumns }) => {
     setOpen(true);
     setIsEditing(true);
     setCurrentVerb(currentVerb);
+  };
+
+  const deleteHandler = async (verbId) => {
+    try {
+      const token = await getAccessTokenSilently();
+
+      const response = await fetch(
+        `http://localhost:4000/protected/kanban/${user.sub}`,
+        {
+          method: 'DELETE',
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ verbId }),
+        }
+      );
+
+      console.log('INSIDE archiveHandler : ', await response.json());
+    } catch (error) {
+      console.error(error.message);
+    }
   };
 
   return (
@@ -195,7 +219,7 @@ const Kanban = ({ columns, setColumns }) => {
                   </div>
                 )}
 
-                <div style={{ margin: 8 }}>
+                <div style={{ margin: 2 }}>
                   <Droppable droppableId={columnId} key={columnId}>
                     {(provided, snapshot) => {
                       return (
@@ -265,7 +289,17 @@ const Kanban = ({ columns, setColumns }) => {
                                             onClick={() => editHandler(item)}
                                             buttonStyle='btn-edit-verb'
                                           >
-                                            Edit
+                                            + Edit
+                                          </Button>
+                                        )}
+                                        {column.name === 'Stare słowa' && (
+                                          <Button
+                                            onClick={() =>
+                                              deleteHandler(item.id)
+                                            }
+                                            buttonStyle='btn-edit-verb'
+                                          >
+                                            Delete
                                           </Button>
                                         )}
                                       </div>

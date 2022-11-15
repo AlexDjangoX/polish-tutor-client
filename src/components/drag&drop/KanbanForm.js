@@ -153,7 +153,7 @@ const KanbanForm = ({
               <Grid
                 templateColumns='repeat(6, 1fr) '
                 gap={65}
-                bg='blue.200'
+                bg='blue.400'
                 pl={25}
               >
                 <GridItem>
@@ -320,8 +320,9 @@ const KanbanForm = ({
                     <TabPanel>
                       <div className='present-tense'>
                         <div className='table-entry'>
-                          <label htmlFor='present_ja'>Ja ~ present</label>
+                          <label htmlFor='present_ja'>Present Tense</label>
                           <input
+                            placeholder='First person - Ja'
                             id='present_ja'
                             type='text'
                             name='present_ja'

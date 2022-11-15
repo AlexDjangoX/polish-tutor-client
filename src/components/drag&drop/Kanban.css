@@ -32,7 +32,8 @@
 .kanban-droppable {
   padding: 8px;
   width: 250px;
-  min-height: 82vh;
+  height: 82vh;
+  overflow-y: auto;
 }
 
 .kanban-draggable {
