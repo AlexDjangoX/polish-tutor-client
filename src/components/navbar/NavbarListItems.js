@@ -1,7 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react';
+import { Link, useLocation } from 'react-router-dom';
+import LoginButton from '../auth/LoginButton';
+import LogOutButton from '../auth/LogOutButton';
 
 const NavbarListItems = () => {
+  const { user } = useAuth0();
+
   return (
     <>
       <li className='navbar-list-item'>
@@ -9,25 +14,14 @@ const NavbarListItems = () => {
           Dom
         </Link>
       </li>
-      {/* <li className='navbar-list-item'>
-        <Link to='/experience' className='navbar-link'>
-          Mapa
-        </Link>
-      </li> */}
+
       <li className='navbar-list-item'>
         <Link to='/kanban' className='navbar-link'>
           Koniugacja
         </Link>
       </li>
-      {/* <li className='navbar-list-item'>
-        <Link to='/profile' className='navbar-link'>
-          Rzeczowniki
-        </Link>
-      </li> */}
       <li className='navbar-list-item'>
-        <Link to='/notatki' className='navbar-link'>
-          Notatki
-        </Link>
+        {!user ? <LoginButton /> : <LogOutButton />}
       </li>
     </>
   );

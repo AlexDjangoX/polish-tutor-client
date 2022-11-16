@@ -35,7 +35,6 @@
 .future-imperfect {
   display: grid;
   grid-area: futureImp;
-  background-color: rgb(0, 255, 72);
   margin-top: 10px;
 }
 

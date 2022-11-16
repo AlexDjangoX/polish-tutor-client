@@ -83,6 +83,11 @@ const Kanban = ({ columns, setColumns }) => {
   //   if (user) postToDb();
   // }, [columns]);
 
+  // useEffect(() => {
+  //   setTimeout(postToDb, 900);
+  //   if (user) postToDb();
+  // }, [columns]);
+
   const postToExpressApp = async () => {
     try {
       const token = await getAccessTokenSilently();
@@ -99,14 +104,13 @@ const Kanban = ({ columns, setColumns }) => {
         }
       );
 
-      // console.log('INSIDE postToDb : ', response.status);
+      console.log('PUT to express app', response.status);
     } catch (error) {
       console.error(error.message);
     }
   };
 
   const getFromExpressApp = async () => {
-    // console.log('INSIDE getFromExpressApp : ');
     try {
       const token = await getAccessTokenSilently();
 
@@ -121,11 +125,16 @@ const Kanban = ({ columns, setColumns }) => {
         }
       );
 
-      // console.log('getFromExpressApp : ');
+      const columnOrder = [
+        'columnOne',
+        'columnTwo',
+        'columnThree',
+        'columnFour',
+      ];
 
       const returnFromGetRequest = await response.json();
-      const dataToRender = returnFromGetRequest.data.kanbanObject;
-      console.log('FROM GET REQUEST : ', dataToRender);
+      let dataToRender = returnFromGetRequest.data.kanbanObject;
+
       await setColumns(dataToRender);
     } catch (error) {
       console.error(error.message);
@@ -148,37 +157,36 @@ const Kanban = ({ columns, setColumns }) => {
   };
 
   const deleteHandler = async (verbId) => {
-    try {
-      const token = await getAccessTokenSilently();
+    const verbArray = columns.columnFour.items;
 
-      const response = await fetch(
-        `http://localhost:4000/protected/kanban/${user.sub}`,
-        {
-          method: 'DELETE',
-          headers: {
-            Authorization: `Bearer ${token}`,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ verbId }),
+    const updatedVerbArray = verbArray.filter((el) => el.id !== verbId);
+
+    const updatedObject = () => {
+      const objClone = JSON.parse(JSON.stringify({ ...columns }));
+      for (let j in objClone) {
+        if (objClone[j].name === 'Stare słowa') {
+          objClone[j].items = updatedVerbArray;
         }
-      );
+      }
 
-      console.log('INSIDE archiveHandler : ', await response.json());
-    } catch (error) {
-      console.error(error.message);
-    }
+      return objClone;
+    };
+
+    await setColumns(updatedObject());
+    postToExpressApp();
   };
 
   return (
     <>
-      <Button
-        buttonStyle='btn--add-new-verb'
-        buttonSize='btn--medium'
-        onClick={() => setOpen(true)}
-      >
-        New Verb
-      </Button>
-
+      <div className='new-verb-button-wrapper'>
+        <Button
+          buttonStyle='btn--add-new-verb'
+          buttonSize='btn--medium'
+          onClick={() => setOpen(true)}
+        >
+          New Verb
+        </Button>
+      </div>
       <Modal
         open={open}
         onClose={() => setOpen(false)}
@@ -206,17 +214,9 @@ const Kanban = ({ columns, setColumns }) => {
               <div className='kanban-columns' key={columnId}>
                 {(column.name === 'Nowe słowa' ||
                   column.name === 'Przeszły' ||
+                  column.name === 'Stare słowa' ||
                   column.name === 'Przyszły') && (
                   <h2 className='kanban-header'>{column.name}</h2>
-                )}
-
-                {column.name === 'Stare słowa' && (
-                  <div className='kanban-search-wrapper'>
-                    <input
-                      className='kanban-search'
-                      placeholder='Search verb'
-                    ></input>
-                  </div>
                 )}
 
                 <div style={{ margin: 2 }}>
@@ -289,7 +289,7 @@ const Kanban = ({ columns, setColumns }) => {
                                             onClick={() => editHandler(item)}
                                             buttonStyle='btn-edit-verb'
                                           >
-                                            + Edit
+                                            Edit
                                           </Button>
                                         )}
                                         {column.name === 'Stare słowa' && (

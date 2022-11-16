@@ -5,7 +5,7 @@
 .navbar-container {
   display: grid;
   grid-template-areas: 'left-nav middle-nav right-nav';
-  grid-template-columns: 4fr 12fr 2fr;
+  grid-template-columns: 4fr 12fr 12fr;
   grid-template-rows: 7rem;
 }
 
@@ -46,10 +46,9 @@
 
 .links {
   display: grid;
-  grid-area: middle-nav;
+  grid-area: right-nav;
   justify-content: end;
-  grid-template-areas: 'link link link link';
-  grid-template-columns: repeat(5, 8rem);
+  grid-template-columns: repeat(3, 8rem);
   padding-bottom: 0.4rem;
 }
 
@@ -57,6 +56,7 @@
   display: grid;
   grid-area: right-nav;
   align-items: center;
+  justify-content: end;
   color: var(--primary);
 }
 
@@ -73,6 +73,7 @@
 
 .nav-menu-inactive {
   display: grid;
+  justify-content: end;
 }
 
 .navbar-link {

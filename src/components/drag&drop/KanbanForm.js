@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
 import { Button } from '../button/Button.js';
 import { v4 as uuidv4 } from 'uuid';
 import './KanbanForm.css';
@@ -82,6 +83,7 @@ const KanbanForm = ({
 }) => {
   const resetState = Object.assign({}, initialData);
   const [verb, setVerb] = useState({ ...resetState, id: uuidv4() });
+  const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
 
   const axios = require('axios');
 
@@ -112,12 +114,49 @@ const KanbanForm = ({
     }
   };
 
-  const postToDb = () => {
-    axios
-      .post(`http://localhost:8000/position`, columns)
-      .catch(function (error) {
-        console.log(error);
-      });
+  // const postToDb = () => {
+  //   axios
+  //     .post(`http://localhost:8000/position`, columns)
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     });
+  // };
+
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   if (!isEditing) {
+  //     columns.columnOne.items.push(verb);
+  //   }
+  //   setVerb({ ...resetState });
+
+  //   postToDb();
+  //   setOpen(false);
+  // };
+
+  // useEffect(() => {
+  //   setTimeout(postToDb, 900);
+  // }, [columns]);
+
+  const postToExpressApp = async () => {
+    try {
+      const token = await getAccessTokenSilently();
+
+      const response = await fetch(
+        `http://localhost:4000/protected/kanban/${user.sub}`,
+        {
+          method: 'PUT',
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(columns),
+        }
+      );
+
+      console.log('PUT to express app', response.status);
+    } catch (error) {
+      console.error(error.message);
+    }
   };
 
   const handleSubmit = (event) => {
@@ -127,12 +166,12 @@ const KanbanForm = ({
     }
     setVerb({ ...resetState });
 
-    postToDb();
+    postToExpressApp();
     setOpen(false);
   };
 
   useEffect(() => {
-    setTimeout(postToDb, 900);
+    setTimeout(postToExpressApp, 900);
   }, [columns]);
 
   const exitEditForm = () => {
@@ -187,21 +226,6 @@ const KanbanForm = ({
                         onChange={handleChange}
                       />
                       <label htmlFor='niedokonany'>Niedokonany</label>
-                    </div>
-                    <div className='radio-buttons-niewiem'>
-                      <input
-                        type='radio'
-                        id='niewiem'
-                        name='aspect'
-                        value='Nie wiem'
-                        checked={
-                          isEditing
-                            ? currentVerb.gram_case.aspect === 'Nie wiem'
-                            : verb.gram_case.aspect === 'Nie wiem'
-                        }
-                        onChange={handleChange}
-                      />
-                      <label htmlFor='niewiem'>Nie wiem</label>
                     </div>
                   </div>
                 </GridItem>
@@ -311,10 +335,10 @@ const KanbanForm = ({
                     <Tab>Future Imperfect</Tab>
                     <Tab>Future Feminine</Tab>
                     <Tab>Future Masculine</Tab>
-                    <Tab>Conditional Feminine</Tab>
+                    {/* <Tab>Conditional Feminine</Tab>
                     <Tab>Conditional Perfect Feminine</Tab>
                     <Tab>Conditional Masculine</Tab>
-                    <Tab>Conditional Perfect Masculine</Tab>
+                    <Tab>Conditional Perfect Masculine</Tab> */}
                   </TabList>
                   <TabPanels>
                     <TabPanel>

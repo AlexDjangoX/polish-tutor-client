@@ -8,6 +8,10 @@
   background-repeat: no-repeat;
 }
 
+.new-verb-button-wrapper {
+  padding: 1rem 0rem;
+}
+
 .kanban-columns {
   display: grid;
   align-items: center;
