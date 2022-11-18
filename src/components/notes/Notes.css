@@ -56,17 +56,13 @@
 
 .translation {
   display: grid;
-  grid-template-columns: repeat(7);
-  grid-template-rows: auto;
-  grid-template-areas:
-    'image textTranslate textTranslate translateButton  translatedText translatedText .'
-    'button . .  . . . .';
+  grid-template-areas: 'image textTranslate textTranslate translateButton  translatedText translatedText .';
 }
 
 .card-button-wrapper {
   display: grid;
-  margin: 0 25px;
-  grid-template-rows: auto;
+  margin: 0 5px;
+  place-content: center;
 }
 
 .card-image {
@@ -74,13 +70,12 @@
   grid-area: image;
   place-content: center;
   margin: 5px;
-  border: 2px solid white;
-  border-radius: 10px;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 5px;
 }
 
 .translation-button {
   display: grid;
-  grid-area: button;
   margin: 10px;
 }
 
@@ -95,28 +90,25 @@
 }
 
 .translation-radio-buttons {
-  background-color: rgb(240, 240, 240);
   margin: 0 0.2rem;
-  border: 2px solid #ccc;
+  padding: 1rem;
+  border: 1px solid rgb(1, 1, 1);
   border-radius: 4px;
-}
-
-.radio-buttons-eng-pl,
-.radio-buttons-pl-eng {
-  background-color: black;
-  width: 1rem;
 }
 
 .text-to-translate textarea,
 .translated-text textarea {
-  font-size: 1rem;
-  font-family: inherit;
-  font-weight: 400;
-  min-height: 5rem;
-  border: 2px solid #ccc;
+  color: black;
+  padding: 0.4rem;
+  border: 1px solid rgb(1, 1, 1);
   border-radius: 4px;
-  background-color: #f8f8f8;
+  background-color: #f9f9fa;
   resize: none;
+}
+
+.updateNotesButton {
+  display: grid;
+  place-content: center;
 }
 
 .user-notes {
@@ -152,8 +144,11 @@ a:hover {
 
 .update-notes-play-voice {
   display: grid;
-  grid-template-columns: repeat(2);
-  grid-template-areas: 'btn tts';
+  grid-auto-flow: column;
+
+  place-content: center;
+  padding: 10px;
+  margin: 0.2rem;
 }
 
 .text-to-speech {

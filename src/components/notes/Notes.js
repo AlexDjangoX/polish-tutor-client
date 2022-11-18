@@ -28,7 +28,7 @@ const Notes = ({ columns, setColumns }) => {
   const [transEngPlPlEnd, setTransEngPlPlEnd] = useState('');
   const { voices } = useSpeechSynthesis();
   const [sourceTarget, setSourceTarget] = useState(
-    '"source":"en","target":"pl"'
+    '"source":"pl","target":"en"'
   );
 
   const axios = require('axios');
@@ -121,7 +121,7 @@ const Notes = ({ columns, setColumns }) => {
     <>
       <ChakraProvider>
         <div className='notes-wrapper'>
-          <Box w='100%' h='200px' p={4} mb='25px' mt='5px'>
+          <Box w='100%' h='200px' p={4}>
             <Tabs isFitted variant='soft-rounded'>
               <TabList mb='1em'>
                 <Tab>Present </Tab>
@@ -296,11 +296,12 @@ const Notes = ({ columns, setColumns }) => {
 
                 <div className='translation-radio-buttons'>
                   <RadioGroup onChange={handleTranslationLanguage}>
-                    <Stack direction='row'>
+                    <Stack direction='column'>
                       <Radio
                         id='eng-pl'
                         name='translation'
                         value={'"source":"pl","target":"en"'}
+                        defaultChecked
                       >
                         English - Polish
                       </Radio>
@@ -324,6 +325,18 @@ const Notes = ({ columns, setColumns }) => {
                       Translate
                     </Button>
                   </div>
+                  <div className='updateNotesButton'>
+                    <Button
+                      colorScheme='blue'
+                      border={'2px solid black'}
+                      size='sm'
+                      id='submit-verb-button'
+                      type='submit'
+                      onClick={handleSubmit}
+                    >
+                      Update notes
+                    </Button>
+                  </div>
                 </div>
 
                 <div className='translated-text'>
@@ -345,18 +358,9 @@ const Notes = ({ columns, setColumns }) => {
               >
                 {dataToRender.notes}
               </textarea>
+
               <div className='update-notes-play-voice'>
-                <Button
-                  className='btn--update-notes'
-                  id='submit-verb-button'
-                  type='submit'
-                  onClick={handleSubmit}
-                >
-                  Update notes
-                </Button>
-                <div className='text-to-speech'>
-                  <TextToSpeech data={dataToRender.notes} voices={voices} />
-                </div>
+                <TextToSpeech data={dataToRender.notes} voices={voices} />
               </div>
             </form>
           </div>

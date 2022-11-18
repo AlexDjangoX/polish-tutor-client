@@ -23,8 +23,7 @@ const TextToSpeech = ({ data, voices }) => {
         )}
         {supported && (
           <>
-            {/* <div className="select-options"> */}
-            <label htmlFor='voice'>Voice</label>
+            <label htmlFor='voice'></label>
             <select
               id='voice'
               name='voice'
@@ -37,7 +36,6 @@ const TextToSpeech = ({ data, voices }) => {
               <option value={21}>Anna</option>
               <option value={6}>Adam</option>
             </select>
-            {/* </div> */}
 
             <div className='btn-speak'>
               {speaking ? (
