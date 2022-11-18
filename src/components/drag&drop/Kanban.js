@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
+import { v4 as uuidv4 } from 'uuid';
 import './Kanban.css';
 import KanbanTable from './KanbanTable';
 import KanbanForm from './KanbanForm';
@@ -79,13 +80,7 @@ const Kanban = ({ columns, setColumns }) => {
   // };
 
   // useEffect(() => {
-  //   setTimeout(postToDb, 900);
-  //   if (user) postToDb();
-  // }, [columns]);
-
-  // useEffect(() => {
-  //   setTimeout(postToDb, 900);
-  //   if (user) postToDb();
+  //   if (user) setTimeout(postToDb, 900);
   // }, [columns]);
 
   const postToExpressApp = async () => {
@@ -125,13 +120,6 @@ const Kanban = ({ columns, setColumns }) => {
         }
       );
 
-      const columnOrder = [
-        'columnOne',
-        'columnTwo',
-        'columnThree',
-        'columnFour',
-      ];
-
       const returnFromGetRequest = await response.json();
       let dataToRender = returnFromGetRequest.data.kanbanObject;
 
@@ -146,8 +134,7 @@ const Kanban = ({ columns, setColumns }) => {
   }, []);
 
   useEffect(() => {
-    setTimeout(postToExpressApp, 900);
-    if (user) postToExpressApp();
+    if (user) setTimeout(postToExpressApp, 900);
   }, [columns]);
 
   const editHandler = (currentVerb) => {
@@ -211,11 +198,11 @@ const Kanban = ({ columns, setColumns }) => {
         >
           {Object.entries(columns).map(([columnId, column], index) => {
             return (
-              <div className='kanban-columns' key={columnId}>
+              <div className='kanban-columns' key={uuidv4()}>
                 {(column.name === 'Nowe słowa' ||
                   column.name === 'Przeszły' ||
-                  column.name === 'Stare słowa' ||
-                  column.name === 'Przyszły') && (
+                  column.name === 'Przyszły' ||
+                  column.name === 'Stare słowa') && (
                   <h2 className='kanban-header'>{column.name}</h2>
                 )}
 
