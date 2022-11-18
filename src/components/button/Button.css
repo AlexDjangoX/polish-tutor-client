@@ -5,8 +5,9 @@
 }
 
 .btn {
-  padding: 0.5rem 1rem;
+  padding: 0.4rem 1rem;
   border-radius: 0.2rem;
+  margin-left: 0.4rem;
 
   outline: none;
   border: none;
@@ -45,10 +46,9 @@
 
 .btn-login-logout {
   font-size: 1.4rem;
-  font-weight: 300;
+  font-weight: 400;
   color: rgb(255, 56, 56);
   background-color: white;
-  margin-top: -2px;
 }
 
 .btn--add-new-verb {
@@ -56,14 +56,25 @@
   background-color: red;
   color: white;
   font-weight: 500;
+  margin: 1rem;
+}
+
+.btn--add-new-verb,
+a {
+  text-decoration: none;
+  color: aliceblue;
 }
 
 .btn-login-logout:hover,
 .btn--add-new-verb:hover {
-  font-size: 1.5rem;
-  font-weight: 500;
   color: rgb(255, 0, 0);
-  background-color: white;
+  background-color: rgb(255, 255, 255);
+  transition: all 0.4s ease-out;
+}
+
+.btn-login-logout:hover {
+  color: rgb(255, 255, 255);
+  background-color: rgb(255, 0, 0);
   transition: all 0.4s ease-out;
 }
 

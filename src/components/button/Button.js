@@ -27,15 +27,15 @@ export const Button = ({
 
   return (
     <div className='btn--wrapper'>
-      <Link to='/kanban'>
-        <button
-          className={`btn ${checkButtonStyle} ${checkButtonSize}`}
-          onClick={onClick}
-          type={type}
-        >
-          {children}
-        </button>{' '}
-      </Link>
+      {/* <Link to='/kanban'> */}
+      <button
+        className={`btn ${checkButtonStyle} ${checkButtonSize}`}
+        onClick={onClick}
+        type={type}
+      >
+        {children}
+      </button>
+      {/* </Link> */}
     </div>
   );
 };

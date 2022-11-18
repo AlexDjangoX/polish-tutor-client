@@ -9,7 +9,13 @@
 }
 
 .new-verb-button-wrapper {
-  padding: 1rem 0rem;
+  display: grid;
+  grid-auto-flow: column;
+  place-content: center;
+}
+
+.link a {
+  text-decoration: none;
 }
 
 .kanban-columns {

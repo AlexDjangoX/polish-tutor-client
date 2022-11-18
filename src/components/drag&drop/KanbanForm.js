@@ -162,7 +162,7 @@ const KanbanForm = ({
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!isEditing) {
-      columns.columnOne.items.push(verb);
+      columns.A.items.push(verb);
     }
     setVerb({ ...resetState });
 

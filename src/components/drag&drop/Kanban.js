@@ -144,7 +144,7 @@ const Kanban = ({ columns, setColumns }) => {
   };
 
   const deleteHandler = async (verbId) => {
-    const verbArray = columns.columnFour.items;
+    const verbArray = columns.D.items;
 
     const updatedVerbArray = verbArray.filter((el) => el.id !== verbId);
 
@@ -171,7 +171,12 @@ const Kanban = ({ columns, setColumns }) => {
           buttonSize='btn--medium'
           onClick={() => setOpen(true)}
         >
-          New Verb
+          Czasownik
+        </Button>
+        <Button buttonStyle='btn--add-new-verb'>
+          <a href='https://cooljugator.com/pl' target='_blank' rel='noreferrer'>
+            Koniugacja
+          </a>
         </Button>
       </div>
       <Modal
