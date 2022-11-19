@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-
 import { useSpeechSynthesis } from 'react-speech-kit';
 import TextToSpeech from '../textToSpeech/TextToSpeech';
 import { ChakraProvider } from '@chakra-ui/react';
@@ -16,7 +15,7 @@ import {
   RadioGroup,
   Stack,
 } from '@chakra-ui/react';
-
+import { Spinner } from '@chakra-ui/react';
 import './Notes.css';
 
 const Notes = ({ columns, setColumns }) => {
@@ -30,6 +29,7 @@ const Notes = ({ columns, setColumns }) => {
   const [sourceTarget, setSourceTarget] = useState(
     '"source":"pl","target":"en"'
   );
+  const [isFetching, setIsFetching] = useState(false);
 
   const axios = require('axios');
 
@@ -79,6 +79,7 @@ const Notes = ({ columns, setColumns }) => {
 
   const handleTranslation = (event) => {
     event.preventDefault();
+    setIsFetching(true);
 
     if (stringToTranslate.english) {
       const options = {
@@ -100,6 +101,7 @@ const Notes = ({ columns, setColumns }) => {
           setTranslatedString({
             polish: response.data.data.translations.translatedText,
           });
+          setIsFetching(false);
         })
         .catch(function (error) {
           console.error(error);
@@ -273,7 +275,7 @@ const Notes = ({ columns, setColumns }) => {
             <form>
               <div className='translation'>
                 <div className='card-button-wrapper'>
-                  <div className='card-image'>
+                  <div className='card-image-notes'>
                     {dataToRender.word_image.image_url && (
                       <img
                         src={dataToRender.word_image.image_url}
@@ -291,6 +293,8 @@ const Notes = ({ columns, setColumns }) => {
                     placeholder='Tekst do przetłumaczenia'
                     name='english'
                     value={stringToTranslate.english}
+                    fontFamily='Work sans'
+                    fontSize='28px'
                   ></textarea>
                 </div>
 
@@ -314,7 +318,7 @@ const Notes = ({ columns, setColumns }) => {
                       </Radio>
                     </Stack>
                   </RadioGroup>
-
+                  <div className='spinner'>{isFetching && <Spinner />}</div>
                   <div className='translation-button'>
                     <Button
                       colorScheme='blue'
@@ -341,23 +345,26 @@ const Notes = ({ columns, setColumns }) => {
 
                 <div className='translated-text'>
                   <textarea
+                    name='polish'
                     placeholder='Przetłumaczony tekst'
                     defaultValue={translatedString.polish}
+                    fontFamily='Work sans'
+                    fontSize='28px'
                   ></textarea>
                 </div>
               </div>
 
               <textarea
                 className='user-notes'
+                fontFamily='Work sans'
+                fontSize='28px'
                 id='notes'
                 name='notes'
                 rows='4'
                 cols='25'
                 value={dataToRender.notes}
                 onChange={handleChangeTextField}
-              >
-                {dataToRender.notes}
-              </textarea>
+              ></textarea>
 
               <div className='update-notes-play-voice'>
                 <TextToSpeech data={dataToRender.notes} voices={voices} />

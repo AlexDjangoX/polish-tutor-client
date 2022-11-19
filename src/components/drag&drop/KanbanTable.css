@@ -27,10 +27,10 @@ tbody tr:nth-of-type(even) {
   background-color: #606060;
 }
 
-.card-image {
+.card-image-kanban {
   height: auto;
   width: auto;
-  padding: 0.8rem;
+  padding: 0.8rem 0rem;
 }
 
 .masculine {

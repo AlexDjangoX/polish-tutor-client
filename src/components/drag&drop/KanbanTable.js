@@ -24,7 +24,7 @@ const KanbanTable = ({ item, column }) => {
               </tbody>
             </table>
           </div>
-          <div className='card-image'>
+          <div className='card-image-kanban'>
             {item.word_image.image_url && (
               <img
                 src={item.word_image.image_url}
