@@ -99,7 +99,7 @@ const Kanban = ({ columns, setColumns }) => {
         }
       );
 
-      console.log('PUT to express app', response.status);
+      console.log('PUT from kanban : ', response.status);
     } catch (error) {
       console.error(error.message);
     }

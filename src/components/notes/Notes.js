@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
 import { useLocation } from 'react-router-dom';
 import { useSpeechSynthesis } from 'react-speech-kit';
 import TextToSpeech from '../textToSpeech/TextToSpeech';
@@ -21,6 +22,8 @@ import './Notes.css';
 const Notes = ({ columns, setColumns }) => {
   const location = useLocation();
   const { item } = location.state;
+  const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
+
   const [dataToRender, setDataToRender] = useState(item);
   const [stringToTranslate, setStringToTranslate] = useState({ english: '' });
   const [translatedString, setTranslatedString] = useState({ polish: '' });
@@ -33,16 +36,16 @@ const Notes = ({ columns, setColumns }) => {
 
   const axios = require('axios');
 
-  useEffect(() => {
-    axios
-      .get(`http://localhost:8000/position`)
-      .then(function (response) {
-        setColumns(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get(`http://localhost:8000/position`)
+  //     .then(function (response) {
+  //       setColumns(response.data);
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     });
+  // }, []);
 
   const handleChangeTextField = (event) => {
     const { name, value } = event.target;
@@ -53,15 +56,37 @@ const Notes = ({ columns, setColumns }) => {
     });
   };
 
-  const postToDb = () => {
-    axios
-      .post(`http://localhost:8000/position`, columns)
-      .catch(function (error) {
-        console.log(error);
-      });
+  // const postToDb = () => {
+  //   axios
+  //     .post(`http://localhost:8000/position`, columns)
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     });
+  // };
+
+  const postToExpressApp = async () => {
+    try {
+      const token = await getAccessTokenSilently();
+
+      const response = await fetch(
+        `http://localhost:4000/protected/kanban/${user.sub}`,
+        {
+          method: 'PUT',
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(columns),
+        }
+      );
+
+      console.log('PUT from notes : ', response.status);
+    } catch (error) {
+      console.error(error.message);
+    }
   };
 
-  const handleSubmit = (event) => {
+  const updateNotes = (event) => {
     event.preventDefault();
     if (columns.D?.items) {
       const itemsArray = columns.D.items;
@@ -69,8 +94,8 @@ const Notes = ({ columns, setColumns }) => {
       itemsArray.forEach((el, index) => {
         if (el.id === item.id) itemsArray[index] = dataToRender;
       });
-
-      postToDb();
+      postToExpressApp();
+      // postToDb();
     }
 
     setStringToTranslate({ english: '' });
@@ -336,7 +361,7 @@ const Notes = ({ columns, setColumns }) => {
                       size='sm'
                       id='submit-verb-button'
                       type='submit'
-                      onClick={handleSubmit}
+                      onClick={updateNotes}
                     >
                       Update notes
                     </Button>
