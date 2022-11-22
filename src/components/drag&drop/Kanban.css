@@ -3,7 +3,7 @@
   grid-auto-flow: column;
   place-content: center;
 
-  background-image: url('../../background.png');
+  background-image: url('../../../public/images/background.png');
   background-size: cover;
   background-repeat: no-repeat;
 }
