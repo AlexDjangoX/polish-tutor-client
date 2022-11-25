@@ -88,8 +88,8 @@ const Notes = ({ columns, setColumns }) => {
 
   const updateNotes = (event) => {
     event.preventDefault();
-    if (columns.D?.items) {
-      const itemsArray = columns.D.items;
+    if (columns.column_D?.items) {
+      const itemsArray = columns.column_D.items;
 
       itemsArray.forEach((el, index) => {
         if (el.id === item.id) itemsArray[index] = dataToRender;

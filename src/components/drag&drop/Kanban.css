@@ -51,6 +51,12 @@
   margin: 0 0 0.5rem 0;
 }
 
+.kanban-search-input {
+  display: grid;
+  place-content: center;
+  margin-bottom: 1rem;
+}
+
 .card-item-case-aspect {
   display: grid;
   width: fit-content;
@@ -97,6 +103,13 @@
   position: absolute;
   top: 0.2rem;
   right: 0.2rem;
+  margin-top: 0.3rem;
+}
+
+.btn-cancel-delete {
+  position: absolute;
+  top: 1.4rem;
+  right: 0rem;
   margin-top: 0.3rem;
 }
 

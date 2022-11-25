@@ -9,6 +9,9 @@ const STYLES = [
   'btn--add-new-verb',
   'btn-edit-verb',
   'btn--translation',
+  'btn-delete-verb',
+  'btn-delete-confirm',
+  'btn-cancel-delete',
 ];
 
 const SIZES = ['btn--medium', 'btn--large'];

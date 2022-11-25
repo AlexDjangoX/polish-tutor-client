@@ -1,72 +1,7 @@
 {
   "position": {
-    "A": {
+    "column_A": {
       "name": "Nowe słowa",
-      "items": [
-        {
-          "id": "4909d92e-ff69-4c80-bb13-23d2f9788c71",
-          "past": {
-            "past_ja_fem": "",
-            "past_my_fem": "",
-            "past_ty_fem": "",
-            "past_wy_fem": "",
-            "past_ja_masc": "sprawdziłem",
-            "past_my_masc": "sprawdzaliśmy",
-            "past_on_masc": "sprawdził",
-            "past_ona_fem": "",
-            "past_one_fem": "",
-            "past_ty_masc": "sprawdziłeś",
-            "past_wy_masc": "sprawdziliście",
-            "past_oni_masc": ""
-          },
-          "notes": "",
-          "present": {
-            "present_ja": "sprawdzę",
-            "present_my": "sprawdzimy",
-            "present_ty": "sprawdzisz",
-            "present_wy": "sprawdzicie",
-            "present_oni_one": "sprawdzą",
-            "present_on_ona_ono": "sprawdzi"
-          },
-          "gram_case": {
-            "case": "Celownik",
-            "color": "#ff2233",
-            "aspect": "Niedokonany"
-          },
-          "future_fem": {
-            "future_fem_ja": "będę ",
-            "future_fem_my": "będziemy ",
-            "future_fem_ty": "będziesz ",
-            "future_fem_wy": "będziecie ",
-            "future_fem_ona": "będzie ",
-            "future_fem_one": "będą "
-          },
-          "imp_future": {
-            "imp_future_ja": "będę ",
-            "imp_future_my": "będziemy ",
-            "imp_future_ty": "będziesz ",
-            "imp_future_wy": "będziecie ",
-            "imp_future_oni_one": "będą ",
-            "imp_future_on_ona_ono": "będzie "
-          },
-          "word_image": {
-            "image_url": "https://www.cqu.edu.au/__data/assets/image/0022/146407/create-concept.jpg",
-            "polish_word": "Sprawdzić",
-            "english_word": "To check"
-          },
-          "future_masc": {
-            "future_masc_ja": "będę ",
-            "future_masc_my": "będziemy ",
-            "future_masc_on": "będzie ",
-            "future_masc_ty": "będziesz ",
-            "future_masc_wy": "będziecie ",
-            "future_masc_oni": "będą "
-          }
-        }
-      ]
-    },
-    "B": {
-      "name": "Przeszły",
       "items": [
         {
           "id": "76ff3352-e572-4468-9f1a-649390b19dcf",
@@ -130,13 +65,73 @@
         }
       ]
     },
-    "C": {
-      "name": "Przyszły",
+    "column_B": {
+      "name": "Przeszły",
       "items": []
     },
-    "D": {
-      "name": "Stare słowa",
+    "column_C": {
+      "name": "Przyszły",
       "items": [
+        {
+          "id": "bb54cfa8-a6e1-4ae3-a558-f930e5e7bc54",
+          "past": {
+            "past_ja_fem": "",
+            "past_my_fem": "",
+            "past_ty_fem": "",
+            "past_wy_fem": "",
+            "past_ja_masc": "",
+            "past_my_masc": "",
+            "past_on_masc": "",
+            "past_ona_fem": "",
+            "past_one_fem": "",
+            "past_ty_masc": "",
+            "past_wy_masc": "",
+            "past_oni_masc": ""
+          },
+          "notes": "",
+          "present": {
+            "present_ja": "",
+            "present_my": "",
+            "present_ty": "",
+            "present_wy": "",
+            "present_oni_one": "",
+            "present_on_ona_ono": ""
+          },
+          "gram_case": {
+            "case": "",
+            "color": "#ff2233",
+            "aspect": "Nie wiem"
+          },
+          "future_fem": {
+            "future_fem_ja": "będę ",
+            "future_fem_my": "będziemy ",
+            "future_fem_ty": "będziesz ",
+            "future_fem_wy": "będziecie ",
+            "future_fem_ona": "będzie ",
+            "future_fem_one": "będą "
+          },
+          "imp_future": {
+            "imp_future_ja": "będę ",
+            "imp_future_my": "będziemy ",
+            "imp_future_ty": "będziesz ",
+            "imp_future_wy": "będziecie ",
+            "imp_future_oni_one": "będą ",
+            "imp_future_on_ona_ono": "będzie "
+          },
+          "word_image": {
+            "image_url": "",
+            "polish_word": "",
+            "english_word": ""
+          },
+          "future_masc": {
+            "future_masc_ja": "będę ",
+            "future_masc_my": "będziemy ",
+            "future_masc_on": "będzie ",
+            "future_masc_ty": "będziesz ",
+            "future_masc_wy": "będziecie ",
+            "future_masc_oni": "będą "
+          }
+        },
         {
           "id": "d509237d-6e00-4da9-ae33-80fcd41c2485",
           "past": {
@@ -255,6 +250,131 @@
             "future_masc_ty": "potrwasz",
             "future_masc_wy": "potrwacie",
             "future_masc_oni": "potrwają"
+          }
+        },
+        {
+          "id": "4909d92e-ff69-4c80-bb13-23d2f9788c71",
+          "past": {
+            "past_ja_fem": "",
+            "past_my_fem": "",
+            "past_ty_fem": "",
+            "past_wy_fem": "",
+            "past_ja_masc": "sprawdziłem",
+            "past_my_masc": "sprawdzaliśmy",
+            "past_on_masc": "sprawdził",
+            "past_ona_fem": "",
+            "past_one_fem": "",
+            "past_ty_masc": "sprawdziłeś",
+            "past_wy_masc": "sprawdziliście",
+            "past_oni_masc": ""
+          },
+          "notes": "",
+          "present": {
+            "present_ja": "sprawdzę",
+            "present_my": "sprawdzimy",
+            "present_ty": "sprawdzisz",
+            "present_wy": "sprawdzicie",
+            "present_oni_one": "sprawdzą",
+            "present_on_ona_ono": "sprawdzi"
+          },
+          "gram_case": {
+            "case": "Celownik",
+            "color": "#ff2233",
+            "aspect": "Niedokonany"
+          },
+          "future_fem": {
+            "future_fem_ja": "będę ",
+            "future_fem_my": "będziemy ",
+            "future_fem_ty": "będziesz ",
+            "future_fem_wy": "będziecie ",
+            "future_fem_ona": "będzie ",
+            "future_fem_one": "będą "
+          },
+          "imp_future": {
+            "imp_future_ja": "będę ",
+            "imp_future_my": "będziemy ",
+            "imp_future_ty": "będziesz ",
+            "imp_future_wy": "będziecie ",
+            "imp_future_oni_one": "będą ",
+            "imp_future_on_ona_ono": "będzie "
+          },
+          "word_image": {
+            "image_url": "https://www.cqu.edu.au/__data/assets/image/0022/146407/create-concept.jpg",
+            "polish_word": "Sprawdzić",
+            "english_word": "To check"
+          },
+          "future_masc": {
+            "future_masc_ja": "będę ",
+            "future_masc_my": "będziemy ",
+            "future_masc_on": "będzie ",
+            "future_masc_ty": "będziesz ",
+            "future_masc_wy": "będziecie ",
+            "future_masc_oni": "będą "
+          }
+        }
+      ]
+    },
+    "column_D": {
+      "name": "Stare słowa",
+      "items": [
+        {
+          "id": "78117066-1b67-44aa-b9f2-efa2495e256f",
+          "notes": "",
+          "word_image": {
+            "polish_word": "",
+            "english_word": "",
+            "image_url": ""
+          },
+          "gram_case": {
+            "case": "",
+            "aspect": "Nie wiem",
+            "color": "#ff2233"
+          },
+          "present": {
+            "present_ja": "",
+            "present_ty": "",
+            "present_on_ona_ono": "",
+            "present_my": "",
+            "present_wy": "",
+            "present_oni_one": ""
+          },
+          "past": {
+            "past_ja_masc": "",
+            "past_ja_fem": "",
+            "past_ty_masc": "",
+            "past_ty_fem": "",
+            "past_on_masc": "",
+            "past_ona_fem": "",
+            "past_my_masc": "",
+            "past_my_fem": "",
+            "past_wy_masc": "",
+            "past_wy_fem": "",
+            "past_oni_masc": "",
+            "past_one_fem": ""
+          },
+          "imp_future": {
+            "imp_future_ja": "będę ",
+            "imp_future_ty": "będziesz ",
+            "imp_future_on_ona_ono": "będzie ",
+            "imp_future_my": "będziemy ",
+            "imp_future_wy": "będziecie ",
+            "imp_future_oni_one": "będą "
+          },
+          "future_fem": {
+            "future_fem_ja": "będę ",
+            "future_fem_ty": "będziesz ",
+            "future_fem_ona": "będzie ",
+            "future_fem_my": "będziemy ",
+            "future_fem_wy": "będziecie ",
+            "future_fem_one": "będą "
+          },
+          "future_masc": {
+            "future_masc_ja": "będę ",
+            "future_masc_ty": "będziesz ",
+            "future_masc_on": "będzie ",
+            "future_masc_my": "będziemy ",
+            "future_masc_wy": "będziecie ",
+            "future_masc_oni": "będą "
           }
         }
       ]

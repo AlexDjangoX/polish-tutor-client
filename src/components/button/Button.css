@@ -86,16 +86,45 @@ a {
   color: white;
 }
 
-.btn-edit-verb:hover {
+.btn-edit-verb:hover,
+.btn-delete-verb:hover,
+.btn-delete-confirm:hover,
+.btn-cancel-delete:hover {
   background-color: white;
   color: rgb(255, 52, 52);
+}
+
+.btn-delete-verb {
+  font-size: 0.6rem;
+  font-weight: 600;
+  height: 1.5rem;
+  background-color: red;
+  color: white;
+}
+
+.btn-delete-confirm {
+  font-size: 0.6rem;
+  font-weight: 600;
+  height: 1.5rem;
+
+  background-color: rgb(255, 187, 0);
+  color: rgb(0, 0, 0);
+}
+
+.btn-cancel-delete {
+  font-size: 0.6rem;
+  font-weight: 600;
+  height: 1.5rem;
+
+  background-color: rgba(2, 107, 58, 0.593);
+  color: rgb(255, 255, 255);
 }
 
 .btn--translation {
   font-size: 1.4rem;
   font-weight: 300;
 
-  background-color: rgb(4, 130, 0);
+  background-color: rgb(0, 176, 47);
   color: rgb(241, 241, 241);
 }
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import { v4 as uuidv4 } from 'uuid';
@@ -59,6 +59,7 @@ const Kanban = ({ columns, setColumns }) => {
   const [open, setOpen] = useState(false);
   const [currentVerb, setCurrentVerb] = useState({});
   const [isEditing, setIsEditing] = useState(false);
+  const [deleteVerb, setDeleteVerb] = useState(false);
 
   // useEffect(() => {
   //   axios
@@ -143,24 +144,75 @@ const Kanban = ({ columns, setColumns }) => {
     setCurrentVerb(currentVerb);
   };
 
-  const deleteHandler = async (verbId) => {
-    const verbArray = columns.D.items;
+  // console.log(
+  //   columns.column_A.items[0].word_image.polish_word <
+  //     columns.column_A.items[1].word_image.polish_word
+  // );
 
-    const updatedVerbArray = verbArray.filter((el) => el.id !== verbId);
+  // const sort = columns.column_A.items.sort(function (a, b) {
+  //   if (
+  //     a.word_image.polish_word.startsWith('T') >
+  //     b.word_image.polish_word.startsWith('T')
+  //   )
+  //     return -1;
+  //   return 1;
+  // });
+
+  // console.log('sort', sort[0].word_image.polish_word);
+
+  const sortByUserInput = async (event) => {
+    const { value } = event.target;
+    event.preventDefault();
+
+    const verbArray = columns.column_D.items;
+
+    const sortedArray = verbArray.sort(function (a, b) {
+      if (
+        a.word_image.polish_word.toLowerCase().startsWith(value) >
+        b.word_image.polish_word.toLowerCase().startsWith(value)
+      )
+        return -1;
+      return 1;
+    });
 
     const updatedObject = () => {
       const objClone = JSON.parse(JSON.stringify({ ...columns }));
       for (let j in objClone) {
         if (objClone[j].name === 'Stare słowa') {
-          objClone[j].items = updatedVerbArray;
+          objClone[j].items = sortedArray;
         }
       }
 
       return objClone;
     };
 
-    await setColumns(updatedObject());
-    postToExpressApp();
+    setTimeout(function () {
+      setColumns(updatedObject());
+    }, 1000);
+  };
+
+  const deleteHandler = async (verbId) => {
+    setDeleteVerb(true);
+    if (deleteVerb) {
+      const verbArray = columns.column_D.items;
+
+      const updatedVerbArray = verbArray.filter((el) => el.id !== verbId);
+
+      const updatedObject = () => {
+        const objClone = JSON.parse(JSON.stringify({ ...columns }));
+        for (let j in objClone) {
+          if (objClone[j].name === 'Stare słowa') {
+            objClone[j].items = updatedVerbArray;
+          }
+        }
+
+        return objClone;
+      };
+
+      await setColumns(updatedObject());
+      postToExpressApp();
+      setDeleteVerb(false);
+    }
   };
 
   return (
@@ -225,6 +277,20 @@ const Kanban = ({ columns, setColumns }) => {
                               : 'lightgrey',
                           }}
                         >
+                          {columnId === 'column_D' && (
+                            <>
+                              <div className='kanban-search-input'>
+                                <input
+                                  id='verb-search'
+                                  type='text'
+                                  name='verb-search'
+                                  placeholder='Search verb'
+                                  onChange={sortByUserInput}
+                                />
+                              </div>
+                            </>
+                          )}
+
                           {column.items.map((item, index) => {
                             return (
                               <Draggable
@@ -256,8 +322,40 @@ const Kanban = ({ columns, setColumns }) => {
                                         >
                                           {`${item.gram_case.case} - ${item.gram_case.aspect}`}
                                         </span>
-
+                                        {column.name === 'Stare słowa' && (
+                                          <>
+                                            <div className='delete-btn-wrapper'>
+                                              <Button
+                                                onClick={() =>
+                                                  deleteHandler(item.id)
+                                                }
+                                                buttonStyle={
+                                                  !deleteVerb
+                                                    ? 'btn-delete-verb'
+                                                    : 'btn-delete-confirm'
+                                                }
+                                              >
+                                                {!deleteVerb
+                                                  ? 'Delete'
+                                                  : 'Confirm '}
+                                              </Button>
+                                              {deleteVerb && (
+                                                <div className='btn-cancel-delete'>
+                                                  <Button
+                                                    onClick={() =>
+                                                      setDeleteVerb(false)
+                                                    }
+                                                    buttonStyle='btn-cancel-delete'
+                                                  >
+                                                    Cancel
+                                                  </Button>
+                                                </div>
+                                              )}
+                                            </div>
+                                          </>
+                                        )}
                                         <p>{item.word_image.polish_word}</p>
+
                                         {column.name === 'Stare słowa' && (
                                           <div className='link-notes-wrapper'>
                                             <Link
@@ -282,16 +380,6 @@ const Kanban = ({ columns, setColumns }) => {
                                             buttonStyle='btn-edit-verb'
                                           >
                                             Edit
-                                          </Button>
-                                        )}
-                                        {column.name === 'Stare słowa' && (
-                                          <Button
-                                            onClick={() =>
-                                              deleteHandler(item.id)
-                                            }
-                                            buttonStyle='btn-edit-verb'
-                                          >
-                                            Delete
                                           </Button>
                                         )}
                                       </div>
