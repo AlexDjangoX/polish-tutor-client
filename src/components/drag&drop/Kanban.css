@@ -55,12 +55,13 @@
   display: grid;
   place-content: center;
   margin-bottom: 1rem;
+  position: sticky;
 }
 
 .card-item-case-aspect {
   display: grid;
-  width: fit-content;
-  padding: 0px 4px;
+  place-content: center;
+  padding: 0.2rem;
   border: 1px solid rgb(61, 61, 61);
   border-radius: 4px;
 }
@@ -86,39 +87,34 @@
 
 .card-item-content p {
   text-align: center;
-  font-size: 1rem;
+  font-size: 1.2rem;
   line-height: 1rem;
-  padding-top: 0.5rem;
-  margin-bottom: 2rem;
 }
 
 .card-item-content a {
   color: #333;
   text-decoration: none;
-  font-size: 0.8rem;
-  font-weight: bold;
+  font-size: 1.2rem;
 }
 
 .card-item-content button {
   position: absolute;
-  top: 0.2rem;
-  right: 0.2rem;
-  margin-top: 0.3rem;
+  top: 2.5rem;
+  right: 0.4rem;
+  margin-top: 0.6rem;
 }
 
 .btn-cancel-delete {
   position: absolute;
   top: 1.4rem;
   right: 0rem;
-  margin-top: 0.3rem;
+  margin-top: 0.6rem;
 }
 
 .link-notes,
 Link {
   display: grid;
   place-content: center;
-  padding: 0.6rem;
-  margin: 0.4rem;
-  color: black;
-  font-family: monospace;
+  font-family: inherit;
+  cursor: default;
 }

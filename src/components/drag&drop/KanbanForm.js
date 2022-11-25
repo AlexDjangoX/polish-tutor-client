@@ -85,8 +85,6 @@ const KanbanForm = ({
   const [verb, setVerb] = useState({ ...resetState, id: uuidv4() });
   const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
 
-  const axios = require('axios');
-
   const handleChange = (event) => {
     const { value, name } = event.target;
     const initialDataKeys = Object.keys(initialData).slice(1);

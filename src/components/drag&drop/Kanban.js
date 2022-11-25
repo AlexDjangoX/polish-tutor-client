@@ -144,22 +144,6 @@ const Kanban = ({ columns, setColumns }) => {
     setCurrentVerb(currentVerb);
   };
 
-  // console.log(
-  //   columns.column_A.items[0].word_image.polish_word <
-  //     columns.column_A.items[1].word_image.polish_word
-  // );
-
-  // const sort = columns.column_A.items.sort(function (a, b) {
-  //   if (
-  //     a.word_image.polish_word.startsWith('T') >
-  //     b.word_image.polish_word.startsWith('T')
-  //   )
-  //     return -1;
-  //   return 1;
-  // });
-
-  // console.log('sort', sort[0].word_image.polish_word);
-
   const sortByUserInput = async (event) => {
     const { value } = event.target;
     event.preventDefault();

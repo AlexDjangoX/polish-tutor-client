@@ -25,12 +25,12 @@ const Notes = ({ columns, setColumns }) => {
   const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
 
   const [dataToRender, setDataToRender] = useState(item);
-  const [stringToTranslate, setStringToTranslate] = useState({ english: '' });
-  const [translatedString, setTranslatedString] = useState({ polish: '' });
-  const [transEngPlPlEnd, setTransEngPlPlEnd] = useState('');
+  const [stringToTranslate, setStringToTranslate] = useState('');
+  const [translatedString, setTranslatedString] = useState('');
+  const [transEngPlPlEng, setTransEngPlPlEng] = useState('');
   const { voices } = useSpeechSynthesis();
   const [sourceTarget, setSourceTarget] = useState(
-    '"source":"pl","target":"en"'
+    '"source":"en","target":"pl"'
   );
   const [isFetching, setIsFetching] = useState(false);
 
@@ -93,20 +93,20 @@ const Notes = ({ columns, setColumns }) => {
 
       itemsArray.forEach((el, index) => {
         if (el.id === item.id) itemsArray[index] = dataToRender;
+        console.log(dataToRender);
       });
       postToExpressApp();
-      // postToDb();
     }
 
-    setStringToTranslate({ english: '' });
-    setTranslatedString({ polish: '' });
+    setStringToTranslate('');
+    setTranslatedString('');
   };
 
   const handleTranslation = (event) => {
     event.preventDefault();
     setIsFetching(true);
 
-    if (stringToTranslate.english) {
+    if (stringToTranslate) {
       const options = {
         method: 'POST',
         url: 'https://deep-translate1.p.rapidapi.com/language/translate/v2',
@@ -116,16 +116,13 @@ const Notes = ({ columns, setColumns }) => {
           'X-RapidAPI-Host': process.env.REACT_APP_X_RapidAPI_Host,
         },
 
-        data: `{"q":"${stringToTranslate.english}",${transEngPlPlEnd}}`,
+        data: `{"q":"${stringToTranslate}",${transEngPlPlEng}}`,
       };
 
       axios
         .request(options)
         .then(function (response) {
-          console.log(response.data.data.translations.translatedText);
-          setTranslatedString({
-            polish: response.data.data.translations.translatedText,
-          });
+          setTranslatedString(response.data.data.translations.translatedText);
           setIsFetching(false);
         })
         .catch(function (error) {
@@ -135,13 +132,13 @@ const Notes = ({ columns, setColumns }) => {
   };
 
   const handleChangeTranslationField = (event) => {
-    const { name, value } = event.target;
-    setStringToTranslate({ ...stringToTranslate, [name]: value });
+    const { value } = event.target;
+    setStringToTranslate(value);
   };
 
   const handleTranslationLanguage = (value) => {
     setSourceTarget(value);
-    setTransEngPlPlEnd(sourceTarget);
+    setTransEngPlPlEng(value);
   };
 
   return (
@@ -317,7 +314,7 @@ const Notes = ({ columns, setColumns }) => {
                     onChange={handleChangeTranslationField}
                     placeholder='Tekst do przetłumaczenia'
                     name='english'
-                    value={stringToTranslate.english}
+                    value={stringToTranslate}
                     fontFamily='Work sans'
                     fontSize='28px'
                   ></textarea>
@@ -328,16 +325,15 @@ const Notes = ({ columns, setColumns }) => {
                     <Stack direction='column'>
                       <Radio
                         id='eng-pl'
-                        name='translation'
-                        value={'"source":"pl","target":"en"'}
-                        defaultChecked
+                        name='eng-pl'
+                        value={'"source":"en","target":"pl"'}
                       >
                         English - Polish
                       </Radio>
                       <Radio
                         id='pl-eng'
-                        name='translation'
-                        value={'"source":"en","target":"pl"'}
+                        name='pl-eng'
+                        value={'"source":"pl","target":"en"'}
                       >
                         Polish - English
                       </Radio>
@@ -372,8 +368,8 @@ const Notes = ({ columns, setColumns }) => {
                   <textarea
                     name='polish'
                     placeholder='Przetłumaczony tekst'
-                    defaultValue={translatedString.polish}
                     fontFamily='Work sans'
+                    defaultValue={translatedString}
                     fontSize='28px'
                   ></textarea>
                 </div>
