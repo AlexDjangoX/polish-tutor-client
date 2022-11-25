@@ -88,12 +88,14 @@ const Notes = ({ columns, setColumns }) => {
 
   const updateNotes = (event) => {
     event.preventDefault();
+
+    item.notes = `${item.notes}${'\n'}${translatedString}`;
+
     if (columns.column_D?.items) {
       const itemsArray = columns.column_D.items;
 
       itemsArray.forEach((el, index) => {
         if (el.id === item.id) itemsArray[index] = dataToRender;
-        console.log(dataToRender);
       });
       postToExpressApp();
     }
