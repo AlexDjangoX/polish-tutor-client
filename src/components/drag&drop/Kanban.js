@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState } from 'react';
 import { dummyData } from '../../utils/dummyData';
 import { Link } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
@@ -9,6 +9,8 @@ import KanbanForm from './KanbanForm';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import { Modal } from '@mui/material';
 import { Button } from '../button/Button.js';
+import { useToast } from '@chakra-ui/toast';
+
 const axios = require('axios');
 
 const onDragEnd = (result, columns, setColumns) => {
@@ -62,6 +64,18 @@ const Kanban = ({ columns, setColumns }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [deleteVerb, setDeleteVerb] = useState(false);
   const [verbToDeleteId, setVerbToDeleteId] = useState('');
+
+  const toast = useToast();
+
+  useEffect(() => {
+    toast({
+      title: 'Login in to create your own verb conjugator kanban',
+      status: 'success',
+      duration: 5000,
+      isClosable: true,
+      position: 'bottom',
+    });
+  }, []);
 
   // useEffect(() => {
   //   axios
@@ -235,14 +249,15 @@ const Kanban = ({ columns, setColumns }) => {
           buttonSize='btn--medium'
           onClick={() => setOpen(true)}
         >
-          Add Verb
+          Dodaj czasownik
         </Button>
         <Button buttonStyle='btn--add-new-verb'>
           <a href='https://cooljugator.com/pl' target='_blank' rel='noreferrer'>
-            Resource
+            Koniugaca
           </a>
         </Button>
       </div>
+
       <Modal
         open={open}
         onClose={() => setOpen(false)}

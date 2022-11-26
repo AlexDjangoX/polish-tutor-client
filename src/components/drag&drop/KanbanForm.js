@@ -20,7 +20,6 @@ import {
 
 const initialData = {
   id: uuidv4(),
-  delete: false,
   notes: '',
   word_image: { polish_word: '', english_word: '', image_url: '' },
   gram_case: {
