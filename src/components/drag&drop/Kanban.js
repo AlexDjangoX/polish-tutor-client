@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
+import { dummyData } from '../../utils/dummyData';
 import { Link } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import { v4 as uuidv4 } from 'uuid';
@@ -61,6 +62,8 @@ const Kanban = ({ columns, setColumns }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [deleteVerb, setDeleteVerb] = useState(false);
 
+  console.log('dummyData', typeof dummyData);
+
   // useEffect(() => {
   //   axios
   //     .get(`http://localhost:8000/position`)
@@ -99,8 +102,6 @@ const Kanban = ({ columns, setColumns }) => {
           body: JSON.stringify(columns),
         }
       );
-
-      console.log('PUT from kanban : ', response.status);
     } catch (error) {
       console.error(error.message);
     }
@@ -198,6 +199,11 @@ const Kanban = ({ columns, setColumns }) => {
       setDeleteVerb(false);
     }
   };
+
+  if (!isAuthenticated) {
+    console.log('Log in', dummyData.position);
+    setColumns(dummyData.position);
+  }
 
   return (
     <>

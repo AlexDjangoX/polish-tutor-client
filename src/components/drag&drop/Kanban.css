@@ -117,4 +117,9 @@ Link {
   place-content: center;
   font-family: inherit;
   cursor: default;
+  background-color: rgb(118, 26, 26);
+}
+
+.link-notes:hover {
+  background-color: rgb(158, 35, 35);
 }

@@ -47,6 +47,14 @@ const Notes = ({ columns, setColumns }) => {
   //     });
   // }, []);
 
+  // const postToDb = () => {
+  //   axios
+  //     .post(`http://localhost:8000/position`, columns)
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     });
+  // };
+
   const handleChangeTextField = (event) => {
     const { name, value } = event.target;
 
@@ -55,14 +63,6 @@ const Notes = ({ columns, setColumns }) => {
       [name]: value,
     });
   };
-
-  // const postToDb = () => {
-  //   axios
-  //     .post(`http://localhost:8000/position`, columns)
-  //     .catch(function (error) {
-  //       console.log(error);
-  //     });
-  // };
 
   const postToExpressApp = async () => {
     try {
