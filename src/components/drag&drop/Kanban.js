@@ -151,7 +151,16 @@ const Kanban = ({ columns, setColumns }) => {
 
     const verbArray = columns.column_D.items;
 
-    const sortedArray = verbArray.sort(function (a, b) {
+    let sortedArray = verbArray.sort(function (a, b) {
+      if (
+        a.word_image.polish_word.toLowerCase() >
+        b.word_image.polish_word.toLowerCase()
+      )
+        return 1;
+      return -1;
+    });
+
+    sortedArray = verbArray.sort(function (a, b) {
       if (
         a.word_image.polish_word.toLowerCase().startsWith(value) >
         b.word_image.polish_word.toLowerCase().startsWith(value)
@@ -201,7 +210,6 @@ const Kanban = ({ columns, setColumns }) => {
   };
 
   if (!isAuthenticated) {
-    console.log('Log in', dummyData.position);
     setColumns(dummyData.position);
   }
 

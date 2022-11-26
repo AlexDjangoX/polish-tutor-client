@@ -11,13 +11,13 @@ const NavbarListItems = () => {
     <>
       <li className='navbar-list-item'>
         <Link to='/' className='navbar-link'>
-          Dom
+          Home
         </Link>
       </li>
 
       <li className='navbar-list-item'>
         <Link to='/kanban' className='navbar-link'>
-          Koniugacja
+          Conjugate
         </Link>
       </li>
       <li className='navbar-list-item'>
