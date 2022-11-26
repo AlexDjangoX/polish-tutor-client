@@ -5,6 +5,7 @@ export const dummyData = {
       items: [
         {
           id: '76ff3352-e572-4468-9f1a-649390b19dcf',
+
           past: {
             past_ja_fem: 'używałam',
             past_my_fem: 'używałyśmy',
@@ -72,6 +73,7 @@ export const dummyData = {
       items: [
         {
           id: '7d7aa7e5-8ac3-477b-867f-9672d0ca5df3',
+
           past: {
             past_ja_fem: 'potrwałam',
             past_my_fem: 'potrwałałyśmy',
@@ -139,6 +141,7 @@ export const dummyData = {
       items: [
         {
           id: '4909d92e-ff69-4c80-bb13-23d2f9788c71',
+
           past: {
             past_ja_fem: 'sprawdziłam',
             past_my_fem: 'sprawdziłaś',
@@ -205,7 +208,72 @@ export const dummyData = {
       name: 'Stare słowa',
       items: [
         {
+          id: 'bbed9bf7-6453-4c6a-8d61-e20bce3e313a',
+
+          past: {
+            past_ja_fem: 'szłam',
+            past_my_fem: 'szłyśmy',
+            past_ty_fem: 'szłaś',
+            past_wy_fem: 'szyście',
+            past_ja_masc: 'szedłem',
+            past_my_masc: 'szliśmy',
+            past_on_masc: 'szedł',
+            past_ona_fem: 'szła',
+            past_one_fem: 'szły',
+            past_ty_masc: 'szedłeś',
+            past_wy_masc: 'szliście',
+            past_oni_masc: 'szli',
+          },
+          notes:
+            'Dokąd dziś pójdziemy? Myślę, że pójdziemy do sklepu. Why not.',
+          present: {
+            present_ja: 'idę',
+            present_my: 'idziemy',
+            present_ty: 'idiesz',
+            present_wy: 'idziecie',
+            present_oni_one: 'idą',
+            present_on_ona_ono: 'idzie',
+          },
+          gram_case: {
+            case: 'Biernik',
+            color: '#ff2233',
+            aspect: 'Niedokonany',
+          },
+          future_fem: {
+            future_fem_ja: 'będę ',
+            future_fem_my: 'będziemy ',
+            future_fem_ty: 'będziesz ',
+            future_fem_wy: 'będziecie ',
+            future_fem_ona: 'będzie ',
+            future_fem_one: 'będą ',
+          },
+          imp_future: {
+            imp_future_ja: 'będę iść',
+            imp_future_my: 'będziemy iść',
+            imp_future_ty: 'będziesz iść',
+            imp_future_wy: 'będziecie iść',
+            imp_future_oni_one: 'będą iść',
+            imp_future_on_ona_ono: 'będzie iść',
+          },
+          word_image: {
+            image_url:
+              'https://thumbs.dreamstime.com/b/cartoon-illustration-construction-worker-frowning-expression-holding-go-traffic-sign-cartoon-construction-worker-135307416.jpg',
+            polish_word: 'iść',
+            english_word: 'To go',
+          },
+          future_masc: {
+            future_masc_ja: 'będę ',
+            future_masc_my: 'będziemy ',
+            future_masc_on: 'będzie ',
+            future_masc_ty: 'będziesz ',
+            future_masc_wy: 'będziecie ',
+            future_masc_oni: 'będą ',
+          },
+        },
+
+        {
           id: 'd509237d-6e00-4da9-ae33-80fcd41c2485',
+
           past: {
             past_ja_fem: 'tworzyłam',
             past_my_fem: 'tworzyłyśmy',
@@ -221,7 +289,7 @@ export const dummyData = {
             past_oni_masc: 'tworzyli',
           },
           notes:
-            'Uwielbiam tworzyć nowe i ekscytujące aplikacje za pomocą Reacta, zwłaszcza jeśli może mi to pomóc w nauce języka polskiego. Uwielbiam uczyć się języka polskiego, zwłaszcza polskiej gramatyki. Dlatego stworzyłam aplikację, która pomaga mi w nauce koniugacji polskich czasowników.',
+            'Uwielbiam tworzyć nowe i ekscytujące narzędzia, które pomogą mi w nauce języka polskiego.\nUwielbiam tworzyć nowe rzeczy za pomocą React.\nBędę tworzył więcej aplikacji React.\nProszę przetłumaczyć na język angielski.',
           present: {
             present_ja: 'tworzę',
             present_my: 'tworyzmy',

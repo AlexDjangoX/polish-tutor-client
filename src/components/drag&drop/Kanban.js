@@ -61,8 +61,7 @@ const Kanban = ({ columns, setColumns }) => {
   const [currentVerb, setCurrentVerb] = useState({});
   const [isEditing, setIsEditing] = useState(false);
   const [deleteVerb, setDeleteVerb] = useState(false);
-
-  console.log('dummyData', typeof dummyData);
+  const [verbToDeleteId, setVerbToDeleteId] = useState('');
 
   // useEffect(() => {
   //   axios
@@ -111,6 +110,8 @@ const Kanban = ({ columns, setColumns }) => {
     try {
       const token = await getAccessTokenSilently();
 
+      let isCancelled = false;
+
       const response = await fetch(
         `http://localhost:4000/protected/kanban/${user.sub}`,
         {
@@ -125,7 +126,13 @@ const Kanban = ({ columns, setColumns }) => {
       const returnFromGetRequest = await response.json();
       let dataToRender = returnFromGetRequest.data.kanbanObject;
 
-      await setColumns(dataToRender);
+      if (!isCancelled) {
+        await setColumns(dataToRender);
+      }
+
+      return () => {
+        isCancelled = true;
+      };
     } catch (error) {
       console.error(error.message);
     }
@@ -187,6 +194,7 @@ const Kanban = ({ columns, setColumns }) => {
 
   const deleteHandler = async (verbId) => {
     setDeleteVerb(true);
+    setVerbToDeleteId(verbId);
     if (deleteVerb) {
       const verbArray = columns.column_D.items;
 
@@ -206,7 +214,13 @@ const Kanban = ({ columns, setColumns }) => {
       await setColumns(updatedObject());
       postToExpressApp();
       setDeleteVerb(false);
+      setVerbToDeleteId('');
     }
+  };
+
+  const resetVerbToDelete = () => {
+    setDeleteVerb(false);
+    setVerbToDeleteId('');
   };
 
   if (!isAuthenticated) {
@@ -221,11 +235,11 @@ const Kanban = ({ columns, setColumns }) => {
           buttonSize='btn--medium'
           onClick={() => setOpen(true)}
         >
-          Czasownik
+          Add Verb
         </Button>
         <Button buttonStyle='btn--add-new-verb'>
           <a href='https://cooljugator.com/pl' target='_blank' rel='noreferrer'>
-            Koniugacja
+            Resource
           </a>
         </Button>
       </div>
@@ -328,27 +342,31 @@ const Kanban = ({ columns, setColumns }) => {
                                                   deleteHandler(item.id)
                                                 }
                                                 buttonStyle={
-                                                  !deleteVerb
+                                                  !deleteVerb ||
+                                                  !(verbToDeleteId === item.id)
                                                     ? 'btn-delete-verb'
                                                     : 'btn-delete-confirm'
                                                 }
                                               >
-                                                {!deleteVerb
-                                                  ? 'Delete'
-                                                  : 'Confirm '}
+                                                {deleteVerb &&
+                                                verbToDeleteId === item.id
+                                                  ? 'Confirm '
+                                                  : 'Delete'}
                                               </Button>
-                                              {deleteVerb && (
-                                                <div className='btn-cancel-delete'>
-                                                  <Button
-                                                    onClick={() =>
-                                                      setDeleteVerb(false)
-                                                    }
-                                                    buttonStyle='btn-cancel-delete'
-                                                  >
-                                                    Cancel
-                                                  </Button>
-                                                </div>
-                                              )}
+
+                                              {deleteVerb &&
+                                                verbToDeleteId === item.id && (
+                                                  <div className='btn-cancel-delete'>
+                                                    <Button
+                                                      onClick={
+                                                        resetVerbToDelete
+                                                      }
+                                                      buttonStyle='btn-cancel-delete'
+                                                    >
+                                                      Cancel
+                                                    </Button>
+                                                  </div>
+                                                )}
                                             </div>
                                           </>
                                         )}

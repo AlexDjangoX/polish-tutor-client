@@ -95,6 +95,7 @@
   color: #333;
   text-decoration: none;
   font-size: 1.2rem;
+  margin-top: 3rem;
 }
 
 .card-item-content button {
@@ -117,9 +118,14 @@ Link {
   place-content: center;
   font-family: inherit;
   cursor: default;
-  background-color: rgb(118, 26, 26);
+  background-color: rgb(119, 37, 37);
+  border: 1px black;
+  border-radius: 0.2rem;
+  padding: 0.2rem;
 }
 
 .link-notes:hover {
-  background-color: rgb(158, 35, 35);
+  background-color: rgb(206, 23, 23);
+  font-size: 1.4;
+  transition: all 2s;
 }

@@ -61,7 +61,7 @@ const TextToSpeech = ({ data, voices }) => {
 
             {/* <div className="select-rate"> */}
             <label htmlFor='rate'>Rate: </label>
-            <span>{rate}</span>
+            <p className='span'>{rate}</p>
             <input
               type='range'
               min='0'
@@ -76,7 +76,7 @@ const TextToSpeech = ({ data, voices }) => {
             {/* </div> */}
             {/* <div className="select-pitch"> */}
             <label htmlFor='pitch'>Pitch: </label>
-            <span className='pitch-value'>{pitch}</span>
+            <p className='span'>{pitch}</p>
             <input
               type='range'
               min='0'
