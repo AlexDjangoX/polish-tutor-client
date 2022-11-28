@@ -10,12 +10,34 @@
 
 .new-verb-button-wrapper {
   display: grid;
+  grid-template-areas: 'prompt' 'buttons';
   grid-auto-flow: column;
   place-content: center;
 }
 
 .link a {
   text-decoration: none;
+}
+
+.kanban-log-in-prompt {
+  display: grid;
+  grid-area: prompt;
+  margin: 0.8rem 0 0.8rem 0;
+  text-transform: uppercase;
+  background: linear-gradient(
+    180deg,
+    rgba(40, 103, 249) 0%,
+    rgb(25, 33, 57) 60%
+  );
+  color: aliceblue;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.new-verb-buttons {
+  display: grid;
+  grid-area: buttons;
+  grid-auto-flow: column;
 }
 
 .kanban-columns {
@@ -25,7 +47,7 @@
 .kanban-header {
   display: grid;
   place-content: center;
-  font-weight: 400;
+  font-weight: 300;
   margin: 0;
 }
 

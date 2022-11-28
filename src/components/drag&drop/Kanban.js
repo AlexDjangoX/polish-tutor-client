@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { dummyData } from '../../utils/dummyData';
 import { Link } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import { v4 as uuidv4 } from 'uuid';
+import { dummyData } from '../../utils/dummyData';
 import './Kanban.css';
 import KanbanTable from './KanbanTable';
 import KanbanForm from './KanbanForm';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import { Modal } from '@mui/material';
 import { Button } from '../button/Button.js';
-import { useToast } from '@chakra-ui/toast';
 
 const axios = require('axios');
 
@@ -65,16 +64,14 @@ const Kanban = ({ columns, setColumns }) => {
   const [deleteVerb, setDeleteVerb] = useState(false);
   const [verbToDeleteId, setVerbToDeleteId] = useState('');
 
-  const toast = useToast();
+  const loadDummyData = async () => {
+    if (!isAuthenticated) {
+      await setColumns(dummyData.position);
+    }
+  };
 
   useEffect(() => {
-    toast({
-      title: 'Login in to create your own verb conjugator kanban',
-      status: 'success',
-      duration: 5000,
-      isClosable: true,
-      position: 'bottom',
-    });
+    loadDummyData();
   }, []);
 
   // useEffect(() => {
@@ -124,10 +121,8 @@ const Kanban = ({ columns, setColumns }) => {
     try {
       const token = await getAccessTokenSilently();
 
-      let isCancelled = false;
-
       const response = await fetch(
-        `http://localhost:4000/protected/kanban/${user.sub}`,
+        `http://localhost:4000/protected/kanban/${user?.sub}`,
         {
           method: 'GET',
           headers: {
@@ -140,13 +135,7 @@ const Kanban = ({ columns, setColumns }) => {
       const returnFromGetRequest = await response.json();
       let dataToRender = returnFromGetRequest.data.kanbanObject;
 
-      if (!isCancelled) {
-        await setColumns(dataToRender);
-      }
-
-      return () => {
-        isCancelled = true;
-      };
+      await setColumns(dataToRender);
     } catch (error) {
       console.error(error.message);
     }
@@ -201,7 +190,7 @@ const Kanban = ({ columns, setColumns }) => {
       return objClone;
     };
 
-    setTimeout(function () {
+    const timer = setTimeout(function () {
       setColumns(updatedObject());
     }, 1000);
   };
@@ -237,25 +226,35 @@ const Kanban = ({ columns, setColumns }) => {
     setVerbToDeleteId('');
   };
 
-  if (!isAuthenticated) {
-    setColumns(dummyData.position);
-  }
-
   return (
     <>
       <div className='new-verb-button-wrapper'>
-        <Button
-          buttonStyle='btn--add-new-verb'
-          buttonSize='btn--medium'
-          onClick={() => setOpen(true)}
-        >
-          Dodaj czasownik
-        </Button>
-        <Button buttonStyle='btn--add-new-verb'>
-          <a href='https://cooljugator.com/pl' target='_blank' rel='noreferrer'>
-            Koniugaca
-          </a>
-        </Button>
+        {isAuthenticated && (
+          <div className='new-verb-buttons'>
+            <Button
+              buttonStyle='btn--add-new-verb'
+              buttonSize='btn--medium'
+              onClick={() => setOpen(true)}
+            >
+              Dodaj czasownik
+            </Button>
+            <Button buttonStyle='btn--add-new-verb'>
+              <a
+                href='https://cooljugator.com/pl'
+                target='_blank'
+                rel='noreferrer'
+              >
+                Koniugacja
+              </a>
+            </Button>
+          </div>
+        )}
+
+        {!isAuthenticated && (
+          <h3 className='kanban-log-in-prompt'>
+            Log in to create your own unique verb kanban
+          </h3>
+        )}
       </div>
 
       <Modal
@@ -436,35 +435,3 @@ const Kanban = ({ columns, setColumns }) => {
 };
 
 export default Kanban;
-
-// const itemsFromBackend = [
-//   { id: uuidv4(), content: 'First task' },
-//   { id: uuidv4(), content: 'Second task' },
-//   { id: uuidv4(), content: 'Third task' },
-//   { id: uuidv4(), content: 'Fourth task' },
-//   { id: uuidv4(), content: 'Fifth task' },
-// ];
-
-// const columnsFromBackend = {
-//   columnOne: {
-//     name: 'Requested',
-//     items: [],
-//   },
-//   columnTwo: {
-//     name: 'To do',
-//     items: [],
-//   },
-//   columnThree: {
-//     name: 'In Progress',
-//     items: itemsFromBackend,
-//   },
-//   columnFour: {
-//     name: 'Done',
-//     items: [],
-//   },
-// };
-
-//////////////////////
-
-// "link_url": "https://images.unsplash.com/photo-1468421870903-4df1664ac249?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dG8lMjBjcmVhdGV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
-// "link_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2Y788iyTaAscQ4ihPPq4o5-m4CXLsKFON6w&usqp=CAU",

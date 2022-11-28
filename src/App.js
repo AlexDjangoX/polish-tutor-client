@@ -2,15 +2,14 @@ import React, { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Navbar from './components/navbar/Navbar';
 import Hero from './components/hero/Hero';
-
 import Kanban from './components/drag&drop/Kanban';
 import Profile from './components/profile/Profile';
 import Notes from './components/notes/Notes';
-
 import './App.css';
 
 function App() {
   const [columns, setColumns] = useState({});
+
   return (
     <>
       <Navbar />

@@ -114,29 +114,6 @@ const KanbanForm = ({
     }
   };
 
-  // const postToDb = () => {
-  //   axios
-  //     .post(`http://localhost:8000/position`, columns)
-  //     .catch(function (error) {
-  //       console.log(error);
-  //     });
-  // };
-
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   if (!isEditing) {
-  //     columns.columnOne.items.push(verb);
-  //   }
-  //   setVerb({ ...resetState });
-
-  //   postToDb();
-  //   setOpen(false);
-  // };
-
-  // useEffect(() => {
-  //   setTimeout(postToDb, 900);
-  // }, [columns]);
-
   const postToExpressApp = async () => {
     try {
       const token = await getAccessTokenSilently();
