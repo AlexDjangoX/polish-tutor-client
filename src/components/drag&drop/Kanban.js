@@ -133,7 +133,7 @@ const Kanban = ({ columns, setColumns }) => {
       );
 
       const returnFromGetRequest = await response.json();
-      let dataToRender = returnFromGetRequest.data.kanbanObject;
+      let dataToRender = returnFromGetRequest.data?.kanbanObject;
 
       await setColumns(dataToRender);
     } catch (error) {
@@ -236,7 +236,7 @@ const Kanban = ({ columns, setColumns }) => {
               buttonSize='btn--medium'
               onClick={() => setOpen(true)}
             >
-              Dodaj czasownik
+              Add Verb
             </Button>
             <Button buttonStyle='btn--add-new-verb'>
               <a

@@ -86,17 +86,20 @@ const Notes = ({ columns, setColumns }) => {
     }
   };
 
-  const updateNotes = (event) => {
+  const updateNotes = async (event) => {
     event.preventDefault();
 
     item.notes = `${item.notes}${'\n'}${translatedString}`;
 
-    if (columns.column_D?.items) {
-      const itemsArray = columns.column_D.items;
+    const columnClone = Object.assign({}, columns);
+    console.log(columnClone);
+    if (columnClone.column_D?.items) {
+      const itemsArray = columnClone.column_D.items;
 
       itemsArray.forEach((el, index) => {
         if (el.id === item.id) itemsArray[index] = dataToRender;
       });
+      await setColumns(columnClone);
       postToExpressApp();
     }
 

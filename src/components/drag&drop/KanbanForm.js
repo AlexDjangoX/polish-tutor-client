@@ -142,7 +142,7 @@ const KanbanForm = ({
       columns.column_A.items.push(verb);
     }
     setVerb({ ...resetState });
-
+    setCurrentVerb({ ...resetState });
     postToExpressApp();
     setOpen(false);
   };
