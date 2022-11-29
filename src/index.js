@@ -14,8 +14,8 @@ root.render(
     <Auth0Provider
       domain={domain}
       clientId={clientId}
-      redirectUri={`${window.location.origin}`}
-      // redirectUri={`https://polish-conjugator.herokuapp.com/`}
+      // redirectUri={`${window.location.origin}`}
+      redirectUri={`https://polish-conjugator.herokuapp.com/`}
       audience='https://www.polish-api.com'
       scope='openid profile email'
     >
