@@ -195,13 +195,18 @@ const Kanban = ({ columns, setColumns }) => {
     }, 1000);
   };
 
-  const deleteHandler = async (verbId) => {
-    setDeleteVerb(true);
+  const prepareDelete = (verbId) => {
     setVerbToDeleteId(verbId);
+    setDeleteVerb(true);
+  };
+
+  const deleteHandler = async () => {
     if (deleteVerb) {
       const verbArray = columns.column_D.items;
 
-      const updatedVerbArray = verbArray.filter((el) => el.id !== verbId);
+      const updatedVerbArray = verbArray.filter(
+        (el) => el.id !== verbToDeleteId
+      );
 
       const updatedObject = () => {
         const objClone = JSON.parse(JSON.stringify({ ...columns }));
@@ -351,35 +356,41 @@ const Kanban = ({ columns, setColumns }) => {
                                         {column.name === 'Stare słowa' && (
                                           <>
                                             <div className='delete-btn-wrapper'>
-                                              <Button
-                                                onClick={() =>
-                                                  deleteHandler(item.id)
-                                                }
-                                                buttonStyle={
-                                                  !deleteVerb ||
-                                                  !(verbToDeleteId === item.id)
-                                                    ? 'btn-delete-verb'
-                                                    : 'btn-delete-confirm'
-                                                }
-                                              >
-                                                {deleteVerb &&
-                                                verbToDeleteId === item.id
-                                                  ? 'Confirm '
-                                                  : 'Delete'}
-                                              </Button>
+                                              {!deleteVerb && (
+                                                <Button
+                                                  buttonStyle={
+                                                    'btn-delete-verb'
+                                                  }
+                                                  onClick={() =>
+                                                    prepareDelete(item.id)
+                                                  }
+                                                >
+                                                  Delete
+                                                </Button>
+                                              )}
 
                                               {deleteVerb &&
                                                 verbToDeleteId === item.id && (
-                                                  <div className='btn-cancel-delete'>
-                                                    <Button
-                                                      onClick={
-                                                        resetVerbToDelete
-                                                      }
-                                                      buttonStyle='btn-cancel-delete'
-                                                    >
-                                                      Cancel
-                                                    </Button>
-                                                  </div>
+                                                  <>
+                                                    <div className='btn-cancel-delete'>
+                                                      <Button
+                                                        onClick={() =>
+                                                          setDeleteVerb(false)
+                                                        }
+                                                        buttonStyle='btn-cancel-delete'
+                                                      >
+                                                        Cancel
+                                                      </Button>
+                                                    </div>
+                                                    <div>
+                                                      <Button
+                                                        onClick={deleteHandler}
+                                                        buttonStyle='btn-delete-verb'
+                                                      >
+                                                        Confirm
+                                                      </Button>
+                                                    </div>
+                                                  </>
                                                 )}
                                             </div>
                                           </>

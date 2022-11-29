@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import { Button } from '../button/Button.js';
 import { v4 as uuidv4 } from 'uuid';
@@ -87,6 +87,16 @@ const KanbanForm = ({
   const [verb, setVerb] = useState({ ...resetState, id: uuidv4() });
   const { user, getAccessTokenSilently } = useAuth0();
 
+  const inputRef = useRef();
+
+  const focusOnPolishVerb = () => {
+    inputRef.current.focus();
+  };
+
+  useEffect(() => {
+    focusOnPolishVerb();
+  }, []);
+
   const handleChange = (event) => {
     const { value, name } = event.target;
     const initialDataKeys = Object.keys(initialData).slice(1);
@@ -141,6 +151,7 @@ const KanbanForm = ({
     if (!isEditing) {
       columns.column_A.items.push(verb);
     }
+    setIsEditing(false);
     setVerb({ ...resetState });
     setCurrentVerb({ ...resetState });
     postToExpressApp();
@@ -233,6 +244,7 @@ const KanbanForm = ({
                   <div className='pol-eng-infin'>
                     <label htmlFor='polish_word'>Polish Verb</label>
                     <input
+                      ref={inputRef}
                       placeholder=''
                       id='polish_word'
                       type='text'

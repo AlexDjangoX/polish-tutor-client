@@ -59,7 +59,6 @@ const TextToSpeech = ({ data, voices }) => {
               )}
             </div>
 
-            {/* <div className="select-rate"> */}
             <label htmlFor='rate'>Rate: </label>
             <p className='span'>{rate}</p>
             <input
@@ -73,8 +72,7 @@ const TextToSpeech = ({ data, voices }) => {
                 setRate(event.target.value);
               }}
             />
-            {/* </div> */}
-            {/* <div className="select-pitch"> */}
+
             <label htmlFor='pitch'>Pitch: </label>
             <p className='span'>{pitch}</p>
             <input
@@ -88,7 +86,6 @@ const TextToSpeech = ({ data, voices }) => {
                 setPitch(event.target.value);
               }}
             />
-            {/* </div> */}
           </>
         )}
       </div>
