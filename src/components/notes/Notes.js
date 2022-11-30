@@ -69,7 +69,7 @@ const Notes = ({ columns, setColumns }) => {
       const token = await getAccessTokenSilently();
 
       const response = await fetch(
-        `http://localhost:4000/protected/kanban/${user.sub}`,
+        `http://localhost:5000/protected/kanban/${user.sub}`,
         {
           method: 'PUT',
           headers: {

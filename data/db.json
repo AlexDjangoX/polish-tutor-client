@@ -67,7 +67,71 @@
     },
     "column_B": {
       "name": "Przeszły",
+      "items": []
+    },
+    "column_C": {
+      "name": "Przyszły",
       "items": [
+        {
+          "id": "d509237d-6e00-4da9-ae33-80fcd41c2485",
+          "past": {
+            "past_ja_fem": "tworzyłam",
+            "past_my_fem": "tworzyłyśmy",
+            "past_ty_fem": "tworzyłaś",
+            "past_wy_fem": "tworzyłyście",
+            "past_ja_masc": "tworzyłem",
+            "past_my_masc": "tworzyliśmy",
+            "past_on_masc": "tworzył",
+            "past_ona_fem": "tworzyły",
+            "past_one_fem": "tworzyły",
+            "past_ty_masc": "tworzyłeś",
+            "past_wy_masc": "tworzyliście",
+            "past_oni_masc": "tworzyli"
+          },
+          "notes": "Uwielbiam tworzyć nowe i ekscytujące narzędzia, które pomogą mi w nauce języka polskiego.\nUwielbiam tworzyć nowe rzeczy za pomocą React.\nBędę tworzył więcej aplikacji React.\nProszę przetłumaczyć na język angielski.",
+          "present": {
+            "present_ja": "tworzę",
+            "present_my": "tworyzmy",
+            "present_ty": "tworzysz",
+            "present_wy": "tworzycie",
+            "present_oni_one": "tworzą",
+            "present_on_ona_ono": "tworzy"
+          },
+          "gram_case": {
+            "case": "Biernik",
+            "color": "#ff2233",
+            "aspect": "Dokonany"
+          },
+          "future_fem": {
+            "future_fem_ja": "będę tworzyła",
+            "future_fem_my": "będziemy tworzyły",
+            "future_fem_ty": "będziesz tworzyła",
+            "future_fem_wy": "będziecie tworzyły",
+            "future_fem_ona": "będzie tworzyła",
+            "future_fem_one": "będą tworzyły"
+          },
+          "imp_future": {
+            "imp_future_ja": "będą tworzyć",
+            "imp_future_my": "będziemy tworzyć",
+            "imp_future_ty": "będziesz tworzyć",
+            "imp_future_wy": "będziecie tworzyć",
+            "imp_future_oni_one": "będą tworzyć",
+            "imp_future_on_ona_ono": "będzie tworzyć"
+          },
+          "word_image": {
+            "image_url": "https://www.cqu.edu.au/__data/assets/image/0022/146407/create-concept.jpg",
+            "polish_word": "Tworzyć",
+            "english_word": "To create"
+          },
+          "future_masc": {
+            "future_masc_ja": "będę tworzył",
+            "future_masc_my": "będziemy tworzyli",
+            "future_masc_on": "będzie tworzył",
+            "future_masc_ty": "będziesz tworzył",
+            "future_masc_wy": "będziecie tworzyli",
+            "future_masc_oni": "będą tworzyli"
+          }
+        },
         {
           "id": "7d7aa7e5-8ac3-477b-867f-9672d0ca5df3",
           "past": {
@@ -126,71 +190,6 @@
             "future_masc_ty": "potrwasz",
             "future_masc_wy": "potrwacie",
             "future_masc_oni": "potrwają"
-          }
-        }
-      ]
-    },
-    "column_C": {
-      "name": "Przyszły",
-      "items": [
-        {
-          "id": "4909d92e-ff69-4c80-bb13-23d2f9788c71",
-          "past": {
-            "past_ja_fem": "sprawdziłam",
-            "past_my_fem": "sprawdziłaś",
-            "past_ty_fem": "sprawdziłem",
-            "past_wy_fem": "",
-            "past_ja_masc": "sprawdziłem",
-            "past_my_masc": "sprawdzaliśmy",
-            "past_on_masc": "sprawdził",
-            "past_ona_fem": "",
-            "past_one_fem": "",
-            "past_ty_masc": "sprawdziłeś",
-            "past_wy_masc": "sprawdziliście",
-            "past_oni_masc": ""
-          },
-          "notes": "Uwielbiam tworzyć nowe i ekscytujące aplikacje za pomocą Reacta, zwłaszcza jeśli może mi to pomóc w nauce języka polskiego. Uwielbiam uczyć się języka polskiego, zwłaszcza polskiej gramatyki. Dlatego stworzyłam aplikację, która pomaga mi w nauce koniugacji polskich czasowników.",
-          "present": {
-            "present_ja": "sprawdzę",
-            "present_my": "sprawdzimy",
-            "present_ty": "sprawdzisz",
-            "present_wy": "sprawdzicie",
-            "present_oni_one": "sprawdzą",
-            "present_on_ona_ono": "sprawdzi"
-          },
-          "gram_case": {
-            "case": "Celownik",
-            "color": "#ff2233",
-            "aspect": "Niedokonany"
-          },
-          "future_fem": {
-            "future_fem_ja": "będę ",
-            "future_fem_my": "będziemy ",
-            "future_fem_ty": "będziesz ",
-            "future_fem_wy": "będziecie ",
-            "future_fem_ona": "będzie ",
-            "future_fem_one": "będą "
-          },
-          "imp_future": {
-            "imp_future_ja": "będę ",
-            "imp_future_my": "będziemy ",
-            "imp_future_ty": "będziesz ",
-            "imp_future_wy": "będziecie ",
-            "imp_future_oni_one": "będą ",
-            "imp_future_on_ona_ono": "będzie "
-          },
-          "word_image": {
-            "image_url": "https://www.cqu.edu.au/__data/assets/image/0022/146407/create-concept.jpg",
-            "polish_word": "Sprawdzić",
-            "english_word": "To check"
-          },
-          "future_masc": {
-            "future_masc_ja": "będę ",
-            "future_masc_my": "będziemy ",
-            "future_masc_on": "będzie ",
-            "future_masc_ty": "będziesz ",
-            "future_masc_wy": "będziecie ",
-            "future_masc_oni": "będą "
           }
         },
         {
@@ -259,63 +258,63 @@
       "name": "Stare słowa",
       "items": [
         {
-          "id": "d509237d-6e00-4da9-ae33-80fcd41c2485",
+          "id": "4909d92e-ff69-4c80-bb13-23d2f9788c71",
           "past": {
-            "past_ja_fem": "tworzyłam",
-            "past_my_fem": "tworzyłyśmy",
-            "past_ty_fem": "tworzyłaś",
-            "past_wy_fem": "tworzyłyście",
-            "past_ja_masc": "tworzyłem",
-            "past_my_masc": "tworzyliśmy",
-            "past_on_masc": "tworzył",
-            "past_ona_fem": "tworzyły",
-            "past_one_fem": "tworzyły",
-            "past_ty_masc": "tworzyłeś",
-            "past_wy_masc": "tworzyliście",
-            "past_oni_masc": "tworzyli"
+            "past_ja_fem": "sprawdziłam",
+            "past_my_fem": "sprawdziłaś",
+            "past_ty_fem": "sprawdziłem",
+            "past_wy_fem": "",
+            "past_ja_masc": "sprawdziłem",
+            "past_my_masc": "sprawdzaliśmy",
+            "past_on_masc": "sprawdził",
+            "past_ona_fem": "",
+            "past_one_fem": "",
+            "past_ty_masc": "sprawdziłeś",
+            "past_wy_masc": "sprawdziliście",
+            "past_oni_masc": ""
           },
-          "notes": "Uwielbiam tworzyć nowe i ekscytujące narzędzia, które pomogą mi w nauce języka polskiego.\nUwielbiam tworzyć nowe rzeczy za pomocą React.\nBędę tworzył więcej aplikacji React.\nProszę przetłumaczyć na język angielski.",
+          "notes": "Uwielbiam tworzyć nowe i ekscytujące aplikacje za pomocą Reacta, zwłaszcza jeśli może mi to pomóc w nauce języka polskiego. Uwielbiam uczyć się języka polskiego, zwłaszcza polskiej gramatyki. Dlatego stworzyłam aplikację, która pomaga mi w nauce koniugacji polskich czasowników.",
           "present": {
-            "present_ja": "tworzę",
-            "present_my": "tworyzmy",
-            "present_ty": "tworzysz",
-            "present_wy": "tworzycie",
-            "present_oni_one": "tworzą",
-            "present_on_ona_ono": "tworzy"
+            "present_ja": "sprawdzę",
+            "present_my": "sprawdzimy",
+            "present_ty": "sprawdzisz",
+            "present_wy": "sprawdzicie",
+            "present_oni_one": "sprawdzą",
+            "present_on_ona_ono": "sprawdzi"
           },
           "gram_case": {
-            "case": "Biernik",
+            "case": "Celownik",
             "color": "#ff2233",
-            "aspect": "Dokonany"
+            "aspect": "Niedokonany"
           },
           "future_fem": {
-            "future_fem_ja": "będę tworzyła",
-            "future_fem_my": "będziemy tworzyły",
-            "future_fem_ty": "będziesz tworzyła",
-            "future_fem_wy": "będziecie tworzyły",
-            "future_fem_ona": "będzie tworzyła",
-            "future_fem_one": "będą tworzyły"
+            "future_fem_ja": "będę ",
+            "future_fem_my": "będziemy ",
+            "future_fem_ty": "będziesz ",
+            "future_fem_wy": "będziecie ",
+            "future_fem_ona": "będzie ",
+            "future_fem_one": "będą "
           },
           "imp_future": {
-            "imp_future_ja": "będą tworzyć",
-            "imp_future_my": "będziemy tworzyć",
-            "imp_future_ty": "będziesz tworzyć",
-            "imp_future_wy": "będziecie tworzyć",
-            "imp_future_oni_one": "będą tworzyć",
-            "imp_future_on_ona_ono": "będzie tworzyć"
+            "imp_future_ja": "będę ",
+            "imp_future_my": "będziemy ",
+            "imp_future_ty": "będziesz ",
+            "imp_future_wy": "będziecie ",
+            "imp_future_oni_one": "będą ",
+            "imp_future_on_ona_ono": "będzie "
           },
           "word_image": {
             "image_url": "https://www.cqu.edu.au/__data/assets/image/0022/146407/create-concept.jpg",
-            "polish_word": "Tworzyć",
-            "english_word": "To create"
+            "polish_word": "Sprawdzić",
+            "english_word": "To check"
           },
           "future_masc": {
-            "future_masc_ja": "będę tworzył",
-            "future_masc_my": "będziemy tworzyli",
-            "future_masc_on": "będzie tworzył",
-            "future_masc_ty": "będziesz tworzył",
-            "future_masc_wy": "będziecie tworzyli",
-            "future_masc_oni": "będą tworzyli"
+            "future_masc_ja": "będę ",
+            "future_masc_my": "będziemy ",
+            "future_masc_on": "będzie ",
+            "future_masc_ty": "będziesz ",
+            "future_masc_wy": "będziecie ",
+            "future_masc_oni": "będą "
           }
         }
       ]
