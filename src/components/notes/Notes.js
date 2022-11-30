@@ -79,8 +79,6 @@ const Notes = ({ columns, setColumns }) => {
           body: JSON.stringify(columns),
         }
       );
-
-      console.log('PUT from notes : ', response.status);
     } catch (error) {
       console.error(error.message);
     }
@@ -92,7 +90,7 @@ const Notes = ({ columns, setColumns }) => {
     item.notes = `${item.notes}${'\n'}${translatedString}`;
 
     const columnClone = Object.assign({}, columns);
-    console.log(columnClone);
+
     if (columnClone.column_D?.items) {
       const itemsArray = columnClone.column_D.items;
 
