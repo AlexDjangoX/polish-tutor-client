@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import { v4 as uuidv4 } from 'uuid';
 import { dummyData } from '../../utils/dummyData';
@@ -63,6 +63,7 @@ const Kanban = ({ columns, setColumns }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [deleteVerb, setDeleteVerb] = useState(false);
   const [verbToDeleteId, setVerbToDeleteId] = useState('');
+  const navigate = useNavigate();
 
   const loadDummyData = async () => {
     if (!isAuthenticated) {
@@ -119,6 +120,10 @@ const Kanban = ({ columns, setColumns }) => {
 
   const getFromExpressApp = async () => {
     try {
+      if (!isAuthenticated) {
+        return navigate('/');
+      }
+
       const token = await getAccessTokenSilently();
 
       const response = await fetch(
