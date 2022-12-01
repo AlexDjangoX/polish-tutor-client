@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import { useLocation } from 'react-router-dom';
 import { useSpeechSynthesis } from 'react-speech-kit';
@@ -22,7 +22,7 @@ import './Notes.css';
 const Notes = ({ columns, setColumns }) => {
   const location = useLocation();
   const { item } = location.state;
-  const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
+  const { user, getAccessTokenSilently } = useAuth0();
 
   const [dataToRender, setDataToRender] = useState(item);
   const [stringToTranslate, setStringToTranslate] = useState('');
@@ -64,13 +64,13 @@ const Notes = ({ columns, setColumns }) => {
     });
   };
 
-  const postToExpressApp = async () => {
+  const putToExpressApp = async () => {
     try {
       const token = await getAccessTokenSilently();
 
-      const response = await fetch(
-        // `http://localhost:5000/protected/kanban/${user.sub}`,
-        `https://polish-conjugator.herokuapp.com/protected/kanban/${user.sub}`,
+      await fetch(
+        `http://localhost:5000/protected/kanban/${user.sub}`,
+        // `https://polish-conjugator.herokuapp.com/protected/kanban/${user.sub}`,
         {
           method: 'PUT',
           headers: {
@@ -99,7 +99,7 @@ const Notes = ({ columns, setColumns }) => {
         if (el.id === item.id) itemsArray[index] = dataToRender;
       });
       await setColumns(columnClone);
-      postToExpressApp();
+      putToExpressApp();
     }
 
     setStringToTranslate('');

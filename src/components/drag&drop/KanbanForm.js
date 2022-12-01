@@ -124,22 +124,25 @@ const KanbanForm = ({
     }
   };
 
-  const postToExpressApp = async () => {
+  const putToExpressApp = async () => {
+    console.log('Inside put : ');
     try {
       const token = await getAccessTokenSilently();
 
       const response = await fetch(
-        // `http://localhost:5000/protected/kanban/${user.sub}`,
-        `https://polish-conjugator.herokuapp.com/protected/kanban/${user.sub}`,
+        `http://localhost:5000/protected/kanban/${user.sub}`,
+        // `https://polish-conjugator.herokuapp.com/protected/kanban/${user.sub}`,
         {
           method: 'PUT',
           headers: {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json',
           },
+
           body: JSON.stringify(columns),
         }
       );
+      console.log(JSON.stringify(columns));
 
       console.log('PUT to express app', response.status);
     } catch (error) {
@@ -155,12 +158,12 @@ const KanbanForm = ({
     setIsEditing(false);
     setVerb({ ...resetState });
     setCurrentVerb({ ...resetState });
-    postToExpressApp();
+    putToExpressApp();
     setOpen(false);
   };
 
   useEffect(() => {
-    setTimeout(postToExpressApp, 900);
+    setTimeout(putToExpressApp, 900);
   }, [columns]);
 
   const exitEditForm = () => {

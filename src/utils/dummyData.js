@@ -240,12 +240,12 @@ export const dummyData = {
             aspect: 'Niedokonany',
           },
           future_fem: {
-            future_fem_ja: 'będę ',
-            future_fem_my: 'będziemy ',
-            future_fem_ty: 'będziesz ',
-            future_fem_wy: 'będziecie ',
-            future_fem_ona: 'będzie ',
-            future_fem_one: 'będą ',
+            future_fem_ja: 'będę szła',
+            future_fem_my: 'będziemy szły',
+            future_fem_ty: 'będziesz szła',
+            future_fem_wy: 'będziecie szły',
+            future_fem_ona: 'będzie szła',
+            future_fem_one: 'będą szły',
           },
           imp_future: {
             imp_future_ja: 'będę iść',
@@ -262,15 +262,14 @@ export const dummyData = {
             english_word: 'To go',
           },
           future_masc: {
-            future_masc_ja: 'będę ',
-            future_masc_my: 'będziemy ',
-            future_masc_on: 'będzie ',
-            future_masc_ty: 'będziesz ',
-            future_masc_wy: 'będziecie ',
-            future_masc_oni: 'będą ',
+            future_masc_ja: 'będę szedł',
+            future_masc_my: 'będziemy szli',
+            future_masc_on: 'będzie szedł',
+            future_masc_ty: 'będziesz szedł',
+            future_masc_wy: 'będziecie szli',
+            future_masc_oni: 'będą szli',
           },
         },
-
         {
           id: 'd509237d-6e00-4da9-ae33-80fcd41c2485',
 
