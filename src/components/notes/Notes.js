@@ -69,8 +69,7 @@ const Notes = ({ columns, setColumns }) => {
       const token = await getAccessTokenSilently();
 
       await fetch(
-        `http://localhost:5000/protected/kanban/${user.sub}`,
-        // `https://polish-conjugator.herokuapp.com/protected/kanban/${user.sub}`,
+        `${process.env.REACT_APP_BASE_URL}/protected/kanban/${user.sub}`,
         {
           method: 'PUT',
           headers: {

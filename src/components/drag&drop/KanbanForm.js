@@ -125,13 +125,11 @@ const KanbanForm = ({
   };
 
   const putToExpressApp = async () => {
-    console.log('Inside put : ');
     try {
       const token = await getAccessTokenSilently();
 
-      const response = await fetch(
-        `http://localhost:5000/protected/kanban/${user.sub}`,
-        // `https://polish-conjugator.herokuapp.com/protected/kanban/${user.sub}`,
+      await fetch(
+        `${process.env.REACT_APP_BASE_URL}/protected/kanban/${user.sub}`,
         {
           method: 'PUT',
           headers: {
@@ -142,9 +140,6 @@ const KanbanForm = ({
           body: JSON.stringify(columns),
         }
       );
-      console.log(JSON.stringify(columns));
-
-      console.log('PUT to express app', response.status);
     } catch (error) {
       console.error(error.message);
     }
