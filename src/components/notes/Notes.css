@@ -85,6 +85,8 @@
 }
 
 .translation-radio-buttons {
+  display: grid;
+  place-content: center;
   margin: 0 0.2rem;
   padding: 1rem;
   border: 1px solid rgb(1, 1, 1);
@@ -164,4 +166,41 @@ a:hover {
 .btn--update-notes {
   display: grid;
   grid-area: btn;
+}
+
+@media screen and (max-width: 850px) {
+  .user-notes-input {
+    display: grid;
+    grid-template-columns: repeat(3);
+    grid-template-rows: repeat(4);
+  }
+  .translation {
+    display: grid;
+    grid-template-areas:
+      'image image image '
+      ' .  translateButton  .   '
+      'textTranslate textTranslate textTranslate  '
+      'translatedText translatedText translatedText  ';
+
+    margin-top: 4rem;
+  }
+
+  .text-to-translate,
+  .translated-text {
+    margin: 1rem 1rem;
+  }
+
+  .user-notes {
+    display: grid;
+    width: 93%;
+    margin: 1rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  /* .notes-wrapper {
+    background-image: url('../../../public/images/background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+  } */
 }
