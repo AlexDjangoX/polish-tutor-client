@@ -44,11 +44,6 @@
   padding: 4px;
 }
 
-.user-notes-input {
-  display: grid;
-  grid-template-columns: repeat(7);
-}
-
 .translation {
   display: grid;
   grid-template-areas:
@@ -275,56 +270,7 @@ a:hover {
 }
 
 @media screen and (max-width: 530px) {
-  .translation {
-    width: 95%;
-  }
-  .update-notes-play-voice {
-    width: 95%;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .translation {
-    width: 90%;
-  }
-
-  .update-notes-play-voice {
-    width: 90%;
-  }
-}
-
-@media screen and (max-width: 470px) {
-  .translation {
-    width: 85%;
-  }
-
   .update-notes-play-voice {
     width: 85%;
-  }
-}
-
-@media screen and (max-width: 450px) {
-  .translation {
-    width: 80%;
-  }
-
-  .update-notes-play-voice {
-    width: 80%;
-  }
-}
-
-@media screen and (max-width: 420px) {
-  .translation {
-    width: 70%;
-  }
-
-  .update-notes-play-voice {
-    width: 75%;
-  }
-}
-
-@media screen and (max-width: 380px) {
-  .translation {
-    width: 70%;
   }
 }
