@@ -8,6 +8,41 @@
   background-repeat: no-repeat;
 }
 
+.kanban-columns {
+  display: grid;
+  align-items: center;
+}
+
+@media screen and (max-width: 1100px) {
+  .kanban-wrapper {
+    grid-auto-flow: row;
+    grid-template-areas:
+      'one two three '
+      '. four .  ';
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .kanban-wrapper {
+    grid-auto-flow: row;
+    grid-template-areas:
+      'one two  '
+      '. .   ';
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .kanban-wrapper {
+    grid-auto-flow: row;
+
+    grid-template-areas:
+      'one'
+      'two'
+      'three'
+      'four';
+  }
+}
+
 .new-verb-button-wrapper {
   display: grid;
   grid-template-areas: 'prompt' 'buttons';
@@ -40,10 +75,6 @@
   grid-auto-flow: column;
 }
 
-.kanban-columns {
-  display: grid;
-  align-items: center;
-}
 .kanban-header {
   display: grid;
   place-content: center;

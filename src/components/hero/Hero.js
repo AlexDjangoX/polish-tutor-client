@@ -18,7 +18,7 @@ const Hero = () => {
           <VideoJS options={videoJsOptions} />
         </div>
         <main>
-          <b>For POLISH Language Students beginners to ADVANCED Level A1</b>
+          For POLISH Language Students beginners to ADVANCED Level A1.<br></br>{' '}
           Using a combination of pattern recognition, association and
           iconisation, this resource offers you a very realistic opportunity to
           become an effective and successful Polish Language Student.

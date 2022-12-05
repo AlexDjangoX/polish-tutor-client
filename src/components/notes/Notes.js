@@ -160,17 +160,25 @@ const Notes = ({ columns, setColumns }) => {
                 <TabPanel>
                   <div className='table-wrapper-present'>
                     <table>
-                      <tbody>
-                        <tr>
-                          <td>{dataToRender.word_image.english_word}</td>
-                          <td>{dataToRender.present.present_ja}</td>
-                          <td>{dataToRender.present.present_ty}</td>
-                          <td>{dataToRender.present.present_on_ona_ono}</td>
-                          <td>{dataToRender.present.present_my}</td>
-                          <td>{dataToRender.present.present_wy}</td>
-                          <td>{dataToRender.present.present_oni_one}</td>
-                        </tr>
-                      </tbody>
+                      <div className='table-body'>
+                        <tbody>
+                          <div className='table-row'>
+                            <tr>
+                              <td>{dataToRender.word_image.english_word}</td>
+                              <td>{dataToRender.present.present_ja}</td>
+                              <td>{dataToRender.present.present_ty}</td>
+                              <td>{dataToRender.present.present_on_ona_ono}</td>
+                            </tr>
+                          </div>
+                          <div className='table-row'>
+                            <tr>
+                              <td>{dataToRender.present.present_my}</td>
+                              <td>{dataToRender.present.present_wy}</td>
+                              <td>{dataToRender.present.present_oni_one}</td>
+                            </tr>
+                          </div>
+                        </tbody>
+                      </div>
                     </table>
                   </div>
                 </TabPanel>

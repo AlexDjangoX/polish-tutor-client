@@ -12,6 +12,26 @@
   display: grid;
 }
 
+.table-body {
+  display: grid;
+  place-content: center;
+  align-items: center;
+}
+
+.table-row {
+  text-align: center;
+
+  background-color: aquamarine;
+}
+
+table,
+th,
+td {
+  border: none;
+  text-align: center;
+  border-collapse: collapse;
+}
+
 .table-wrapper-present tr,
 .table-wrapper-past tr,
 .table-wrapper-future tr,
