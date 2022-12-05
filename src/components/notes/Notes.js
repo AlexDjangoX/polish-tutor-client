@@ -331,14 +331,14 @@ const Notes = ({ columns, setColumns }) => {
                         name='eng-pl'
                         value={'"source":"en","target":"pl"'}
                       >
-                        English - Polish
+                        Eng-Pol
                       </Radio>
                       <Radio
                         id='pl-eng'
                         name='pl-eng'
                         value={'"source":"pl","target":"en"'}
                       >
-                        Polish - English
+                        Pol-Eng
                       </Radio>
                     </Stack>
                   </RadioGroup>
@@ -376,19 +376,19 @@ const Notes = ({ columns, setColumns }) => {
                     fontSize='28px'
                   ></textarea>
                 </div>
-              </div>
 
-              <textarea
-                className='user-notes'
-                fontFamily='Work sans'
-                fontSize='28px'
-                id='notes'
-                name='notes'
-                rows='4'
-                cols='25'
-                value={dataToRender.notes}
-                onChange={handleChangeTextField}
-              ></textarea>
+                <textarea
+                  className='user-notes'
+                  fontFamily='Work sans'
+                  fontSize='28px'
+                  id='notes'
+                  name='notes'
+                  rows='4'
+                  cols='25'
+                  value={dataToRender.notes}
+                  onChange={handleChangeTextField}
+                ></textarea>
+              </div>
 
               <div className='update-notes-play-voice'>
                 <TextToSpeech data={dataToRender.notes} voices={voices} />
