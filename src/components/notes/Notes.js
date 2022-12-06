@@ -148,156 +148,190 @@ const Notes = ({ columns, setColumns }) => {
     <>
       <ChakraProvider>
         <div className='notes-wrapper'>
-          <Box w='100%' h='200px' p={4}>
+          <Box w='100%' h='250px' p={4}>
             <Tabs isFitted variant='soft-rounded'>
               <TabList mb='1em'>
-                <Tab>Present </Tab>
-                <Tab>Past </Tab>
+                <Tab>Present Tense</Tab>
+                <Tab>Past Masculine</Tab>
+                <Tab>Past Feminine</Tab>
+              </TabList>
+              <TabList mb='1em'>
+                <Tab>Future Masculine</Tab>
+                <Tab>Future Feminine</Tab>
                 <Tab>Future Imperfect</Tab>
-                <Tab>Future</Tab>
+              </TabList>
+              <TabList mb='1em'>
+                <Tab>Conditional Masculine</Tab>
+                <Tab>Conditional Feminine</Tab>
+                <Tab>Imperative</Tab>
               </TabList>
               <TabPanels>
-                <TabPanel>
-                  <div className='table-wrapper-present'>
-                    <table>
-                      <div className='table-body'>
-                        <tbody>
-                          <div className='table-row'>
-                            <tr>
-                              <td>{dataToRender.word_image.english_word}</td>
-                              <td>{dataToRender.present.present_ja}</td>
-                              <td>{dataToRender.present.present_ty}</td>
-                              <td>{dataToRender.present.present_on_ona_ono}</td>
-                            </tr>
-                          </div>
-                          <div className='table-row'>
-                            <tr>
-                              <td>{dataToRender.present.present_my}</td>
-                              <td>{dataToRender.present.present_wy}</td>
-                              <td>{dataToRender.present.present_oni_one}</td>
-                            </tr>
-                          </div>
-                        </tbody>
-                      </div>
-                    </table>
+                <TabPanel padding={0}>
+                  <div className='wrapper-present'>
+                    <ul className='polish-word-list'>
+                      <li>{dataToRender.present.present_ja}</li>
+                      <li>{dataToRender.present.present_ty}</li>
+                      <li>{dataToRender.present.present_on_ona_ono}</li>
+                      <li>{dataToRender.present.present_my}</li>
+                      <li>{dataToRender.present.present_wy}</li>
+                      <li>{dataToRender.present.present_oni_one}</li>
+                    </ul>
                   </div>
                 </TabPanel>
-                <TabPanel>
-                  <div className='table-wrapper-past'>
-                    <table>
-                      <tbody>
-                        <tr>
-                          <td className='masculine'>
-                            {dataToRender.past.past_ja_masc}
-                          </td>
-                          <td className='masculine-alt'>
-                            {dataToRender.past.past_ty_masc}
-                          </td>
-                          <td className='masculine'>
-                            {dataToRender.past.past_on_masc}
-                          </td>
-                          <td className='masculine-alt'>
-                            {dataToRender.past.past_my_masc}
-                          </td>
-                          <td className='masculine'>
-                            {dataToRender.past.past_wy_masc}
-                          </td>
-                          <td className='masculine-alt'>
-                            {dataToRender.past.past_oni_masc}
-                          </td>
-                        </tr>
-                        <tr>
-                          <td className='feminine'>
-                            {dataToRender.past.past_ja_fem}
-                          </td>
-                          <td className='feminine-alt'>
-                            {dataToRender.past.past_ty_fem}
-                          </td>
-                          <td className='feminine'>
-                            {dataToRender.past.past_ona_fem}
-                          </td>
-                          <td className='feminine'>
-                            {dataToRender.past.past_my_fem}
-                          </td>
-                          <td className='feminine-alt'>
-                            {dataToRender.past.past_wy_fem}
-                          </td>
-                          <td className='feminine'>
-                            {dataToRender.past.past_one_fem}
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
+                <TabPanel padding={0}>
+                  <div className='wrapper-past-masculine'>
+                    <ul className='polish-word-list'>
+                      <li> {dataToRender.past.past_ja_masc}</li>
+                      <li> {dataToRender.past.past_ty_masc}</li>
+                      <li> {dataToRender.past.past_on_masc}</li>
+                      <li> {dataToRender.past.past_my_masc}</li>
+                      <li>{dataToRender.past.past_wy_masc}</li>
+                      <li> {dataToRender.past.past_oni_masc}</li>
+                    </ul>
                   </div>
                 </TabPanel>
-                <TabPanel>
-                  <div className='table-wrapper-future-imperfect'>
-                    <table>
-                      <tbody>
-                        <tr>
-                          <td>{dataToRender.imp_future.imp_future_ja}</td>
-                          <td>{dataToRender.imp_future.imp_future_ty}</td>
-                          <td>
-                            {dataToRender.imp_future.imp_future_on_ona_ono}
-                          </td>
-                          <td>{dataToRender.imp_future.imp_future_my}</td>
-                          <td>{dataToRender.imp_future.imp_future_wy}</td>
-                          <td>{dataToRender.imp_future.imp_future_oni_one}</td>
-                        </tr>
-                      </tbody>
-                    </table>
+                <TabPanel padding={0}>
+                  <div className='wrapper-past-feminine'>
+                    <ul className='polish-word-list'>
+                      <li> {dataToRender.past.past_ja_fem}</li>
+                      <li>{dataToRender.past.past_ty_fem}</li>
+                      <li> {dataToRender.past.past_ona_fem}</li>
+                      <li> {dataToRender.past.past_my_fem}</li>
+                      <li> {dataToRender.past.past_wy_fem}</li>
+                      <li> {dataToRender.past.past_one_fem}</li>
+                    </ul>
                   </div>
                 </TabPanel>
-                <TabPanel>
-                  <div className='table-wrapper-future'>
-                    <table>
-                      <tbody>
-                        <tr>
-                          <td className='masculine'>
-                            {dataToRender.future_masc.future_masc_ja}
-                          </td>
-                          <td className='masculine-alt'>
-                            {dataToRender.future_masc.future_masc_ty}
-                          </td>
-                          <td className='masculine'>
-                            {dataToRender.future_masc.future_masc_on}
-                          </td>
-                          <td className='masculine-alt'>
-                            {dataToRender.future_masc.future_masc_my}
-                          </td>
-                          <td className='masculine'>
-                            {dataToRender.future_masc.future_masc_wy}
-                          </td>
-                          <td className='masculine-alt'>
-                            {dataToRender.future_masc.future_masc_oni}
-                          </td>
-                        </tr>
-                        <tr>
-                          <td className='feminine'>
-                            {dataToRender.future_fem.future_fem_ja}
-                          </td>
-
-                          <td className='feminine-alt'>
-                            {dataToRender.future_fem.future_fem_ty}
-                          </td>
-                          <td className='feminine'>
-                            {dataToRender.future_fem.future_fem_ona}
-                          </td>
-
-                          <td className='feminine-alt'>
-                            {dataToRender.future_fem.future_fem_my}
-                          </td>
-
-                          <td className='feminine'>
-                            {dataToRender.future_fem.future_fem_wy}
-                          </td>
-
-                          <td className='feminine-alt'>
-                            {dataToRender.future_fem.future_fem_one}
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
+                <TabPanel padding={0}>
+                  <div className='wrapper-future-masculine'>
+                    <ul className='polish-word-list'>
+                      <li> {dataToRender.future_masc.future_masc_ja} </li>
+                      <li>{dataToRender.future_masc.future_masc_ty}</li>
+                      <li> {dataToRender.future_masc.future_masc_on}</li>
+                      <li> {dataToRender.future_masc.future_masc_my}</li>
+                      <li> {dataToRender.future_masc.future_masc_wy} </li>
+                      <li> {dataToRender.future_masc.future_masc_oni}</li>
+                    </ul>
+                  </div>
+                </TabPanel>
+                <TabPanel padding={0}>
+                  <div className='wrapper-future-feminine'>
+                    <ul className='polish-word-list'>
+                      <li> {dataToRender.future_fem.future_fem_ja} </li>
+                      <li>{dataToRender.future_fem.future_fem_ty}</li>
+                      <li> {dataToRender.future_fem.future_fem_ona}</li>
+                      <li> {dataToRender.future_fem.future_fem_my} </li>
+                      <li> {dataToRender.future_fem.future_fem_wy}</li>
+                      <li> {dataToRender.future_fem.future_fem_one} </li>
+                    </ul>
+                  </div>
+                </TabPanel>
+                <TabPanel padding={0}>
+                  <div className='wrapper-future-imperfect'>
+                    <ul className='polish-word-list'>
+                      <li>{dataToRender.imp_future.imp_future_ja} </li>
+                      <li>{dataToRender.imp_future.imp_future_ty}</li>
+                      <li>{dataToRender.imp_future.imp_future_on_ona_ono} </li>
+                      <li>{dataToRender.imp_future.imp_future_my} </li>
+                      <li>{dataToRender.imp_future.imp_future_wy} </li>
+                      <li>{dataToRender.imp_future.imp_future_oni_one} </li>
+                    </ul>
+                  </div>
+                </TabPanel>
+                <TabPanel padding={0}>
+                  <div className='wrapper-conditional-masculine'>
+                    <ul className='polish-word-list'>
+                      <li>
+                        {
+                          dataToRender.conditional_masculine
+                            .conditional_masculine_ja
+                        }
+                      </li>
+                      <li>
+                        {
+                          dataToRender.conditional_masculine
+                            .conditional_masculine_ty
+                        }
+                      </li>
+                      <li>
+                        {
+                          dataToRender.conditional_masculine
+                            .conditional_masculine_on
+                        }{' '}
+                      </li>
+                      <li>
+                        {
+                          dataToRender.conditional_masculine
+                            .conditional_masculine_my
+                        }{' '}
+                      </li>
+                      <li>
+                        {
+                          dataToRender.conditional_masculine
+                            .conditional_masculine_wy
+                        }{' '}
+                      </li>
+                      <li>
+                        {
+                          dataToRender.conditional_masculine
+                            .conditional_masculine_oni
+                        }{' '}
+                      </li>
+                    </ul>
+                  </div>
+                </TabPanel>
+                <TabPanel padding={0}>
+                  <div className='wrapper-conditional-feminine'>
+                    <ul className='polish-word-list'>
+                      <li>
+                        {
+                          dataToRender.conditional_feminine
+                            .conditional_feminine_ja
+                        }
+                      </li>
+                      <li>
+                        {
+                          dataToRender.conditional_feminine
+                            .conditional_feminine_ty
+                        }
+                      </li>
+                      <li>
+                        {
+                          dataToRender.conditional_feminine
+                            .conditional_feminine_ona
+                        }
+                      </li>
+                      <li>
+                        {
+                          dataToRender.conditional_feminine
+                            .conditional_feminine_my
+                        }
+                      </li>
+                      <li>
+                        {
+                          dataToRender.conditional_feminine
+                            .conditional_feminine_wy
+                        }
+                      </li>
+                      <li>
+                        {
+                          dataToRender.conditional_feminine
+                            .conditional_feminine_one
+                        }
+                      </li>
+                    </ul>
+                  </div>
+                </TabPanel>
+                <TabPanel padding={0}>
+                  <div className='wrapper-imperative'>
+                    <ul className='polish-word-list'>
+                      <li>{dataToRender.imperative.imperative_ja} </li>
+                      <li>{dataToRender.imperative.imperative_ty}</li>
+                      <li>{dataToRender.imperative.imperative_on_ona_oni} </li>
+                      <li>{dataToRender.imperative.imperative_my} </li>
+                      <li>{dataToRender.imperative.imperative_wy} </li>
+                      <li>{dataToRender.imperative.imperative_oni} </li>
+                    </ul>
                   </div>
                 </TabPanel>
               </TabPanels>

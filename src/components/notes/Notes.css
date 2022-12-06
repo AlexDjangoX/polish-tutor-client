@@ -4,64 +4,64 @@
   background-repeat: no-repeat;
 }
 
-.table-wrapper-present,
-.table-wrapper-past,
-.table-wrapper-future,
-.future-imperfect,
-.table-wrapper-future-imperfect {
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.polish-word-list {
   display: grid;
+  grid-template-columns: repeat(3, 10rem);
+  grid-gap: 0.6rem;
+  place-content: space-around;
+  border: 2px solid black;
+  border-radius: 0.4rem;
 }
 
-.table-body {
-  display: grid;
-  place-content: center;
-  align-items: center;
-}
-
-.table-row {
-  text-align: center;
-
-  background-color: aquamarine;
-}
-
-table,
-th,
-td {
-  border: none;
-  text-align: center;
-  border-collapse: collapse;
-}
-
-.table-wrapper-present tr,
-.table-wrapper-past tr,
-.table-wrapper-future tr,
-.table-wrapper-future-imperfect tr {
-  width: 2rem;
-  height: 2.8rem;
-  margin: 2px;
-}
-
-.table-wrapper-present tr {
+.wrapper-present {
   background-color: rgb(32, 51, 173);
   color: rgb(199, 199, 199);
 }
 
-.table-wrapper-past tr {
-  background-color: rgb(56, 179, 144);
+.wrapper-past-masculine {
+  background-color: rgb(25, 81, 184);
+  color: rgb(199, 199, 199);
 }
 
-.table-wrapper-future tr {
-  background-color: rgb(56, 179, 144);
+.wrapper-past-feminine {
+  background-color: rgb(205, 76, 162);
+  color: rgb(199, 199, 199);
 }
 
-.table-wrapper-future-imperfect tr {
+.wrapper-future-masculine {
   background-color: rgb(56, 179, 144);
+  color: rgb(199, 199, 199);
 }
 
-.notes-wrapper td {
-  border: 4px solid rgba(255, 255, 255, 0);
-  border-radius: 12px;
-  padding: 4px;
+.wrapper-future-feminine {
+  background-color: rgb(56, 179, 144);
+  color: rgb(199, 199, 199);
+}
+
+.wrapper-future-imperfect {
+  background-color: rgb(56, 179, 144);
+  color: rgb(199, 199, 199);
+}
+
+.wrapper-conditional-masculine {
+  background-color: rgb(56, 179, 144);
+  color: rgb(199, 199, 199);
+}
+
+.wrapper-conditional-feminine {
+  background-color: rgb(56, 179, 144);
+  color: rgb(199, 199, 199);
+}
+
+.wrapper-imperative {
+  background-color: rgb(56, 179, 144);
+  color: rgb(199, 199, 199);
 }
 
 .translation {
@@ -72,6 +72,7 @@ td {
 
   grid-template-rows: auto auto;
   grid-template-columns: 6fr 10fr 6fr 10fr 1rem;
+  margin-top: 2rem;
 }
 
 .card-button-wrapper {
@@ -243,6 +244,10 @@ a:hover {
   .card-button-wrapper {
     margin-top: 3.5rem;
   }
+
+  .polish-word-list {
+    place-content: end;
+  }
 }
 
 @media screen and (max-width: 550px) {
@@ -287,10 +292,19 @@ a:hover {
     display: grid;
     grid-area: notes;
   }
+
+  .polish-word-list {
+    grid-template-columns: repeat(2, 10rem);
+    place-content: center;
+  }
 }
 
 @media screen and (max-width: 530px) {
   .update-notes-play-voice {
     width: 85%;
+  }
+
+  .user-notes-input {
+    margin-top: 6rem;
   }
 }

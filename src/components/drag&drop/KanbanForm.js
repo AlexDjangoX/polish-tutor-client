@@ -73,6 +73,30 @@ const initialData = {
     future_masc_wy: 'będziecie ',
     future_masc_oni: 'będą ',
   },
+  conditional_masculine: {
+    conditional_masculine_ja: '',
+    conditional_masculine_ty: '',
+    conditional_masculine_on: '',
+    conditional_masculine_my: '',
+    conditional_masculine_wy: '',
+    conditional_masculine_oni: '',
+  },
+  conditional_feminine: {
+    conditional_feminine_ja: '',
+    conditional_feminine_ty: '',
+    conditional_feminine_ona: '',
+    conditional_feminine_my: '',
+    conditional_feminine_wy: '',
+    conditional_feminine_one: '',
+  },
+  imperative: {
+    imperative_ja: '(*________*)',
+    imperative_ty: '(Ty) ',
+    imperative_on_ona_oni: '(On) ',
+    imperative_my: '(My) ',
+    imperative_wy: '(Wy) ',
+    imperative_oni: '(Oni) ',
+  },
 };
 
 const KanbanForm = ({
@@ -324,17 +348,15 @@ const KanbanForm = ({
                     <Tab>Future Masculine</Tab>
                     <Tab>Future Feminine</Tab>
                     <Tab>Future Imperfect</Tab>
-
-                    {/* <Tab>Conditional Feminine</Tab>
-                    <Tab>Conditional Perfect Feminine</Tab>
                     <Tab>Conditional Masculine</Tab>
-                    <Tab>Conditional Perfect Masculine</Tab> */}
+                    <Tab>Conditional Feminine</Tab>
+                    <Tab>Imperative</Tab>
                   </TabList>
                   <TabPanels>
                     <TabPanel>
                       <div className='present-tense'>
                         <div className='table-entry'>
-                          <label htmlFor='present_ja'>Czas teraźniejszy</label>
+                          <label htmlFor='present_ja'>Present</label>
                           <input
                             placeholder='Ja jestem'
                             id='present_ja'
@@ -350,7 +372,7 @@ const KanbanForm = ({
                           />
                         </div>
                         <div className='table-entry'>
-                          <label htmlFor='present_ty'>Czas teraźniejszy</label>
+                          <label htmlFor='present_ty'>Present</label>
                           <input
                             placeholder='Ty jesteś'
                             id='present_ty'
@@ -366,9 +388,7 @@ const KanbanForm = ({
                           />
                         </div>
                         <div className='table-entry'>
-                          <label htmlFor='present_on_ona_ono'>
-                            Czas teraźniejszy
-                          </label>
+                          <label htmlFor='present_on_ona_ono'>Present</label>
                           <input
                             placeholder='On jest'
                             id='present_on_ona_ono'
@@ -385,7 +405,7 @@ const KanbanForm = ({
                         </div>
 
                         <div className='table-entry'>
-                          <label htmlFor='present_my'>Czas teraźniejszy</label>
+                          <label htmlFor='present_my'>Present</label>
                           <input
                             placeholder='My jesteśmy'
                             id='present_my'
@@ -402,7 +422,7 @@ const KanbanForm = ({
                         </div>
 
                         <div className='table-entry'>
-                          <label htmlFor='present_wy'>Czas teraźniejszy</label>
+                          <label htmlFor='present_wy'>Present</label>
                           <input
                             placeholder='Wy jesteście'
                             id='present_wy'
@@ -419,9 +439,7 @@ const KanbanForm = ({
                         </div>
 
                         <div className='table-entry'>
-                          <label htmlFor='present_oni_one'>
-                            Czas teraźniejszy
-                          </label>
+                          <label htmlFor='present_oni_one'>Present</label>
                           <input
                             placeholder='Oni/one są'
                             id='present_oni_one'
@@ -442,7 +460,7 @@ const KanbanForm = ({
                     <TabPanel>
                       <div className='past-masculine'>
                         <div className='table-entry'>
-                          <label htmlFor='past_ja_masc'>Przeszłość męska</label>
+                          <label htmlFor='past_ja_masc'>Past</label>
                           <input
                             placeholder='Ja byłem'
                             id='past_ja_masc'
@@ -458,7 +476,7 @@ const KanbanForm = ({
                         </div>
 
                         <div className='table-entry'>
-                          <label htmlFor='past_ty_masc'>Przeszłość męska</label>
+                          <label htmlFor='past_ty_masc'>Past</label>
                           <input
                             placeholder='Ty byłeś'
                             id='past_ty_masc'
@@ -474,7 +492,7 @@ const KanbanForm = ({
                         </div>
 
                         <div className='table-entry'>
-                          <label htmlFor='past_on_masc'>Przeszłość męska</label>
+                          <label htmlFor='past_on_masc'>Past</label>
                           <input
                             placeholder='On był'
                             id='past_on_masc'
@@ -490,7 +508,7 @@ const KanbanForm = ({
                         </div>
 
                         <div className='table-entry'>
-                          <label htmlFor='past_my_masc'>Przeszłość męska</label>
+                          <label htmlFor='past_my_masc'>Past</label>
                           <input
                             placeholder='My byliśmy'
                             id='past_my_masc'
@@ -506,7 +524,7 @@ const KanbanForm = ({
                         </div>
 
                         <div className='table-entry'>
-                          <label htmlFor='past_wy_masc'>Przeszłość męska</label>
+                          <label htmlFor='past_wy_masc'>Past</label>
                           <input
                             placeholder='Wy byliście'
                             id='past_wy_masc'
@@ -522,9 +540,7 @@ const KanbanForm = ({
                         </div>
 
                         <div className='table-entry'>
-                          <label htmlFor='past_oni_masc'>
-                            Przeszłość męska
-                          </label>
+                          <label htmlFor='past_oni_masc'>Past</label>
                           <input
                             placeholder='Oni byli'
                             id='past_oni_masc'
@@ -543,7 +559,7 @@ const KanbanForm = ({
                     <TabPanel>
                       <div className='past-feminine'>
                         <div className='table-entry'>
-                          <label htmlFor='past_ja_fem'>Przeszłość żeński</label>
+                          <label htmlFor='past_ja_fem'>Past</label>
                           <input
                             placeholder='Ja byłam'
                             id='past_ja_fem'
@@ -559,7 +575,7 @@ const KanbanForm = ({
                         </div>
 
                         <div className='table-entry'>
-                          <label htmlFor='past_ty_fem'>Przeszłość żeński</label>
+                          <label htmlFor='past_ty_fem'>Past</label>
                           <input
                             placeholder='Ty byłaś'
                             id='past_ty_fem'
@@ -575,9 +591,7 @@ const KanbanForm = ({
                         </div>
 
                         <div className='table-entry'>
-                          <label htmlFor='past_ona_fem'>
-                            Przeszłość żeński
-                          </label>
+                          <label htmlFor='past_ona_fem'>Past</label>
                           <input
                             placeholder='Ona była'
                             id='past_ona_fem'
@@ -593,7 +607,7 @@ const KanbanForm = ({
                         </div>
 
                         <div className='table-entry'>
-                          <label htmlFor='past_my_fem'>Przeszłość żeński</label>
+                          <label htmlFor='past_my_fem'>Past</label>
                           <input
                             placeholder='My byłyśmy'
                             id='past_my_fem'
@@ -609,7 +623,7 @@ const KanbanForm = ({
                         </div>
 
                         <div className='table-entry'>
-                          <label htmlFor='past_wy_fem'>Przeszłość żeński</label>
+                          <label htmlFor='past_wy_fem'>Past</label>
                           <input
                             placeholder='Wy byłyście'
                             id='past_wy_fem'
@@ -625,9 +639,7 @@ const KanbanForm = ({
                         </div>
 
                         <div className='table-entry'>
-                          <label htmlFor='past_one_fem'>
-                            Przeszłość żeński
-                          </label>
+                          <label htmlFor='past_one_fem'>Past</label>
                           <input
                             placeholder='One były'
                             id='past_one_fem'
@@ -646,7 +658,7 @@ const KanbanForm = ({
                     <TabPanel>
                       <div className='future-masculine'>
                         <div className='table-entry'>
-                          <label htmlFor='future_masc_ja'>Przyszły męski</label>
+                          <label htmlFor='future_masc_ja'>Future</label>
                           <input
                             placeholder='Ja będę'
                             id='future_masc_ja'
@@ -662,7 +674,7 @@ const KanbanForm = ({
                         </div>
 
                         <div className='table-entry'>
-                          <label htmlFor='future_masc_ty'>Przyszły męski</label>
+                          <label htmlFor='future_masc_ty'>Future</label>
                           <input
                             placeholder='Ty będziesz'
                             id='future_masc_ty'
@@ -678,7 +690,7 @@ const KanbanForm = ({
                         </div>
 
                         <div className='table-entry'>
-                          <label htmlFor='future_masc_on'>Przyszły męski</label>
+                          <label htmlFor='future_masc_on'>Future</label>
                           <input
                             placeholder='On będzie'
                             id='future_masc_on'
@@ -694,7 +706,7 @@ const KanbanForm = ({
                         </div>
 
                         <div className='table-entry'>
-                          <label htmlFor='future_masc_my'>Przyszły męski</label>
+                          <label htmlFor='future_masc_my'>Future</label>
                           <input
                             placeholder='My będziemy'
                             id='future_masc_my'
@@ -710,7 +722,7 @@ const KanbanForm = ({
                         </div>
 
                         <div className='table-entry'>
-                          <label htmlFor='future_masc_wy'>Przyszły męski</label>
+                          <label htmlFor='future_masc_wy'>Future</label>
                           <input
                             placeholder='Wy będziecie'
                             id='future_masc_wy'
@@ -726,9 +738,7 @@ const KanbanForm = ({
                         </div>
 
                         <div className='table-entry'>
-                          <label htmlFor='future_masc_oni'>
-                            Przyszły męski
-                          </label>
+                          <label htmlFor='future_masc_oni'>Future</label>
                           <input
                             placeholder='Oni będą'
                             id='future_masc_oni'
@@ -747,7 +757,7 @@ const KanbanForm = ({
                     <TabPanel>
                       <div className='future-feminine'>
                         <div className='table-entry'>
-                          <label htmlFor='future_fem_ja'>Przyszły żeński</label>
+                          <label htmlFor='future_fem_ja'>Future</label>
                           <input
                             placeholder='Ja będę'
                             id='future_fem_ja'
@@ -764,7 +774,7 @@ const KanbanForm = ({
 
                         <div className='table-entry'>
                           {' '}
-                          <label htmlFor='future_fem_ty'>Przyszły żeński</label>
+                          <label htmlFor='future_fem_ty'>Future</label>
                           <input
                             placeholder='Ty będziesz'
                             id='future_fem_ty'
@@ -780,9 +790,7 @@ const KanbanForm = ({
                         </div>
 
                         <div className='table-entry'>
-                          <label htmlFor='future_fem_ona'>
-                            Przyszły żeński
-                          </label>
+                          <label htmlFor='future_fem_ona'>Future</label>
                           <input
                             placeholder='Ona będzie'
                             id='future_fem_ona'
@@ -799,7 +807,7 @@ const KanbanForm = ({
 
                         <div className='table-entry'>
                           {' '}
-                          <label htmlFor='future_fem_my'>Przyszły żeński</label>
+                          <label htmlFor='future_fem_my'>Future</label>
                           <input
                             placeholder='My będziemy'
                             id='future_fem_my'
@@ -815,7 +823,7 @@ const KanbanForm = ({
                         </div>
 
                         <div className='table-entry'>
-                          <label htmlFor='future_fem_wy'>Przyszły żeński</label>
+                          <label htmlFor='future_fem_wy'>Future</label>
                           <input
                             placeholder='Wy będziecie'
                             id='future_fem_wy'
@@ -831,9 +839,7 @@ const KanbanForm = ({
                         </div>
 
                         <div className='table-entry'>
-                          <label htmlFor='future_fem_one'>
-                            Przyszły żeński
-                          </label>
+                          <label htmlFor='future_fem_one'>Future</label>
                           <input
                             placeholder='Oni będą'
                             id='future_fem_one'
@@ -852,10 +858,7 @@ const KanbanForm = ({
                     <TabPanel>
                       <div className='future-imperfect'>
                         <div className='table-entry'>
-                          {' '}
-                          <label htmlFor='imp_future_ja'>
-                            Przyszły niedoskonały
-                          </label>
+                          <label htmlFor='imp_future_ja'>Imperfect</label>
                           <input
                             placeholder=''
                             id='imp_future_ja'
@@ -872,9 +875,7 @@ const KanbanForm = ({
 
                         <div className='table-entry'>
                           {' '}
-                          <label htmlFor='imp_future_ty'>
-                            Przyszły niedoskonały
-                          </label>
+                          <label htmlFor='imp_future_ty'>Imperfect</label>
                           <input
                             placeholder=''
                             id='imp_future_ty'
@@ -891,7 +892,7 @@ const KanbanForm = ({
 
                         <div className='table-entry'>
                           <label htmlFor='imp_future_on_ona_ono'>
-                            Przyszły niedoskonały
+                            Imperfect
                           </label>
                           <input
                             placeholder=''
@@ -908,9 +909,7 @@ const KanbanForm = ({
                         </div>
 
                         <div className='table-entry'>
-                          <label htmlFor='imp_future_my'>
-                            Przyszły niedoskonały
-                          </label>
+                          <label htmlFor='imp_future_my'>Imperfect</label>
                           <input
                             placeholder=''
                             id='imp_future_my'
@@ -926,9 +925,7 @@ const KanbanForm = ({
                         </div>
 
                         <div className='table-entry'>
-                          <label htmlFor='imp_future_wy'>
-                            Przyszły niedoskonały
-                          </label>
+                          <label htmlFor='imp_future_wy'>Imperfect</label>
                           <input
                             placeholder=''
                             id='imp_future_wy'
@@ -944,9 +941,7 @@ const KanbanForm = ({
                         </div>
 
                         <div className='table-entry'>
-                          <label htmlFor='imp_future_oni_one'>
-                            Przyszły niedoskonały
-                          </label>
+                          <label htmlFor='imp_future_oni_one'>Imperfect</label>
                           <input
                             placeholder=''
                             id='imp_future_oni_one'
@@ -957,6 +952,349 @@ const KanbanForm = ({
                               isEditing
                                 ? currentVerb.imp_future.imp_future_oni_one
                                 : verb.imp_future.imp_future_oni_one
+                            }
+                          />
+                        </div>
+                      </div>
+                    </TabPanel>
+                    <TabPanel>
+                      <div className='conditional-masculine'>
+                        <div className='table-entry'>
+                          <label htmlFor='conditional_masculine_ja'>
+                            Conditional
+                          </label>
+                          <input
+                            placeholder='Masculine'
+                            id='conditional_masculine_ja'
+                            type='text'
+                            name='conditional_masculine_ja'
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.conditional_masculine
+                                    .conditional_masculine_ja
+                                : verb.conditional_masculine
+                                    .conditional_masculine_ja
+                            }
+                          />
+                        </div>
+
+                        <div className='table-entry'>
+                          {' '}
+                          <label htmlFor='conditional_masculine_ty'>
+                            Conditional
+                          </label>
+                          <input
+                            placeholder='Masculine'
+                            id='conditional_masculine_ty'
+                            type='text'
+                            name='conditional_masculine_ty'
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.conditional_masculine
+                                    .conditional_masculine_ty
+                                : verb.conditional_masculine
+                                    .conditional_masculine_ty
+                            }
+                          />
+                        </div>
+
+                        <div className='table-entry'>
+                          <label htmlFor='conditional_masculine_on'>
+                            Conditional
+                          </label>
+                          <input
+                            placeholder='Masculine'
+                            id='conditional_masculine_on'
+                            type='text'
+                            name='conditional_masculine_on'
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.conditional_masculine
+                                    .conditional_masculine_on
+                                : verb.conditional_masculine
+                                    .conditional_masculine_on
+                            }
+                          />
+                        </div>
+
+                        <div className='table-entry'>
+                          <label htmlFor='conditional_masculine_my'>
+                            Conditional
+                          </label>
+                          <input
+                            placeholder='Masculine'
+                            id='conditional_masculine_my'
+                            type='text'
+                            name='conditional_masculine_my'
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.conditional_masculine
+                                    .conditional_masculine_my
+                                : verb.conditional_masculine
+                                    .conditional_masculine_my
+                            }
+                          />
+                        </div>
+
+                        <div className='table-entry'>
+                          <label htmlFor='conditional_masculine_wy'>
+                            Conditional
+                          </label>
+                          <input
+                            placeholder='Masculine'
+                            id='conditional_masculine_wy'
+                            type='text'
+                            name='conditional_masculine_wy'
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.conditional_masculine
+                                    .conditional_masculine_wy
+                                : verb.conditional_masculine
+                                    .conditional_masculine_wy
+                            }
+                          />
+                        </div>
+
+                        <div className='table-entry'>
+                          <label htmlFor='conditional_masculine_oni'>
+                            Conditional
+                          </label>
+                          <input
+                            placeholder='Masculine'
+                            id='conditional_masculine_oni'
+                            type='text'
+                            name='conditional_masculine_oni'
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.conditional_masculine
+                                    .conditional_masculine_oni
+                                : verb.conditional_masculine
+                                    .conditional_masculine_oni
+                            }
+                          />
+                        </div>
+                      </div>
+                    </TabPanel>
+                    <TabPanel>
+                      <div className='conditional-feminine'>
+                        <div className='table-entry'>
+                          <label htmlFor='conditional_feminine_ja'>
+                            Conditional
+                          </label>
+                          <input
+                            placeholder='Feminine'
+                            id='conditional_feminine_ja'
+                            type='text'
+                            name='conditional_feminine_ja'
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.conditional_feminine
+                                    .conditional_feminine_ja
+                                : verb.conditional_feminine
+                                    .conditional_feminine_ja
+                            }
+                          />
+                        </div>
+
+                        <div className='table-entry'>
+                          <label htmlFor='conditional_feminine_ty'>
+                            Conditional
+                          </label>
+                          <input
+                            placeholder='Feminine'
+                            id='conditional_feminine_ty'
+                            type='text'
+                            name='conditional_feminine_ty'
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.conditional_feminine
+                                    .conditional_feminine_ty
+                                : verb.conditional_feminine
+                                    .conditional_feminine_ty
+                            }
+                          />
+                        </div>
+
+                        <div className='table-entry'>
+                          <label htmlFor='conditional_feminine_ona'>
+                            Conditional
+                          </label>
+                          <input
+                            placeholder='Feminine'
+                            id='conditional_feminine_ona'
+                            type='text'
+                            name='conditional_feminine_ona'
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.conditional_feminine
+                                    .conditional_feminine_ona
+                                : verb.conditional_feminine
+                                    .conditional_feminine_ona
+                            }
+                          />
+                        </div>
+
+                        <div className='table-entry'>
+                          <label htmlFor='conditional_feminine_my'>
+                            Conditional
+                          </label>
+                          <input
+                            placeholder='Feminine'
+                            id='conditional_feminine_my'
+                            type='text'
+                            name='conditional_feminine_my'
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.conditional_feminine
+                                    .conditional_feminine_my
+                                : verb.conditional_feminine
+                                    .conditional_feminine_my
+                            }
+                          />
+                        </div>
+
+                        <div className='table-entry'>
+                          <label htmlFor='conditional_feminine_wy'>
+                            Conditional
+                          </label>
+                          <input
+                            placeholder='Feminine'
+                            id='conditional_feminine_wy'
+                            type='text'
+                            name='conditional_feminine_wy'
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.conditional_feminine
+                                    .conditional_feminine_wy
+                                : verb.conditional_feminine
+                                    .conditional_feminine_wy
+                            }
+                          />
+                        </div>
+
+                        <div className='table-entry'>
+                          <label htmlFor='conditional_feminine_one'>
+                            Conditional
+                          </label>
+                          <input
+                            placeholder='Feminine'
+                            id='conditional_feminine_one'
+                            type='text'
+                            name='conditional_feminine_one'
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.conditional_feminine
+                                    .conditional_feminine_one
+                                : verb.conditional_feminine
+                                    .conditional_feminine_one
+                            }
+                          />
+                        </div>
+                      </div>
+                    </TabPanel>
+                    <TabPanel>
+                      <div className='imperative'>
+                        <div className='table-entry'>
+                          <label htmlFor='imperative_ja'>Imperative</label>
+                          <input
+                            placeholder='*_________*'
+                            id='imperative_ja'
+                            type='text'
+                            name='imperative_ja'
+                            value='*_________*'
+                          />
+                        </div>
+
+                        <div className='table-entry'>
+                          <label htmlFor='imperative_ty'>Imperative</label>
+                          <input
+                            placeholder='Ty'
+                            id='imperative_ty'
+                            type='text'
+                            name='imperative_ty'
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.imperative.imperative_ty
+                                : verb.imperative.imperative_ty
+                            }
+                          />
+                        </div>
+
+                        <div className='table-entry'>
+                          <label htmlFor='imperative_on_ona_oni'>
+                            Imperative
+                          </label>
+                          <input
+                            placeholder='On, ona, oni'
+                            id='imperative_on_ona_oni'
+                            type='text'
+                            name='imperative_on_ona_oni'
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.imperative.imperative_on_ona_oni
+                                : verb.imperative.imperative_on_ona_oni
+                            }
+                          />
+                        </div>
+
+                        <div className='table-entry'>
+                          <label htmlFor='imperative_my'>Imperative</label>
+                          <input
+                            placeholder='My'
+                            id='imperative_my'
+                            type='text'
+                            name='imperative_my'
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.imperative.imperative_my
+                                : verb.imperative.imperative_my
+                            }
+                          />
+                        </div>
+
+                        <div className='table-entry'>
+                          <label htmlFor='imperative_wy'>Imperative</label>
+                          <input
+                            placeholder='Wy'
+                            id='imperative_wy'
+                            type='text'
+                            name='imperative_wy'
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.imperative.imperative_wy
+                                : verb.imperative.imperative_wy
+                            }
+                          />
+                        </div>
+
+                        <div className='table-entry'>
+                          <label htmlFor='imperative_oni'>Imperative</label>
+                          <input
+                            placeholder='Oni, one'
+                            id='imperative_oni'
+                            type='text'
+                            name='imperative_oni'
+                            onChange={handleChange}
+                            value={
+                              isEditing
+                                ? currentVerb.imperative.imperative_oni
+                                : verb.imperative.imperative_oni
                             }
                           />
                         </div>
