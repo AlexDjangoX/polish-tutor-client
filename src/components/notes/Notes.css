@@ -15,53 +15,43 @@ ul {
   grid-template-columns: repeat(3, 10rem);
   grid-gap: 0.6rem;
   place-content: space-around;
-  border: 2px solid black;
-  border-radius: 0.4rem;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 1rem;
 }
 
 .wrapper-present {
-  background-color: rgb(32, 51, 173);
-  color: rgb(199, 199, 199);
+  background-color: rgb(3, 115, 83);
+  color: rgb(255, 255, 255);
+  border-radius: 1rem;
 }
 
-.wrapper-past-masculine {
-  background-color: rgb(25, 81, 184);
-  color: rgb(199, 199, 199);
+.wrapper-past-masculine,
+.wrapper-future-masculine,
+.wrapper-conditional-masculine {
+  background-color: rgb(25, 44, 172);
+
+  color: rgb(255, 255, 255);
+  border-radius: 1rem;
 }
 
-.wrapper-past-feminine {
-  background-color: rgb(205, 76, 162);
-  color: rgb(199, 199, 199);
-}
-
-.wrapper-future-masculine {
-  background-color: rgb(56, 179, 144);
-  color: rgb(199, 199, 199);
-}
-
-.wrapper-future-feminine {
-  background-color: rgb(56, 179, 144);
-  color: rgb(199, 199, 199);
+.wrapper-past-feminine,
+.wrapper-future-feminine,
+.wrapper-conditional-feminine {
+  background-color: rgb(205, 65, 84);
+  color: rgb(255, 255, 255);
+  border-radius: 1rem;
 }
 
 .wrapper-future-imperfect {
-  background-color: rgb(56, 179, 144);
-  color: rgb(199, 199, 199);
-}
-
-.wrapper-conditional-masculine {
-  background-color: rgb(56, 179, 144);
-  color: rgb(199, 199, 199);
-}
-
-.wrapper-conditional-feminine {
-  background-color: rgb(56, 179, 144);
-  color: rgb(199, 199, 199);
+  background-color: rgb(236, 175, 43);
+  color: rgb(255, 255, 255);
+  border-radius: 1rem;
 }
 
 .wrapper-imperative {
-  background-color: rgb(56, 179, 144);
-  color: rgb(199, 199, 199);
+  background-color: rgb(255, 0, 0);
+  color: rgb(255, 255, 255);
+  border-radius: 1rem;
 }
 
 .translation {
