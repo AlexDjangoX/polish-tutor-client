@@ -298,3 +298,23 @@ a:hover {
     margin-top: 6rem;
   }
 }
+
+@media screen and (max-width: 400px) {
+  .polish-word-list {
+    place-content: end;
+  }
+
+  li {
+    margin-left: 2rem;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  li:nth-child(odd) {
+    margin-left: 2.5rem;
+  }
+
+  li:nth-child(even) {
+    margin-left: 2.6rem;
+  }
+}
