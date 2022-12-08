@@ -8,6 +8,60 @@
   font-weight: 300;
 }
 
+.wrapper-form {
+}
+
+.wrapper-field-inputs {
+  display: grid;
+  grid-template-areas:
+    '. polish english case submit .'
+    '. radio  image . exit .';
+
+  background-color: rgb(40, 103, 249);
+  border-radius: 0.4rem;
+  padding-bottom: 2rem;
+}
+
+.polish-infinitive {
+  display: grid;
+  grid-area: polish;
+  margin-left: 0.5rem;
+}
+
+.english-infinitive {
+  display: grid;
+  grid-area: english;
+  margin-left: 0.5rem;
+}
+
+.image_url {
+  display: grid;
+  grid-area: image;
+  padding-left: 0.4rem;
+}
+
+.radio-buttons {
+  display: grid;
+  grid-area: radio;
+}
+
+.gram-case {
+  display: grid;
+  grid-area: case;
+  margin-left: 0.5rem;
+}
+
+.submit-button {
+  display: grid;
+  grid-area: submit;
+  padding-top: 2.4rem;
+}
+
+.close-modal-button {
+  display: grid;
+  grid-area: exit;
+}
+
 .present-tense,
 .past-masculine,
 .past-feminine,
@@ -18,36 +72,31 @@
 .conditional-feminine,
 .imperative {
   display: grid;
-  grid-auto-flow: column;
-  background-color: rgb(43, 119, 226);
+  grid-template-columns: repeat(6, 10rem);
   border-radius: 0.4rem;
+  margin: 0.4rem;
+  overflow: scroll;
 }
 
 .table-entry {
   display: grid;
   justify-content: center;
-  margin: 1rem;
+  background-color: rgb(0, 128, 255);
   border: 1px solid blue;
   border-radius: 0.4rem;
-  padding-top: 1rem;
   padding-bottom: 1rem;
 }
 
-.radio-buttons {
-  display: grid;
-  padding-top: 1rem;
-}
-
-.close-modal-button,
-.submit-button {
-  display: grid;
-  margin-top: 1.6rem;
+form,
+.kanbanform-form {
+  height: 80vh;
+  overflow: scroll;
 }
 
 label {
   display: grid;
   justify-content: left;
-  padding: 0.2rem 0.6rem;
+  padding: 0.4rem 0.2rem 0rem 0.2rem;
   font-size: 1rem;
 }
 
@@ -55,14 +104,89 @@ input {
   display: grid;
   justify-content: center;
   border-radius: 0.4rem;
-  padding: 0.4rem 1rem;
+  padding: 0.1rem 1rem;
   margin: 0;
   font-size: 1.2rem;
-  width: 10rem;
+  width: 9rem;
+}
+
+select {
+  border: 2px solid purple;
+  width: 8rem;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
 }
 
 input::placeholder {
   color: rgba(5, 5, 5, 0.564);
-  padding-left: 2rem;
+  padding-left: 0.1rem;
   font-size: 1rem;
+}
+
+@media screen and (max-width: 1000px) {
+  .present-tense,
+  .past-masculine,
+  .past-feminine,
+  .future-imperfect,
+  .future-feminine,
+  .future-masculine,
+  .conditional-masculine,
+  .conditional-feminine,
+  .imperative {
+    grid-template-columns: repeat(4, 10rem);
+    place-content: center;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .present-tense,
+  .past-masculine,
+  .past-feminine,
+  .future-imperfect,
+  .future-feminine,
+  .future-masculine,
+  .conditional-masculine,
+  .conditional-feminine,
+  .imperative {
+    grid-template-columns: repeat(3, 10rem);
+    place-content: center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .wrapper-field-inputs {
+    display: grid;
+    grid-template-areas:
+      '. polish english case . .'
+      '. radio  image . . .'
+      '. submit  . exit . .';
+
+    background-color: rgb(40, 103, 249);
+    padding-bottom: 1rem;
+  }
+
+  .submit-button {
+    padding-top: 1.2rem;
+  }
+
+  .close-modal-button {
+    padding-top: 1.2rem;
+  }
+
+  input,
+  select {
+    width: 7rem;
+  }
+
+  .heading-kanban {
+    font-size: 1.6rem;
+  }
+
+  .table-entry {
+    margin: 0;
+    border-radius: 0;
+    padding-top: 0;
+  }
 }

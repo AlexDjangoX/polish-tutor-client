@@ -168,9 +168,6 @@ a:hover {
 .update-notes-play-voice {
   display: grid;
   grid-auto-flow: column;
-
-  place-content: center;
-  padding: 10px;
   margin: 0.2rem;
 }
 
@@ -290,10 +287,6 @@ a:hover {
 }
 
 @media screen and (max-width: 530px) {
-  .update-notes-play-voice {
-    width: 85%;
-  }
-
   .user-notes-input {
     margin-top: 6rem;
   }

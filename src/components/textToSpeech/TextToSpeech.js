@@ -13,8 +13,8 @@ const TextToSpeech = ({ data, voices }) => {
   const voice = voices[voiceIndex] || '';
 
   return (
-    <div>
-      <div className='text-to-speech-wrapper'>
+    <div className='text-to-speech-wrapper'>
+      <div className='player-wrapper'>
         {!supported && (
           <p>
             Oh no, it looks like your browser doesn&#39;t support Speech
@@ -73,7 +73,7 @@ const TextToSpeech = ({ data, voices }) => {
               }}
             />
 
-            <label htmlFor='pitch'>Pitch: </label>
+            {/* <label htmlFor='pitch'>Pitch: </label>
             <p className='span'>{pitch}</p>
             <input
               type='range'
@@ -85,7 +85,7 @@ const TextToSpeech = ({ data, voices }) => {
               onChange={(event) => {
                 setPitch(event.target.value);
               }}
-            />
+            /> */}
           </>
         )}
       </div>

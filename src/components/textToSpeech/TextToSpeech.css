@@ -1,5 +1,10 @@
 /* Make text to speech wrapper display all items inline no mater the screen size have a background with border-radius */
 .text-to-speech-wrapper {
+  display: grid;
+  place-content: center;
+}
+
+.player-wrapper {
   display: flex;
   flex-wrap: nowrap;
   background-color: rgba(0, 34, 255, 0.532);
@@ -12,14 +17,14 @@
   border-radius: 50px;
   box-shadow: rgba(0, 34, 255, 0.447) 8px 4px 12px;
 }
-.text-to-speech-wrapper > select {
+.player-wrapper > select {
   margin: 0px 5px;
   background-color: transparent;
   color: white;
   border-radius: 50px;
   cursor: pointer;
 }
-.text-to-speech-wrapper > select > option {
+.player-wrapper > select > option {
   background-color: black;
 }
 /* add color to button and make the button round */

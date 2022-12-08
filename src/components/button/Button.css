@@ -28,11 +28,6 @@
   transition: all 0.4s ease-out;
 }
 
-/* .btn--medium {
-  padding: 0.5rem 1rem;
-  font-size: 1.6rem;
-} */
-
 .btn--large {
   padding: 0.7rem 1.2rem;
 }
@@ -52,11 +47,11 @@
 }
 
 .btn--add-new-verb {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   background-color: red;
   color: white;
   font-weight: 500;
-  margin: 1rem;
+  /* margin: 1rem; */
 }
 
 .btn--add-new-verb,

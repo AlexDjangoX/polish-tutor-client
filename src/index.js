@@ -18,6 +18,8 @@ root.render(
       redirectUri={`${window.location.origin}`}
       audience='https://www.polish-api.com'
       scope='openid profile email'
+      useRefreshTokens
+      cacheLocation='localstorage'
     >
       <App />
     </Auth0Provider>
