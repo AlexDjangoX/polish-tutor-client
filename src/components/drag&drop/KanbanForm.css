@@ -76,6 +76,7 @@
   border-radius: 0.4rem;
   margin: 0.4rem;
   overflow: scroll;
+  place-content: center;
 }
 
 .table-entry {
@@ -89,7 +90,6 @@
 
 form,
 .kanbanform-form {
-  height: 80vh;
   overflow: scroll;
 }
 
@@ -136,7 +136,6 @@ input::placeholder {
   .conditional-feminine,
   .imperative {
     grid-template-columns: repeat(4, 10rem);
-    place-content: center;
   }
 }
 
@@ -151,7 +150,6 @@ input::placeholder {
   .conditional-feminine,
   .imperative {
     grid-template-columns: repeat(3, 10rem);
-    place-content: center;
   }
 }
 
@@ -189,4 +187,23 @@ input::placeholder {
     border-radius: 0;
     padding-top: 0;
   }
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgb(144, 205, 244);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(144, 205, 244);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

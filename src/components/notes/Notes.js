@@ -379,6 +379,7 @@ const Notes = ({ columns, setColumns }) => {
                         id='pl-eng'
                         name='pl-eng'
                         value={'"source":"pl","target":"en"'}
+                        checked={true}
                       >
                         Pol-Eng
                       </Radio>

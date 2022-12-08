@@ -325,7 +325,7 @@ const KanbanForm = ({
               </div>
             </div>
             <Box bg='blue.200' w='100%'>
-              <Tabs isFitted variant='soft-rounded' colorScheme='blue' p={'5'}>
+              <Tabs isFitted variant='soft-rounded' colorScheme='blue'>
                 <TabList mb='0.1'>
                   <Tab>Present Tense</Tab>
                   <Tab>Past Masculine</Tab>
