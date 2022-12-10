@@ -222,4 +222,13 @@ input::placeholder {
     overflow: scroll;
     scrollbar-width: none;
   }
+
+  .kanbanform-form::-webkit-scrollbar {
+    display: none;
+  }
+
+  .kanbanform-form {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }
