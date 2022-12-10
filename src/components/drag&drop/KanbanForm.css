@@ -242,12 +242,13 @@ input::placeholder {
 
 @media screen and (max-height: 800px) {
   form {
-    height: 650px;
+    height: 550px;
     overflow: scroll;
+    scrollbar-width: none;
   }
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   width: 1px;
 }
 
@@ -261,4 +262,4 @@ input::placeholder {
 
 ::-webkit-scrollbar-thumb:hover {
   background: transparent;
-}
+} */
