@@ -11,8 +11,6 @@ import {
   TabPanel,
   TabPanels,
   Tabs,
-  Grid,
-  GridItem,
   Radio,
   RadioGroup,
   Stack,
@@ -192,9 +190,9 @@ const KanbanForm = ({
 
   return (
     <>
-      <h1 className='heading-kanban'>
+      <p className='heading-kanban'>
         Pattern recognition, association and iconisation
-      </h1>
+      </p>
 
       <form className='kanbanform-form'>
         <ChakraProvider>
@@ -324,8 +322,17 @@ const KanbanForm = ({
                 </Button>
               </div>
             </div>
-            <Box bg='blue.200' w='100%'>
-              <Tabs isFitted variant='soft-rounded' colorScheme='blue'>
+            <Box bg='blue.200' w='100%' h={350}>
+              <Tabs
+                isFitted
+                variant='soft-rounded'
+                colorScheme='blue'
+                pt={4}
+                pl={2}
+                pr={2}
+                w='100%'
+                bg='blue.200'
+              >
                 <TabList mb='0.1'>
                   <Tab>Present Tense</Tab>
                   <Tab>Past Masculine</Tab>
