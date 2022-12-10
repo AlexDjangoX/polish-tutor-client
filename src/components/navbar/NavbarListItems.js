@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import LoginButton from '../auth/LoginButton';
 import LogOutButton from '../auth/LogOutButton';
 
@@ -14,6 +14,12 @@ const NavbarListItems = () => {
           Home
         </Link>
       </li>
+
+      {/* <li className='navbar-list-item'>
+        <Link to='/nouns' className='navbar-link'>
+          Nouns
+        </Link>
+      </li> */}
 
       <li className='navbar-list-item'>
         <Link to='/kanban' className='navbar-link'>

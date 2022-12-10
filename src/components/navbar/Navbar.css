@@ -27,7 +27,7 @@
   background: url('../../../public/images/flag_icon.jpg');
   height: 5rem;
   width: 5rem;
-
+  margin-right: 1rem;
   background-position: 0%;
   background-repeat: no-repeat;
   background-size: cover;

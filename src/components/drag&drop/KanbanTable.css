@@ -28,6 +28,8 @@ tbody tr:nth-of-type(even) {
 }
 
 .card-image-kanban {
+  display: grid;
+  place-content: center;
   height: auto;
   width: auto;
   padding: 0.8rem 0rem;

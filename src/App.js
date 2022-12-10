@@ -5,6 +5,7 @@ import Hero from './components/hero/Hero';
 import Kanban from './components/drag&drop/Kanban';
 import Profile from './components/profile/Profile';
 import Notes from './components/notes/Notes';
+import Nouns from './components/nouns/Nouns';
 import './App.css';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' element={<Hero />} />
+        <Route path='/nouns' element={<Nouns />} />
         <Route
           path='/notatki'
           element={<Notes columns={columns} setColumns={setColumns} />}

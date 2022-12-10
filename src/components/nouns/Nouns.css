@@ -1,0 +1,5 @@
+.auto-fit-column-spotify {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+  grid-gap: 2.5rem;
+}

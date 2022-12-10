@@ -136,23 +136,11 @@ input::placeholder {
   .conditional-masculine,
   .conditional-feminine,
   .imperative {
-    grid-template-columns: repeat(4, 10rem);
+    grid-template-columns: repeat(3, 10rem);
   }
 }
 
 @media screen and (max-width: 750px) {
-  .present-tense,
-  .past-masculine,
-  .past-feminine,
-  .future-imperfect,
-  .future-feminine,
-  .future-masculine,
-  .conditional-masculine,
-  .conditional-feminine,
-  .imperative {
-    grid-template-columns: repeat(3, 10rem);
-  }
-
   .heading-kanban {
     font-size: 1.8rem;
   }
@@ -213,18 +201,6 @@ input::placeholder {
 }
 
 @media screen and (max-width: 420px) {
-  .present-tense,
-  .past-masculine,
-  .past-feminine,
-  .future-imperfect,
-  .future-feminine,
-  .future-masculine,
-  .conditional-masculine,
-  .conditional-feminine,
-  .imperative {
-    grid-template-columns: repeat(2, 10rem);
-  }
-
   input {
     width: 7rem;
   }
@@ -241,7 +217,7 @@ input::placeholder {
 }
 
 @media screen and (max-height: 800px) {
-  form {
+  form .kanbanform-form {
     height: 550px;
     overflow: scroll;
     scrollbar-width: none;
