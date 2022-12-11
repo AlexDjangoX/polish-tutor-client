@@ -6,6 +6,8 @@
   background-image: url('../../../public/images/background.png');
   background-size: cover;
   background-repeat: no-repeat;
+
+  overscroll-behavior: contain;
 }
 
 .wrapper-modal {

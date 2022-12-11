@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.c9cb3810.css",
+    "main.css": "/static/css/main.70495987.css",
     "main.js": "/static/js/main.67a8f1b6.js",
     "static/media/earth.mp4": "/static/media/earth.ad32dfa50eca1bfd19ca.mp4",
     "static/media/background.png": "/static/media/background.5fc571ccf7c195807c05.png",
@@ -8,11 +8,11 @@
     "static/media/krakow_01.jpg": "/static/media/krakow_01.e60782347ab7bd704af6.jpg",
     "static/media/flag_icon.jpg": "/static/media/flag_icon.fb58a396d01bd2f2de7d.jpg",
     "index.html": "/index.html",
-    "main.c9cb3810.css.map": "/static/css/main.c9cb3810.css.map",
+    "main.70495987.css.map": "/static/css/main.70495987.css.map",
     "main.67a8f1b6.js.map": "/static/js/main.67a8f1b6.js.map"
   },
   "entrypoints": [
-    "static/css/main.c9cb3810.css",
+    "static/css/main.70495987.css",
     "static/js/main.67a8f1b6.js"
   ]
 }
