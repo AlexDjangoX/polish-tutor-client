@@ -8,7 +8,7 @@ const TextToSpeech = ({ data, voices }) => {
   const [text, setText] = useState(data);
   const [pitch, setPitch] = useState(1);
   const [rate, setRate] = useState(1);
-  const [voiceIndex, setVoiceIndex] = useState(6);
+  const [voiceIndex, setVoiceIndex] = useState(7);
   const { speak, cancel, speaking, supported } = useSpeechSynthesis();
   const voice = voices[voiceIndex] || '';
 
@@ -27,7 +27,7 @@ const TextToSpeech = ({ data, voices }) => {
             <select
               id='voice'
               name='voice'
-              value={voiceIndex}
+              value={7}
               onChange={(event) => {
                 setVoiceIndex(event.target.value);
               }}
