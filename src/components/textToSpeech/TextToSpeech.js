@@ -27,7 +27,7 @@ const TextToSpeech = ({ data, voices }) => {
             <select
               id='voice'
               name='voice'
-              value={7}
+              value={voiceIndex}
               onChange={(event) => {
                 setVoiceIndex(event.target.value);
               }}
