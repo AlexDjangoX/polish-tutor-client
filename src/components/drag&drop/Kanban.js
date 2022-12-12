@@ -132,10 +132,12 @@ const Kanban = ({ columns, setColumns }) => {
         }
       );
 
-      const returnFromGetRequest = await response.json();
-      let dataToRender = returnFromGetRequest.data?.kanbanObject;
+      if (user) {
+        const returnFromGetRequest = await response.json();
+        let dataToRender = returnFromGetRequest.data?.kanbanObject;
 
-      await setColumns(dataToRender);
+        await setColumns(dataToRender);
+      }
     } catch (error) {
       console.error(error.message);
     }
