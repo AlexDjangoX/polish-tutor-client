@@ -27,11 +27,8 @@ const Notes = ({ columns, setColumns }) => {
   const [dataToRender, setDataToRender] = useState(item);
   const [stringToTranslate, setStringToTranslate] = useState('');
   const [translatedString, setTranslatedString] = useState('');
-  const [transEngPlPlEng, setTransEngPlPlEng] = useState('');
   const { voices } = useSpeechSynthesis();
-  const [sourceTarget, setSourceTarget] = useState(
-    '"source":"en","target":"pl"'
-  );
+  const [value, setValue] = useState('');
   const [isFetching, setIsFetching] = useState(false);
 
   const axios = require('axios');
@@ -54,15 +51,6 @@ const Notes = ({ columns, setColumns }) => {
   //       console.log(error);
   //     });
   // };
-
-  const handleChangeTextField = (event) => {
-    const { name, value } = event.target;
-
-    setDataToRender({
-      ...dataToRender,
-      [name]: value,
-    });
-  };
 
   const putToExpressApp = async () => {
     try {
@@ -93,13 +81,14 @@ const Notes = ({ columns, setColumns }) => {
 
     if (columnClone.column_D?.items) {
       const itemsArray = columnClone.column_D.items;
-
       itemsArray.forEach((el, index) => {
         if (el.id === item.id) itemsArray[index] = dataToRender;
+        return dataToRender;
       });
       await setColumns(columnClone);
-      putToExpressApp();
     }
+
+    await putToExpressApp();
 
     setStringToTranslate('');
     setTranslatedString('');
@@ -109,29 +98,33 @@ const Notes = ({ columns, setColumns }) => {
     event.preventDefault();
     setIsFetching(true);
 
-    if (stringToTranslate) {
-      const options = {
-        method: 'POST',
-        url: 'https://deep-translate1.p.rapidapi.com/language/translate/v2',
-        headers: {
-          'content-type': 'application/json',
-          'X-RapidAPI-Key': process.env.REACT_APP_X_RapidAPI_Key,
-          'X-RapidAPI-Host': process.env.REACT_APP_X_RapidAPI_Host,
-        },
+    const options = {
+      method: 'POST',
+      url: 'https://microsoft-translator-text.p.rapidapi.com/translate',
+      params: {
+        'api-version': '3.0',
+        'to[0]': `${value}`,
+        textType: 'plain',
+        profanityAction: 'NoAction',
+      },
+      headers: {
+        'content-type': 'application/json',
+        'X-RapidAPI-Key': process.env.REACT_APP_X_RapidAPI_Key,
+        'X-RapidAPI-Host': process.env.REACT_APP_X_RapidAPI_Host,
+      },
 
-        data: `{"q":"${stringToTranslate}",${transEngPlPlEng}}`,
-      };
+      data: `[{"Text":"${stringToTranslate}"}]`,
+    };
 
-      axios
-        .request(options)
-        .then(function (response) {
-          setTranslatedString(response.data.data.translations.translatedText);
-          setIsFetching(false);
-        })
-        .catch(function (error) {
-          console.error(error);
-        });
-    }
+    axios
+      .request(options)
+      .then(function (response) {
+        setTranslatedString(response.data[0].translations[0].text);
+        setIsFetching(false);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
   };
 
   const handleChangeTranslationField = (event) => {
@@ -139,9 +132,15 @@ const Notes = ({ columns, setColumns }) => {
     setStringToTranslate(value);
   };
 
-  const handleTranslationLanguage = (value) => {
-    setSourceTarget(value);
-    setTransEngPlPlEng(value);
+  const handleChangeTextField = async (event) => {
+    const { name, value } = event.target;
+
+    setDataToRender({
+      ...dataToRender,
+      [name]: value,
+    });
+
+    await putToExpressApp();
   };
 
   return (
@@ -257,25 +256,25 @@ const Notes = ({ columns, setColumns }) => {
                         {
                           dataToRender.conditional_masculine
                             .conditional_masculine_on
-                        }{' '}
+                        }
                       </li>
                       <li>
                         {
                           dataToRender.conditional_masculine
                             .conditional_masculine_my
-                        }{' '}
+                        }
                       </li>
                       <li>
                         {
                           dataToRender.conditional_masculine
                             .conditional_masculine_wy
-                        }{' '}
+                        }
                       </li>
                       <li>
                         {
                           dataToRender.conditional_masculine
                             .conditional_masculine_oni
-                        }{' '}
+                        }
                       </li>
                     </ul>
                   </div>
@@ -366,20 +365,22 @@ const Notes = ({ columns, setColumns }) => {
                 </div>
 
                 <div className='translation-radio-buttons'>
-                  <RadioGroup onChange={handleTranslationLanguage}>
+                  <RadioGroup onChange={setValue} value={value}>
                     <Stack direction='column'>
                       <Radio
+                        defaultChecked={true}
+                        colorScheme={'whatsapp'}
                         id='eng-pl'
                         name='eng-pl'
-                        value={'"source":"en","target":"pl"'}
+                        value={'pl'}
                       >
                         Eng-Pol
                       </Radio>
                       <Radio
+                        colorScheme={'whatsapp'}
                         id='pl-eng'
                         name='pl-eng'
-                        value={'"source":"pl","target":"en"'}
-                        checked={true}
+                        value={'en'}
                       >
                         Pol-Eng
                       </Radio>
