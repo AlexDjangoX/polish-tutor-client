@@ -87,7 +87,7 @@ const Notes = () => {
     getFromExpressApp();
   }, []);
 
-  const updateNotes = async (event) => {
+  const addTranslationToNotes = async (event) => {
     event.preventDefault();
 
     let dataToRenderCurrentVerb;
@@ -174,7 +174,7 @@ const Notes = () => {
       }
     });
 
-    await setColumnsNotes(columnClone);
+    setColumnsNotes(columnClone);
     putToExpressApp();
     setIsEditingNotes(false);
   };
@@ -443,7 +443,7 @@ const Notes = () => {
                       size='sm'
                       id='submit-verb-button'
                       type='submit'
-                      onClick={updateNotes}
+                      onClick={addTranslationToNotes}
                     >
                       Add to notes
                     </Button>
