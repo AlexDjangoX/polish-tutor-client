@@ -16,6 +16,7 @@
   color: white;
   border-radius: 50px;
   box-shadow: rgba(0, 34, 255, 0.447) 8px 4px 12px;
+  margin-bottom: 20px;
 }
 .player-wrapper > select {
   margin: 0px 5px;

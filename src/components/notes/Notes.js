@@ -21,19 +21,20 @@ import './Notes.css';
 import { faEllipsis } from '@fortawesome/free-solid-svg-icons';
 
 const Notes = () => {
+  const { user, getAccessTokenSilently } = useAuth0();
+
   const location = useLocation();
   const { item } = location.state;
   const currentVerbId = item.id;
 
-  const { user, getAccessTokenSilently } = useAuth0();
   const [dataToRender, setDataToRender] = useState(item);
   const [stringToTranslate, setStringToTranslate] = useState('');
   const [translatedString, setTranslatedString] = useState('');
   const { voices } = useSpeechSynthesis();
-  const [value, setValue] = useState('');
+  const [translationLanguage, setTranslationLanguage] = useState('pl');
   const [isFetching, setIsFetching] = useState(false);
-
   const [columnsNotes, setColumnsNotes] = useState({});
+  const [isEditingNotes, setIsEditingNotes] = useState(false);
 
   const axios = require('axios');
 
@@ -91,10 +92,12 @@ const Notes = () => {
         }
       );
 
-      const returnFromGetRequest = await response.json();
-      const kanbanObject = returnFromGetRequest.data?.kanbanObject;
+      if (user) {
+        const returnFromGetRequest = await response.json();
+        const kanbanObject = returnFromGetRequest.data?.kanbanObject;
 
-      setColumnsNotes(kanbanObject);
+        setColumnsNotes(kanbanObject);
+      }
     } catch (error) {
       console.error(error.message);
     }
@@ -110,7 +113,7 @@ const Notes = () => {
     let dataToRenderCurrentVerb;
 
     const columnClone = Object.assign({}, columnsNotes);
-    console.log(columnClone.column_D.items);
+
     columnClone.column_D.items.forEach((el) => {
       if (el.id === currentVerbId) {
         dataToRenderCurrentVerb = el;
@@ -140,7 +143,7 @@ const Notes = () => {
       url: 'https://microsoft-translator-text.p.rapidapi.com/translate',
       params: {
         'api-version': '3.0',
-        'to[0]': `${value}`,
+        'to[0]': `${translationLanguage}`,
         textType: 'plain',
         profanityAction: 'NoAction',
       },
@@ -172,12 +175,31 @@ const Notes = () => {
   const handleChangeTextField = async (event) => {
     const { name, value } = event.target;
 
+    setIsEditingNotes(true);
+
     setDataToRender({
       ...dataToRender,
       [name]: value,
     });
 
-    await putToExpressApp();
+    console.log(dataToRender.notes);
+    console.log(columnsNotes.column_D.items);
+  };
+
+  const handleUpdateNotes = async () => {
+    const columnClone = Object.assign({}, columnsNotes);
+
+    columnClone.column_D.items.forEach((el) => {
+      if (el.id === currentVerbId) {
+        el.notes = `${dataToRender.notes}`;
+      } else {
+        return el;
+      }
+    });
+
+    await setColumnsNotes(columnClone);
+    putToExpressApp();
+    setIsEditingNotes(false);
   };
 
   return (
@@ -402,7 +424,10 @@ const Notes = () => {
                 </div>
 
                 <div className='translation-radio-buttons'>
-                  <RadioGroup onChange={setValue} value={value}>
+                  <RadioGroup
+                    onChange={setTranslationLanguage}
+                    value={translationLanguage}
+                  >
                     <Stack direction='column'>
                       <Radio
                         defaultChecked={true}
@@ -434,7 +459,7 @@ const Notes = () => {
                       Translate
                     </Button>
                   </div>
-                  <div className='updateNotesButton'>
+                  <div className='add-to-notes-button'>
                     <Button
                       colorScheme='blue'
                       border={'2px solid black'}
@@ -443,7 +468,7 @@ const Notes = () => {
                       type='submit'
                       onClick={updateNotes}
                     >
-                      Update notes
+                      Add to notes
                     </Button>
                   </div>
                 </div>
@@ -470,9 +495,32 @@ const Notes = () => {
                   onChange={handleChangeTextField}
                 ></textarea>
               </div>
-
-              <div className='update-notes-play-voice'>
-                <TextToSpeech data={dataToRender.notes} voices={voices} />
+              <div className='voice-player-and-edit-button'>
+                <div className='voice-player'>
+                  <TextToSpeech data={dataToRender.notes} voices={voices} />
+                </div>
+                <div className='edit-notes-button'>
+                  <Button
+                    colorScheme={isEditingNotes ? 'red' : 'green'}
+                    border={'2px solid black'}
+                    size='sm'
+                    onClick={handleUpdateNotes}
+                  >
+                    {isEditingNotes ? 'Update Notes' : 'Edit Notes'}
+                  </Button>
+                </div>
+                {/* <div className='updateNotesButton'>
+                  <Button
+                    colorScheme='blue'
+                    border={'2px solid black'}
+                    size='sm'
+                    id='submit-verb-button'
+                    type='submit'
+                    onClick={updateNotes}
+                  >
+                    Update notes
+                  </Button>
+                </div> */}
               </div>
             </form>
           </div>

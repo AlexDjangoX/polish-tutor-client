@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Navbar from './components/navbar/Navbar';
+import Footer from './components/footer/Footer';
 import Hero from './components/hero/Hero';
 import Kanban from './components/drag&drop/Kanban';
 import Profile from './components/profile/Profile';
@@ -28,6 +29,7 @@ function App() {
         <Route path='/profile' element={<Profile />} />
         <Route path='*' element={<Hero replace to='/' />} />
       </Routes>
+      <Footer />
     </>
   );
 }

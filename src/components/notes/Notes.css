@@ -119,6 +119,7 @@ ul {
 
 .translation-radio-buttons {
   display: grid;
+  grid-area: translateButton;
   place-content: center;
   margin: 0 0.2rem;
   padding: 1rem;
@@ -138,47 +139,30 @@ ul {
   font-weight: 600;
 }
 
-.updateNotesButton {
-  display: grid;
-  place-content: center;
-}
-
 .spinner {
   display: grid;
   place-content: center;
   height: 1.2rem;
 }
 
-.translation-btn-link a {
+.voice-player-and-edit-button {
   display: grid;
-  place-content: center;
-  color: rgb(48, 48, 48);
-  text-decoration: none;
-  font-size: 1.2rem;
-  text-transform: uppercase;
+  grid-template-areas: 'editButton voicePlayer';
+  grid-template-columns: 2fr 11fr;
+  border-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
-.translation-btn-link,
-a:hover {
-  color: rgb(252, 55, 61);
-
-  transition: all 0.6s;
+.voice-player {
+  display: grid;
+  grid-area: voicePlayer;
 }
 
-.update-notes-play-voice {
+.edit-notes-button {
   display: grid;
-  grid-auto-flow: column;
-  margin: 0.2rem;
-}
-
-.text-to-speech {
-  display: grid;
-  grid-area: tts;
-}
-
-.btn--update-notes {
-  display: grid;
-  grid-area: btn;
+  grid-area: editButton;
+  margin-left: 2rem;
+  place-content: space-between;
 }
 
 @media screen and (max-width: 750px) {
