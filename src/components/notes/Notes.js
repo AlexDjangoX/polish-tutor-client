@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import { useLocation } from 'react-router-dom';
 import { useSpeechSynthesis } from 'react-speech-kit';
@@ -18,18 +18,22 @@ import {
 } from '@chakra-ui/react';
 import { Spinner } from '@chakra-ui/react';
 import './Notes.css';
+import { faEllipsis } from '@fortawesome/free-solid-svg-icons';
 
-const Notes = ({ columns, setColumns }) => {
+const Notes = () => {
   const location = useLocation();
   const { item } = location.state;
-  const { user, getAccessTokenSilently } = useAuth0();
+  const currentVerbId = item.id;
 
+  const { user, getAccessTokenSilently } = useAuth0();
   const [dataToRender, setDataToRender] = useState(item);
   const [stringToTranslate, setStringToTranslate] = useState('');
   const [translatedString, setTranslatedString] = useState('');
   const { voices } = useSpeechSynthesis();
   const [value, setValue] = useState('');
   const [isFetching, setIsFetching] = useState(false);
+
+  const [columnsNotes, setColumnsNotes] = useState({});
 
   const axios = require('axios');
 
@@ -64,7 +68,7 @@ const Notes = ({ columns, setColumns }) => {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(columns),
+          body: JSON.stringify(columnsNotes),
         }
       );
     } catch (error) {
@@ -72,23 +76,56 @@ const Notes = ({ columns, setColumns }) => {
     }
   };
 
+  const getFromExpressApp = async () => {
+    try {
+      const token = await getAccessTokenSilently();
+
+      const response = await fetch(
+        `${process.env.REACT_APP_BASE_URL}/protected/kanban/${user?.sub}`,
+        {
+          method: 'GET',
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+
+      const returnFromGetRequest = await response.json();
+      const kanbanObject = returnFromGetRequest.data?.kanbanObject;
+
+      setColumnsNotes(kanbanObject);
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
+  useEffect(() => {
+    getFromExpressApp();
+  }, []);
+
   const updateNotes = async (event) => {
     event.preventDefault();
 
-    item.notes = `${item.notes}${'\n'}${translatedString}`;
+    let dataToRenderCurrentVerb;
 
-    const columnClone = Object.assign({}, columns);
+    const columnClone = Object.assign({}, columnsNotes);
+    console.log(columnClone.column_D.items);
+    columnClone.column_D.items.forEach((el) => {
+      if (el.id === currentVerbId) {
+        dataToRenderCurrentVerb = el;
+        el.notes = `${el.notes}${'\n'}${translatedString}`;
+      } else {
+        return el;
+      }
+    });
 
-    if (columnClone.column_D?.items) {
-      const itemsArray = columnClone.column_D.items;
-      itemsArray.forEach((el, index) => {
-        if (el.id === item.id) itemsArray[index] = dataToRender;
-        return dataToRender;
-      });
-      await setColumns(columnClone);
-    }
+    setColumnsNotes(columnClone);
 
     await putToExpressApp();
+    await getFromExpressApp();
+
+    setDataToRender(dataToRenderCurrentVerb);
 
     setStringToTranslate('');
     setTranslatedString('');

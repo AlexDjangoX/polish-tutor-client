@@ -68,6 +68,7 @@ const Kanban = ({ columns, setColumns }) => {
     if (!isAuthenticated) {
       await setColumns(dummyData.position);
     }
+    return;
   };
 
   useEffect(() => {
