@@ -486,18 +486,6 @@ const Notes = () => {
                     {isEditingNotes ? 'Update Notes' : 'Edit Notes'}
                   </Button>
                 </div>
-                {/* <div className='updateNotesButton'>
-                  <Button
-                    colorScheme='blue'
-                    border={'2px solid black'}
-                    size='sm'
-                    id='submit-verb-button'
-                    type='submit'
-                    onClick={updateNotes}
-                  >
-                    Update notes
-                  </Button>
-                </div> */}
               </div>
             </form>
           </div>

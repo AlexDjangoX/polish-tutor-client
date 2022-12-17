@@ -145,12 +145,12 @@ ul {
   height: 1.2rem;
 }
 
+@media screen and (max-width: 750px) {
+}
 .voice-player-and-edit-button {
   display: grid;
   grid-template-areas: 'editButton voicePlayer';
   grid-template-columns: 2fr 11fr;
-  border-bottom: 2rem;
-  margin-bottom: 2rem;
 }
 
 .voice-player {
@@ -208,6 +208,27 @@ ul {
   .user-notes {
     display: grid;
     grid-area: notes;
+  }
+
+  .voice-player-and-edit-button {
+    display: grid;
+    grid-template-areas:
+      'editButton '
+      'voicePlayer';
+    grid-template-columns: 1fr;
+    place-content: center;
+  }
+
+  .voice-player {
+    display: grid;
+    grid-area: voicePlayer;
+  }
+
+  .edit-notes-button {
+    display: grid;
+    grid-area: editButton;
+    margin: 1rem;
+    place-content: center;
   }
 }
 
