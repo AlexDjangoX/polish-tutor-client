@@ -18,7 +18,6 @@ import {
 } from '@chakra-ui/react';
 import { Spinner } from '@chakra-ui/react';
 import './Notes.css';
-import { faEllipsis } from '@fortawesome/free-solid-svg-icons';
 
 const Notes = () => {
   const { user, getAccessTokenSilently } = useAuth0();
@@ -37,25 +36,6 @@ const Notes = () => {
   const [isEditingNotes, setIsEditingNotes] = useState(false);
 
   const axios = require('axios');
-
-  // useEffect(() => {
-  //   axios
-  //     .get(`http://localhost:8000/position`)
-  //     .then(function (response) {
-  //       setColumns(response.data);
-  //     })
-  //     .catch(function (error) {
-  //       console.log(error);
-  //     });
-  // }, []);
-
-  // const postToDb = () => {
-  //   axios
-  //     .post(`http://localhost:8000/position`, columns)
-  //     .catch(function (error) {
-  //       console.log(error);
-  //     });
-  // };
 
   const putToExpressApp = async () => {
     try {
@@ -181,9 +161,6 @@ const Notes = () => {
       ...dataToRender,
       [name]: value,
     });
-
-    console.log(dataToRender.notes);
-    console.log(columnsNotes.column_D.items);
   };
 
   const handleUpdateNotes = async () => {

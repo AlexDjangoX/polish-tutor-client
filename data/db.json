@@ -93,90 +93,6 @@
       "name": "Przeszły",
       "items": [
         {
-          "id": "7d7aa7e5-8ac3-477b-867f-9672d0ca5df3",
-          "past": {
-            "past_ja_fem": "trwałam",
-            "past_my_fem": "trwałałyśmy",
-            "past_ty_fem": "trwałaś",
-            "past_wy_fem": "trwałałyście",
-            "past_ja_masc": "trwałem",
-            "past_my_masc": "trawaliśmy",
-            "past_on_masc": "trwał",
-            "past_ona_fem": "trwała",
-            "past_one_fem": "trwałały",
-            "past_ty_masc": "trwałeś",
-            "past_wy_masc": "trwaliście",
-            "past_oni_masc": "trwali"
-          },
-          "notes": "Jak długo może to potrwać?\nBez obawy, ból potrwa tylko chwilę.\nMoje bankructwo potrwałoby 18 miesięcy. \nMój kurs trwał sześć miesięcy. Cieszę się, że to się skończyło, bo nie sądziłem, że wytrzymam.\nAngielski tekst do przetłumaczenia\n\n",
-          "present": {
-            "present_ja": "trwam",
-            "present_my": "trwamy",
-            "present_ty": "trwasz",
-            "present_wy": "trwacie",
-            "present_oni_one": "trwają",
-            "present_on_ona_ono": "trwa"
-          },
-          "gram_case": {
-            "case": "Biernik",
-            "color": "#ff2233",
-            "aspect": "Dokonany"
-          },
-          "future_fem": {
-            "future_fem_ja": "będę trwała",
-            "future_fem_my": "będziemy trwały",
-            "future_fem_ty": "będziesz trwała",
-            "future_fem_wy": "będziecie trwały",
-            "future_fem_ona": "będzie trwała",
-            "future_fem_one": "będą trwały"
-          },
-          "imp_future": {
-            "imp_future_ja": "będę trwać",
-            "imp_future_my": "będziemy trwać",
-            "imp_future_ty": "będziesz trwać",
-            "imp_future_wy": "będziecie trwać",
-            "imp_future_oni_one": " będą trwać",
-            "imp_future_on_ona_ono": "będzie trwać"
-          },
-          "word_image": {
-            "image_url": "https://thumbs.dreamstime.com/b/time-control-retro-cartoon-design-running-man-clock-background-schedule-grey-gears-vector-illustration-86568744.jpg",
-            "polish_word": "Trwać",
-            "english_word": "To last"
-          },
-          "future_masc": {
-            "future_masc_ja": "będę trwał",
-            "future_masc_my": "będziemy trwali",
-            "future_masc_on": "będzie trwał",
-            "future_masc_ty": "będziesz trwał",
-            "future_masc_wy": "będziecie trwali",
-            "future_masc_oni": "będą trwali"
-          },
-          "conditional_masculine": {
-            "conditional_masculine_ja": "trwałbym",
-            "conditional_masculine_ty": "trwałbyś",
-            "conditional_masculine_on": "trwałby",
-            "conditional_masculine_my": "trwalibyśmy",
-            "conditional_masculine_wy": "trwalibyście",
-            "conditional_masculine_oni": "trwaliby"
-          },
-          "conditional_feminine": {
-            "conditional_feminine_ja": "trwałabym",
-            "conditional_feminine_ty": "trwałabyś",
-            "conditional_feminine_ona": "trwałaby",
-            "conditional_feminine_my": "trwałybyśmy",
-            "conditional_feminine_wy": "trwałybyście",
-            "conditional_feminine_one": "trwałyby"
-          },
-          "imperative": {
-            "imperative_ja": "",
-            "imperative_ty": "trwaj",
-            "imperative_on_ona_oni": "niech trwa",
-            "imperative_my": "trwajmy",
-            "imperative_wy": "trwacie",
-            "imperative_oni": "niech trwają"
-          }
-        },
-        {
           "id": "d509237d-6e00-4da9-ae33-80fcd41c2485",
           "past": {
             "past_ja_fem": "tworzyłam",
@@ -266,6 +182,179 @@
       "name": "Przyszły",
       "items": [
         {
+          "id": "bbed9bf7-6453-4c6a-8d61-e20bce3e313a",
+          "past": {
+            "past_ja_fem": "szłam",
+            "past_my_fem": "szłyśmy",
+            "past_ty_fem": "szłaś",
+            "past_wy_fem": "szyście",
+            "past_ja_masc": "szedłem",
+            "past_my_masc": "szliśmy",
+            "past_on_masc": "szedł",
+            "past_ona_fem": "szła",
+            "past_one_fem": "szły",
+            "past_ty_masc": "szedłeś",
+            "past_wy_masc": "szliście",
+            "past_oni_masc": "szli"
+          },
+          "notes": "Dokąd dziś pójdziemy? Myślę, że pójdziemy do sklepu. Why not.",
+          "present": {
+            "present_ja": "idę",
+            "present_my": "idziemy",
+            "present_ty": "idiesz",
+            "present_wy": "idziecie",
+            "present_oni_one": "idą",
+            "present_on_ona_ono": "idzie"
+          },
+          "gram_case": {
+            "case": "Biernik",
+            "color": "#ff2233",
+            "aspect": "Niedokonany"
+          },
+          "future_fem": {
+            "future_fem_ja": "będę szła",
+            "future_fem_my": "będziemy szły",
+            "future_fem_ty": "będziesz szła",
+            "future_fem_wy": "będziecie szły",
+            "future_fem_ona": "będzie szła",
+            "future_fem_one": "będą szły"
+          },
+          "imp_future": {
+            "imp_future_ja": "będę iść",
+            "imp_future_my": "będziemy iść",
+            "imp_future_ty": "będziesz iść",
+            "imp_future_wy": "będziecie iść",
+            "imp_future_oni_one": "będą iść",
+            "imp_future_on_ona_ono": "będzie iść"
+          },
+          "word_image": {
+            "image_url": "https://thumbs.dreamstime.com/b/cartoon-illustration-construction-worker-frowning-expression-holding-go-traffic-sign-cartoon-construction-worker-135307416.jpg",
+            "polish_word": "iść",
+            "english_word": "To go"
+          },
+          "future_masc": {
+            "future_masc_ja": "będę szedł",
+            "future_masc_my": "będziemy szli",
+            "future_masc_on": "będzie szedł",
+            "future_masc_ty": "będziesz szedł",
+            "future_masc_wy": "będziecie szli",
+            "future_masc_oni": "będą szli"
+          },
+          "conditional_masculine": {
+            "conditional_masculine_ja": "szedłbym",
+            "conditional_masculine_ty": "szedłbyś",
+            "conditional_masculine_on": "szedłby",
+            "conditional_masculine_my": "szlibyśmy",
+            "conditional_masculine_wy": "szlibyście",
+            "conditional_masculine_oni": "szliby"
+          },
+          "conditional_feminine": {
+            "conditional_feminine_ja": "szłabym",
+            "conditional_feminine_ty": "szłabyś",
+            "conditional_feminine_ona": "szłaby",
+            "conditional_feminine_my": "szłybyśmy",
+            "conditional_feminine_wy": "szłybyście",
+            "conditional_feminine_one": "szłyby"
+          },
+          "imperative": {
+            "imperative_ja": "",
+            "imperative_ty": "idź",
+            "imperative_on_ona_oni": "niech idzie",
+            "imperative_my": "idźmy",
+            "imperative_wy": "idźcie",
+            "imperative_oni": "niech idą"
+          }
+        },
+        {
+          "id": "7d7aa7e5-8ac3-477b-867f-9672d0ca5df3",
+          "past": {
+            "past_ja_fem": "trwałam",
+            "past_my_fem": "trwałałyśmy",
+            "past_ty_fem": "trwałaś",
+            "past_wy_fem": "trwałałyście",
+            "past_ja_masc": "trwałem",
+            "past_my_masc": "trawaliśmy",
+            "past_on_masc": "trwał",
+            "past_ona_fem": "trwała",
+            "past_one_fem": "trwałały",
+            "past_ty_masc": "trwałeś",
+            "past_wy_masc": "trwaliście",
+            "past_oni_masc": "trwali"
+          },
+          "notes": "Jak długo może to potrwać?\nBez obawy, ból potrwa tylko chwilę.\nMoje bankructwo potrwałoby 18 miesięcy. \nMój kurs trwał sześć miesięcy. Cieszę się, że to się skończyło, bo nie sądziłem, że wytrzymam.\nAngielski tekst do przetłumaczenia\n\n",
+          "present": {
+            "present_ja": "trwam",
+            "present_my": "trwamy",
+            "present_ty": "trwasz",
+            "present_wy": "trwacie",
+            "present_oni_one": "trwają",
+            "present_on_ona_ono": "trwa"
+          },
+          "gram_case": {
+            "case": "Biernik",
+            "color": "#ff2233",
+            "aspect": "Dokonany"
+          },
+          "future_fem": {
+            "future_fem_ja": "będę trwała",
+            "future_fem_my": "będziemy trwały",
+            "future_fem_ty": "będziesz trwała",
+            "future_fem_wy": "będziecie trwały",
+            "future_fem_ona": "będzie trwała",
+            "future_fem_one": "będą trwały"
+          },
+          "imp_future": {
+            "imp_future_ja": "będę trwać",
+            "imp_future_my": "będziemy trwać",
+            "imp_future_ty": "będziesz trwać",
+            "imp_future_wy": "będziecie trwać",
+            "imp_future_oni_one": " będą trwać",
+            "imp_future_on_ona_ono": "będzie trwać"
+          },
+          "word_image": {
+            "image_url": "https://thumbs.dreamstime.com/b/time-control-retro-cartoon-design-running-man-clock-background-schedule-grey-gears-vector-illustration-86568744.jpg",
+            "polish_word": "Trwać",
+            "english_word": "To last"
+          },
+          "future_masc": {
+            "future_masc_ja": "będę trwał",
+            "future_masc_my": "będziemy trwali",
+            "future_masc_on": "będzie trwał",
+            "future_masc_ty": "będziesz trwał",
+            "future_masc_wy": "będziecie trwali",
+            "future_masc_oni": "będą trwali"
+          },
+          "conditional_masculine": {
+            "conditional_masculine_ja": "trwałbym",
+            "conditional_masculine_ty": "trwałbyś",
+            "conditional_masculine_on": "trwałby",
+            "conditional_masculine_my": "trwalibyśmy",
+            "conditional_masculine_wy": "trwalibyście",
+            "conditional_masculine_oni": "trwaliby"
+          },
+          "conditional_feminine": {
+            "conditional_feminine_ja": "trwałabym",
+            "conditional_feminine_ty": "trwałabyś",
+            "conditional_feminine_ona": "trwałaby",
+            "conditional_feminine_my": "trwałybyśmy",
+            "conditional_feminine_wy": "trwałybyście",
+            "conditional_feminine_one": "trwałyby"
+          },
+          "imperative": {
+            "imperative_ja": "",
+            "imperative_ty": "trwaj",
+            "imperative_on_ona_oni": "niech trwa",
+            "imperative_my": "trwajmy",
+            "imperative_wy": "trwacie",
+            "imperative_oni": "niech trwają"
+          }
+        }
+      ]
+    },
+    "column_D": {
+      "name": "Stare słowa",
+      "items": [
+        {
           "id": "76ff3352-e572-4468-9f1a-649390b19dcf",
           "past": {
             "past_ja_fem": "używałam",
@@ -350,10 +439,6 @@
           }
         }
       ]
-    },
-    "column_D": {
-      "name": "Stare słowa",
-      "items": []
     }
   }
 }

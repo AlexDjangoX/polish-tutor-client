@@ -96,6 +96,7 @@ const Kanban = ({ columns, setColumns }) => {
 
   // useEffect(() => {
   //   if (user) setTimeout(postToDb, 900);
+  //   postToExpressApp();
   // }, [columns]);
 
   const postToExpressApp = async () => {
@@ -227,11 +228,6 @@ const Kanban = ({ columns, setColumns }) => {
       setDeleteVerb(false);
       setVerbToDeleteId('');
     }
-  };
-
-  const resetVerbToDelete = () => {
-    setDeleteVerb(false);
-    setVerbToDeleteId('');
   };
 
   return (
