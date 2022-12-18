@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './TextToSpeech.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { regular } from '@fortawesome/fontawesome-svg-core/import.macro';
@@ -6,11 +6,14 @@ import { useSpeechSynthesis } from 'react-speech-kit';
 
 const TextToSpeech = ({ data, voices }) => {
   const [text, setText] = useState(data);
-  const [pitch, setPitch] = useState(1);
   const [rate, setRate] = useState(1);
   const [voiceIndex, setVoiceIndex] = useState(7);
   const { speak, cancel, speaking, supported } = useSpeechSynthesis();
   const voice = voices[voiceIndex] || '';
+
+  useEffect(() => {
+    setText(data);
+  });
 
   return (
     <div className='text-to-speech-wrapper'>
@@ -48,7 +51,7 @@ const TextToSpeech = ({ data, voices }) => {
               ) : (
                 <button
                   type='button'
-                  onClick={() => speak({ text, voice, rate, pitch })}
+                  onClick={() => speak({ text, voice, rate })}
                   className='play-btn'
                 >
                   <FontAwesomeIcon
@@ -72,20 +75,6 @@ const TextToSpeech = ({ data, voices }) => {
                 setRate(event.target.value);
               }}
             />
-
-            {/* <label htmlFor='pitch'>Pitch: </label>
-            <p className='span'>{pitch}</p>
-            <input
-              type='range'
-              min='0'
-              max='9'
-              defaultValue='1'
-              step='1'
-              id='pitch'
-              onChange={(event) => {
-                setPitch(event.target.value);
-              }}
-            /> */}
           </>
         )}
       </div>

@@ -175,7 +175,7 @@ const Notes = () => {
     });
 
     setColumnsNotes(columnClone);
-    putToExpressApp();
+    await putToExpressApp();
     setIsEditingNotes(false);
   };
 
