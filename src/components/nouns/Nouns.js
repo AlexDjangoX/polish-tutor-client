@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
+import { v4 as uuidv4 } from 'uuid';
 import { Modal } from '@mui/material';
 import { Button } from '../button/Button.js';
 import Atom from '../spinner/Atom.js';
@@ -56,9 +57,10 @@ const Nouns = () => {
         <NounsForm />
       </Modal>
       {isLoading && <Atom size='200' color='#54a8f1' animationDuration='700' />}
+
       <ul className='unordered-list-nouns'>
         {items.map((item, index) => (
-          <li className='list-item-nouns' key={item.id}>
+          <li className='list-item-nouns' key={uuidv4()}>
             <img
               className='noun-image-to-display'
               src={item.image_url}
@@ -88,3 +90,31 @@ const Nouns = () => {
 };
 
 export default Nouns;
+
+// npm install react-modal
+
+// import React, { Component } from 'react';
+// import Modal from 'react-modal';
+
+// class MyComponent extends Component {
+//   state = {
+//     modalIsOpen: false
+//   }
+
+//   render() {
+//     return (
+//       <div>
+//         <button onClick={() => this.setState({ modalIsOpen: true })}>Open Modal</button>
+//         <Modal
+//           isOpen={this.state.modalIsOpen}
+//           onRequestClose={() => this.setState({ modalIsOpen: false })}
+//           contentLabel="Example Modal"
+//         >
+//           <h1>Modal Title</h1>
+//           <p>Modal content goes here</p>
+//           <button onClick={() => this.setState({ modalIsOpen: false })}>Close Modal</button>
+//         </Modal>
+//       </div>
+//     );
+//   }
+// }

@@ -26,7 +26,7 @@ const Atom = ({ animationDuration, size, color }) => {
   };
 
   return (
-    <div class='overlay'>
+    <div className='overlay'>
       <div className='atom-wrapper'>
         <div className='atom-spinner' style={spinnerStyle()}>
           <div className='spinner-inner'>
