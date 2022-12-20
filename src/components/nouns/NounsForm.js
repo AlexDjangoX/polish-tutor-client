@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { Button } from '../button/Button.js';
-
 import './NounsForm.css';
 
 const initialNounFormData = {
   id: uuidv4(),
-  word: '',
+  polish_word: '',
+  english_word: '',
   image_url: '',
   notes: '',
 };

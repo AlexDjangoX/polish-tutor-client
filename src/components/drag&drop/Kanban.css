@@ -6,9 +6,8 @@
   background-image: url('../../../public/images/background.png');
   background-size: cover;
   background-repeat: no-repeat;
-}
 
-.wrapper-modal {
+  padding-bottom: 3rem;
 }
 
 .kanban-columns {

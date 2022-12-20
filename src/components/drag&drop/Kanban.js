@@ -4,6 +4,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { v4 as uuidv4 } from 'uuid';
 import { dummyData } from '../../utils/dummyData';
 import './Kanban.css';
+import Atom from '../spinner/Atom';
 import KanbanTable from './KanbanTable';
 import KanbanForm from './KanbanForm';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
@@ -63,11 +64,14 @@ const Kanban = ({ columns, setColumns }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [deleteVerb, setDeleteVerb] = useState(false);
   const [verbToDeleteId, setVerbToDeleteId] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const loadDummyData = async () => {
     if (!isAuthenticated) {
+      setIsLoading(true);
       await setColumns(dummyData.position);
     }
+    setIsLoading(false);
     return;
   };
 
@@ -121,6 +125,8 @@ const Kanban = ({ columns, setColumns }) => {
 
   const getFromExpressApp = async () => {
     try {
+      setIsLoading(true);
+
       const token = await getAccessTokenSilently();
 
       const response = await fetch(
@@ -140,6 +146,8 @@ const Kanban = ({ columns, setColumns }) => {
 
         await setColumns(dataToRender);
       }
+
+      setIsLoading(false);
     } catch (error) {
       console.error(error.message);
     }
@@ -278,7 +286,7 @@ const Kanban = ({ columns, setColumns }) => {
           />
         </>
       </Modal>
-
+      {isLoading && <Atom size='200' color='#54a8f1' animationDuration='700' />}
       <div className='kanban-wrapper'>
         <DragDropContext
           onDragEnd={(result) => onDragEnd(result, columns, setColumns)}

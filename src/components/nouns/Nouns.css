@@ -1,5 +1,30 @@
-.auto-fit-column-spotify {
+.unordered-list-nouns {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
-  grid-gap: 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-gap: 1rem;
+}
+
+.list-item-nouns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.noun-image-to-display {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+}
+
+.noun-description {
+  width: 160px;
+  height: 160px;
+  font-size: 12px;
+}
+
+.polish-english-word {
+  text-transform: capitalize;
+}
+
+.short-sentence {
 }

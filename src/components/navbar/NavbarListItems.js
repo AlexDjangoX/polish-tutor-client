@@ -15,11 +15,11 @@ const NavbarListItems = () => {
         </Link>
       </li>
 
-      {/* <li className='navbar-list-item'>
+      <li className='navbar-list-item'>
         <Link to='/nouns' className='navbar-link'>
           Nouns
         </Link>
-      </li> */}
+      </li>
 
       <li className='navbar-list-item'>
         <Link to='/kanban' className='navbar-link'>
