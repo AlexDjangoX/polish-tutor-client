@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   grid-gap: 1rem;
+  padding: 0rem 1rem 1rem 1rem;
 }
 
 .list-item-nouns {
@@ -10,21 +11,43 @@
   justify-content: center;
 }
 
+.noun-description,
 .noun-image-to-display {
-  width: 160px;
-  height: 160px;
-  object-fit: cover;
-}
-
-.noun-description {
+  display: grid;
   width: 160px;
   height: 160px;
   font-size: 12px;
+  border: 1px solid rgb(102, 102, 102);
+  box-shadow: 5px 5px 10px #888888, -5px -5px 10px #ffffff;
+  border-radius: 0.4rem;
+  padding: 0.4rem;
+}
+
+.noun-description {
+  font-weight: 600;
+  color: #494949;
+}
+
+.noun-image-to-display {
+  object-fit: scale-down;
 }
 
 .polish-english-word {
   text-transform: capitalize;
+  text-decoration: underline;
 }
 
 .short-sentence {
+}
+
+.add-noun-button-wrapper {
+  display: grid;
+  place-content: center;
+  padding: 1.4rem 0rem;
+}
+
+.noun-buttons {
+  display: grid;
+  grid-auto-flow: column;
+  place-content: bottom;
 }

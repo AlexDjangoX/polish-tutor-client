@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 export const dummyNounData = [
   {
     id: uuidv4(),
+    category: 'clothes',
     polish_word: 'spodnie',
     english_word: 'trousers',
     image_url:
@@ -12,6 +13,7 @@ export const dummyNounData = [
   },
   {
     id: uuidv4(),
+    category: 'clothes',
     polish_word: 'koszula',
     english_word: 'shirt',
     image_url:
@@ -20,6 +22,7 @@ export const dummyNounData = [
   },
   {
     id: uuidv4(),
+    category: 'clothes',
     polish_word: 'kurtka',
     english_word: 'jacket',
     image_url:
@@ -28,6 +31,7 @@ export const dummyNounData = [
   },
   {
     id: uuidv4(),
+    category: 'clothes',
     polish_word: 'kapelusz',
     english_word: 'hat',
     image_url:
@@ -36,6 +40,7 @@ export const dummyNounData = [
   },
   {
     id: uuidv4(),
+    category: 'clothes',
     polish_word: 'płaszcz',
     english_word: 'coat',
     image_url:
@@ -44,6 +49,7 @@ export const dummyNounData = [
   },
   {
     id: uuidv4(),
+    category: 'clothes',
     polish_word: 'skarpetki',
     english_word: 'socks',
     image_url:
@@ -52,6 +58,7 @@ export const dummyNounData = [
   },
   {
     id: uuidv4(),
+    category: 'clothes',
     polish_word: 'trampki',
     english_word: 'sneakers',
     image_url:
@@ -61,6 +68,7 @@ export const dummyNounData = [
   },
   {
     id: uuidv4(),
+    category: 'clothes',
     polish_word: 'kaftan bezpieczeństwa',
     english_word: ' straight-jacket',
     image_url:
@@ -69,6 +77,7 @@ export const dummyNounData = [
   },
   {
     id: uuidv4(),
+    category: 'clothes',
     polish_word: 'tęczowy kot',
     english_word: 'rainbow-cat',
     image_url:

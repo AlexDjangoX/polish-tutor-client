@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import { v4 as uuidv4 } from 'uuid';
 import { Modal } from '@mui/material';
@@ -13,14 +13,14 @@ const Nouns = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [open, setOpen] = useState(false);
   const [items, setItems] = useState(dummyNounData);
-  const [showDetails, setShowDetails] = useState(
-    Array(dummyNounData.length).fill(false)
-  );
+  const [activeIndex, setActiveIndex] = useState(-1);
 
   const toggleDetails = (index) => {
-    const newShowDetails = [...showDetails];
-    newShowDetails[index] = !newShowDetails[index];
-    setShowDetails(newShowDetails);
+    if (activeIndex === index) {
+      setActiveIndex(-1);
+    } else {
+      setActiveIndex(index);
+    }
   };
 
   const onDelete = (id) => {
@@ -29,22 +29,9 @@ const Nouns = () => {
     setItems(newItems);
   };
 
-  const modal = useMemo(() => {
-    return (
-      isAuthenticated && (
-        <Modal
-          open={open}
-          onClose={() => setOpen(false)}
-          aria-labelledby='parent-modal-title'
-          aria-describedby='parent-modal-description'
-        >
-          <div>
-            <NounsForm />
-          </div>
-        </Modal>
-      )
-    );
-  }, [isAuthenticated, open]);
+  const editNoun = () => {
+    return;
+  };
 
   const loadingIndicator = useMemo(() => {
     return (
@@ -61,30 +48,66 @@ const Nouns = () => {
             src={item.image_url}
             alt={item.polish_word}
             onClick={() => toggleDetails(index)}
-            style={{ display: showDetails[index] ? 'none' : 'block' }}
+            style={{ display: activeIndex === index ? 'none' : 'block' }}
           />
-          {showDetails[index] && (
+          {activeIndex === index && (
             <div
               className='noun-description'
               onClick={() => toggleDetails(index)}
             >
-              <p className='polish-english-word'>
-                {item.polish_word} : {item.english_word}
-              </p>
+              <div className='wrapper-noun-description'>
+                <p className='polish-english-word'>
+                  {item.polish_word} &rarr; {item.english_word}
+                </p>
 
-              <p className='short-sentence'>{item.notes}</p>
-
-              <button onClick={() => onDelete(item.id)}>Delete</button>
+                <p className='short-sentence'>{item.notes}</p>
+              </div>
+              <div className='wrapper-noun-buttons'>
+                <div className='noun-buttons'>
+                  <Button
+                    buttonStyle='btn-delete-noun'
+                    onClick={() => onDelete(item.id)}
+                  >
+                    Delete
+                  </Button>
+                  <Button buttonStyle='btn-edit-noun' onClick={editNoun}>
+                    Edit
+                  </Button>
+                </div>
+              </div>
             </div>
           )}
         </li>
       );
     });
-  }, [items, showDetails]);
+  }, [items, activeIndex]);
 
   return (
     <>
-      {modal}
+      {isAuthenticated && (
+        <>
+          <Modal
+            open={open}
+            onClose={() => setOpen(false)}
+            aria-labelledby='parent-modal-title'
+            aria-describedby='parent-modal-description'
+          >
+            <div>
+              <NounsForm />
+            </div>
+          </Modal>
+          <div className='add-noun-button-wrapper'>
+            <Button
+              buttonStyle='btn-add-noun'
+              buttonSize='btn--medium'
+              onClick={() => setOpen(true)}
+            >
+              Add Noun
+            </Button>
+          </div>
+        </>
+      )}
+
       {!isAuthenticated && (
         <h3 className='kanban-log-in-prompt'>Log in to add nouns</h3>
       )}

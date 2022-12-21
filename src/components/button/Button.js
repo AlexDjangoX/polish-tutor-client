@@ -12,6 +12,10 @@ const STYLES = [
   'btn-delete-verb',
   'btn-delete-confirm',
   'btn-cancel-delete',
+  'btn-add-noun',
+  'btn-delete-noun',
+  'btn-cancel-delete-noun',
+  'btn-edit-noun',
 ];
 
 const SIZES = ['btn--medium', 'btn--large'];
