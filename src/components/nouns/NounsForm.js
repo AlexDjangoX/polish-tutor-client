@@ -76,7 +76,6 @@ const NounsForm = () => {
         />
         <label htmlFor='image_url'>Word</label>
         <input
-          ref={inputRef}
           placeholder='Image URL'
           id='image_url'
           type='text'
