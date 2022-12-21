@@ -13,7 +13,7 @@ export const dummyNounData = [
   },
   {
     id: uuidv4(),
-    category: 'clothes',
+    category: 'cats',
     polish_word: 'koszula',
     english_word: 'shirt',
     image_url:

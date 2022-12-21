@@ -3,6 +3,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { v4 as uuidv4 } from 'uuid';
 import { Modal } from '@mui/material';
 import { Button } from '../button/Button.js';
+import RadioButtons from './RadioButtons.js';
 import Atom from '../spinner/Atom.js';
 import NounsForm from './NounsForm.js';
 import './Nouns.css';
@@ -12,7 +13,7 @@ const Nouns = () => {
   const { isAuthenticated } = useAuth0();
   const [isLoading, setIsLoading] = useState(false);
   const [open, setOpen] = useState(false);
-  const [items, setItems] = useState(dummyNounData);
+  const [items, setItems] = useState([]);
   const [activeIndex, setActiveIndex] = useState(-1);
 
   const toggleDetails = (index) => {
@@ -112,7 +113,14 @@ const Nouns = () => {
         <h3 className='kanban-log-in-prompt'>Log in to add nouns</h3>
       )}
       {loadingIndicator}
-      <ul className='unordered-list-nouns'>{nounListItems}</ul>
+      <div className='wrapper-list-buttons'>
+        <div className='wrapper-image-list'>
+          <ul className='unordered-list-nouns'>{nounListItems}</ul>
+        </div>
+        <div className='wrapper-radio-buttons'>
+          <RadioButtons verbArray={dummyNounData} setItems={setItems} />
+        </div>
+      </div>
     </>
   );
 };
