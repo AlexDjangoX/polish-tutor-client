@@ -1,22 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import { ChakraProvider } from '@chakra-ui/react';
 import { v4 as uuidv4 } from 'uuid';
-import { Radio } from '@chakra-ui/react';
 import { useAuth0 } from '@auth0/auth0-react';
+import './RadioButtons.css';
 
-function RadioButtons({ verbArray, setItems }) {
+function RadioButtons({ items, setItems }) {
   const { user, getAccessTokenSilently } = useAuth0();
 
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState('');
 
-  const categories = new Set();
-  verbArray.forEach((item) => categories.add(item.category));
+  const categories = items
+    .map((item) => item.category)
+    .filter((category, index, self) => self.indexOf(category) === index);
+
+  const handleChange = (event) => {
+    setSelectedCategory(event.target.value);
+  };
 
   const getFromExpressApp = async () => {
     try {
       const token = await getAccessTokenSilently();
-
-      console.log(selectedCategory);
 
       if (selectedCategory) {
         const response = await fetch(
@@ -34,6 +36,7 @@ function RadioButtons({ verbArray, setItems }) {
         const returnFromGetRequest = await response.json();
         const dataToRender = returnFromGetRequest.data;
         setItems(dataToRender);
+
         console.log('Data to Render : ', dataToRender);
       }
     } catch (error) {
@@ -46,23 +49,19 @@ function RadioButtons({ verbArray, setItems }) {
   }, [selectedCategory]);
 
   return (
-    <div style={{ display: 'grid', color: 'black' }} padding={120}>
-      {[...categories].map((category) => (
-        <>
-          <ChakraProvider>
-            <Radio
-              key={uuidv4()}
-              value={category}
-              onChange={() => setSelectedCategory(category)}
-              className='radio-button'
-              style={{ gridRow: 'auto' }}
-              name='categories'
-              color={'purple'}
-            >
-              {category}
-            </Radio>
-          </ChakraProvider>
-        </>
+    <div>
+      {categories.map((category) => (
+        <div key={category} className='input-div'>
+          <input
+            key={uuidv4()}
+            type='radio'
+            value={category}
+            checked={selectedCategory === category}
+            onChange={handleChange}
+            className='radio-button'
+          />
+          {category}
+        </div>
       ))}
     </div>
   );

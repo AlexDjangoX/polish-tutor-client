@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import { v4 as uuidv4 } from 'uuid';
 import { Modal } from '@mui/material';
@@ -10,11 +10,51 @@ import './Nouns.css';
 import { dummyNounData } from '../../utils/dummyNounData.js';
 
 const Nouns = () => {
-  const { isAuthenticated } = useAuth0();
+  const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
   const [isLoading, setIsLoading] = useState(false);
   const [open, setOpen] = useState(false);
   const [items, setItems] = useState([]);
   const [activeIndex, setActiveIndex] = useState(-1);
+
+  !isAuthenticated && setItems(dummyNounData);
+
+  const getFromExpressApp = async () => {
+    try {
+      setIsLoading(true);
+
+      const token = await getAccessTokenSilently();
+      console.log(token);
+      const response = await fetch(
+        `${process.env.REACT_APP_BASE_URL}/protected/verb/${user.sub}`,
+        {
+          method: 'GET',
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+
+      if (user) {
+        const returnFromGetRequest = await response.json();
+        let dataToRender = returnFromGetRequest.data;
+
+        console.log(dataToRender);
+
+        setItems(dataToRender);
+      }
+
+      setIsLoading(false);
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      getFromExpressApp();
+    }
+  }, []);
 
   const toggleDetails = (index) => {
     if (activeIndex === index) {
@@ -26,7 +66,6 @@ const Nouns = () => {
 
   const onDelete = (id) => {
     const newItems = items.filter((item) => item.id !== id);
-    console.log(newItems);
     setItems(newItems);
   };
 
@@ -118,7 +157,11 @@ const Nouns = () => {
           <ul className='unordered-list-nouns'>{nounListItems}</ul>
         </div>
         <div className='wrapper-radio-buttons'>
-          <RadioButtons verbArray={dummyNounData} setItems={setItems} />
+          <RadioButtons
+            verbArray={dummyNounData}
+            setItems={setItems}
+            items={items}
+          />
         </div>
       </div>
     </>
