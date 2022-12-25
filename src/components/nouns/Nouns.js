@@ -13,19 +13,28 @@ const Nouns = () => {
   const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
   const [isLoading, setIsLoading] = useState(false);
   const [open, setOpen] = useState(false);
-  const [items, setItems] = useState([]);
+  const [nounsToRender, setNounsToRender] = useState([]);
+  const [allNounsById, setAllNounsById] = useState([]);
   const [activeIndex, setActiveIndex] = useState(-1);
+  const [selectedCategory, setSelectedCategory] = useState('');
 
-  !isAuthenticated && setItems(dummyNounData);
+  const [isEditing, setIsEditing] = useState(false);
+  const [currentNoun, setCurrentNoun] = useState({});
+
+  !isAuthenticated && setNounsToRender(dummyNounData);
+
+  if (!isAuthenticated) {
+    setAllNounsById(dummyNounData) && setNounsToRender(dummyNounData);
+  }
 
   const getFromExpressApp = async () => {
     try {
       setIsLoading(true);
 
       const token = await getAccessTokenSilently();
-      console.log(token);
+
       const response = await fetch(
-        `${process.env.REACT_APP_BASE_URL}/protected/verb/${user.sub}`,
+        `${process.env.REACT_APP_BASE_URL}/protected/nouns/${user.sub}`,
         {
           method: 'GET',
           headers: {
@@ -35,14 +44,11 @@ const Nouns = () => {
         }
       );
 
-      if (user) {
-        const returnFromGetRequest = await response.json();
-        let dataToRender = returnFromGetRequest.data;
+      const returnFromGetRequest = await response.json();
+      let dataToRender = returnFromGetRequest.data;
 
-        console.log(dataToRender);
-
-        setItems(dataToRender);
-      }
+      setNounsToRender(dataToRender);
+      setAllNounsById(dataToRender);
 
       setIsLoading(false);
     } catch (error) {
@@ -65,13 +71,30 @@ const Nouns = () => {
   };
 
   const onDelete = (id) => {
-    const newItems = items.filter((item) => item.id !== id);
-    setItems(newItems);
+    const newItems = nounsToRender.filter((item) => item.id !== id);
+    setNounsToRender(newItems);
   };
 
-  const editNoun = () => {
-    return;
+  const editNoun = (nounInList) => {
+    setOpen(true);
+    setIsEditing(true);
+    setCurrentNoun(nounInList);
   };
+
+  const filterNounsByCategory = (category) => {
+    if (category === 'All nouns') {
+      setNounsToRender(allNounsById);
+      return;
+    }
+    const filterNounsByCategory = allNounsById.filter(
+      (el) => el.category === category
+    );
+    setNounsToRender(filterNounsByCategory);
+  };
+
+  useEffect(() => {
+    filterNounsByCategory(selectedCategory);
+  }, [selectedCategory]);
 
   const loadingIndicator = useMemo(() => {
     return (
@@ -80,7 +103,7 @@ const Nouns = () => {
   }, [isLoading]);
 
   const nounListItems = useMemo(() => {
-    return items.map((item, index) => {
+    return nounsToRender.map((item, index) => {
       return (
         <li className='list-item-nouns' key={uuidv4()}>
           <img
@@ -110,7 +133,10 @@ const Nouns = () => {
                   >
                     Delete
                   </Button>
-                  <Button buttonStyle='btn-edit-noun' onClick={editNoun}>
+                  <Button
+                    buttonStyle='btn-edit-noun'
+                    onClick={() => editNoun(item)}
+                  >
                     Edit
                   </Button>
                 </div>
@@ -120,7 +146,7 @@ const Nouns = () => {
         </li>
       );
     });
-  }, [items, activeIndex]);
+  }, [nounsToRender, activeIndex]);
 
   return (
     <>
@@ -133,7 +159,17 @@ const Nouns = () => {
             aria-describedby='parent-modal-description'
           >
             <div>
-              <NounsForm />
+              <NounsForm
+                currentNoun={currentNoun}
+                isEditing={isEditing}
+                setIsEditing={setIsEditing}
+                allNounsById={allNounsById}
+                nounsToRender={nounsToRender}
+                setNounsToRender={setNounsToRender}
+                open={open}
+                setOpen={setOpen}
+                getFromExpressApp={getFromExpressApp}
+              />
             </div>
           </Modal>
           <div className='add-noun-button-wrapper'>
@@ -158,9 +194,9 @@ const Nouns = () => {
         </div>
         <div className='wrapper-radio-buttons'>
           <RadioButtons
-            verbArray={dummyNounData}
-            setItems={setItems}
-            items={items}
+            allNounsById={allNounsById}
+            setSelectedCategory={setSelectedCategory}
+            selectedCategory={selectedCategory}
           />
         </div>
       </div>

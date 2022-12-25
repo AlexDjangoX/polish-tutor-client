@@ -103,7 +103,7 @@ const Kanban = ({ columns, setColumns }) => {
   //   postToExpressApp();
   // }, [columns]);
 
-  const postToExpressApp = async () => {
+  const putToExpressApp = async () => {
     try {
       const token = await getAccessTokenSilently();
 
@@ -158,7 +158,7 @@ const Kanban = ({ columns, setColumns }) => {
   }, []);
 
   useEffect(() => {
-    if (user) setTimeout(postToExpressApp, 900);
+    if (user) setTimeout(putToExpressApp, 900);
   }, [columns]);
 
   const editHandler = (currentVerb) => {
@@ -232,7 +232,7 @@ const Kanban = ({ columns, setColumns }) => {
       };
 
       await setColumns(updatedObject());
-      postToExpressApp();
+      putToExpressApp();
       setDeleteVerb(false);
       setVerbToDeleteId('');
     }

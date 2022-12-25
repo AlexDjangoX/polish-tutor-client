@@ -70,7 +70,7 @@ export const dummyNounData = [
     id: uuidv4(),
     category: 'clothes',
     polish_word: 'kaftan bezpieczeństwa',
-    english_word: ' straight-jacket',
+    english_word: 'straight-jacket',
     image_url:
       'https://i.pinimg.com/originals/6b/84/86/6b8486287c8f15877ab6b01ea1725681.jpg',
     notes: 'Był w kaftanie bezpieczeństwa, niestety był lekko szalony.',

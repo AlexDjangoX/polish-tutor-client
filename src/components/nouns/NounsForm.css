@@ -1,2 +1,6 @@
-.noun-image-to-display {
+.form-wrapper {
+  display: grid;
+  background-image: url('../../../public/images/form-background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
