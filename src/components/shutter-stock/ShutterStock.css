@@ -1,0 +1,47 @@
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-gap: 10px;
+}
+
+.image-grid img {
+  width: 120px;
+  height: 120px;
+  object-fit: scale-down;
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: aliceblue;
+  background-color: rgb(34, 34, 34);
+  border: 1px solid rgb(251, 251, 251);
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+  z-index: 1;
+}
+
+.shutter-form-wrapper {
+  display: grid;
+  grid-template-areas: 'search type submit';
+  grid-template-columns: 20rem 16rem 8rem;
+  padding: 2rem 1rem 1rem 2rem;
+}
+
+.shutter-form-search-parameter {
+  width: auto;
+}
+
+.shutter-form-image-type {
+  display: grid;
+  place-content: center;
+  margin: 0 2rem 0 2rem;
+  margin-bottom: 0;
+  width: auto;
+}
+
+.shutter-form-submit-button {
+}

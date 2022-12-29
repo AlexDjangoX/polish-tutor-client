@@ -4,3 +4,39 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+.noun-form-input-wrapper {
+  display: grid;
+  grid-template-areas:
+    'english polish image '
+    'notes notes createButton ';
+
+  padding: 2rem;
+}
+
+.noun-form-input-english-word {
+  display: grid;
+  grid-area: english;
+}
+
+.noun-form-input-polish-word {
+  display: grid;
+  grid-area: polish;
+}
+
+.noun-form-input-image {
+  display: grid;
+  grid-area: image;
+}
+
+.noun-form-input-notes {
+  display: grid;
+  grid-area: notes;
+}
+
+.create-noun-submit-button {
+  display: grid;
+  grid-area: createButton;
+  width: 12rem;
+  padding: 2rem;
+}

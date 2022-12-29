@@ -1,3 +1,27 @@
+.wrapper-list-buttons {
+  display: grid;
+  grid-template-areas: 'radio images';
+  grid-template-columns: 12rem 1fr;
+}
+
+.wrapper-image-list {
+  display: grid;
+  grid-area: images;
+}
+
+.wrapper-radio-buttons {
+  display: grid;
+  grid-area: radio;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+  color: black;
+  background-color: #43434371;
+  padding: 1rem 0 0 0.2rem;
+  border: 1px solid rgb(0, 0, 0);
+  box-shadow: 5px 5px 10px #888888, -5px -5px 10px #ffffff;
+  border-radius: 0.6rem;
+}
+
 .unordered-list-nouns {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -38,4 +62,9 @@
 }
 
 .short-sentence {
+}
+
+.noun-buttons {
+  display: grid;
+  grid-auto-flow: column;
 }

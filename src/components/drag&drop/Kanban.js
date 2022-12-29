@@ -100,7 +100,7 @@ const Kanban = ({ columns, setColumns }) => {
 
   // useEffect(() => {
   //   if (user) setTimeout(postToDb, 900);
-  //   postToExpressApp();
+  //   putToExpressApp();
   // }, [columns]);
 
   const putToExpressApp = async () => {

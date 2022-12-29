@@ -147,6 +147,7 @@ const KanbanForm = ({
   };
 
   const putToExpressApp = async () => {
+    console.log('PUT TO EXPRESS APP');
     try {
       const token = await getAccessTokenSilently();
 
@@ -167,7 +168,7 @@ const KanbanForm = ({
     }
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     if (!isEditing) {
       columns.column_A.items.push(verb);
@@ -175,13 +176,9 @@ const KanbanForm = ({
     setIsEditing(false);
     setVerb({ ...resetState });
     setCurrentVerb({ ...resetState });
-    putToExpressApp();
+    await putToExpressApp();
     setOpen(false);
   };
-
-  useEffect(() => {
-    setTimeout(putToExpressApp, 900);
-  }, [columns]);
 
   const exitEditForm = () => {
     setIsEditing(false);
@@ -199,6 +196,7 @@ const KanbanForm = ({
             <div className='polish-infinitive'>
               <label htmlFor='polish_word'>Polish Verb</label>
               <input
+                className='kanban-form-input'
                 ref={inputRef}
                 placeholder=''
                 id='polish_word'
@@ -216,6 +214,7 @@ const KanbanForm = ({
             <div className='english-infinitive'>
               <label htmlFor='english_word'>English Verb</label>
               <input
+                className='kanban-form-input'
                 placeholder=''
                 id='english_word'
                 type='text'
@@ -232,6 +231,7 @@ const KanbanForm = ({
             <div className='image_url'>
               <label htmlFor='image_url'>Image URL</label>
               <input
+                className='kanban-form-input'
                 placeholder=''
                 id='image_url'
                 type='text'
@@ -352,6 +352,7 @@ const KanbanForm = ({
                     <div className='table-entry'>
                       <label htmlFor='present_ja'>Present</label>
                       <input
+                        className='kanban-form-input'
                         placeholder='Ja jestem'
                         id='present_ja'
                         type='text'
@@ -368,6 +369,7 @@ const KanbanForm = ({
                     <div className='table-entry'>
                       <label htmlFor='present_ty'>Present</label>
                       <input
+                        className='kanban-form-input'
                         placeholder='Ty jesteś'
                         id='present_ty'
                         type='text'
@@ -384,6 +386,7 @@ const KanbanForm = ({
                     <div className='table-entry'>
                       <label htmlFor='present_on_ona_ono'>Present</label>
                       <input
+                        className='kanban-form-input'
                         placeholder='On jest'
                         id='present_on_ona_ono'
                         type='text'
@@ -400,6 +403,7 @@ const KanbanForm = ({
                     <div className='table-entry'>
                       <label htmlFor='present_my'>Present</label>
                       <input
+                        className='kanban-form-input'
                         placeholder='My jesteśmy'
                         id='present_my'
                         type='text'
@@ -416,6 +420,7 @@ const KanbanForm = ({
                     <div className='table-entry'>
                       <label htmlFor='present_wy'>Present</label>
                       <input
+                        className='kanban-form-input'
                         placeholder='Wy jesteście'
                         id='present_wy'
                         type='text'
@@ -432,6 +437,7 @@ const KanbanForm = ({
                     <div className='table-entry'>
                       <label htmlFor='present_oni_one'>Present</label>
                       <input
+                        className='kanban-form-input'
                         placeholder='Oni/one są'
                         id='present_oni_one'
                         type='text'
@@ -453,6 +459,7 @@ const KanbanForm = ({
                     <div className='table-entry'>
                       <label htmlFor='past_ja_masc'>Past</label>
                       <input
+                        className='kanban-form-input'
                         placeholder='Ja byłem'
                         id='past_ja_masc'
                         type='text'
@@ -469,6 +476,7 @@ const KanbanForm = ({
                     <div className='table-entry'>
                       <label htmlFor='past_ty_masc'>Past</label>
                       <input
+                        className='kanban-form-input'
                         placeholder='Ty byłeś'
                         id='past_ty_masc'
                         type='text'
@@ -485,6 +493,7 @@ const KanbanForm = ({
                     <div className='table-entry'>
                       <label htmlFor='past_on_masc'>Past</label>
                       <input
+                        className='kanban-form-input'
                         placeholder='On był'
                         id='past_on_masc'
                         type='text'
@@ -501,6 +510,7 @@ const KanbanForm = ({
                     <div className='table-entry'>
                       <label htmlFor='past_my_masc'>Past</label>
                       <input
+                        className='kanban-form-input'
                         placeholder='My byliśmy'
                         id='past_my_masc'
                         type='text'
@@ -517,6 +527,7 @@ const KanbanForm = ({
                     <div className='table-entry'>
                       <label htmlFor='past_wy_masc'>Past</label>
                       <input
+                        className='kanban-form-input'
                         placeholder='Wy byliście'
                         id='past_wy_masc'
                         type='text'
@@ -533,6 +544,7 @@ const KanbanForm = ({
                     <div className='table-entry'>
                       <label htmlFor='past_oni_masc'>Past</label>
                       <input
+                        className='kanban-form-input'
                         placeholder='Oni byli'
                         id='past_oni_masc'
                         type='text'
@@ -552,6 +564,7 @@ const KanbanForm = ({
                     <div className='table-entry'>
                       <label htmlFor='past_ja_fem'>Past</label>
                       <input
+                        className='kanban-form-input'
                         placeholder='Ja byłam'
                         id='past_ja_fem'
                         type='text'
@@ -568,6 +581,7 @@ const KanbanForm = ({
                     <div className='table-entry'>
                       <label htmlFor='past_ty_fem'>Past</label>
                       <input
+                        className='kanban-form-input'
                         placeholder='Ty byłaś'
                         id='past_ty_fem'
                         type='text'
@@ -584,6 +598,7 @@ const KanbanForm = ({
                     <div className='table-entry'>
                       <label htmlFor='past_ona_fem'>Past</label>
                       <input
+                        className='kanban-form-input'
                         placeholder='Ona była'
                         id='past_ona_fem'
                         type='text'
@@ -600,6 +615,7 @@ const KanbanForm = ({
                     <div className='table-entry'>
                       <label htmlFor='past_my_fem'>Past</label>
                       <input
+                        className='kanban-form-input'
                         placeholder='My byłyśmy'
                         id='past_my_fem'
                         type='text'
@@ -616,6 +632,7 @@ const KanbanForm = ({
                     <div className='table-entry'>
                       <label htmlFor='past_wy_fem'>Past</label>
                       <input
+                        className='kanban-form-input'
                         placeholder='Wy byłyście'
                         id='past_wy_fem'
                         type='text'
@@ -632,6 +649,7 @@ const KanbanForm = ({
                     <div className='table-entry'>
                       <label htmlFor='past_one_fem'>Past</label>
                       <input
+                        className='kanban-form-input'
                         placeholder='One były'
                         id='past_one_fem'
                         type='text'
@@ -651,6 +669,7 @@ const KanbanForm = ({
                     <div className='table-entry'>
                       <label htmlFor='future_masc_ja'>Future</label>
                       <input
+                        className='kanban-form-input'
                         placeholder='Ja będę'
                         id='future_masc_ja'
                         type='text'
@@ -667,6 +686,7 @@ const KanbanForm = ({
                     <div className='table-entry'>
                       <label htmlFor='future_masc_ty'>Future</label>
                       <input
+                        className='kanban-form-input'
                         placeholder='Ty będziesz'
                         id='future_masc_ty'
                         type='text'
@@ -683,6 +703,7 @@ const KanbanForm = ({
                     <div className='table-entry'>
                       <label htmlFor='future_masc_on'>Future</label>
                       <input
+                        className='kanban-form-input'
                         placeholder='On będzie'
                         id='future_masc_on'
                         type='text'
@@ -699,6 +720,7 @@ const KanbanForm = ({
                     <div className='table-entry'>
                       <label htmlFor='future_masc_my'>Future</label>
                       <input
+                        className='kanban-form-input'
                         placeholder='My będziemy'
                         id='future_masc_my'
                         type='text'
@@ -715,6 +737,7 @@ const KanbanForm = ({
                     <div className='table-entry'>
                       <label htmlFor='future_masc_wy'>Future</label>
                       <input
+                        className='kanban-form-input'
                         placeholder='Wy będziecie'
                         id='future_masc_wy'
                         type='text'
@@ -731,6 +754,7 @@ const KanbanForm = ({
                     <div className='table-entry'>
                       <label htmlFor='future_masc_oni'>Future</label>
                       <input
+                        className='kanban-form-input'
                         placeholder='Oni będą'
                         id='future_masc_oni'
                         type='text'
@@ -750,6 +774,7 @@ const KanbanForm = ({
                     <div className='table-entry'>
                       <label htmlFor='future_fem_ja'>Future</label>
                       <input
+                        className='kanban-form-input'
                         placeholder='Ja będę'
                         id='future_fem_ja'
                         type='text'
@@ -767,6 +792,7 @@ const KanbanForm = ({
                       {' '}
                       <label htmlFor='future_fem_ty'>Future</label>
                       <input
+                        className='kanban-form-input'
                         placeholder='Ty będziesz'
                         id='future_fem_ty'
                         type='text'
@@ -783,6 +809,7 @@ const KanbanForm = ({
                     <div className='table-entry'>
                       <label htmlFor='future_fem_ona'>Future</label>
                       <input
+                        className='kanban-form-input'
                         placeholder='Ona będzie'
                         id='future_fem_ona'
                         type='text'
@@ -800,6 +827,7 @@ const KanbanForm = ({
                       {' '}
                       <label htmlFor='future_fem_my'>Future</label>
                       <input
+                        className='kanban-form-input'
                         placeholder='My będziemy'
                         id='future_fem_my'
                         type='text'
@@ -816,6 +844,7 @@ const KanbanForm = ({
                     <div className='table-entry'>
                       <label htmlFor='future_fem_wy'>Future</label>
                       <input
+                        className='kanban-form-input'
                         placeholder='Wy będziecie'
                         id='future_fem_wy'
                         type='text'
@@ -832,6 +861,7 @@ const KanbanForm = ({
                     <div className='table-entry'>
                       <label htmlFor='future_fem_one'>Future</label>
                       <input
+                        className='kanban-form-input'
                         placeholder='Oni będą'
                         id='future_fem_one'
                         type='text'
@@ -851,6 +881,7 @@ const KanbanForm = ({
                     <div className='table-entry'>
                       <label htmlFor='imp_future_ja'>Imperfect</label>
                       <input
+                        className='kanban-form-input'
                         placeholder=''
                         id='imp_future_ja'
                         type='text'
@@ -868,6 +899,7 @@ const KanbanForm = ({
                       {' '}
                       <label htmlFor='imp_future_ty'>Imperfect</label>
                       <input
+                        className='kanban-form-input'
                         placeholder=''
                         id='imp_future_ty'
                         type='text'
@@ -884,6 +916,7 @@ const KanbanForm = ({
                     <div className='table-entry'>
                       <label htmlFor='imp_future_on_ona_ono'>Imperfect</label>
                       <input
+                        className='kanban-form-input'
                         placeholder=''
                         id='imp_future_on_ona_ono'
                         type='text'
@@ -900,6 +933,7 @@ const KanbanForm = ({
                     <div className='table-entry'>
                       <label htmlFor='imp_future_my'>Imperfect</label>
                       <input
+                        className='kanban-form-input'
                         placeholder=''
                         id='imp_future_my'
                         type='text'
@@ -916,6 +950,7 @@ const KanbanForm = ({
                     <div className='table-entry'>
                       <label htmlFor='imp_future_wy'>Imperfect</label>
                       <input
+                        className='kanban-form-input'
                         placeholder=''
                         id='imp_future_wy'
                         type='text'
@@ -932,6 +967,7 @@ const KanbanForm = ({
                     <div className='table-entry'>
                       <label htmlFor='imp_future_oni_one'>Imperfect</label>
                       <input
+                        className='kanban-form-input'
                         placeholder=''
                         id='imp_future_oni_one'
                         type='text'
@@ -953,6 +989,7 @@ const KanbanForm = ({
                         Conditional
                       </label>
                       <input
+                        className='kanban-form-input'
                         placeholder='Masculine'
                         id='conditional_masculine_ja'
                         type='text'
@@ -974,6 +1011,7 @@ const KanbanForm = ({
                         Conditional
                       </label>
                       <input
+                        className='kanban-form-input'
                         placeholder='Masculine'
                         id='conditional_masculine_ty'
                         type='text'
@@ -994,6 +1032,7 @@ const KanbanForm = ({
                         Conditional
                       </label>
                       <input
+                        className='kanban-form-input'
                         placeholder='Masculine'
                         id='conditional_masculine_on'
                         type='text'
@@ -1014,6 +1053,7 @@ const KanbanForm = ({
                         Conditional
                       </label>
                       <input
+                        className='kanban-form-input'
                         placeholder='Masculine'
                         id='conditional_masculine_my'
                         type='text'
@@ -1034,6 +1074,7 @@ const KanbanForm = ({
                         Conditional
                       </label>
                       <input
+                        className='kanban-form-input'
                         placeholder='Masculine'
                         id='conditional_masculine_wy'
                         type='text'
@@ -1054,6 +1095,7 @@ const KanbanForm = ({
                         Conditional
                       </label>
                       <input
+                        className='kanban-form-input'
                         placeholder='Masculine'
                         id='conditional_masculine_oni'
                         type='text'
@@ -1077,6 +1119,7 @@ const KanbanForm = ({
                         Conditional
                       </label>
                       <input
+                        className='kanban-form-input'
                         placeholder='Feminine'
                         id='conditional_feminine_ja'
                         type='text'
@@ -1096,6 +1139,7 @@ const KanbanForm = ({
                         Conditional
                       </label>
                       <input
+                        className='kanban-form-input'
                         placeholder='Feminine'
                         id='conditional_feminine_ty'
                         type='text'
@@ -1115,6 +1159,7 @@ const KanbanForm = ({
                         Conditional
                       </label>
                       <input
+                        className='kanban-form-input'
                         placeholder='Feminine'
                         id='conditional_feminine_ona'
                         type='text'
@@ -1134,6 +1179,7 @@ const KanbanForm = ({
                         Conditional
                       </label>
                       <input
+                        className='kanban-form-input'
                         placeholder='Feminine'
                         id='conditional_feminine_my'
                         type='text'
@@ -1153,6 +1199,7 @@ const KanbanForm = ({
                         Conditional
                       </label>
                       <input
+                        className='kanban-form-input'
                         placeholder='Feminine'
                         id='conditional_feminine_wy'
                         type='text'
@@ -1172,6 +1219,7 @@ const KanbanForm = ({
                         Conditional
                       </label>
                       <input
+                        className='kanban-form-input'
                         placeholder='Feminine'
                         id='conditional_feminine_one'
                         type='text'
@@ -1192,6 +1240,7 @@ const KanbanForm = ({
                     <div className='table-entry'>
                       <label htmlFor='imperative_ja'>Imperative</label>
                       <input
+                        className='kanban-form-input'
                         placeholder='*_________*'
                         id='imperative_ja'
                         type='text'
@@ -1204,6 +1253,7 @@ const KanbanForm = ({
                     <div className='table-entry'>
                       <label htmlFor='imperative_ty'>Imperative</label>
                       <input
+                        className='kanban-form-input'
                         placeholder='Ty'
                         id='imperative_ty'
                         type='text'
@@ -1220,6 +1270,7 @@ const KanbanForm = ({
                     <div className='table-entry'>
                       <label htmlFor='imperative_on_ona_oni'>Imperative</label>
                       <input
+                        className='kanban-form-input'
                         placeholder='On, ona, oni'
                         id='imperative_on_ona_oni'
                         type='text'
@@ -1236,6 +1287,7 @@ const KanbanForm = ({
                     <div className='table-entry'>
                       <label htmlFor='imperative_my'>Imperative</label>
                       <input
+                        className='kanban-form-input'
                         placeholder='My'
                         id='imperative_my'
                         type='text'
@@ -1252,6 +1304,7 @@ const KanbanForm = ({
                     <div className='table-entry'>
                       <label htmlFor='imperative_wy'>Imperative</label>
                       <input
+                        className='kanban-form-input'
                         placeholder='Wy'
                         id='imperative_wy'
                         type='text'
@@ -1268,6 +1321,7 @@ const KanbanForm = ({
                     <div className='table-entry'>
                       <label htmlFor='imperative_oni'>Imperative</label>
                       <input
+                        className='kanban-form-input'
                         placeholder='Oni, one'
                         id='imperative_oni'
                         type='text'

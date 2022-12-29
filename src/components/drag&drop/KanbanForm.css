@@ -100,7 +100,7 @@ label {
   color: aliceblue;
 }
 
-input {
+.kanban-form-input {
   display: grid;
   justify-content: center;
   border-radius: 0.4rem;
@@ -120,7 +120,7 @@ select {
   margin-bottom: 0.5rem;
 }
 
-input::placeholder {
+.kanban-form-input::placeholder {
   color: rgba(5, 5, 5, 0.564);
   padding-left: 0.1rem;
   font-size: 1rem;
@@ -166,7 +166,7 @@ input::placeholder {
     padding-top: 1.2rem;
   }
 
-  input,
+  .kanban-form-input,
   select {
     width: 7rem;
   }
@@ -195,13 +195,13 @@ input::placeholder {
 }
 
 @media screen and (max-width: 500px) {
-  input {
+  .kanban-form-input {
     width: 5.5rem;
   }
 }
 
 @media screen and (max-width: 420px) {
-  input {
+  .kanban-form-input {
     width: 7rem;
   }
 }
@@ -211,7 +211,7 @@ input::placeholder {
     border: none;
   }
 
-  input {
+  .kanban-form-input {
     width: 7rem;
   }
 }

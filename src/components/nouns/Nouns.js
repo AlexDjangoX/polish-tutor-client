@@ -125,21 +125,20 @@ const Nouns = () => {
 
                 <p className='short-sentence'>{item.notes}</p>
               </div>
-              <div className='wrapper-noun-buttons'>
-                <div className='noun-buttons'>
-                  <Button
-                    buttonStyle='btn-delete-noun'
-                    onClick={() => onDelete(item.id)}
-                  >
-                    Delete
-                  </Button>
-                  <Button
-                    buttonStyle='btn-edit-noun'
-                    onClick={() => editNoun(item)}
-                  >
-                    Edit
-                  </Button>
-                </div>
+
+              <div className='noun-buttons'>
+                <Button
+                  buttonStyle='btn-delete-noun'
+                  onClick={() => onDelete(item.id)}
+                >
+                  Delete
+                </Button>
+                <Button
+                  buttonStyle='btn-edit-noun'
+                  onClick={() => editNoun(item)}
+                >
+                  Edit
+                </Button>
               </div>
             </div>
           )}
@@ -164,8 +163,6 @@ const Nouns = () => {
                 isEditing={isEditing}
                 setIsEditing={setIsEditing}
                 allNounsById={allNounsById}
-                nounsToRender={nounsToRender}
-                setNounsToRender={setNounsToRender}
                 open={open}
                 setOpen={setOpen}
                 getFromExpressApp={getFromExpressApp}
@@ -192,6 +189,7 @@ const Nouns = () => {
         <div className='wrapper-image-list'>
           <ul className='unordered-list-nouns'>{nounListItems}</ul>
         </div>
+
         <div className='wrapper-radio-buttons'>
           <RadioButtons
             allNounsById={allNounsById}

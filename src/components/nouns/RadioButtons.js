@@ -13,29 +13,29 @@ function RadioButtons({ selectedCategory, setSelectedCategory, allNounsById }) {
 
   return (
     <div>
-      <div className='input-div'>
+      <div className='noun-radio-buttons'>
         <input
           key={uuidv4()}
           type='radio'
           value={'All nouns'}
           checked={selectedCategory === 'All nouns'}
           onChange={handleChange}
-          className='radio-button'
+          className='noun-category-input'
         />
-        {'All'}
+        <span>{'All'}</span>
       </div>
 
       {categories.map((category) => (
-        <div key={category} className='input-div'>
+        <div key={category} className='noun-radio-buttons'>
           <input
             key={uuidv4()}
             type='radio'
             value={category}
             checked={selectedCategory === category}
             onChange={handleChange}
-            className='radio-button'
+            className='noun-category-input'
           />
-          {category}
+          <span>{category}</span>
         </div>
       ))}
     </div>
