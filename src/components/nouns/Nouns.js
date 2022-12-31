@@ -21,13 +21,50 @@ const Nouns = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [currentNoun, setCurrentNoun] = useState({});
 
+  const [error, setError] = useState('');
+
   !isAuthenticated && setNounsToRender(dummyNounData);
 
   if (!isAuthenticated) {
     setAllNounsById(dummyNounData) && setNounsToRender(dummyNounData);
   }
 
-  const getFromExpressApp = async () => {
+  // const getFromExpressApp = async () => {
+  //   try {
+  //     setIsLoading(true);
+
+  //     const token = await getAccessTokenSilently();
+
+  //     const response = await fetch(
+  //       `${process.env.REACT_APP_BASE_URL}/protected/nouns/${user.sub}`,
+  //       {
+  //         method: 'GET',
+  //         headers: {
+  //           Authorization: `Bearer ${token}`,
+  //           'Content-Type': 'application/json',
+  //         },
+  //       }
+  //     );
+
+  //     const returnFromGetRequest = await response.json();
+  //     let dataToRender = returnFromGetRequest.data;
+
+  //     setNounsToRender(dataToRender);
+  //     setAllNounsById(dataToRender);
+
+  //     setIsLoading(false);
+  //   } catch (error) {
+  //     console.error(error.message);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   if (isAuthenticated) {
+  //     getFromExpressApp();
+  //   }
+  // }, []);
+
+  const getFromExpressApp = async (signal) => {
     try {
       setIsLoading(true);
 
@@ -41,8 +78,13 @@ const Nouns = () => {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json',
           },
+          signal,
         }
       );
+
+      if (!response.ok) {
+        throw new Error(response.statusText);
+      }
 
       const returnFromGetRequest = await response.json();
       let dataToRender = returnFromGetRequest.data;
@@ -52,14 +94,30 @@ const Nouns = () => {
 
       setIsLoading(false);
     } catch (error) {
-      console.error(error.message);
+      if (error.name === 'AbortError') {
+        console.log('Request was cancelled');
+      } else if (error.status >= 400 && error.status < 600) {
+        console.error(`Error: ${error.status} - ${error.message}`);
+        setError(`Error: ${error.status} - ${error.message}`);
+      } else {
+        console.error(error.message);
+        setError(error.message);
+      }
+    } finally {
+      setIsLoading(false);
     }
   };
 
   useEffect(() => {
     if (isAuthenticated) {
-      getFromExpressApp();
+      const controller = new AbortController();
+      const signal = controller.signal;
+
+      getFromExpressApp(signal);
+
+      return () => controller.abort();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const toggleDetails = (index) => {
