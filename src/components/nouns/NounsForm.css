@@ -8,15 +8,44 @@
 .noun-form-input-wrapper {
   display: grid;
   grid-template-areas:
-    'english polish image '
-    'notes notes createButton ';
+    'createButton translationComponent translationComponent'
+    'polish  translationComponent translationComponent'
+    'english notes notes'
+    'image notes notes'
+    'category newCategory .';
 
-  padding: 2rem;
+  grid-template-columns: 18rem 1fr 1fr;
+
+  padding: 1rem;
 }
 
 .noun-form-input-english-word {
   display: grid;
   grid-area: english;
+
+  width: 12rem;
+}
+
+.noun-form-input-wrapper input,
+textarea,
+select {
+  padding: 0.4rem;
+  border: 1px black solid;
+  border-radius: 6px;
+  box-shadow: 4px 2px 10px rgb(58, 58, 58);
+}
+
+.noun-form-input-wrapper input {
+  width: 12rem;
+  height: 38.8px;
+}
+
+.noun-form-input-wrapper label {
+  color: aliceblue;
+}
+
+.noun-form-input-wrapper select {
+  width: 12rem;
 }
 
 .noun-form-input-polish-word {
@@ -32,11 +61,47 @@
 .noun-form-input-notes {
   display: grid;
   grid-area: notes;
+
+  width: 1fr;
 }
 
 .create-noun-submit-button {
   display: grid;
   grid-area: createButton;
+
   width: 12rem;
-  padding: 2rem;
+}
+
+.noun-form-input-category {
+  display: grid;
+  grid-area: category;
+}
+
+.noun-form-input-new-category {
+  display: grid;
+  grid-area: newCategory;
+}
+
+.translation-component {
+  display: grid;
+  grid-area: translationComponent;
+}
+
+.shutter-stock-wrapper {
+  display: block;
+  height: 14rem;
+  overflow: scroll;
+  padding-bottom: 0 1rem 1rem 1rem;
+}
+
+.shutter-stock-wrapper::-webkit-scrollbar {
+  width: 0.5em;
+  background-color: #f5f5f5;
+}
+
+.shutter-stock-wrapper::-webkit-scrollbar-thumb {
+  background-color: #000000;
+}
+
+@media screen and (max-width: 760px) {
 }

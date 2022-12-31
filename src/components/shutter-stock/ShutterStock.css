@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   grid-gap: 10px;
+  padding: 0 1rem 1rem 1rem;
 }
 
 .image-grid img {
@@ -28,7 +29,14 @@
   display: grid;
   grid-template-areas: 'search type submit';
   grid-template-columns: 20rem 16rem 8rem;
-  padding: 2rem 1rem 1rem 2rem;
+  padding: 2rem 1rem 1rem 1rem;
+}
+
+.shutter-form-wrapper input {
+  padding: 0.4rem;
+  border: 1px black solid;
+  border-radius: 6px;
+  box-shadow: 4px 2px 10px rgb(58, 58, 58);
 }
 
 .shutter-form-search-parameter {
@@ -36,12 +44,16 @@
 }
 
 .shutter-form-image-type {
-  display: grid;
-  place-content: center;
   margin: 0 2rem 0 2rem;
-  margin-bottom: 0;
+
   width: auto;
 }
 
 .shutter-form-submit-button {
+}
+
+@media screen and (max-width: 750px) {
+  .shutter-form-wrapper {
+    grid-template-columns: 12rem 12rem 6rem;
+  }
 }

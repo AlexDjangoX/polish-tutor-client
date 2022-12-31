@@ -1,4 +1,8 @@
 import React, { useState } from 'react';
+import { Button } from '@chakra-ui/react';
+import { ChakraProvider } from '@chakra-ui/react';
+import './Translate.css';
+
 const axios = require('axios');
 
 const Translate = () => {
@@ -48,26 +52,41 @@ const Translate = () => {
 
   return (
     <>
-      <div className='text-to-translate'>
-        <textarea
-          onChange={handleChangeTranslationField}
-          placeholder='Tekst do przetłumaczenia'
-          name='english'
-          value={stringToTranslate}
-          fontFamily='Work sans'
-          fontSize='28px'
-        ></textarea>
-      </div>
-      <div className='translated-text'>
-        <textarea
-          name='polish'
-          placeholder='Przetłumaczony tekst'
-          fontFamily='Work sans'
-          defaultValue={translatedString}
-          fontSize='28px'
-        ></textarea>
-      </div>
-      <button onClick={handleTranslation}>Translate</button>
+      <ChakraProvider>
+        <div className='noun-translate-wrapper'>
+          <div className='noun-text-to-translate'>
+            <label htmlFor='english'>English to translate</label>
+            <textarea
+              onChange={handleChangeTranslationField}
+              placeholder='Tekst do przetłumaczenia'
+              name='english'
+              value={stringToTranslate}
+              fontFamily='Work sans'
+              fontSize='28px'
+            ></textarea>
+          </div>
+          <div className='noun-translation-button'>
+            <Button
+              colorScheme='blue'
+              border={'2px solid black'}
+              size='sm'
+              onClick={handleTranslation}
+            >
+              Translate
+            </Button>
+          </div>
+          <div className='noun-translated-text'>
+            <label htmlFor='polish'>Polish translation</label>
+            <textarea
+              name='polish'
+              placeholder='Przetłumaczony tekst'
+              fontFamily='Work sans'
+              defaultValue={translatedString}
+              fontSize='28px'
+            ></textarea>
+          </div>
+        </div>
+      </ChakraProvider>
     </>
   );
 };

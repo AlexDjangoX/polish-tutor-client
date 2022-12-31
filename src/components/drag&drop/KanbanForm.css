@@ -92,7 +92,7 @@
   margin: 1px;
 }
 
-label {
+.kanban-form label {
   display: grid;
   justify-content: left;
   padding: 0.4rem 0.2rem 0rem 0.2rem;
@@ -111,7 +111,7 @@ label {
   color: black;
 }
 
-select {
+.kanban-form select {
   border: 2px solid purple;
   width: 8rem;
   -webkit-border-radius: 5px;

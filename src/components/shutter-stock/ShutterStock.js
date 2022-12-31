@@ -17,7 +17,7 @@ const ShutterStock = () => {
 
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_SHUTTERSTOCK_BASE_URL}/v2/images/search?image_type=${imageType}&per_page=10&query=${searchParameter}`,
+        `${process.env.REACT_APP_SHUTTERSTOCK_BASE_URL}/v2/images/search?image_type=${imageType}&per_page=100&query=${searchParameter}`,
         {
           method: 'GET',
           headers: {

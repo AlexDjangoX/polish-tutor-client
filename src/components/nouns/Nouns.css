@@ -1,3 +1,24 @@
+.log-in-prompt-nouns {
+  display: grid;
+  place-content: center;
+  margin: 0.8rem;
+  text-transform: uppercase;
+  background: linear-gradient(
+    180deg,
+    rgba(40, 103, 249) 0%,
+    rgb(25, 33, 57) 60%
+  );
+  color: aliceblue;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.add-noun-button-wrapper {
+  display: grid;
+  place-content: center;
+  padding: 1rem 0 1rem 0;
+}
+
 .wrapper-list-buttons {
   display: grid;
   grid-template-areas: 'radio images';
@@ -7,6 +28,7 @@
 .wrapper-image-list {
   display: grid;
   grid-area: images;
+  min-height: calc(100vh - 14rem);
 }
 
 .wrapper-radio-buttons {

@@ -130,7 +130,7 @@ const NounsForm = ({
           )}
           <div className='noun-form-input-wrapper'>
             <div className='noun-form-input-category'>
-              <label htmlFor='category'>Category:</label>
+              <label htmlFor='category'>Category</label>
               <select
                 name='category'
                 defaultValue={
@@ -159,7 +159,6 @@ const NounsForm = ({
             <div className='noun-form-input-english-word'>
               <label htmlFor='english_word'>English</label>
               <input
-                ref={inputRef}
                 placeholder='English'
                 id='english_word'
                 type='text'
@@ -174,6 +173,7 @@ const NounsForm = ({
             <div className='noun-form-input-polish-word'>
               <label htmlFor='polish_word'>Polish</label>
               <input
+                ref={inputRef}
                 placeholder='Polish'
                 id='polish_word'
                 type='text'
@@ -199,7 +199,9 @@ const NounsForm = ({
                 }
               />
             </div>
-
+            <div className='translation-component'>
+              <Translate />
+            </div>
             <div className='noun-form-input-notes'>
               <label htmlFor='notes'>Your notes</label>
               <textarea
@@ -207,7 +209,7 @@ const NounsForm = ({
                 name='notes'
                 rows='4'
                 cols='50'
-                placeholder='What would you like to say ?'
+                placeholder={`Create a few sentences using the noun.\nTranslation tool available above.`}
                 fontFamily='Work sans'
                 fontSize='28px'
                 onChange={handleChange}
@@ -223,16 +225,14 @@ const NounsForm = ({
                   type='submit'
                   onClick={createNewNoun}
                 >
-                  Create Noun
+                  Create
                 </Button>
               </div>
             )}
           </div>
         </form>
-        <div>
-          <Translate />
-        </div>
-        <div>
+
+        <div className='shutter-stock-wrapper'>
           <ShutterStock />
         </div>
       </div>

@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
+
 import { useAuth0 } from '@auth0/auth0-react';
 import { v4 as uuidv4 } from 'uuid';
 import { Modal } from '@mui/material';
@@ -21,48 +22,21 @@ const Nouns = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [currentNoun, setCurrentNoun] = useState({});
 
-  const [error, setError] = useState('');
+  const loadDummyData = async () => {
+    if (!isAuthenticated) {
+      setIsLoading(true);
+      setSelectedCategory('All nouns');
+      setAllNounsById(dummyNounData);
+      setNounsToRender(dummyNounData);
+    }
+    setIsLoading(false);
+    return;
+  };
 
-  !isAuthenticated && setNounsToRender(dummyNounData);
-
-  if (!isAuthenticated) {
-    setAllNounsById(dummyNounData) && setNounsToRender(dummyNounData);
-  }
-
-  // const getFromExpressApp = async () => {
-  //   try {
-  //     setIsLoading(true);
-
-  //     const token = await getAccessTokenSilently();
-
-  //     const response = await fetch(
-  //       `${process.env.REACT_APP_BASE_URL}/protected/nouns/${user.sub}`,
-  //       {
-  //         method: 'GET',
-  //         headers: {
-  //           Authorization: `Bearer ${token}`,
-  //           'Content-Type': 'application/json',
-  //         },
-  //       }
-  //     );
-
-  //     const returnFromGetRequest = await response.json();
-  //     let dataToRender = returnFromGetRequest.data;
-
-  //     setNounsToRender(dataToRender);
-  //     setAllNounsById(dataToRender);
-
-  //     setIsLoading(false);
-  //   } catch (error) {
-  //     console.error(error.message);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   if (isAuthenticated) {
-  //     getFromExpressApp();
-  //   }
-  // }, []);
+  useEffect(() => {
+    loadDummyData();
+    // eslint-disable-next-line
+  }, []);
 
   const getFromExpressApp = async (signal) => {
     try {
@@ -95,13 +69,11 @@ const Nouns = () => {
       setIsLoading(false);
     } catch (error) {
       if (error.name === 'AbortError') {
-        console.log('Request was cancelled');
+        console.error('Request was cancelled');
       } else if (error.status >= 400 && error.status < 600) {
         console.error(`Error: ${error.status} - ${error.message}`);
-        setError(`Error: ${error.status} - ${error.message}`);
       } else {
         console.error(error.message);
-        setError(error.message);
       }
     } finally {
       setIsLoading(false);
@@ -152,6 +124,7 @@ const Nouns = () => {
 
   useEffect(() => {
     filterNounsByCategory(selectedCategory);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedCategory]);
 
   const loadingIndicator = useMemo(() => {
@@ -203,6 +176,7 @@ const Nouns = () => {
         </li>
       );
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [nounsToRender, activeIndex]);
 
   return (
@@ -240,7 +214,7 @@ const Nouns = () => {
       )}
 
       {!isAuthenticated && (
-        <h3 className='kanban-log-in-prompt'>Log in to add nouns</h3>
+        <h3 className='log-in-prompt-nouns'>Log in to add nouns</h3>
       )}
       {loadingIndicator}
       <div className='wrapper-list-buttons'>
