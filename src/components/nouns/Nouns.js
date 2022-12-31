@@ -100,9 +100,41 @@ const Nouns = () => {
     }
   };
 
-  const onDelete = (id) => {
-    const newItems = nounsToRender.filter((item) => item.id !== id);
-    setNounsToRender(newItems);
+  // const onDelete = (id) => {
+  //   const newItems = nounsToRender.filter((item) => item.id !== id);
+  //   setNounsToRender(newItems);
+  // };
+
+  const onDelete = async (id) => {
+    try {
+      const token = await getAccessTokenSilently();
+
+      const controller = new AbortController();
+      const { signal } = controller;
+
+      const response = await fetch(
+        `${process.env.REACT_APP_BASE_URL}/protected/nouns/noun/${user.sub}`,
+        {
+          method: 'DELETE',
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ id: id }),
+          signal,
+        }
+      );
+
+      if (response.status >= 400) {
+        throw new Error(response.statusText);
+      }
+
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error(error.message);
+    }
+    getFromExpressApp();
   };
 
   const editNoun = (nounInList) => {

@@ -147,7 +147,6 @@ const KanbanForm = ({
   };
 
   const putToExpressApp = async () => {
-    console.log('PUT TO EXPRESS APP');
     try {
       const token = await getAccessTokenSilently();
 
