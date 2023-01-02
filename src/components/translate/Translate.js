@@ -5,7 +5,13 @@ import './Translate.css';
 
 const axios = require('axios');
 
-const Translate = () => {
+const Translate = ({
+  newNoun,
+  setNewNoun,
+  editedNoun,
+  setEditedNoun,
+  isEditing,
+}) => {
   const [stringToTranslate, setStringToTranslate] = useState('');
   const [translatedString, setTranslatedString] = useState('');
   const [isFetching, setIsFetching] = useState(false);
@@ -50,6 +56,18 @@ const Translate = () => {
     setStringToTranslate(value);
   };
 
+  const concatenateTranslatedString = (translatedString) => {
+    let concatString = newNoun.notes + '\n';
+    concatString += translatedString;
+    setNewNoun({ ...newNoun, notes: concatString });
+
+    if (isEditing) {
+      let concatString = editedNoun.notes + '\n';
+      concatString += translatedString;
+      setEditedNoun({ ...editedNoun, notes: concatString });
+    }
+  };
+
   return (
     <>
       <ChakraProvider>
@@ -74,6 +92,18 @@ const Translate = () => {
             >
               Translate
             </Button>
+
+            <div className='add-to-notes-button'>
+              <Button
+                colorScheme='blue'
+                border={'2px solid black'}
+                size='sm'
+                type='button'
+                onClick={() => concatenateTranslatedString(translatedString)}
+              >
+                Add to notes
+              </Button>
+            </div>
           </div>
           <div className='noun-translated-text'>
             <label htmlFor='polish'>Polish translation</label>

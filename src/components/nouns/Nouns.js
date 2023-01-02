@@ -100,11 +100,6 @@ const Nouns = () => {
     }
   };
 
-  // const onDelete = (id) => {
-  //   const newItems = nounsToRender.filter((item) => item.id !== id);
-  //   setNounsToRender(newItems);
-  // };
-
   const onDelete = async (id) => {
     try {
       const token = await getAccessTokenSilently();

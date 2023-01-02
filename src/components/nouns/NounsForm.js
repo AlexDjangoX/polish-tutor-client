@@ -106,9 +106,8 @@ const NounsForm = ({
   };
 
   const updateNoun = async () => {
-    putToExpressApp(editedNoun);
     setOpen(false);
-    setEditedNoun({ ...initialNounFormData });
+    await putToExpressApp(editedNoun);
     setIsEditing(false);
     getFromExpressApp();
   };
@@ -200,7 +199,13 @@ const NounsForm = ({
               />
             </div>
             <div className='translation-component'>
-              <Translate />
+              <Translate
+                newNoun={newNoun}
+                setNewNoun={setNewNoun}
+                editedNoun={editedNoun}
+                setEditedNoun={setEditedNoun}
+                isEditing={isEditing}
+              />
             </div>
             <div className='noun-form-input-notes'>
               <label htmlFor='notes'>Your notes</label>
@@ -209,7 +214,7 @@ const NounsForm = ({
                 name='notes'
                 rows='4'
                 cols='50'
-                placeholder={`Create a few sentences using the noun.\nTranslation tool available above.`}
+                placeholder={`Create a few sentences using the noun.`}
                 fontFamily='Work sans'
                 fontSize='28px'
                 onChange={handleChange}
@@ -223,7 +228,6 @@ const NounsForm = ({
                   buttonSize='btn--medium'
                   id='submit-verb-button'
                   type='submit'
-                  onClick={createNewNoun}
                 >
                   Create
                 </Button>
