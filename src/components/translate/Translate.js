@@ -8,8 +8,8 @@ const axios = require('axios');
 const Translate = ({
   newNoun,
   setNewNoun,
-  editedNoun,
-  setEditedNoun,
+  currentNoun,
+  setCurrentNoun,
   isEditing,
 }) => {
   const [stringToTranslate, setStringToTranslate] = useState('');
@@ -57,14 +57,18 @@ const Translate = ({
   };
 
   const concatenateTranslatedString = (translatedString) => {
-    let concatString = newNoun.notes + '\n';
-    concatString += translatedString;
-    setNewNoun({ ...newNoun, notes: concatString });
+    if (!isEditing) {
+      let concatString = newNoun.notes + '\n';
+      concatString += translatedString;
+      setNewNoun({ ...newNoun, notes: concatString });
+    }
 
     if (isEditing) {
-      let concatString = editedNoun.notes + '\n';
+      setCurrentNoun({ ...currentNoun, notes: '' });
+      let concatString = currentNoun.notes + '\n';
       concatString += translatedString;
-      setEditedNoun({ ...editedNoun, notes: concatString });
+      console.log('69 : ', concatString);
+      setCurrentNoun({ ...currentNoun, notes: concatString });
     }
   };
 
@@ -86,6 +90,7 @@ const Translate = ({
           <div className='noun-translation-button'>
             <Button
               colorScheme='blue'
+              marginRight={16}
               border={'2px solid black'}
               size='sm'
               onClick={handleTranslation}
@@ -93,17 +98,15 @@ const Translate = ({
               Translate
             </Button>
 
-            <div className='add-to-notes-button'>
-              <Button
-                colorScheme='blue'
-                border={'2px solid black'}
-                size='sm'
-                type='button'
-                onClick={() => concatenateTranslatedString(translatedString)}
-              >
-                Add to notes
-              </Button>
-            </div>
+            <Button
+              colorScheme='blue'
+              border={'2px solid black'}
+              size='sm'
+              type='button'
+              onClick={() => concatenateTranslatedString(translatedString)}
+            >
+              Add to notes
+            </Button>
           </div>
           <div className='noun-translated-text'>
             <label htmlFor='polish'>Polish translation</label>

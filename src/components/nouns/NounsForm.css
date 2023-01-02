@@ -72,6 +72,13 @@ select {
   width: 12rem;
 }
 
+.close-modal-button {
+  display: grid;
+  grid-area: createButton;
+
+  width: 12rem;
+}
+
 .noun-form-input-category {
   display: grid;
   grid-area: category;

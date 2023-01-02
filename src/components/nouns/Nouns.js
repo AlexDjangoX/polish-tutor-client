@@ -219,6 +219,7 @@ const Nouns = () => {
             <div>
               <NounsForm
                 currentNoun={currentNoun}
+                setCurrentNoun={setCurrentNoun}
                 isEditing={isEditing}
                 setIsEditing={setIsEditing}
                 allNounsById={allNounsById}

@@ -15,14 +15,14 @@ const initialNounFormData = {
 
 const NounsForm = ({
   currentNoun,
+  setCurrentNoun,
   isEditing,
   setIsEditing,
   allNounsById,
   setOpen,
   getFromExpressApp,
 }) => {
-  const [newNoun, setNewNoun] = useState(initialNounFormData);
-  const [editedNoun, setEditedNoun] = useState({});
+  const [newNoun, setNewNoun] = useState({ ...initialNounFormData });
 
   const categories = allNounsById
     .map((item) => item.category)
@@ -45,13 +45,10 @@ const NounsForm = ({
     const { name, value } = event.target;
 
     if (isEditing) {
-      allNounsById.forEach((el) => {
-        if (el.id === currentNoun.id) {
-          setEditedNoun({ ...el, [name]: value });
-        } else {
-          return;
-        }
-      });
+      setCurrentNoun((previous) => ({
+        ...previous,
+        [name]: value,
+      }));
     } else {
       setNewNoun({ ...newNoun, [name]: value });
     }
@@ -107,27 +104,29 @@ const NounsForm = ({
 
   const updateNoun = async () => {
     setOpen(false);
-    await putToExpressApp(editedNoun);
+    await putToExpressApp(currentNoun);
+    await getFromExpressApp();
     setIsEditing(false);
-    getFromExpressApp();
   };
+
+  console.log('110 : ', currentNoun.notes);
 
   return (
     <>
       <div className='form-wrapper'>
         <form onSubmit={createNewNoun}>
-          {isEditing && (
-            <div className='close-modal-button'>
-              <Button
-                buttonStyle='btn--add-new-verb'
-                buttonSize='btn--medium'
-                onClick={updateNoun}
-              >
-                {isEditing ? 'Update Noun' : 'Editing'}
-              </Button>
-            </div>
-          )}
           <div className='noun-form-input-wrapper'>
+            {isEditing && (
+              <div className='close-modal-button'>
+                <Button
+                  buttonStyle='btn--add-new-verb'
+                  buttonSize='btn--medium'
+                  onClick={updateNoun}
+                >
+                  {isEditing ? 'Update Noun' : 'Editing'}
+                </Button>
+              </div>
+            )}
             <div className='noun-form-input-category'>
               <label htmlFor='category'>Category</label>
               <select
@@ -202,8 +201,8 @@ const NounsForm = ({
               <Translate
                 newNoun={newNoun}
                 setNewNoun={setNewNoun}
-                editedNoun={editedNoun}
-                setEditedNoun={setEditedNoun}
+                currentNoun={currentNoun}
+                setCurrentNoun={setCurrentNoun}
                 isEditing={isEditing}
               />
             </div>
@@ -218,7 +217,7 @@ const NounsForm = ({
                 fontFamily='Work sans'
                 fontSize='28px'
                 onChange={handleChange}
-                defaultValue={isEditing ? currentNoun.notes : newNoun.notes}
+                value={isEditing ? currentNoun.notes : newNoun.notes}
               />
             </div>
             {!isEditing && (

@@ -154,11 +154,15 @@ const Kanban = ({ columns, setColumns }) => {
   };
 
   useEffect(() => {
-    getFromExpressApp();
+    if (isAuthenticated) {
+      getFromExpressApp();
+    }
   }, []);
 
   useEffect(() => {
-    if (user) setTimeout(putToExpressApp, 900);
+    if (isAuthenticated) {
+      putToExpressApp();
+    }
   }, [columns]);
 
   const editHandler = (currentVerb) => {
