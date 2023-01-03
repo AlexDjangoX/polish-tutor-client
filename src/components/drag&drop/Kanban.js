@@ -11,8 +11,6 @@ import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import { Modal } from '@mui/material';
 import { Button } from '../button/Button.js';
 
-const axios = require('axios');
-
 const onDragEnd = (result, columns, setColumns) => {
   const { source, destination } = result;
 
@@ -79,6 +77,8 @@ const Kanban = ({ columns, setColumns }) => {
     loadDummyData();
     // eslint-disable-next-line
   }, []);
+
+  // const axios = require('axios');
 
   // useEffect(() => {
   //   axios
@@ -206,7 +206,7 @@ const Kanban = ({ columns, setColumns }) => {
 
   const sortByUserInput = async (event) => {
     const { value } = event.target;
-    console.log(value);
+
     event.preventDefault();
 
     clearTimeout(timer);

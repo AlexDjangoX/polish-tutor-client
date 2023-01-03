@@ -67,7 +67,7 @@ const Translate = ({
       setCurrentNoun({ ...currentNoun, notes: '' });
       let concatString = currentNoun.notes + '\n';
       concatString += translatedString;
-      console.log('69 : ', concatString);
+
       setCurrentNoun({ ...currentNoun, notes: concatString });
     }
   };
@@ -93,6 +93,7 @@ const Translate = ({
               marginRight={16}
               border={'2px solid black'}
               size='sm'
+              margin={2}
               onClick={handleTranslation}
             >
               Translate
@@ -102,6 +103,7 @@ const Translate = ({
               colorScheme='blue'
               border={'2px solid black'}
               size='sm'
+              margin={2}
               type='button'
               onClick={() => concatenateTranslatedString(translatedString)}
             >

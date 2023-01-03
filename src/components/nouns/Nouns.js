@@ -19,6 +19,8 @@ const Nouns = () => {
   const [activeIndex, setActiveIndex] = useState(-1);
   const [selectedCategory, setSelectedCategory] = useState('');
 
+  let [count, setCount] = useState(1);
+  const [deleteNoun, setDeleteNoun] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [currentNoun, setCurrentNoun] = useState({});
 
@@ -121,9 +123,6 @@ const Nouns = () => {
       if (response.status >= 400) {
         throw new Error(response.statusText);
       }
-
-      const data = await response.json();
-      console.log(data);
     } catch (error) {
       if (error.name === 'AbortError') {
         console.error('Request was cancelled');
@@ -132,8 +131,25 @@ const Nouns = () => {
       } else {
         console.error(error.message);
       }
+    } finally {
+      setDeleteNoun(false);
     }
     getFromExpressApp();
+  };
+
+  const onCancelDelete = () => {
+    setCount((count = count + 1));
+    setDeleteNoun(false);
+  };
+
+  const onConfirmDelete = (item) => {
+    setCount((count = count + 1));
+    onDelete(item.id);
+  };
+
+  const onPrepareToDelete = () => {
+    setCount((count = count + 1));
+    setDeleteNoun(true);
   };
 
   const editNoun = (nounInList) => {
@@ -177,38 +193,59 @@ const Nouns = () => {
           />
           {activeIndex === index && (
             <div
+              // onClick={() => toggleDetails(index)}
               className='noun-description'
-              onClick={() => toggleDetails(index)}
             >
-              <div className='wrapper-noun-description'>
-                <p className='polish-english-word'>
-                  {item.polish_word} &rarr; {item.english_word}
-                </p>
+              <div onClick={() => toggleDetails(index)} className='toggle'>
+                <div className='wrapper-noun-description'>
+                  <p className='polish-english-word'>
+                    {item.polish_word} &rarr; {item.english_word}
+                  </p>
 
-                <p className='short-sentence'>{item.notes}</p>
+                  <p className='short-sentence'>{item.notes}</p>
+                </div>
               </div>
-
               <div className='noun-buttons'>
-                <Button
-                  buttonStyle='btn-delete-noun'
-                  onClick={() => onDelete(item.id)}
-                >
-                  Delete
-                </Button>
-                <Button
-                  buttonStyle='btn-edit-noun'
-                  onClick={() => editNoun(item)}
-                >
-                  Edit
-                </Button>
+                {!deleteNoun ? (
+                  <Button
+                    buttonStyle='btn-delete-noun'
+                    onClick={onPrepareToDelete}
+                  >
+                    Delete
+                  </Button>
+                ) : (
+                  <>
+                    <Button
+                      buttonStyle='btn-delete-noun'
+                      onClick={onCancelDelete}
+                    >
+                      Cancel
+                    </Button>
+
+                    <Button
+                      buttonStyle='btn-delete-noun'
+                      onClick={() => onConfirmDelete(item)}
+                    >
+                      Confirm
+                    </Button>
+                  </>
+                )}
+                {!deleteNoun && (
+                  <Button
+                    buttonStyle='btn-edit-noun'
+                    onClick={() => editNoun(item)}
+                  >
+                    Edit
+                  </Button>
+                )}
               </div>
             </div>
           )}
         </li>
       );
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [nounsToRender, activeIndex]);
+    // eslint-disable-next-line
+  }, [nounsToRender, activeIndex, count]);
 
   return (
     <>

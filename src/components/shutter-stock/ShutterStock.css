@@ -49,11 +49,24 @@
   width: auto;
 }
 
-.shutter-form-submit-button {
-}
-
 @media screen and (max-width: 750px) {
   .shutter-form-wrapper {
     grid-template-columns: 12rem 12rem 6rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .shutter-form-wrapper {
+    grid-template-areas:
+      'search type '
+      'submit submit';
+
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .shutter-form-submit-button {
+    display: grid;
+    padding-top: 1rem;
+    margin-left: -0.4rem;
   }
 }

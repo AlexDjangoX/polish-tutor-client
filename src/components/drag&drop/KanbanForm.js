@@ -245,7 +245,7 @@ const KanbanForm = ({
             </div>
             <div className='radio-buttons'>
               <RadioGroup>
-                <Stack direction='column' pl={1}>
+                <Stack direction='column' pl={2} pt={2}>
                   <Radio
                     type='radio'
                     id='dokonany'
@@ -309,13 +309,13 @@ const KanbanForm = ({
                 {!isEditing ? 'Submit' : 'Update'}
               </Button>
             </div>
-            <div className='close-modal-button'>
+            <div className='close-modal'>
               <Button
                 buttonStyle='btn--add-new-verb'
                 buttonSize='btn--medium'
                 onClick={() => exitEditForm()}
               >
-                Exit
+                Close
               </Button>
             </div>
           </div>

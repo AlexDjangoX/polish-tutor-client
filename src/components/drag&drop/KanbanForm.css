@@ -18,11 +18,15 @@
 .wrapper-field-inputs {
   display: grid;
   grid-template-areas:
-    '. polish english case submit .'
-    '. radio  image . exit .';
+    '. polish english case . submit . '
+    '. radio image . .  close . ';
 
   background: linear-gradient(90deg, rgb(40, 103, 249) 0%, rgb(25, 33, 57) 60%);
   padding-bottom: 1rem;
+}
+
+.wrapper-field-inputs input {
+  width: 14rem;
 }
 
 .polish-infinitive {
@@ -41,6 +45,7 @@
   display: grid;
   grid-area: image;
   padding-left: 0.4rem;
+  padding-top: 0.4rem;
 }
 
 .radio-buttons {
@@ -60,9 +65,9 @@
   padding-top: 2.4rem;
 }
 
-.close-modal-button {
+.close-modal {
   display: grid;
-  grid-area: exit;
+  grid-area: close;
 }
 
 .present-tense,
@@ -144,6 +149,10 @@
   .heading-kanban {
     font-size: 1.8rem;
   }
+
+  .wrapper-field-inputs input {
+    width: 8rem;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -152,7 +161,7 @@
     grid-template-areas:
       '. polish english case . .'
       '. radio  image . . .'
-      '. submit  . exit . .';
+      '.  submit . close  . .';
 
     background-color: rgb(40, 103, 249);
     padding-bottom: 1rem;
@@ -195,6 +204,10 @@
 }
 
 @media screen and (max-width: 500px) {
+  .kanban-form-input input {
+    width: 8rem;
+  }
+
   .kanban-form-input {
     width: 5.5rem;
   }

@@ -58,7 +58,10 @@ const NounsForm = ({
     try {
       const token = await getAccessTokenSilently();
 
-      await fetch(
+      const controller = new AbortController();
+      const { signal } = controller;
+
+      const response = await fetch(
         `${process.env.REACT_APP_BASE_URL}/protected/nouns/noun/${user.sub}`,
         {
           method: 'PUT',
@@ -67,16 +70,30 @@ const NounsForm = ({
             Authorization: `Bearer ${token}`,
           },
           body: JSON.stringify(noun),
+          signal,
         }
       );
+
+      if (response.status >= 400) {
+        throw new Error(response.statusText);
+      }
     } catch (error) {
-      console.error(error.message);
+      if (error.name === 'AbortError') {
+        console.error('Request was cancelled');
+      } else if (error.status >= 400 && error.status < 600) {
+        console.error(`Error: ${error.status} - ${error.message}`);
+      } else {
+        console.error(error.message);
+      }
     }
   };
 
   const postToExpressApp = async (noun) => {
     try {
       const token = await getAccessTokenSilently();
+
+      const controller = new AbortController();
+      const { signal } = controller;
 
       const response = await fetch(
         `${process.env.REACT_APP_BASE_URL}/protected/nouns/${user.sub}`,
@@ -87,11 +104,20 @@ const NounsForm = ({
             Authorization: `Bearer ${token}`,
           },
           body: JSON.stringify(noun),
+          signal,
         }
       );
-      console.log(response.data);
+      if (response.status >= 400) {
+        throw new Error(response.statusText);
+      }
     } catch (error) {
-      console.error(error.message);
+      if (error.name === 'AbortError') {
+        console.error('Request was cancelled');
+      } else if (error.status >= 400 && error.status < 600) {
+        console.error(`Error: ${error.status} - ${error.message}`);
+      } else {
+        console.error(error.message);
+      }
     }
   };
 
@@ -108,8 +134,6 @@ const NounsForm = ({
     await getFromExpressApp();
     setIsEditing(false);
   };
-
-  console.log('110 : ', currentNoun.notes);
 
   return (
     <>

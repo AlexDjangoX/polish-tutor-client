@@ -96,7 +96,7 @@ select {
 
 .shutter-stock-wrapper {
   display: block;
-  height: 14rem;
+  height: 20rem;
   overflow: scroll;
   padding-bottom: 0 1rem 1rem 1rem;
 }
@@ -110,5 +110,18 @@ select {
   background-color: #000000;
 }
 
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 600px) {
+  .noun-form-input-wrapper {
+    display: grid;
+    grid-template-areas:
+      'createButton translationComponent translationComponent'
+      'polish  translationComponent translationComponent'
+      'english notes notes'
+      'image notes notes'
+      'category newCategory .';
+
+    grid-template-columns: 13rem 1fr 1fr;
+
+    padding: 1rem;
+  }
 }

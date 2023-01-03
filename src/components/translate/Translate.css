@@ -24,3 +24,9 @@
   display: grid;
   grid-area: translated;
 }
+
+@media screen and (max-width: 600px) {
+  .noun-translation-button {
+    grid-auto-flow: row;
+  }
+}

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import { CancelableFetch } from '../../utils/CancelableFetch.js';
 import './ShutterStock.css';
 import { Button } from '../button/Button';
 
@@ -10,10 +9,8 @@ const ShutterStock = () => {
   const [imageType, setImageType] = useState('illustration');
 
   const fetchData = async () => {
-    // const controller = new AbortController();
-    // const signal = controller.signal;
-
-    // CancelableFetch(controller);
+    const controller = new AbortController();
+    const signal = controller.signal;
 
     try {
       const response = await fetch(
@@ -24,18 +21,24 @@ const ShutterStock = () => {
             Authorization: `Bearer ${process.env.REACT_APP_SHUTTERSTOCK_TOKEN}`,
             'Accept-Encoding': 'gzip, deflate, br',
           },
-          // signal,
+          signal,
         }
       );
+
+      if (response.status >= 400) {
+        throw new Error(response.statusText);
+      }
+
       const data = await response.json();
-      console.log(data.data[0].assets.huge_thumb.url);
-      console.log(data.data);
+
       setDataApi(data.data);
     } catch (error) {
       if (error.name === 'AbortError') {
-        console.error('Fetch request was aborted');
+        console.error('Request was cancelled');
+      } else if (error.status >= 400 && error.status < 600) {
+        console.error(`Error: ${error.status} - ${error.message}`);
       } else {
-        console.error(error);
+        console.error(error.message);
       }
     }
   };
@@ -71,14 +74,15 @@ const ShutterStock = () => {
           <option value='vector'>Vector</option>
           <option value='photo'>Photo</option>
         </select>
-        <Button
-          buttonStyle='btn--add-new-verb'
-          buttonSize='btn--medium'
-          className='shutter-form-submit-button'
-          type='submit'
-        >
-          Search
-        </Button>
+        <div className='shutter-form-submit-button'>
+          <Button
+            buttonStyle='btn--add-new-verb'
+            buttonSize='btn--medium'
+            type='submit'
+          >
+            Search
+          </Button>
+        </div>
       </form>
       {showPopup && <div className='popup'>URL copied to clipboard</div>}
       <ul className='image-grid'>
