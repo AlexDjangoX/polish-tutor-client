@@ -65,8 +65,6 @@ const Nouns = () => {
 
       setNounsToRender(dataToRender);
       setAllNounsById(dataToRender);
-
-      setIsLoading(false);
     } catch (error) {
       if (error.name === 'AbortError') {
         console.error('Request was cancelled');
@@ -127,7 +125,13 @@ const Nouns = () => {
       const data = await response.json();
       console.log(data);
     } catch (error) {
-      console.error(error.message);
+      if (error.name === 'AbortError') {
+        console.error('Request was cancelled');
+      } else if (error.status >= 400 && error.status < 600) {
+        console.error(`Error: ${error.status} - ${error.message}`);
+      } else {
+        console.error(error.message);
+      }
     }
     getFromExpressApp();
   };
@@ -151,7 +155,7 @@ const Nouns = () => {
 
   useEffect(() => {
     filterNounsByCategory(selectedCategory);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line
   }, [selectedCategory]);
 
   const loadingIndicator = useMemo(() => {

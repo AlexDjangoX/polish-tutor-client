@@ -91,14 +91,6 @@
     },
     "column_B": {
       "name": "Przeszły",
-      "items": []
-    },
-    "column_C": {
-      "name": "Przyszły",
-      "items": []
-    },
-    "column_D": {
-      "name": "Stare słowa",
       "items": [
         {
           "id": "d509237d-6e00-4da9-ae33-80fcd41c2485",
@@ -183,7 +175,16 @@
             "conditional_masculine_wy": "tworzylibyście",
             "conditional_masculine_oni": "tworzyliby"
           }
-        },
+        }
+      ]
+    },
+    "column_C": {
+      "name": "Przyszły",
+      "items": []
+    },
+    "column_D": {
+      "name": "Stare słowa",
+      "items": [
         {
           "id": "d8b5f81c-9f28-449c-b85d-56f2833bebf0",
           "past": {

@@ -77,6 +77,7 @@ const Kanban = ({ columns, setColumns }) => {
 
   useEffect(() => {
     loadDummyData();
+    // eslint-disable-next-line
   }, []);
 
   // useEffect(() => {
@@ -107,7 +108,10 @@ const Kanban = ({ columns, setColumns }) => {
     try {
       const token = await getAccessTokenSilently();
 
-      await fetch(
+      const controller = new AbortController();
+      const { signal } = controller;
+
+      const response = await fetch(
         `${process.env.REACT_APP_BASE_URL}/protected/kanban/${user.sub}`,
         {
           method: 'PUT',
@@ -116,14 +120,30 @@ const Kanban = ({ columns, setColumns }) => {
             Authorization: `Bearer ${token}`,
           },
           body: JSON.stringify(columns),
+          signal,
         }
       );
+
+      if (response.status >= 400) {
+        throw new Error(response.statusText);
+      }
     } catch (error) {
-      console.error(error.message);
+      if (error.name === 'AbortError') {
+        console.error('Request was cancelled');
+      } else if (error.status >= 400 && error.status < 600) {
+        console.error(`Error: ${error.status} - ${error.message}`);
+      } else {
+        console.error(error.message);
+      }
     }
   };
 
-  const getFromExpressApp = async () => {
+  useEffect(() => {
+    if (user) setTimeout(putToExpressApp, 900);
+    // eslint-disable-next-line
+  }, [columns]);
+
+  const getFromExpressApp = async (signal) => {
     try {
       setIsLoading(true);
 
@@ -137,8 +157,13 @@ const Kanban = ({ columns, setColumns }) => {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json',
           },
+          signal,
         }
       );
+
+      if (!response.ok) {
+        throw new Error(response.statusText);
+      }
 
       if (user) {
         const returnFromGetRequest = await response.json();
@@ -146,24 +171,30 @@ const Kanban = ({ columns, setColumns }) => {
 
         await setColumns(dataToRender);
       }
-
-      setIsLoading(false);
     } catch (error) {
-      console.error(error.message);
+      if (error.name === 'AbortError') {
+        console.error('Request was cancelled');
+      } else if (error.status >= 400 && error.status < 600) {
+        console.error(`Error: ${error.status} - ${error.message}`);
+      } else {
+        console.error(error.message);
+      }
+    } finally {
+      setIsLoading(false);
     }
   };
 
   useEffect(() => {
     if (isAuthenticated) {
-      getFromExpressApp();
-    }
-  }, []);
+      const controller = new AbortController();
+      const signal = controller.signal;
 
-  useEffect(() => {
-    if (isAuthenticated) {
-      putToExpressApp();
+      getFromExpressApp(signal);
+
+      return () => controller.abort();
     }
-  }, [columns]);
+    // eslint-disable-next-line
+  }, []);
 
   const editHandler = (currentVerb) => {
     setOpen(true);
