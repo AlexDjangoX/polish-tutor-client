@@ -202,44 +202,49 @@ const Kanban = ({ columns, setColumns }) => {
     setCurrentVerb(currentVerb);
   };
 
+  let timer;
+
   const sortByUserInput = async (event) => {
     const { value } = event.target;
+    console.log(value);
     event.preventDefault();
 
-    const verbArray = columns.column_D.items;
+    clearTimeout(timer);
 
-    let sortedArray = verbArray.sort(function (a, b) {
-      if (
-        a.word_image.polish_word.toLowerCase() >
-        b.word_image.polish_word.toLowerCase()
-      )
-        return 1;
-      return -1;
-    });
+    timer = setTimeout(() => {
+      const verbArray = columns.column_D.items;
 
-    sortedArray = verbArray.sort(function (a, b) {
-      if (
-        a.word_image.polish_word.toLowerCase().startsWith(value) >
-        b.word_image.polish_word.toLowerCase().startsWith(value)
-      )
+      let sortedArray = verbArray.sort((a, b) => {
+        if (
+          a.word_image.polish_word.toLowerCase() >
+          b.word_image.polish_word.toLowerCase()
+        )
+          return 1;
         return -1;
-      return 1;
-    });
+      });
 
-    const updatedObject = () => {
-      const objClone = JSON.parse(JSON.stringify({ ...columns }));
-      for (let j in objClone) {
-        if (objClone[j].name === 'Stare słowa') {
-          objClone[j].items = sortedArray;
+      sortedArray = verbArray.sort((a, b) => {
+        if (
+          a.word_image.polish_word.toLowerCase().startsWith(value) >
+          b.word_image.polish_word.toLowerCase().startsWith(value)
+        )
+          return -1;
+        return 1;
+      });
+
+      const updatedObject = () => {
+        const objClone = JSON.parse(JSON.stringify({ ...columns }));
+        for (let j in objClone) {
+          if (objClone[j].name === 'Stare słowa') {
+            objClone[j].items = sortedArray;
+          }
         }
-      }
 
-      return objClone;
-    };
+        return objClone;
+      };
 
-    const timer = setTimeout(function () {
       setColumns(updatedObject());
-    }, 1000);
+    }, 2000);
   };
 
   const prepareDelete = (verbId) => {
