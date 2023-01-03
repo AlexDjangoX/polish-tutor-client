@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
+import ShutterStock from '../shutter-stock/ShutterStock.js';
 import { Button } from '../button/Button.js';
 import { v4 as uuidv4 } from 'uuid';
 import './KanbanForm.css';
@@ -150,7 +151,10 @@ const KanbanForm = ({
     try {
       const token = await getAccessTokenSilently();
 
-      await fetch(
+      const controller = new AbortController();
+      const { signal } = controller;
+
+      const response = await fetch(
         `${process.env.REACT_APP_BASE_URL}/protected/kanban/${user.sub}`,
         {
           method: 'PUT',
@@ -160,10 +164,21 @@ const KanbanForm = ({
           },
 
           body: JSON.stringify(columns),
+          signal,
         }
       );
+
+      if (response.status >= 400) {
+        throw new Error(response.statusText);
+      }
     } catch (error) {
-      console.error(error.message);
+      if (error.name === 'AbortError') {
+        console.error('Request was cancelled');
+      } else if (error.status >= 400 && error.status < 600) {
+        console.error(`Error: ${error.status} - ${error.message}`);
+      } else {
+        console.error(error.message);
+      }
     }
   };
 
@@ -1340,6 +1355,9 @@ const KanbanForm = ({
           </Box>
         </ChakraProvider>
       </form>
+      <div className='shutter-stock-wrapper-kanban'>
+        <ShutterStock />
+      </div>
     </>
   );
 };
