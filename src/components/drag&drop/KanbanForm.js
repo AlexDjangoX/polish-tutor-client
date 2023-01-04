@@ -205,6 +205,7 @@ const KanbanForm = ({
         <p className='heading-kanban'>
           Pattern recognition, association and iconisation
         </p>
+
         <ChakraProvider>
           <div className='wrapper-field-inputs'>
             <div className='polish-infinitive'>
